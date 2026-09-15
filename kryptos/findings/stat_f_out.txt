@@ -1,0 +1,153 @@
+==============================================================================
+(f) SIDE-BY-SIDE STATISTICAL PROFILE
+==============================================================================
+
+--- 1. The observed profiles ----------------------------------------
+text                n      IoC  dist  dbl maxZ(1-48)  maxZper   bi  tri   chi2u
+K1 ciphertext      63  0.03789    23    1       4.24     4.06    6    3    24.1
+K2 ciphertext     369  0.04547    26   21       5.38    14.40  158   18    92.0
+K3 ciphertext     336  0.06615    24   18       7.42    24.90  235   17   266.2
+K4 ciphertext      97  0.03608    26    6       3.04     1.13   10    0    19.1
+K1-K3 plaintext   769  0.06590    24   22       9.10    55.30 2299  497   572.8
+
+  (maxZ and maxZper are MAXIMA over a scan, so they are inflated by
+   construction; they are comparable across rows but not to 1.96.)
+
+--- 2. Simulated candidate systems ----------------------------------
+40,000 simulated 97-letter ciphertexts per system, plaintext = random
+window of real English prose.
+
+system                                      IoC mean   IoC sd  dist   dbl   maxZ    bi   tri
+English plaintext                            0.06633  0.00748 20.15  2.99   5.57 38.36 11.42
+transposition of English                     0.06625  0.00753 20.15  6.36   4.39 20.11  1.33
+monoalphabetic sub.                          0.06622  0.00749 20.16  3.01   5.58 38.25 11.40
+Hill 2x2                                     0.04216  0.00475 24.93  3.80   3.59 16.67  3.70
+5x6 fractionation (bifid-like), period 7     0.04792  0.00635 24.03  4.45   3.61 12.02  1.00
+Vigenere L=2                                 0.05235  0.00679 22.98  3.69   4.80 23.35  6.08
+Vigenere L=3                                 0.04786  0.00579 23.90  3.70   4.39 17.34  3.99
+Vigenere L=5                                 0.04403  0.00464 24.61  3.69   3.85 13.00  2.47
+Vigenere L=7                                 0.04234  0.00411 24.89  3.68   3.53 11.15  1.82
+Vigenere L=8                                 0.04181  0.00396 24.97  3.70   3.55 10.57  1.61
+Vigenere L=10                                0.04116  0.00374 25.07  3.70   3.31  9.85  1.37
+Vigenere L=12                                0.04064  0.00357 25.14  3.68   3.30  9.24  1.16
+Vigenere L=16                                0.04001  0.00335 25.22  3.68   3.14  8.53  0.90
+Vigenere L=20                                0.03965  0.00321 25.27  3.69   3.00  8.13  0.77
+Vigenere L=25                                0.03937  0.00314 25.31  3.68   2.81  7.80  0.67
+Vigenere L=30                                0.03918  0.00306 25.34  3.70   2.80  7.55  0.55
+Beaufort L=10                                0.04111  0.00374 25.07  3.70   3.30  9.78  1.35
+Quagmire III (KRYPTOS) L=8                   0.04182  0.00393 24.96  3.67   3.56 10.62  1.65
+Quagmire III (KRYPTOS) L=10                  0.04114  0.00372 25.06  3.70   3.31  9.80  1.36
+general polyalphabetic p=5                   0.04400  0.00452 24.61  3.69   3.83 12.96  2.43
+general polyalphabetic p=10                  0.04109  0.00367 25.07  3.68   3.31  9.84  1.37
+general polyalphabetic p=20                  0.03965  0.00322 25.27  3.68   3.00  8.16  0.79
+running key (English key)                    0.03980  0.00321 25.25  3.86   2.70  7.44  0.33
+plaintext autokey (primer 8)                 0.04032  0.00358 25.19  3.82   3.08  8.92  1.33
+ciphertext autokey (primer 8)                0.03925  0.00314 25.33  3.70   2.97  6.67  0.26
+Gromark base10 primer 5                      0.03949  0.00319 25.29  3.55   2.68  7.19  0.28
+Gromark base10 primer 8                      0.03938  0.00309 25.30  3.58   2.66  7.12  0.27
+one-time pad                                 0.03843  0.00281 25.42  3.69   2.60  6.73  0.25
+
+--- 3. Where K4 falls inside each candidate's own null ---------------
+Two-sided p for each statistic; 'p' is 2*min(P(<=obs), P(>=obs)) capped at 1.
+K4 observed: IoC 0.03608  distinct 26  doubles 6  maxZ 3.04  bigrams 10  trigrams 0  chi2u 19.1
+
+system                                       p(IoC)  p(dist)   p(dbl)  p(maxZ)    p(bi)  p(chi2u)          verdict
+English plaintext                            <1e-05  0.00005  0.16905  0.02470  0.00025    <1e-05      IMPLAUSIBLE
+transposition of English                     <1e-05  0.00005  1.00000  0.06785  0.06290    <1e-05      IMPLAUSIBLE
+monoalphabetic sub.                          <1e-05   <1e-05  0.17510  0.02625  0.00055    <1e-05      IMPLAUSIBLE
+Hill 2x2                                    0.12415  0.66905  0.39855  0.91870  0.35540   0.12415       compatible
+5x6 fractionation (bifid-like), period 7    0.00805  0.23790  0.57905  0.67635  0.86880   0.00805      disfavoured
+Vigenere L=2                                0.00005  0.04225  0.38595  0.14810  0.06280   0.00005      IMPLAUSIBLE
+Vigenere L=3                                0.00400  0.18290  0.36045  0.31060  0.28200   0.00400      disfavoured
+Vigenere L=5                                0.03545  0.44525  0.34765  0.59920  0.72595   0.03545     mild tension
+Vigenere L=7                                0.07690  0.60335  0.34305  0.84465  1.00000   0.07690       compatible
+Vigenere L=8                                0.09750  0.66670  0.34875  0.77025  1.00000   0.09750       compatible
+Vigenere L=10                               0.12945  0.73700  0.34330  0.99135  0.92995   0.12945       compatible
+Vigenere L=12                               0.16930  0.79645  0.33680  0.92295  0.81405   0.16930       compatible
+Vigenere L=16                               0.22065  0.87575  0.33235  0.87625  0.66975   0.22065       compatible
+Vigenere L=20                               0.25790  0.92435  0.33065  0.73125  0.58630   0.25790       compatible
+Vigenere L=25                               0.29365  0.96155  0.32870  0.63835  0.51370   0.29365       compatible
+Vigenere L=30                               0.31490  0.99020  0.33055  0.59220  0.46355   0.31490       compatible
+Beaufort L=10                               0.13305  0.74380  0.34375  0.99945  0.91495   0.13305       compatible
+Quagmire III (KRYPTOS) L=8                  0.09850  0.65705  0.33650  0.76705  1.00000   0.09850       compatible
+Quagmire III (KRYPTOS) L=10                 0.13130  0.73820  0.34110  0.99260  0.92620   0.13130       compatible
+general polyalphabetic p=5                  0.03070  0.42965  0.34525  0.60380  0.72785   0.03070     mild tension
+general polyalphabetic p=10                 0.12980  0.74040  0.33450  0.99905  0.93050   0.12980       compatible
+general polyalphabetic p=20                 0.26005  0.92325  0.32985  0.72335  0.58290   0.26005       compatible
+running key (English key)                   0.23290  0.90315  0.38420  0.52920  0.44230   0.23290       compatible
+plaintext autokey (primer 8)                0.20030  0.85210  0.37635  0.77670  0.67160   0.20030       compatible
+ciphertext autokey (primer 8)               0.32030  0.98080  0.32755  0.84950  0.28580   0.32030       compatible
+Gromark base10 primer 5                     0.27635  0.93840  0.29515  0.52100  0.39065   0.27635       compatible
+Gromark base10 primer 8                     0.28390  0.95005  0.29655  0.49250  0.37420   0.28390       compatible
+one-time pad                                0.43815  1.00000  0.33045  0.43120  0.29280   0.43815       compatible
+
+--- 4. Verdict summary ----------------------------------------------
+  Made IMPLAUSIBLE by the statistics alone (some statistic p < 0.001):
+    - English plaintext                          driven by ioc (p = 0.00e+00)
+    - transposition of English                   driven by ioc (p = 0.00e+00)
+    - monoalphabetic sub.                        driven by ioc (p = 0.00e+00)
+    - Vigenere L=2                               driven by ioc (p = 5.00e-05)
+
+  Disfavoured (0.001 <= p < 0.01):
+    - 5x6 fractionation (bifid-like), period 7
+    - Vigenere L=3
+
+  Statistically COMPATIBLE with K4 (the statistics say nothing against them):
+    - Hill 2x2
+    - Vigenere L=5
+    - Vigenere L=7
+    - Vigenere L=8
+    - Vigenere L=10
+    - Vigenere L=12
+    - Vigenere L=16
+    - Vigenere L=20
+    - Vigenere L=25
+    - Vigenere L=30
+    - Beaufort L=10
+    - Quagmire III (KRYPTOS) L=8
+    - Quagmire III (KRYPTOS) L=10
+    - general polyalphabetic p=5
+    - general polyalphabetic p=10
+    - general polyalphabetic p=20
+    - running key (English key)
+    - plaintext autokey (primer 8)
+    - ciphertext autokey (primer 8)
+    - Gromark base10 primer 5
+    - Gromark base10 primer 8
+    - one-time pad
+
+  Compatibility here is a weak statement: with 97 letters almost any system
+  with an effective key length of 8 or more is indistinguishable from any
+  other.  The statistics discriminate the SHORT-key and NO-key end of the
+  space and nothing else.
+
+--- 5. OMNIBUS: is there ANY detectable structure in K4? ------------
+Every individual K4 'anomaly' in the literature is one statistic picked
+after the fact from a battery.  The honest question is: how surprising is
+the SMALLEST of the battery's p-values?  Null = one-time pad over English,
+which is exactly a uniform-random 97-letter string.
+
+  battery of 7 statistics, 40,000 null replicates
+  statistic      K4 value   two-sided p vs uniform
+  ioc              0.0361                   0.4381
+  distinct        26.0000                   1.0000
+  doubles          6.0000                   0.3304
+  maxz             3.0358                   0.4312
+  maxperz          1.1285                   0.1309
+  bigrams         10.0000                   0.2928
+  trigrams         0.0000                   1.0000
+
+  K4's smallest p over the battery: 0.1309  (statistic maxperz)
+  null distribution of that minimum: median 0.1697, 5th pct 0.0140
+  OMNIBUS p = P(min-p <= K4's min-p | uniform) = 0.4142
+
+  (The marginal CDFs are estimated from the same sample that supplies the
+   null replicates, which biases the omnibus p DOWNWARD -- i.e. in favour
+   of finding structure.  Even so it is nowhere near significance.
+   The one statistic not in this battery is the width-21 column-bigram
+   count; stat_e_kasiski.py shows its multiple-testing-corrected p is 0.2-0.4,
+   so adding it could only raise this omnibus p, never lower it.)
+
+  CONCLUSION: no statistic in the classical battery detects any structure
+  in K4 once selection is paid for.  K4 is, at n = 97, statistically
+  indistinguishable from a uniformly random string of letters.

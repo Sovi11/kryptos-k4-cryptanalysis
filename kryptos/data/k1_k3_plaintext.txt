@@ -1,0 +1,17 @@
+# K1  (Quagmire III: KRYPTOS-keyed plaintext, ciphertext and key alphabets; key PALIMPSEST). IQLUSION misspelling is deliberate.
+BETWEENSUBTLESHADINGANDTHEABSENCEOFLIGHTLIESTHENUANCEOFIQLUSION
+# K2  (same system, key ABSCISSA). UNDERGRUUND deliberate.
+# CORRECTED 2026-09-12: the 2006 fix was an omitted **S** in the CIPHERTEXT, which corresponds to an
+# **X** in the plaintext, near the end. Nicole Friedrich proposed WESTXLAYERTWO in 2005; on
+# 2006-04-19 Sanborn told the Kryptos community he had made the carving error and confirmed the
+# ending is WESTXLAYERTWO, not WESTIDBYROWS. (The earlier note here said "a dropped X in the
+# ciphertext", which had it backwards.) The plaintext below is the corrected 370-letter version; the
+# carved ciphertext is 369 letters and is one letter short.
+ITWASTOTALLYINVISIBLEHOWSTHATPOSSIBLETHEYUSEDTHEEARTHSMAGNETICFIELDXTHEINFORMATIONWASGATHEREDANDTRANSMITTEDUNDERGRUUNDTOANUNKNOWNLOCATIONXDOESLANGLEYKNOWABOUTTHISTHEYSHOULDITSBURIEDOUTTHERESOMEWHEREXWHOKNOWSTHEEXACTLOCATIONONLYWWTHISWASHISLASTMESSAGEXTHIRTYEIGHTDEGREESFIFTYSEVENMINUTESSIXPOINTFIVESECONDSNORTHSEVENTYSEVENDEGREESEIGHTMINUTESFORTYFOURSECONDSWESTXLAYERTWO
+# K3  (route transposition, no substitution). DESPARATLY deliberate. Paraphrase of Howard Carter
+# opening Tutankhamun's tomb. Ends with Q, which stands for the "?" carved on the panel.
+# Verified procedure (analysis re-run 2026-09-12): write the 336 ciphertext letters into rows of 24,
+# read the columns right-to-left top-to-bottom; then write that result into rows of 8 and read the
+# columns right-to-left top-to-bottom again. Each pass is a 90-degree rotation. (8 then 24, 12 then
+# 16, 16 then 12, 4 then 48 and 48 then 4 also work; no keyword is needed.)
+SLOWLYDESPARATLYSLOWLYTHEREMAINSOFPASSAGEDEBRISTHATENCUMBEREDTHELOWERPARTOFTHEDOORWAYWASREMOVEDWITHTREMBLINGHANDSIMADEATINYBREACHINTHEUPPERLEFTHANDCORNERANDTHENWIDENINGTHEHOLEALITTLEIINSERTEDTHECANDLEANDPEEREDINTHEHOTAIRESCAPINGFROMTHECHAMBERCAUSEDTHEFLAMETOFLICKERBUTPRESENTLYDETAILSOFTHEROOMWITHINEMERGEDFROMTHEMISTXCANYOUSEEANYTHINGQ

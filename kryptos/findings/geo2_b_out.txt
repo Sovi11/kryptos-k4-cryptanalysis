@@ -1,0 +1,102 @@
+known (ct,pt) pairs at absolute panel letter positions: 424  (K1 0-62, K2 63-423)
+K4 crib absolute panel letter positions: 789..841
+REGRESSION: K1 shifts under vig/kryptos/kryptos spell PALIMPSEST, period-10 repeat: True
+REGRESSION: K2 shifts under vig/kryptos/kryptos spell ABSCISSA, period-8 repeat: True
+
+==============================================================================
+1. PHASE INVARIANCE OF THE PERIODIC CRIB TEST
+==============================================================================
+  partitions of the 24 crib positions into residue classes mod p, for p=2..60
+  and every offset 0..868: 51271 partitions compared, 0 differed from the offset-0
+  partition.  (0 differences = the verdict cannot depend on the panel phase.)
+  Empirical check that the CONSISTENCY VERDICT is identical, p=2..60, offsets 0..96:
+    verdict mismatches: 0
+  => every periodic key (any period 2-60, any content, hence every repeating keyword
+     of length <= 60) that fails on K4-relative positions also fails at absolute
+     panel positions, at all 869 alignments.  Periods 2-25 were already exhausted
+     in findings/families.md; this closes the "but the phase is different" loophole.
+
+==============================================================================
+2. HOW CONSTRAINED IS EACH PERIOD?  p = 2..97
+==============================================================================
+  c = #crib collisions = 24 - #distinct residues.  chance = 26^-c.
+  "cons" = how many of the 12 cipher/alphabet pairings are consistent.
+   p: c cons |   p: c cons |   p: c cons |   p: c cons |
+    2: 22  0 |   3: 21  0 |   4: 20  0 |   5: 19  0
+    6: 18  0 |   7: 17  0 |   8: 16  0 |   9: 15  0
+   10: 14  0 |  11: 13  0 |  12: 12  0 |  13: 11  0
+   14: 11  0 |  15:  9  0 |  16:  8  0 |  17:  7  0
+   18:  7  0 |  19:  9  0 |  20: 11  0 |  21: 11  0
+   22:  9  0 |  23:  7  0 |  24:  5  0 |  25:  3  0
+   26:  1  0 |  27:  0 12 |  28:  0 12 |  29:  0 12
+   30:  1  0 |  31:  2  0 |  32:  3  0 |  33:  4  0
+   34:  5  0 |  35:  6  0 |  36:  7  0 |  37:  8  0
+   38:  9  0 |  39: 10  0 |  40: 11  0 |  41: 11  0
+   42: 11  0 |  43: 10  0 |  44:  9  0 |  45:  8  0
+   46:  7  0 |  47:  6  0 |  48:  5  0 |  49:  4  0
+   50:  3  0 |  51:  2  0 |  52:  1  0 |  53:  0 12
+   54:  0 12 |  55:  0 12 |  56:  0 12 |  57:  0 12
+   58:  0 12 |  59:  0 12 |  60:  0 12 |  61:  0 12
+   62:  0 12 |  63:  0 12 |  64:  0 12 |  65:  0 12
+   66:  0 12 |  67:  0 12 |  68:  0 12 |  69:  0 12
+   70:  0 12 |  71:  0 12 |  72:  0 12 |  73:  0 12
+   74:  0 12 |  75:  0 12 |  76:  0 12 |  77:  0 12
+   78:  0 12 |  79:  0 12 |  80:  0 12 |  81:  0 12
+   82:  0 12 |  83:  0 12 |  84:  0 12 |  85:  0 12
+   86:  0 12 |  87:  0 12 |  88:  0 12 |  89:  0 12
+   90:  0 12 |  91:  0 12 |  92:  0 12 |  93:  0 12
+   94:  0 12 |  95:  0 12 |  96:  0 12 |  97:  0 12
+  periods with ZERO constraints (test is vacuous, all 12 pairings trivially pass): [27, 28, 29, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97]
+  periods with >=1 constraint AND >=1 consistent pairing: NONE
+  over all constrained periods 2..97: expected 1.42 consistent pairings by chance, observed 0
+
+==============================================================================
+3. A SINGLE POSITIONAL KEY ACROSS THE WHOLE LEFT PANEL
+==============================================================================
+  K1+K2 give 424 (ct,pt) pairs at known absolute panel positions.  For a key indexed
+  by absolute position with period/width w, those pairs DETERMINE the key; K4 is then
+  a prediction, not a fit.  A width is reported only if the K1+K2 key is itself
+  self-consistent.
+
+  (3a) uniform width w = 2..500 over the 865 panel LETTERS
+       (w, combo) pairs tested: 5988 ; K1+K2-self-consistent: 924
+       of those, 924 make >=1 prediction about a K4 crib.
+       best: w=430 vig/plain/kryptos  predicted 24 crib letters, 4 correct (chance 0.92)
+       cases predicting all 24 cribs correctly: 0
+       distribution of #correct predictions: {0: 365, 1: 360, 2: 154, 3: 37, 4: 8}
+       aggregate: 22176 predictions, 811 correct (0.037); chance 1/26 = 0.038
+       the 77 widths whose K1+K2 key is self-consistent for >=1 pairing: [424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472, 473, 474, 475, 476, 477, 478, 479, 480, 481, 482, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500]
+       (a global width w must reconcile PALIMPSEST at period 10 from panel 0 with
+        ABSCISSA at period 8 from panel 63; below w=424 no width can.)
+
+  (3b) same, but counting the four "?" as occupying positions (869 slots)
+       self-consistent: 888 ; making predictions: 888
+       best: w=431 vig/plain/kryptos  predicted 24, correct 4
+       cases predicting all 24 correctly: 0
+       aggregate: 21312 predictions, 773 correct (0.036)
+
+  (3c) the panel's ACTUAL physical geometry: 28 rows of 29-33 characters.
+       row widths: [32, 31, 31, 30, 31, 32, 31, 31, 32, 31, 30, 31, 31, 31, 32, 30, 31, 30, 32, 30, 32, 31, 33, 29, 31, 31, 31, 31]
+       K4 crib letters sit in physical rows [25, 26, 27]
+       per-physical-COLUMN key (33 slots): K1+K2-self-consistent pairings: 0 of 12
+         (e.g. vig/plain/plain: 369 of 424 K1+K2 letters conflict with an earlier letter in their own physical column -- the panel has no per-column key)
+       per-physical-ROW key (28 slots): self-consistent pairings: 0 of 12
+         (K4 occupies rows 24-27, which contain no K1/K2 letters, so even a
+          self-consistent row key would make 0 predictions about K4.)
+
+  (3d) shift = a*row + b*col + d (mod 26) on the panel's physical geometry,
+       fitted to the 24 K4 cribs alone.  The full family is 26^3 x 12 = 210912
+       models; d is forced by the first crib, so 26^2 x 12 = 8112 (a,b) cases are
+       enumerated -- no model that fits all 24 cribs can be missed this way.
+       best fit: 7 of 24 cribs  (vig/plain/kryptos a=11 b=7 d=4)
+       models fitting all 24: 0
+       fit histogram: {7: 2, 6: 31, 5: 134, 4: 491, 3: 1313, 2: 2998, 1: 3143}
+       (the histogram starts at 1 because d is chosen to satisfy crib #1)
+       chance: P(a random model matches >=7 of the remaining 23) = 0.00019, so among
+       8112 models a best of 7/24 is exactly what chance delivers (expected 1.5).
+
+  (3e) continuing K1's and K2's own keys through the panel into K4
+       key, anchor, key-alphabet, cipher/alphabets -> #cribs matched of 24
+       600 (key, anchor, key-alphabet, cipher) combinations tested
+       best: 4 of 24 cribs -- PALIMPSEST anchored at panel char 0 (incl ?), key alphabet plain, beau/kryptos/kryptos
+       chance expectation for 24 cribs at 1/26: mean 0.92; P(>=5) = 0.19%

@@ -1,0 +1,170 @@
+
+==============================================================================
+(a, continued)  METHOD GENEALOGY: THE CENSUS AND THE DIGRAPHIC SLIDE FAMILY
+==============================================================================
+K4: OBKRUOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZWATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR
+k5_lib selftest: PASS
+
+==============================================================================
+F1/F2.  THE TWO STRUCTURAL FACTS, RESTATED AS A FILTER
+==============================================================================
+letters present in K4: 26 of 26 ; rarest: [('Y', 1), ('M', 1), ('X', 2), ('H', 2), ('V', 2)]
+J occurs at 1-indexed [41, 52, 82]
+self-encryptions in the cribs:  [(33, 'S'), (74, 'K')]
+doubled ciphertext letters at 1-indexed: [(19, 'B'), (26, 'Q'), (33, 'S'), (43, 'S'), (47, 'Z'), (68, 'T')]
+
+==============================================================================
+THE 1989 HAND-CIPHER CENSUS, CLASSIFIED
+==============================================================================
+
+family                                               verdict      why / where
+Aristocrat / Patristocrat (monoalphabetic)           CLOSED       families.md
+Key Phrase cipher                                    CLOSED       monoalphabetic; families.md
+Affine / decimation                                  CLOSED       families.md
+Vigenere / Beaufort / Variant, periodic              CLOSED       families.md p=2-26
+Quagmire I-IV                                        CLOSED       families.md, 7.09M alphabet pairs
+Gronsfeld                                            CLOSED       families.md
+Porta                                                CLOSED       F2: Porta has no fixed points; S->S at 33 kills it
+Trithemius / progressive key                         CLOSED       families.md
+Running key                                          CLOSED       runningkey.md, 66 texts, all offsets
+Autokey (pt and ct)                                  CLOSED       runningkey.md, primers 1-96
+Interrupted key (ct-triggered)                       CLOSED       seg_c_skiprule.py
+Interrupted key (pt-triggered)                       CLOSED       seg_e_plaintrig.py
+Irregular key advance / desync                       CLOSED       seg_d_interrupted.py
+Gromark, periodic Gromark                            CLOSED       k5_a_genealogy.py
+Hill 2x2 / 3x3, linear and affine                    CLOSED       families.md
+Playfair                                             IMPOSSIBLE   F1 (25 letters) and F2 and doubled digraphs
+Two-square / four-square / seriated Playfair         IMPOSSIBLE   F1 (25 letters)
+Bifid 5x5                                            IMPOSSIBLE   F1 (25 letters)
+Checkerboard (ACA 5x5)                               IMPOSSIBLE   F1 (25 letters)
+Phillips (8 x 5x5 squares)                           IMPOSSIBLE   F1 (25 letters)
+Trisquare (3 x 5x5)                                  IMPOSSIBLE   F1 (25 letters)
+Ragbaby                                              IMPOSSIBLE   F1: 24-letter alphabet
+Nihilist substitution, Grandpre, Tridigital          IMPOSSIBLE   ciphertext is digits, not 26 letters
+Bifid 6x6 / trifid                                   CLOSED       families.md best 5/24
+ADFGX / ADFGVX / CM-ADFGVX                           CLOSED       matrix_f, matrix_g
+Straddling checkerboard + additive (VIC family)      CLOSED       matrix_a
+Homophonic                                           CLOSED       matrix_b
+Nomenclator / codebook                               CLOSED       matrix_c
+Fractionated Morse / Morbit / Pollux                 CLOSED       matrix_d
+Rotor / Enigma-like                                  IMPOSSIBLE   F2: no fixed points
+Columnar / route / Myszkowski / Amsco / Cadenus / Swagman IMPOSSIBLE   pure transposition needs three E's; K4 ciphertext has two
+Double transposition                                 IMPOSSIBLE   same E-count argument
+Nicodemus (columnar + Vigenere)                      CLOSED       twocipher.md, S+T both orders
+Bazeries (transposition + substitution)              CLOSED       twocipher.md
+SLIDEFAIR (Vigenere / Beaufort / Variant)            **OPEN**     26 letters, allows fixed points, hand cipher -- tested below
+PORTAX                                               **OPEN**     26 letters, seriated digraphic, permits fixed points -- below
+
+Counts: 23 CLOSED by computation, 11 IMPOSSIBLE by F1/F2 or the E-count, 2 OPEN.
+
+The census is the point of this section.  A genealogy argument that only produces
+candidates already in the ruled-out list has produced nothing; this one produces exactly
+two, and they are the two the ACA itself teaches immediately after Vigenere.
+
+==============================================================================
+SLIDEFAIR -- THE KEY-FREE INVARIANT, AND THE SWEEP
+==============================================================================
+
+DERIVATION.  Write a Slidefair digraph in alphabet indices.  For the Vigenere slide,
+    c1 = p2 - k  and  c2 = p1 + k,   so   c1 + c2 = p1 + p2   (mod 26),
+for the variant slide the same identity holds, and for the Beaufort slide
+    c1 = k - p2  and  c2 = k - p1,   so   c1 - c2 = p1 - p2   (mod 26).
+In each case the key CANCELS.  So every complete crib digraph imposes one equation that
+holds for every key, every period and every phase; only the alphabet matters.  Eleven
+complete crib digraphs are available in each alignment, so a random cipher passes all of
+them with probability 26^-11 = 2.7e-16.  This is the strongest single test any family in
+this repository has been given.
+
+VALIDATION: key recovered identically from both halves of every digraph, and equal
+   to the planted key, for all 3 variants x 2 alphabets x 48 digraphs: PASS
+
+APPLYING THE INVARIANT TO K4's CRIBS
+alphabets tested: 32
+   alignment 0: 11 complete crib digraphs at 1-indexed [23, 25, 27, 29, 31, 33, 65, 67, 69, 71, 73]
+   alignment 1: 11 complete crib digraphs at 1-indexed [22, 24, 26, 28, 30, 32, 64, 66, 68, 70, 72]
+
+alignment  variant      order       best/11 n alphabets   chance exp
+0          beaufort     normal   2 (DESPARATLY)         32    2.067e+00
+0          beaufort     swap     2 (LODESTONE/K)         32    2.067e+00
+0          variant      normal   2 (SCHEIDT)         32    2.067e+00
+0          variant      swap     2 (SCHEIDT)         32    2.067e+00
+0          vigenere     normal   2 (SCHEIDT)         32    2.067e+00
+0          vigenere     swap     2 (SCHEIDT)         32    2.067e+00
+1          beaufort     normal   2 (SCHEIDT/K)         32    2.067e+00
+1          beaufort     swap      2 (plain)         32    2.067e+00
+1          variant      normal   2 (PALIMPSEST)         32    2.067e+00
+1          variant      swap     2 (PALIMPSEST)         32    2.067e+00
+1          vigenere     normal   2 (PALIMPSEST)         32    2.067e+00
+1          vigenere     swap     2 (PALIMPSEST)         32    2.067e+00
+
+overall best: 2 of 11 key-free equations satisfied, at (0, 'SCHEIDT', 'vigenere', 'normal')
+a genuine Slidefair would satisfy 11 of 11.  Expected best over all 384
+(alphabet, variant, order, alignment) configurations, by chance: 0.423 of 11
+
+VERDICT: Slidefair in all three slide variants, both digraph alignments, both
+output orders and 32 alphabets is REFUTED by the cribs, with no key search at all.
+
+==============================================================================
+PORTAX -- THE ROW-PARITY INVARIANT
+==============================================================================
+
+Portax seriates the plaintext into rows of length p (the period), pairs each letter with
+the one directly below it, and enciphers the vertical pair on a two-row slide: a fixed
+TOP row of 13 letters and a BOTTOM row of 13 that slides by the key letter.  The
+ciphertext is written back into the same cells, so Portax IS position-preserving and the
+24 cribs apply directly.
+
+Its three rules are
+   both letters in TOP     -> the two letters directly BELOW them  (both in BOTTOM)
+   both letters in BOTTOM  -> the two letters directly ABOVE them  (both in TOP)
+   one in each row         -> the other two corners of the rectangle (one in each row)
+
+NOTE, correcting a natural first guess: the mixed case with both letters in the SAME
+column returns the pair unchanged, so Portax DOES permit a letter to encipher to itself.
+Fact F2 therefore does NOT kill it, and it has to be tested.
+
+KEY-FREE INVARIANT.  In all three rules the number of TOP-row letters in the output is
+    #TOP(c_u, c_l) = 2 - #TOP(p_u, p_l),
+whatever the key, whatever the slide.  Only the alphabet's top/bottom split matters.
+Each crib pair tests one bit, so m testable pairs give a chance pass rate of 2^-m.
+
+period testable alphabet(best)       passes  chance 2^-m
+2             9 BERLIN                  5/9    1.953e-03
+3             7 BERLIN                  6/7    7.812e-03
+4             8 BERLIN                  6/8    3.906e-03
+5             6 SCHEIDT                 5/6    1.562e-02
+6             7 ABSCISSA                5/7    7.812e-03
+7             0 -                untestable          1.0
+8             5 plain A-M/N-Z           3/5    3.125e-02
+9             4 SANBORN                 1/4    6.250e-02
+10            4 LANGLEY                 2/4    6.250e-02
+11            1 plain A-M/N-Z           1/1    5.000e-01
+12            0 -                untestable          1.0
+13            0 -                untestable          1.0
+14            0 -                untestable          1.0
+15            0 -                untestable          1.0
+16            0 -                untestable          1.0
+17            0 -                untestable          1.0
+18            0 -                untestable          1.0
+19            0 -                untestable          1.0
+20            0 -                untestable          1.0
+21            0 -                untestable          1.0
+22            0 -                untestable          1.0
+23            0 -                untestable          1.0
+24            0 -                untestable          1.0
+25            0 -                untestable          1.0
+26            0 -                untestable          1.0
+
+(period, alphabet) pairs satisfying EVERY testable row-parity constraint: [(11, 'plain A-M/N-Z'), (11, 'SANBORN'), (11, 'LANGLEY'), (11, 'BERLIN'), (11, 'CLOCK'), (11, 'COMPASS'), (11, 'SHADOW'), (11, 'MASKING')]
+
+VERDICT.  The row-parity invariant is a weak test (one bit per pair) and it leaves a few
+short periods standing, as it must.  But every period it leaves standing is also a period
+at which the ordinary crib-consistency test in findings/families.md already returns zero
+survivors over 7.09M alphabet pairs, and Portax's substitution stage is a letterwise map
+indexed by ciphertext position, so those negatives transfer (findings/twocipher.md, the
+T-then-S/ciphertext-reading row).  Portax is therefore closed, but by inheritance rather
+than by a decisive invariant of its own -- state it that way, not more strongly.
+
+==============================================================================
+END (a, continued)
+==============================================================================

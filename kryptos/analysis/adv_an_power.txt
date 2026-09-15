@@ -1,0 +1,31 @@
+==============================================================================
+ADVERSARIAL VERIFICATION part 4
+==============================================================================
+--- (i) the doubles mod-class null, CONDITIONED on 6 doubles --------
+    (my unconditional run gave 0.083; the report's null draws exactly 6
+     positions uniformly from 1..96, which is the right conditioning.)
+    1,000,000 trials: P(some modulus 2..48 collects >=5 of 6) = 0.2452 (report 0.2452)
+                 P(some modulus collects all 6)          = 0.0296 (report 0.0295)
+    naive pre-selection p for mod 7 alone = 0.00220 (report 0.0022)
+
+--- (ii) POWER of the omnibus at n = 97 ----------------------------
+  8,000 simulated 97-letter ciphertexts per system (plaintext = real
+  English).  'power' = fraction whose OMNIBUS p falls below 0.05.
+
+  system                 median min-p  power(2-30)  power(2-48)
+  english                      0.0000        1.000        1.000
+  transp                       0.0000        1.000        1.000
+  vig L=1                      0.0000        1.000        1.000
+  vig L=2                      0.0000        0.976        0.970
+  vig L=3                      0.0001        0.909        0.889
+  vig L=5                      0.0022        0.685        0.663
+  vig L=8                      0.0197        0.454        0.425
+  vig L=10                     0.0330        0.376        0.353
+  vig L=15                     0.0636        0.248        0.228
+  vig L=20                     0.0963        0.195        0.179
+  autokey L=8                  0.1007        0.191        0.189
+  otp                          0.1709        0.045        0.044
+
+  K4 itself, for reference:
+  K4                           0.1268       0.4030       0.0702
+   (last two columns for K4 are its omnibus p, not a power.)

@@ -1,0 +1,135 @@
+==============================================================================
+(e) KASISKI -- repeated n-grams, gaps, factors
+==============================================================================
+
+--- 1. Every repeated n-gram in K4 (1-indexed positions) ------------
+  2-grams: 10 distinct repeated, 10 position pairs (expected 6.746)
+      DI     at  56 and  84   gap  28   factors [2, 4, 7, 14, 28]
+      EK     at  45 and  93   gap  48   factors [2, 3, 4, 6, 8, 12, 16, 24, 48]
+      FB     at  18 and  62   gap  44   factors [2, 4, 11, 22, 44]
+      GK     at  31 and  86   gap  55   factors [5, 11]
+      HU     at  10 and  89   gap  79   factors []
+      KZ     at  46 and  78   gap  32   factors [2, 4, 8, 16, 32]
+      QS     at  39 and  42   gap   3   factors [3]
+      SO     at  14 and  34   gap  20   factors [2, 4, 5, 10, 20]
+      SS     at  33 and  43   gap  10   factors [2, 5, 10]
+      TJ     at  51 and  81   gap  30   factors [2, 3, 5, 6, 10, 15, 30]
+  3-grams: NONE repeated  (expected pairs under uniform random: 0.2540)
+  4-grams: NONE repeated  (expected pairs under uniform random: 0.0096)
+  5-grams: NONE repeated  (expected pairs under uniform random: 0.0004)
+  6-grams: NONE repeated  (expected pairs under uniform random: 0.0000)
+  7-grams: NONE repeated  (expected pairs under uniform random: 0.0000)
+
+  the 10 bigram gaps: [3, 10, 20, 28, 30, 32, 44, 48, 55, 79]
+  gcd of all gaps = 1
+
+--- 2. Kasiski factor table for K4 ----------------------------------
+  10 gaps.  A period-p cipher would pile the gaps onto multiples of p.
+   factor  gaps divisible  expected   ratio
+        2               7      5.00    1.40
+        3               3      3.33    0.90
+        4               5      2.50    2.00
+        5               4      2.00    2.00
+        6               2      1.67    1.20
+        7               1      1.43    0.70
+        8               2      1.25    1.60
+        9               0      1.11    0.00
+       10               3      1.00    3.00
+       11               2      0.91    2.20
+       12               1      0.83    1.20
+       13               0      0.77    0.00
+       14               1      0.71    1.40
+       15               1      0.67    1.50
+       16               2      0.62    3.20
+       17               0      0.59    0.00
+       18               0      0.56    0.00
+       19               0      0.53    0.00
+       20               1      0.50    2.00
+       21               0      0.48    0.00
+       22               1      0.45    2.20
+       23               0      0.43    0.00
+       24               1      0.42    2.40
+
+  best factor by excess: 4 (5 of 10 gaps, 2.50 expected)
+
+--- 3. POSITIVE CONTROL: the same test on K1, K2, K3 ----------------
+K1 key PALIMPSEST (period 10), K2 key ABSCISSA (period 8), K3 transposition.
+  K1 (n= 63): trigram gaps 3; best factor 20 (3/3, exp 0.1); factor 10 takes 3/3
+  K2 (n=369): trigram gaps 18; best factor 8 (13/18, exp 2.2); factor 8 takes 13/18
+  K3 (n=336): trigram gaps 17; best factor 17 (3/17, exp 1.0)
+  K4 (n= 97): no repeated trigrams (10 bigram gaps)
+
+  K2 is the demonstration that the method works: its true period 8 shows up
+  in the trigram gaps.  K4 has NO repeated trigram at all, so Kasiski on K4
+  has nothing to work with -- which is itself the finding.
+
+--- 4. Null distributions --------------------------------------------
+500,000 replicates, two nulls.
+
+  null = uniform random 97 letters  (500,000 replicates)
+  statistic                                      obs  null mean   P(>=obs)
+  repeated bigram pairs                           10      6.742    0.14834
+  repeated trigram pairs                           0      0.255    1.00000   [P(=0) = 0.7822]
+  repeated 4-gram pairs                            0      0.010    1.00000
+  col-bigram PAIRS  at width 21                   11      4.215    0.00635
+  col-bigram EXCESS at width 21 (Bean)            11      4.063    0.00155
+  MAX col-bigram PAIRS  over widths 2..48         11     10.352    0.41905   <-- multiple-testing-corrected
+  MAX col-bigram EXCESS over widths 2..48         11      9.476    0.24000   <-- multiple-testing-corrected
+  max bigram-gaps sharing one factor 2..24         7      3.709    0.06722
+     ... CONDITIONAL on exactly 10 gaps            7               0.19691   [30,090 of 500,000 replicates had 10 gaps]
+
+  null = random permutation of K4's own letters  (500,000 replicates)
+  statistic                                      obs  null mean   P(>=obs)
+  repeated bigram pairs                           10      5.909    0.07127
+  repeated trigram pairs                           0      0.207    1.00000   [P(=0) = 0.8182]
+  repeated 4-gram pairs                            0      0.007    1.00000
+  col-bigram PAIRS  at width 21                   11      3.694    0.00160
+  col-bigram EXCESS at width 21 (Bean)            11      3.593    0.00035
+  MAX col-bigram PAIRS  over widths 2..48         11      9.370    0.20696   <-- multiple-testing-corrected
+  MAX col-bigram EXCESS over widths 2..48         11      8.710    0.09034   <-- multiple-testing-corrected
+  max bigram-gaps sharing one factor 2..24         7      3.308    0.03508
+     ... CONDITIONAL on exactly 10 gaps            7               0.20487   [17,987 of 500,000 replicates had 10 gaps]
+
+  (K4's best width for column bigrams is 21, with 11.)
+
+  READING, in two parts.
+  (i) CONVENTION.  K4 scores 11 under BOTH conventions, because no vertical
+      bigram occurs three times at width 21.  The NULLS differ: a triple
+      contributes 3 to the pairs count but only 2 to the excess count, so the
+      pairs statistic has the heavier upper tail.  Bean's published ~1/6750
+      is the excess convention; this repo's earlier prior_art_bean_stats.py
+      measured 1/3226 for it.  The pairs convention gives ~1/650 on the same
+      null.  Same observation, same data, a factor of ~5 in nominal
+      significance, decided by an unstated choice.
+  (ii) SELECTION.  Width 21 was chosen from among all plausible widths. Once
+      the MAXIMUM over widths 2..48 is scored against its own null, the
+      effect is what scanning 47 widths always produces. It is the strongest
+      single anomaly in K4 and it does not survive its own correction under
+      either convention.
+
+--- 5. Column-bigram repeats, every width ---------------------------
+    w  pairs  repeats  expected   |    w  pairs  repeats  expected
+    2     95        3      6.61   |   26     71        0      3.68
+    3     94        8      6.47   |   27     70        1      3.57
+    4     93        3      6.33   |   28     69        5      3.47
+    5     92        6      6.19   |   29     68        4      3.37
+    6     91        2      6.06   |   30     67        4      3.27
+    7     90        9      5.92   |   31     66        3      3.17
+    8     89        8      5.79   |   32     65        2      3.08
+    9     88        4      5.66   |   33     64        3      2.98
+   10     87        9      5.53   |   34     63        1      2.89
+   11     86        5      5.41   |   35     62        4      2.80
+   12     85        5      5.28   |   36     61        2      2.71
+   13     84        4      5.16   |   37     60        2      2.62
+   14     83        7      5.03   |   38     59        3      2.53
+   15     82        3      4.91   |   39     58        1      2.45
+   16     81        2      4.79   |   40     57        0      2.36
+   17     80        6      4.67   |   41     56        1      2.28
+   18     79        4      4.56   |   42     55        5      2.20
+   19     78        3      4.44   |   43     54        1      2.12
+   20     77        3      4.33   |   44     53        2      2.04
+   21     76       11      4.22   |   45     52        1      1.96
+   22     75        3      4.11   |   46     51        1      1.89
+   23     74        2      4.00   |   47     50        0      1.81
+   24     73        3      3.89   |   48     49        2      1.74
+   25     72        4      3.78

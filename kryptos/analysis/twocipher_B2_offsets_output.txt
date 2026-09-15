@@ -1,0 +1,144 @@
+
+=== STRONG reading (2 blocks): 2 blocks, 1 free offset(s); 2800 (period,offsets,family,alphabet) tests ===
+  p   #offset-tuples  consistent  max_checks  [checks histogram of consistent]
+   2        2 x8           0      0        {}
+   3        3 x8           0      0        {}
+   4        4 x8           0      0        {}
+   5        5 x8           0      0        {}
+   6        6 x8           0      0        {}
+   7        7 x8           0      0        {}
+   8        8 x8           0      0        {}
+   9        9 x8           0      0        {}
+  10       10 x8           0      0        {}
+  11       11 x8           0      0        {}
+  12       12 x8           0      0        {}
+  13       13 x8           0      0        {}
+  14       14 x8           0      0        {}
+  15       15 x8           0      0        {}
+  16       16 x8           0      0        {}
+  17       17 x8           0      0        {}
+  18       18 x8           0      0        {}
+  19       19 x8           0      0        {}
+  20       20 x8           0      0        {}
+  21       21 x8           0      0        {}
+  22       22 x8           0      0        {}
+  23       23 x8           0      0        {}
+  24       24 x8           8      0        {0: 8}
+  25       25 x8          16      0        {0: 16}
+  26       26 x8          24      0        {0: 24}
+
+  Null comparison (sum over offset tuples x 8 of 26^-checks):
+  p= 2: observed      0  null-expected       0.0
+  p= 3: observed      0  null-expected       0.0
+  p= 4: observed      0  null-expected       0.0
+  p= 5: observed      0  null-expected       0.0
+  p= 6: observed      0  null-expected       0.0
+  p= 7: observed      0  null-expected       0.0
+  p= 8: observed      0  null-expected       0.0
+  p= 9: observed      0  null-expected       0.0
+  p=10: observed      0  null-expected       0.0
+  p=11: observed      0  null-expected       0.0
+  p=12: observed      0  null-expected       0.0
+  p=13: observed      0  null-expected       0.0
+  p=14: observed      0  null-expected       0.0
+  p=15: observed      0  null-expected       0.0
+  p=16: observed      0  null-expected       0.0
+  p=17: observed      0  null-expected       0.0
+  p=18: observed      0  null-expected       0.0
+  p=19: observed      0  null-expected       0.0
+  p=20: observed      0  null-expected       0.0
+  p=21: observed      0  null-expected       0.0
+  p=22: observed      0  null-expected       0.0
+  p=23: observed      0  null-expected       0.6
+  p=24: observed      8  null-expected       8.6
+  p=25: observed     16  null-expected      16.6
+  p=26: observed     24  null-expected      24.6
+
+  Strongest survivors (most checks) for STRONG reading (2 blocks):
+    p=24 vig  plain/plain                  offsets=(13,) checks=0
+    p=24 vig  kryptos/kryptos              offsets=(13,) checks=0
+    p=24 vig  kryptos-pt/plain-ct (QuagI)  offsets=(13,) checks=0
+    p=24 vig  plain-pt/kryptos-ct (QuagII) offsets=(13,) checks=0
+    p=24 beau plain/plain                  offsets=(13,) checks=0
+    p=24 beau kryptos/kryptos              offsets=(13,) checks=0
+    p=24 beau kryptos-pt/plain-ct (QuagI)  offsets=(13,) checks=0
+    p=24 beau plain-pt/kryptos-ct (QuagII) offsets=(13,) checks=0
+    p=25 vig  plain/plain                  offsets=(13,) checks=0
+    p=25 vig  kryptos/kryptos              offsets=(13,) checks=0
+    p=25 vig  kryptos-pt/plain-ct (QuagI)  offsets=(13,) checks=0
+    p=25 vig  plain-pt/kryptos-ct (QuagII) offsets=(13,) checks=0
+    p=25 beau plain/plain                  offsets=(13,) checks=0
+    p=25 beau kryptos/kryptos              offsets=(13,) checks=0
+    p=25 beau kryptos-pt/plain-ct (QuagI)  offsets=(13,) checks=0
+
+=== 4-WORD reading (EAST / NORTHEAST / BERLIN / CLOCK): 4 blocks, 3 free offset(s); 985600 (period,offsets,family,alphabet) tests ===
+  p   #offset-tuples  consistent  max_checks  [checks histogram of consistent]
+   2        8 x8           0      0        {}
+   3       27 x8           0      0        {}
+   4       64 x8           0      0        {}
+   5      125 x8           0      0        {}
+   6      216 x8           0      0        {}
+   7      343 x8           0      0        {}
+   8      512 x8           0      0        {}
+   9      729 x8           0      0        {}
+  10     1000 x8           0      0        {}
+  11     1331 x8           0      0        {}
+  12     1728 x8           0      0        {}
+  13     2197 x8           0      0        {}
+  14     2744 x8           0      0        {}
+  15     3375 x8           0      0        {}
+  16     4096 x8           0      0        {}
+  17     4913 x8           0      0        {}
+  18     5832 x8           0      0        {}
+  19     6859 x8           0      0        {}
+  20     8000 x8           0      0        {}
+  21     9261 x8           0      0        {}
+  22    10648 x8           0      0        {}
+  23    12167 x8           6      1        {1: 6}
+  24    13824 x8          66      1        {0: 48, 1: 18}
+  25    15625 x8         228      1        {0: 192, 1: 36}
+  26    17576 x8         540      1        {0: 480, 1: 60}
+
+  Null comparison (sum over offset tuples x 8 of 26^-checks):
+  p= 2: observed      0  null-expected       0.0
+  p= 3: observed      0  null-expected       0.0
+  p= 4: observed      0  null-expected       0.0
+  p= 5: observed      0  null-expected       0.0
+  p= 6: observed      0  null-expected       0.0
+  p= 7: observed      0  null-expected       0.0
+  p= 8: observed      0  null-expected       0.0
+  p= 9: observed      0  null-expected       0.0
+  p=10: observed      0  null-expected       0.0
+  p=11: observed      0  null-expected       0.0
+  p=12: observed      0  null-expected       0.0
+  p=13: observed      0  null-expected       0.0
+  p=14: observed      0  null-expected       0.0
+  p=15: observed      0  null-expected       0.0
+  p=16: observed      0  null-expected       0.0
+  p=17: observed      0  null-expected       0.0
+  p=18: observed      0  null-expected       0.0
+  p=19: observed      0  null-expected       0.0
+  p=20: observed      0  null-expected       0.0
+  p=21: observed      0  null-expected       0.1
+  p=22: observed      0  null-expected       0.8
+  p=23: observed      6  null-expected       9.3
+  p=24: observed     66  null-expected      73.4
+  p=25: observed    228  null-expected     241.2
+  p=26: observed    540  null-expected     560.7
+
+  Strongest survivors (most checks) for 4-WORD reading (EAST / NORTHEAST / BERLIN / CLOCK):
+    p=23 beau kryptos/kryptos              offsets=(4, 18, 13) checks=1
+    p=23 beau plain/plain                  offsets=(8, 17, 3) checks=1
+    p=23 beau plain/plain                  offsets=(9, 3, 18) checks=1
+    p=23 beau kryptos/kryptos              offsets=(9, 18, 4) checks=1
+    p=23 beau plain/plain                  offsets=(14, 3, 9) checks=1
+    p=23 beau plain/plain                  offsets=(14, 8, 3) checks=1
+    p=24 beau kryptos/kryptos              offsets=(4, 19, 13) checks=1
+    p=24 beau kryptos/kryptos              offsets=(4, 19, 14) checks=1
+    p=24 beau kryptos/kryptos              offsets=(5, 19, 14) checks=1
+    p=24 beau plain/plain                  offsets=(8, 17, 3) checks=1
+    p=24 beau plain/plain                  offsets=(8, 18, 3) checks=1
+    p=24 beau plain/plain                  offsets=(9, 3, 18) checks=1
+    p=24 beau plain/plain                  offsets=(9, 3, 19) checks=1
+    p=24 beau plain/plain                  offsets=(9, 18, 3) checks=1
+    p=24 beau kryptos/kryptos              offsets=(9, 19, 4) checks=1

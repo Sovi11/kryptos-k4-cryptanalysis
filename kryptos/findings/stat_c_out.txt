@@ -1,0 +1,91 @@
+==============================================================================
+(c) DOUBLED LETTERS
+==============================================================================
+
+K4: 6 doubled letters, 1-indexed starts [19, 26, 33, 43, 47, 68]
+    pairs ['BB', 'QQ', 'SS', 'SS', 'ZZ', 'TT']
+
+--- 1. Exact null: Binomial(96, 1/26) -------------------------------
+  mean = 3.6923   sd = 1.8842
+  z of 6 = +1.225
+
+    k   P(exactly k)      P(>= k)      P(<= k)
+    0       0.023163     1.000000     0.023163
+    1       0.088947     0.976837     0.112110
+    2       0.168999     0.887890     0.281109
+    3       0.211812     0.718891     0.492921
+    4       0.196985     0.507079     0.689907
+    5       0.144981     0.310093     0.834888
+    6       0.087955     0.165112     0.922843
+    7       0.045234     0.077157     0.968077
+    8       0.020129     0.031923     0.988206
+    9       0.007873     0.011794     0.996079
+   10       0.002740     0.003921     0.998819
+
+  EXACT P(>= 6 doubles) = 0.165112
+  EXACT P(<= 6 doubles) = 0.922843
+  => 6 sits at the 83.5-92.3th percentile of the uniform-random null.  Unremarkable.
+
+--- 2. Monte-Carlo cross-check --------------------------------------
+  1,000,000 uniform draws; max |MC - exact| over k=0..12 is 0.00034
+  MC P(>= 6) = 0.164908 vs exact 0.165112
+
+--- 3. K1, K2, K3 controls ------------------------------------------
+text                           n  doubles     exp       z   P(>=obs)   P(<=obs)
+K1 ciphertext                 63        1    2.38   -0.91    0.91211    0.30585
+K2 ciphertext                369       21   14.15   +1.86    0.04900    0.97081
+K3 ciphertext                336       18   12.88   +1.45    0.09903    0.93843
+K4 ciphertext                 97        6    3.69   +1.22    0.16511    0.92284
+K1 plaintext                  63        1    2.38   -0.91    0.91211    0.30585
+K2 plaintext                 370       13   14.19   -0.32    0.66433    0.44176
+K3 plaintext                 336        8   12.88   -1.39    0.94600    0.10062
+
+  Note K3: a transposition scatters English's own doubles, so its count is
+  a good control for 'what an English-derived text looks like'.
+
+--- 4. What each candidate cipher predicts --------------------------
+
+source                  mean doubles     sd    P(>=6)    P(<=6)
+uniform                        3.699  1.887   0.16588   0.92192
+English (plaintext)            3.006  1.873   0.08819   0.96103
+OTP over English               3.691  1.886   0.16547   0.92290
+Vigenere L=1                   3.000  1.880   0.08800   0.96087
+Vigenere L=2                   3.686  2.211   0.19209   0.89207
+Vigenere L=3                   3.692  2.041   0.18018   0.90712
+Vigenere L=4                   3.699  2.003   0.17652   0.91029
+Vigenere L=5                   3.690  1.986   0.17361   0.91189
+Vigenere L=6                   3.697  1.964   0.17408   0.91458
+Vigenere L=7                   3.688  1.956   0.17205   0.91501
+Vigenere L=8                   3.689  1.939   0.17072   0.91708
+Vigenere L=10                  3.691  1.937   0.17095   0.91758
+Vigenere L=12                  3.688  1.921   0.16881   0.91917
+Vigenere L=15                  3.691  1.915   0.16807   0.91989
+Vigenere L=20                  3.694  1.903   0.16791   0.92122
+Vigenere L=25                  3.695  1.900   0.16645   0.92188
+Vigenere L=30                  3.697  1.898   0.16662   0.92184
+
+  Every candidate except raw English predicts ~3.7 doubles with sd ~1.9.
+  6 is compatible with all of them.  The doubled-letter count discriminates
+  nothing except 'not raw English'.
+
+--- 5. The positional folklore, corrected for multiple testing ------
+  Observed positions [19, 26, 33, 43, 47, 68].  Residues mod 7: [5, 5, 5, 1, 5, 5] -- five of six are 5 (mod 7).
+  Naive p for that alone: P(>=5 of 6 uniform positions share a residue mod 7)
+    = 0.00220   (7 residues x binomial tail)
+  But modulus 7 was chosen AFTER seeing a lag-7 autocorrelation bump.
+  Correct null: max over moduli 2..48 of the largest residue class,
+  for 6 positions drawn uniformly without replacement from 1..96.
+    1,000,000 trials: P(some modulus 2..48 collects >= 5 of 6) = 0.2452
+                  P(some modulus collects all 6)          = 0.0295
+  => the mod-7 pattern is NOT significant. It is what you always find when
+     you let yourself pick the modulus after the fact.
+
+  Second claim: 'doubles cluster in the last two columns of a 7x14 grid'.
+    columns (0-indexed, width 7, 1-indexed positions): [4, 4, 4, 0, 4, 4]
+    -- five in column 4, one in column 0; not the last two columns at all
+    under this indexing. The claim is indexing-dependent, and the corrected
+    p-value above covers every indexing.
+
+  Third: are the doubles unusually early in the text?
+    last double starts at 68, so the final 28 adjacent pairs contain none.
+    P(all 6 of 6 uniform positions <= 68) = 0.1263  -- not significant

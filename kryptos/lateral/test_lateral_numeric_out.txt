@@ -1,0 +1,14 @@
+numeric streams with >=24 digits: 55
+total digits: 2047
+
+(a) Gronsfeld sliding: tests=24,564  best=7/24  ('vig/kryptos/kryptos', 'rose_32_bearings_digits.txt', 50)
+    vig/plain/plain: 15/24 required shifts exceed 9 -> Gronsfeld impossible
+    vig/plain/kryptos: 15/24 required shifts exceed 9 -> Gronsfeld impossible
+    vig/kryptos/plain: 14/24 required shifts exceed 9 -> Gronsfeld impossible
+    vig/kryptos/kryptos: 11/24 required shifts exceed 9 -> Gronsfeld impossible
+
+(b) digit-pairs mod 26: tests=10,728  best=6/24  ('vig/plain/plain', 'rose_32_bearings_digits.txt', 42)  (chance ~0.92)
+
+(c) binary streams >=97 bits: 7
+    constant-shift-per-gate-state test: tests=2,037  best=1/2 states constant  ('mlu_tick_0000_bits97.txt', 7, 'vig', 14, 1)
+    (a gate needs each state to force ONE shift value; observed distinct values per state above)

@@ -1,0 +1,142 @@
+# (b) The tableau anomalies as key material
+
+## B0. What the deviation actually is
+
+physical row N (index 14): NGHIJLMNQUVWXZKRYPTOSABCDEFGHIJL
+ideal    row N (index 14): NGHIJLMNQUVWXZKRYPTOSABCDEFGHIJ
+=> exactly one inserted letter, 'L', at the end of that row.
+linear index (0-indexed) in the 867-letter reading: 464
+Because it is an INSERTION, physical[465:] == ideal[464:] exactly: True
+So the 'sequence of deviations' has length 1.  Everything below is an attempt to
+turn that single datum into a key stream, a period, or a position.
+
+## B1. Deviation stream as a running key
+
+delta stream (plain-index subtraction), 866 letters, first 80:
+  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  ... non-A run starts at index 464
+  tail (last 60): APTTJWFWSZZZZZZZZZYZZXWZZZYPTTYZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+delta stream (KRYPTOS-index subtraction), first 80:
+  KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+
+  delta_plainidx         len= 866  best crib match (over offsets x 24 combos x 26 rotations):  6/24  at beaufort/pt=plain/ct=plain/key=keyed off=485 rot=19
+  delta_plainidx_rev     len= 866  best crib match (over offsets x 24 combos x 26 rotations):  7/24  at beaufort/pt=plain/ct=plain/key=plain off=375 rot=16
+  delta_keyedidx         len= 866  best crib match (over offsets x 24 combos x 26 rotations):  6/24  at beaufort/pt=plain/ct=plain/key=keyed off=505 rot=15
+  delta_keyedidx_rev     len= 866  best crib match (over offsets x 24 combos x 26 rotations):  7/24  at beaufort/pt=plain/ct=plain/key=keyed off=374 rot=16
+  delta_tail             len= 402  best crib match (over offsets x 24 combos x 26 rotations):  6/24  at beaufort/pt=plain/ct=plain/key=keyed off=21 rot=19
+  delta_tail_keyed       len= 402  best crib match (over offsets x 24 combos x 26 rotations):  6/24  at beaufort/pt=plain/ct=plain/key=keyed off=41 rot=15
+
+Chance expectation: each (offset, combo) trial matches all 24 with prob 26*26^-24
+= 26^-23 = 1.4e-33; with <2e5 trials the expected number of 24/24 hits is ~1e-28.
+Expected BEST match count over ~2e5 trials is 3-4 out of 24.
+
+## B2. Numbers named by the anomaly, tested as key periods
+
+| period p | constraints c_p | chance 26^-c_p | combos consistent | note |
+|---|---|---|---|---|
+| 11 | 13 | 4.03e-19 | 0/24 | L is the 12th letter of the plain alphabet (index 11) |
+| 13 | 11 | 2.72e-16 | 0/24 | N is the 14th letter (index 13) of the plain alphabet |
+| 14 | 11 | 2.72e-16 | 0/24 | row N is the 14th lettered row / 15th carved row (0-indexed 14) |
+| 15 | 9 | 1.84e-13 | 0/24 | row N is carved row 15 (1-indexed) |
+| 18 | 7 | 1.25e-10 | 0/24 | L is at index 18 of the KRYPTOS alphabet |
+| 30 | 1 | 0.0385 | 0/24 | ideal row body width |
+| 31 | 2 | 0.00148 | 0/24 | the anomalous letter sits in column 31 (0-indexed) = 32nd position of its row |
+| 32 | 3 | 5.69e-05 | 0/24 | row N is 32 characters long |
+| 97 | 0 | 1 | 24/24 | K4 length |
+| 402 | 0 | 1 | 24/24 | letters after the extra L |
+| 464 | 0 | 1 | 24/24 | 0-indexed linear position of the extra L |
+| 465 | 0 | 1 | 24/24 | 1-indexed linear position of the extra L |
+| 866 | 0 | 1 | 24/24 | ideal tableau length |
+| 867 | 0 | 1 | 24/24 | physical tableau length |
+
+A period p >= 74 puts every crib position in its own residue class (c_p = 0), so the
+test is vacuous: '24/24 combos consistent' there means nothing at all.
+
+## B5. Completeness: periodic key of EVERY period 2..97
+
+| p | c_p | chance per combo | consistent combos | p | c_p | chance | consistent |
+|---|---|---|---|---|---|---|---|
+| 2 | 22 | 7.42e-32 | 0/24 | 50 | 3 | 5.69e-05 | 0/24 |
+| 3 | 21 | 1.93e-30 | 0/24 | 51 | 2 | 0.00148 | 0/24 |
+| 4 | 20 | 5.02e-29 | 0/24 | 52 | 1 | 0.0385 | 0/24 |
+| 5 | 19 | 1.3e-27 | 0/24 | 53 | 0 | 1 | 24/24 |
+| 6 | 18 | 3.39e-26 | 0/24 | 54 | 0 | 1 | 24/24 |
+| 7 | 17 | 8.82e-25 | 0/24 | 55 | 0 | 1 | 24/24 |
+| 8 | 16 | 2.29e-23 | 0/24 | 56 | 0 | 1 | 24/24 |
+| 9 | 15 | 5.96e-22 | 0/24 | 57 | 0 | 1 | 24/24 |
+| 10 | 14 | 1.55e-20 | 0/24 | 58 | 0 | 1 | 24/24 |
+| 11 | 13 | 4.03e-19 | 0/24 | 59 | 0 | 1 | 24/24 |
+| 12 | 12 | 1.05e-17 | 0/24 | 60 | 0 | 1 | 24/24 |
+| 13 | 11 | 2.72e-16 | 0/24 | 61 | 0 | 1 | 24/24 |
+| 14 | 11 | 2.72e-16 | 0/24 | 62 | 0 | 1 | 24/24 |
+| 15 | 9 | 1.84e-13 | 0/24 | 63 | 0 | 1 | 24/24 |
+| 16 | 8 | 4.79e-12 | 0/24 | 64 | 0 | 1 | 24/24 |
+| 17 | 7 | 1.25e-10 | 0/24 | 65 | 0 | 1 | 24/24 |
+| 18 | 7 | 1.25e-10 | 0/24 | 66 | 0 | 1 | 24/24 |
+| 19 | 9 | 1.84e-13 | 0/24 | 67 | 0 | 1 | 24/24 |
+| 20 | 11 | 2.72e-16 | 0/24 | 68 | 0 | 1 | 24/24 |
+| 21 | 11 | 2.72e-16 | 0/24 | 69 | 0 | 1 | 24/24 |
+| 22 | 9 | 1.84e-13 | 0/24 | 70 | 0 | 1 | 24/24 |
+| 23 | 7 | 1.25e-10 | 0/24 | 71 | 0 | 1 | 24/24 |
+| 24 | 5 | 8.42e-08 | 0/24 | 72 | 0 | 1 | 24/24 |
+| 25 | 3 | 5.69e-05 | 0/24 | 73 | 0 | 1 | 24/24 |
+| 26 | 1 | 0.0385 | 0/24 | 74 | 0 | 1 | 24/24 |
+| 27 | 0 | 1 | 24/24 | 75 | 0 | 1 | 24/24 |
+| 28 | 0 | 1 | 24/24 | 76 | 0 | 1 | 24/24 |
+| 29 | 0 | 1 | 24/24 | 77 | 0 | 1 | 24/24 |
+| 30 | 1 | 0.0385 | 0/24 | 78 | 0 | 1 | 24/24 |
+| 31 | 2 | 0.00148 | 0/24 | 79 | 0 | 1 | 24/24 |
+| 32 | 3 | 5.69e-05 | 0/24 | 80 | 0 | 1 | 24/24 |
+| 33 | 4 | 2.19e-06 | 0/24 | 81 | 0 | 1 | 24/24 |
+| 34 | 5 | 8.42e-08 | 0/24 | 82 | 0 | 1 | 24/24 |
+| 35 | 6 | 3.24e-09 | 0/24 | 83 | 0 | 1 | 24/24 |
+| 36 | 7 | 1.25e-10 | 0/24 | 84 | 0 | 1 | 24/24 |
+| 37 | 8 | 4.79e-12 | 0/24 | 85 | 0 | 1 | 24/24 |
+| 38 | 9 | 1.84e-13 | 0/24 | 86 | 0 | 1 | 24/24 |
+| 39 | 10 | 7.08e-15 | 0/24 | 87 | 0 | 1 | 24/24 |
+| 40 | 11 | 2.72e-16 | 0/24 | 88 | 0 | 1 | 24/24 |
+| 41 | 11 | 2.72e-16 | 0/24 | 89 | 0 | 1 | 24/24 |
+| 42 | 11 | 2.72e-16 | 0/24 | 90 | 0 | 1 | 24/24 |
+| 43 | 10 | 7.08e-15 | 0/24 | 91 | 0 | 1 | 24/24 |
+| 44 | 9 | 1.84e-13 | 0/24 | 92 | 0 | 1 | 24/24 |
+| 45 | 8 | 4.79e-12 | 0/24 | 93 | 0 | 1 | 24/24 |
+| 46 | 7 | 1.25e-10 | 0/24 | 94 | 0 | 1 | 24/24 |
+| 47 | 6 | 3.24e-09 | 0/24 | 95 | 0 | 1 | 24/24 |
+| 48 | 5 | 8.42e-08 | 0/24 | 96 | 0 | 1 | 24/24 |
+| 49 | 4 | 2.19e-06 | 0/24 | 97 | 0 | 1 | 24/24 |
+
+Periods with c_p > 0 (a real test) AND at least one consistent combo: []
+Total (p, combo) pairs with c_p>0: 1152 ; observed consistent: 0 ; expected by chance: 2.844
+
+## B3. Running key from the tableau STARTING AT the anomaly
+
+  phys @ extra-L (fwd)       len=403  best  4/24 over 24 combos x 26 rotations (beaufort/pt=keyed/ct=keyed/key=plain, rot=3)
+  phys @ extra-L+1 (fwd)     len=402  best  4/24 over 24 combos x 26 rotations (varbeaufort/pt=keyed/ct=plain/key=plain, rot=21)
+  phys @ extra-L (bwd)       len=465  best  4/24 over 24 combos x 26 rotations (vigenere/pt=keyed/ct=plain/key=keyed, rot=2)
+  phys @ row N start (fwd)   len=434  best  5/24 over 24 combos x 26 rotations (varbeaufort/pt=keyed/ct=plain/key=plain, rot=20)
+  ideal @ same index (fwd)   len=402  best  4/24 over 24 combos x 26 rotations (varbeaufort/pt=keyed/ct=plain/key=plain, rot=21)
+
+Chance: 24 combos x 26 rotations = 624 trials per text; P(24/24) = 624*26^-24 = 1.2e-31.
+Expected best over 624 trials: 2-3 out of 24.
+
+## B4. The anomalous row and the 'HILL' column as repeated key blocks
+
+  row N physical (32)        len=32  best  7/24  (varbeaufort/pt=keyed/ct=plain/key=plain, start offset 0, rot 20)
+  row N ideal (31)           len=31  best  7/24  (varbeaufort/pt=keyed/ct=plain/key=plain, start offset 19, rot 14)
+  row N body physical (31)   len=31  best  7/24  (varbeaufort/pt=keyed/ct=plain/key=plain, start offset 18, rot 14)
+  last column physical (26)  len=26  best  6/24  (varbeaufort/pt=keyed/ct=plain/key=plain, start offset 23, rot 14)
+  last column ideal (26)     len=26  best  6/24  (varbeaufort/pt=keyed/ct=plain/key=plain, start offset 23, rot 14)
+  HILL                       len= 4  best  6/24  (beaufort/pt=plain/ct=keyed/key=plain, start offset 3, rot 17)
+  col 31 = 'L'               len= 1  best  4/24  (beaufort/pt=keyed/ct=plain/key=plain, start offset 0, rot 21)
+  rows L,M,N,O labels        len= 4  best  5/24  (vigenere/pt=plain/ct=plain/key=plain, start offset 1, rot 12)
+
+  total trials 3720 ; expected 24/24 hits by chance = 1.06e-29 ; observed = 0
+  best overall: 7/24 (row N physical (32))
+
+## Verdict for (b)
+
+The physical-vs-ideal deviation set has cardinality ONE.  One bit of information
+cannot be a 97-letter key stream, and every derived reading of it (the delta stream,
+the numbers it names used as periods, its linear position used as a running-key
+offset, its row and its column used as repeated key blocks) fails the cribs at the
+chance level.  No survivor.

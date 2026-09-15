@@ -1,0 +1,319 @@
+## validation: planted shifted cribs
+   planted shift +2, period  9, vigenere/pt=kryptos/ct=kryptos -> sweep fires at [2]  [PASS]
+   planted shift -3, period 12, beaufort/pt=kryptos/ct=kryptos -> sweep fires at [-3]  [PASS]
+   planted shift +1, period  7, vigenere/pt=plain/ct=plain   -> sweep fires at [1]  [PASS]
+   validation: ALL PASS
+
+==============================================================================
+TASKS (b) AND (c)  SHIFTED CRIB PLACEMENTS
+==============================================================================
+K4 = OBKRUOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZWATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR
+baseline blocks (0-indexed starts): EAST@21 NORTHEAST@25 BERLIN@63 CLOCK@69
+
+### B0. CONTROL: baseline placement, 12 combos
+  placements tested          : 1 (of 1 proposed; the rest overlap inconsistently or run off the 97 letters)
+  combos                     : 12   periods: 25
+  (placement, period, combo) tests: 300
+  survivors observed 0   vs chance expectation 0.4622
+  alphabet-free necessary condition passes for 12 / 25 (placement, period) pairs (48.0%)
+  by number of constraints c:
+    c           tests       expected   observed      univ-pass
+    22             12      8.908e-31          0              0
+    21             12      2.316e-29          0              0
+    20             12      6.022e-28          0              0
+    19             12      1.566e-26          0              0
+    18             12      4.071e-25          0              0
+    17             12      1.058e-23          0              0
+    16             12      2.752e-22          0              1
+    15             12      7.155e-21          0              0
+    14             12       1.86e-19          0              0
+    13             12      4.836e-18          0              1
+    12             12      1.257e-16          0              1
+    11             48      1.308e-14          0              2
+    9              36       6.63e-12          0              2
+    8              12      5.746e-11          0              1
+    7              36      4.482e-09          0              2
+  no survivor with c >= 8.
+
+### C. THE OFF-BY-ONE HYPOTHESIS (task c)
+  If Sanborn's 1-indexed positions are counted over the panel row
+  INCLUDING the '?' that ends K3, every crib sits one letter EARLIER
+  in K4 than assumed (delta = -1).  The opposite convention (a dropped
+  carved letter, as in the 2006 K2 correction) gives delta = +1.
+
+  delta = -1  ->  21:W->E 22:F->A 23:L->S 24:R->T 25:V->N 26:Q->O 27:Q->R 28:P->T 29:R->H 30:N->E 31:G->A 32:K->S 33:S->T 63:B->B 64:N->E 65:Y->R 66:P->L 67:V->I 68:T->N 69:T->C 70:M->L 71:Z->O 72:F->C 73:P->K 
+    12 combos x 25 periods: 2 survivors (chance expectation 0.462)
+    periods where the alphabet-free condition still permits a solution: [8, 11, 12, 13, 16, 17, 18, 20, 22, 23, 24, 26]
+    867 combos (3 rules x 17 x 17 keyed alphabets) x 25 periods: 50 survivors (chance expectation 33.396)
+        c=1  p=26 vigenere/pt=plain/ct=KRYPTOS
+        c=1  p=26 vigenere/pt=plain/ct=DESPARATLY
+        c=1  p=26 vigenere/pt=SANBORN/ct=KRYPTOS
+        c=1  p=26 vigenere/pt=SANBORN/ct=DESPARATLY
+        c=1  p=26 vigenere/pt=BERLIN/ct=SHADOW
+        c=1  p=26 vigenere/pt=CLOCK/ct=IQLUSION
+        c=1  p=26 vigenere/pt=COMPASS/ct=KRYPTOS
+        c=1  p=26 vigenere/pt=COMPASS/ct=DESPARATLY
+        c=1  p=26 vigenere/pt=LODESTONE/ct=SHADOW
+        c=1  p=26 vigenere/pt=LAYERTWO/ct=LAYERTWO
+        c=1  p=26 vigenere/pt=MASKING/ct=plain
+        c=1  p=26 vigenere/pt=MASKING/ct=LANGLEY
+        c=1  p=26 vigenere/pt=MASKING/ct=CLOCK
+        c=1  p=26 beaufort/pt=plain/ct=ABSCISSA
+        c=1  p=26 beaufort/pt=plain/ct=BERLIN
+        c=1  p=26 beaufort/pt=plain/ct=MASKING
+        c=1  p=26 beaufort/pt=ABSCISSA/ct=SANBORN
+        c=1  p=26 beaufort/pt=ABSCISSA/ct=SCHEIDT
+        c=1  p=26 beaufort/pt=ABSCISSA/ct=LODESTONE
+        c=1  p=26 beaufort/pt=ABSCISSA/ct=UNDERGRUUND
+        c=1  p=26 beaufort/pt=SANBORN/ct=ABSCISSA
+        c=1  p=26 beaufort/pt=SANBORN/ct=BERLIN
+        c=1  p=26 beaufort/pt=SANBORN/ct=MASKING
+        c=1  p=26 beaufort/pt=CLOCK/ct=PALIMPSEST
+        c=1  p=26 beaufort/pt=COMPASS/ct=ABSCISSA
+        c=1  p=26 beaufort/pt=COMPASS/ct=BERLIN
+        c=1  p=26 beaufort/pt=COMPASS/ct=MASKING
+        c=1  p=26 beaufort/pt=SHADOW/ct=SANBORN
+        c=1  p=26 beaufort/pt=SHADOW/ct=SCHEIDT
+        c=1  p=26 beaufort/pt=SHADOW/ct=LODESTONE
+        c=1  p=26 beaufort/pt=SHADOW/ct=UNDERGRUUND
+        c=1  p=26 beaufort/pt=IQLUSION/ct=SANBORN
+        c=1  p=26 beaufort/pt=IQLUSION/ct=SCHEIDT
+        c=1  p=26 beaufort/pt=IQLUSION/ct=LODESTONE
+        c=1  p=26 beaufort/pt=IQLUSION/ct=UNDERGRUUND
+        c=1  p=26 beaufort/pt=LAYERTWO/ct=LAYERTWO
+        c=1  p=26 beaufort/pt=MASKING/ct=COMPASS
+        c=1  p=26 varbeaufort/pt=plain/ct=KRYPTOS
+        c=1  p=26 varbeaufort/pt=plain/ct=DESPARATLY
+        c=1  p=26 varbeaufort/pt=SANBORN/ct=KRYPTOS
+        c=1  p=26 varbeaufort/pt=SANBORN/ct=DESPARATLY
+        c=1  p=26 varbeaufort/pt=BERLIN/ct=SHADOW
+        c=1  p=26 varbeaufort/pt=CLOCK/ct=IQLUSION
+        c=1  p=26 varbeaufort/pt=COMPASS/ct=KRYPTOS
+        c=1  p=26 varbeaufort/pt=COMPASS/ct=DESPARATLY
+        c=1  p=26 varbeaufort/pt=LODESTONE/ct=SHADOW
+        c=1  p=26 varbeaufort/pt=LAYERTWO/ct=LAYERTWO
+        c=1  p=26 varbeaufort/pt=MASKING/ct=plain
+        c=1  p=26 varbeaufort/pt=MASKING/ct=LANGLEY
+        c=1  p=26 varbeaufort/pt=MASKING/ct=CLOCK
+
+  delta = +1  ->  23:L->E 24:R->A 25:V->S 26:Q->T 27:Q->N 28:P->O 29:R->R 30:N->T 31:G->H 32:K->E 33:S->A 34:S->S 35:O->T 65:Y->B 66:P->E 67:V->R 68:T->L 69:T->I 70:M->N 71:Z->C 72:F->L 73:P->O 74:K->C 75:W->K 
+    12 combos x 25 periods: 3 survivors (chance expectation 0.462)
+    periods where the alphabet-free condition still permits a solution: [8, 10, 11, 12, 13, 15, 16, 18, 20, 22, 23, 24, 25, 26]
+    867 combos (3 rules x 17 x 17 keyed alphabets) x 25 periods: 41 survivors (chance expectation 33.396)
+        c=1  p=26 vigenere/pt=plain/ct=KRYPTOS
+        c=1  p=26 vigenere/pt=plain/ct=LAYERTWO
+        c=1  p=26 vigenere/pt=PALIMPSEST/ct=SCHEIDT
+        c=1  p=26 vigenere/pt=SANBORN/ct=KRYPTOS
+        c=1  p=26 vigenere/pt=SANBORN/ct=LAYERTWO
+        c=1  p=26 vigenere/pt=SCHEIDT/ct=SCHEIDT
+        c=1  p=26 vigenere/pt=LANGLEY/ct=SCHEIDT
+        c=1  p=26 vigenere/pt=CLOCK/ct=LODESTONE
+        c=1  p=26 vigenere/pt=COMPASS/ct=KRYPTOS
+        c=1  p=26 vigenere/pt=COMPASS/ct=LAYERTWO
+        c=1  p=26 vigenere/pt=UNDERGRUUND/ct=ABSCISSA
+        c=1  p=26 vigenere/pt=MASKING/ct=BERLIN
+        c=1  p=26 beaufort/pt=plain/ct=PALIMPSEST
+        c=1  p=26 beaufort/pt=plain/ct=IQLUSION
+        c=1  p=26 beaufort/pt=KRYPTOS/ct=plain
+        c=1  p=26 beaufort/pt=PALIMPSEST/ct=SHADOW
+        c=1  p=26 beaufort/pt=ABSCISSA/ct=CLOCK
+        c=1  p=26 beaufort/pt=SANBORN/ct=PALIMPSEST
+        c=1  p=26 beaufort/pt=SANBORN/ct=IQLUSION
+        c=1  p=26 beaufort/pt=SCHEIDT/ct=SHADOW
+        c=1  p=26 beaufort/pt=LANGLEY/ct=SHADOW
+        c=1  p=26 beaufort/pt=COMPASS/ct=PALIMPSEST
+        c=1  p=26 beaufort/pt=COMPASS/ct=IQLUSION
+        c=1  p=26 beaufort/pt=SHADOW/ct=CLOCK
+        c=1  p=26 beaufort/pt=IQLUSION/ct=CLOCK
+        c=1  p=26 beaufort/pt=UNDERGRUUND/ct=DESPARATLY
+        c=1  p=26 beaufort/pt=DESPARATLY/ct=plain
+        c=1  p=26 beaufort/pt=MASKING/ct=SANBORN
+        c=1  p=26 beaufort/pt=MASKING/ct=COMPASS
+        c=1  p=26 varbeaufort/pt=plain/ct=KRYPTOS
+        c=1  p=26 varbeaufort/pt=plain/ct=LAYERTWO
+        c=1  p=26 varbeaufort/pt=PALIMPSEST/ct=SCHEIDT
+        c=1  p=26 varbeaufort/pt=SANBORN/ct=KRYPTOS
+        c=1  p=26 varbeaufort/pt=SANBORN/ct=LAYERTWO
+        c=1  p=26 varbeaufort/pt=SCHEIDT/ct=SCHEIDT
+        c=1  p=26 varbeaufort/pt=LANGLEY/ct=SCHEIDT
+        c=1  p=26 varbeaufort/pt=CLOCK/ct=LODESTONE
+        c=1  p=26 varbeaufort/pt=COMPASS/ct=KRYPTOS
+        c=1  p=26 varbeaufort/pt=COMPASS/ct=LAYERTWO
+        c=1  p=26 varbeaufort/pt=UNDERGRUUND/ct=ABSCISSA
+        c=1  p=26 varbeaufort/pt=MASKING/ct=BERLIN
+
+### B1. GLOBAL SLIDE of the whole crib pattern, delta = -21..+23, 12 combos
+  relative spacing of the four words preserved; delta=-1 and +1 are the task-(c) hypotheses
+  placements tested          : 45 (of 45 proposed; the rest overlap inconsistently or run off the 97 letters)
+  combos                     : 12   periods: 25
+  (placement, period, combo) tests: 13500
+  survivors observed 26   vs chance expectation 20.8
+  alphabet-free necessary condition passes for 465 / 1125 (placement, period) pairs (41.3%)
+  by number of constraints c:
+    c           tests       expected   observed      univ-pass
+    22            540      4.008e-29          0              0
+    21            540      1.042e-27          0              0
+    20            540       2.71e-26          0              0
+    19            540      7.045e-25          0              0
+    18            540      1.832e-23          0              4
+    17            540      4.763e-22          0              5
+    16            540      1.238e-20          0             14
+    15            540       3.22e-19          0              0
+    14            540      8.371e-18          0             16
+    13            540      2.176e-16          0             15
+    12            540      5.659e-15          0             38
+    11           2160      5.885e-13          0            106
+    9            1620      2.984e-10          0             32
+    8             540      2.586e-09          0             33
+    7            1620      2.017e-07          0             83
+    1             540          20.77         26             45
+  no survivor with c >= 8.
+
+### B1e. same 45 global slides, 867 keyed-alphabet combos
+  placements tested          : 45 (of 45 proposed; the rest overlap inconsistently or run off the 97 letters)
+  combos                     : 867   periods: 25
+  (placement, period, combo) tests: 975375
+  survivors observed 1655   vs chance expectation 1503
+  alphabet-free necessary condition passes for 465 / 1125 (placement, period) pairs (41.3%)
+  by number of constraints c:
+    c           tests       expected   observed      univ-pass
+    22          39015      2.896e-27          0              0
+    21          39015       7.53e-26          0              0
+    20          39015      1.958e-24          0              0
+    19          39015       5.09e-23          0              0
+    18          39015      1.323e-21          0              4
+    17          39015      3.441e-20          0              5
+    16          39015      8.947e-19          0             14
+    15          39015      2.326e-17          0              0
+    14          39015      6.048e-16          0             16
+    13          39015      1.572e-14          0             15
+    12          39015      4.088e-13          0             38
+    11         156060      4.252e-11          0            106
+    9          117045      2.156e-08          0             32
+    8           39015      1.868e-07          0             33
+    7          117045      1.457e-05          0             83
+    3           39015           2.22          2             34
+    1           39015           1501       1653             45
+  no survivor with c >= 8.
+
+### B2. TWO blocks slid independently by -3..+3 (49 placements), 12 combos
+  placements tested          : 49 (of 49 proposed; the rest overlap inconsistently or run off the 97 letters)
+  combos                     : 12   periods: 25
+  (placement, period, combo) tests: 14700
+  survivors observed 300   vs chance expectation 298.5
+  alphabet-free necessary condition passes for 434 / 1225 (placement, period) pairs (35.4%)
+  by number of constraints c:
+    c           tests       expected   observed      univ-pass
+    22            588      4.365e-29          0              0
+    21            588      1.135e-27          0              0
+    20            588      2.951e-26          0              0
+    19            588      7.672e-25          0              0
+    18            588      1.995e-23          0              0
+    17            588      5.186e-22          0              0
+    16            588      1.348e-20          0             13
+    15            588      3.506e-19          0              0
+    14            588      9.115e-18          0             12
+    13            588       2.37e-16          0             23
+    12            588      6.162e-15          0             33
+    11           1812      4.937e-13          0             74
+    10           1044      7.395e-12          0             12
+    9            1044      1.923e-10          0             34
+    8            1068      5.114e-09          0             33
+    7             948       1.18e-07          0             48
+    6             612      1.981e-06          0             29
+    1             264          10.15         12             21
+    0             288            288        288             24
+  no survivor with c >= 8.
+
+### B2e. same 49 placements, 867 keyed-alphabet combos
+  placements tested          : 49 (of 49 proposed; the rest overlap inconsistently or run off the 97 letters)
+  combos                     : 867   periods: 25
+  (placement, period, combo) tests: 1062075
+  survivors observed 21541   vs chance expectation 2.157e+04
+  alphabet-free necessary condition passes for 434 / 1225 (placement, period) pairs (35.4%)
+  by number of constraints c:
+    c           tests       expected   observed      univ-pass
+    22          42483      3.154e-27          0              0
+    21          42483      8.199e-26          0              0
+    20          42483      2.132e-24          0              0
+    19          42483      5.543e-23          0              0
+    18          42483      1.441e-21          0              0
+    17          42483      3.747e-20          0              0
+    16          42483      9.742e-19          0             13
+    15          42483      2.533e-17          0              0
+    14          42483      6.585e-16          0             12
+    13          42483      1.712e-14          0             23
+    12          42483      4.452e-13          0             33
+    11         130917      3.567e-11          0             74
+    10          75429      5.343e-10          0             12
+    9           75429      1.389e-08          0             34
+    8           77163      3.695e-07          0             33
+    7           68493      8.528e-06          0             48
+    6           44217      0.0001431          0             29
+    2           18207          26.93         20             19
+    1           19074          733.6        713             21
+    0           20808      2.081e+04      20808             24
+  no survivor with c >= 8.
+
+### B3. FOUR blocks slid independently by -3..+3 (2401 placements), 12 combos
+  overlapping blocks that disagree on a letter are rejected
+  placements tested          : 784 (of 2401 proposed; the rest overlap inconsistently or run off the 97 letters)
+  combos                     : 12   periods: 25
+  (placement, period, combo) tests: 235200
+  survivors observed 881   vs chance expectation 863.5
+  alphabet-free necessary condition passes for 6218 / 19600 (placement, period) pairs (31.7%)
+  by number of constraints c:
+    c           tests       expected   observed      univ-pass
+    22           9408      6.984e-28          0              0
+    21           9408      1.816e-26          0              0
+    20           9408      4.721e-25          0             29
+    19           9408      1.227e-23          0              0
+    18           9408      3.191e-22          0             20
+    17           9408      8.298e-21          0             13
+    16           9408      2.157e-19          0            148
+    15          11628      6.933e-18          0            120
+    14          10464      1.622e-16          0            121
+    13           8376      3.376e-15          0            213
+    12          11040      1.157e-13          0            522
+    11          14316        3.9e-12          0            566
+    10          17796      1.261e-10          0            268
+    9           22992      4.235e-09          0            599
+    8           18516      8.867e-08          0            602
+    7           12624      1.572e-06          0            464
+    6            8256      2.673e-05          0            350
+    2            4032          5.964          5            292
+    1            2004          77.08         96            156
+    0             780            780        780             65
+  no survivor with c >= 8.
+
+### B4. FREE slide: EASTNORTHEAST anywhere x BERLINCLOCK anywhere (85 x 87 placements), 12 combos
+  this is the complete 'where could the two phrases possibly be?' sweep, a strict superset of (b) and (c)
+  placements tested          : 5550 (of 7395 proposed; the rest overlap inconsistently or run off the 97 letters)
+  combos                     : 12   periods: 25
+  (placement, period, combo) tests: 1665000
+  survivors observed 21722   vs chance expectation 2.166e+04
+  alphabet-free necessary condition passes for 57736 / 138750 (placement, period) pairs (41.6%)
+  by number of constraints c:
+    c           tests       expected   observed      univ-pass
+    22          66600      4.944e-27          0              0
+    21          66600      1.285e-25          0              0
+    20          66600      3.342e-24          0              0
+    19          66600      8.689e-23          0             13
+    18          66600      2.259e-21          0            521
+    17          66600      5.874e-20          0            419
+    16          66600      1.527e-18          0           1411
+    15          66600      3.971e-17          0              0
+    14          66600      1.032e-15          0           1347
+    13          66600      2.684e-14          0           2071
+    12          66600      6.979e-13          0           2963
+    11         207576      5.655e-11          0          11442
+    10         133968       9.49e-10          0           4348
+    9          115584      2.129e-08          0           4040
+    8           99216      4.751e-07          0           3931
+    7           84792      1.056e-05          0           5521
+    6           71568      0.0002317          0           4844
+    3           39048          2.222          2           2932
+    2           29928          44.27         55           2353
+    1           21528            828        881           1744
+    0           20784      2.078e+04      20784           1732
+  no survivor with c >= 8.

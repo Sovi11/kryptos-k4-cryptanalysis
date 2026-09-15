@@ -1,0 +1,634 @@
+{
+ "global": {
+  "ioc": 0.03608247422680412,
+  "chi2_unif": 19.061855670103093,
+  "chi2_eng": 576.5036978952215,
+  "p_ioc_flat": 0.214242,
+  "counts": {
+   "A": 4,
+   "B": 5,
+   "C": 2,
+   "D": 3,
+   "E": 2,
+   "F": 4,
+   "G": 4,
+   "H": 2,
+   "I": 4,
+   "J": 3,
+   "K": 8,
+   "L": 4,
+   "M": 1,
+   "N": 3,
+   "O": 5,
+   "P": 3,
+   "Q": 4,
+   "R": 4,
+   "S": 6,
+   "T": 6,
+   "U": 6,
+   "V": 2,
+   "W": 5,
+   "X": 2,
+   "Y": 1,
+   "Z": 4
+  }
+ },
+ "segmentations": {
+  "panel rows 4/31/31/31": {
+   "rows": [
+    {
+     "start": 1,
+     "end": 4,
+     "n": 4,
+     "text": "OBKR",
+     "ioc": 0.0,
+     "chi2_eng": 52.74937346889696,
+     "chi2_unif": 22.0,
+     "distinct": 4
+    },
+    {
+     "start": 5,
+     "end": 35,
+     "n": 31,
+     "text": "UOXOGHULBSOLIFBBWFLRVQQPRNGKSSO",
+     "ioc": 0.043010752688172046,
+     "chi2_eng": 188.6844294508381,
+     "chi2_unif": 28.548387096774192,
+     "distinct": 17
+    },
+    {
+     "start": 36,
+     "end": 66,
+     "n": 31,
+     "text": "TWTQSJQSSEKZZWATJKLUDIAWINFBNYP",
+     "ioc": 0.034408602150537634,
+     "chi2_eng": 420.4867030965746,
+     "chi2_unif": 21.838709677419352,
+     "distinct": 18
+    },
+    {
+     "start": 67,
+     "end": 97,
+     "n": 31,
+     "text": "VTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR",
+     "ioc": 0.03655913978494624,
+     "chi2_eng": 303.64645304552573,
+     "chi2_unif": 23.516129032258064,
+     "distinct": 19
+    }
+   ],
+   "G": 84.72004223550684,
+   "null_mean": 78.54315356204422,
+   "null_sd": 9.543200153415787,
+   "z": 0.6472554881133585,
+   "p": 0.258855
+  },
+  "crib blocks (5 parts)": {
+   "rows": [
+    {
+     "start": 1,
+     "end": 21,
+     "n": 21,
+     "text": "OBKRUOXOGHULBSOLIFBBW",
+     "ioc": 0.06666666666666667,
+     "chi2_eng": 99.36493384493245,
+     "chi2_unif": 39.66666666666667,
+     "distinct": 13
+    },
+    {
+     "start": 22,
+     "end": 34,
+     "n": 13,
+     "text": "FLRVQQPRNGKSS",
+     "ioc": 0.038461538461538464,
+     "chi2_eng": 336.82338804836735,
+     "chi2_unif": 25.0,
+     "distinct": 10
+    },
+    {
+     "start": 35,
+     "end": 63,
+     "n": 29,
+     "text": "OTWTQSJQSSEKZZWATJKLUDIAWINFB",
+     "ioc": 0.03694581280788178,
+     "chi2_eng": 449.0124151018854,
+     "chi2_unif": 23.896551724137932,
+     "distinct": 17
+    },
+    {
+     "start": 64,
+     "end": 74,
+     "n": 11,
+     "text": "NYPVTTMZFPK",
+     "ioc": 0.03636363636363636,
+     "chi2_eng": 176.62033023175485,
+     "chi2_unif": 24.454545454545453,
+     "distinct": 9
+    },
+    {
+     "start": 75,
+     "end": 97,
+     "n": 23,
+     "text": "WGDKZXTJCDIGKUHUAUEKCAR",
+     "ioc": 0.039525691699604744,
+     "chi2_eng": 187.89813546806386,
+     "chi2_unif": 25.60869565217391,
+     "distinct": 15
+    }
+   ],
+   "G": 127.90878221077296,
+   "null_mean": 112.44152693637837,
+   "null_sd": 9.837573107721273,
+   "z": 1.5722633117973694,
+   "p": 0.060465
+  },
+  "halves 48/49": {
+   "rows": [
+    {
+     "start": 1,
+     "end": 48,
+     "n": 48,
+     "text": "OBKRUOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZ",
+     "ioc": 0.04609929078014184,
+     "chi2_eng": 525.1082023395466,
+     "chi2_unif": 34.33333333333333,
+     "distinct": 21
+    },
+    {
+     "start": 49,
+     "end": 97,
+     "n": 49,
+     "text": "WATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR",
+     "ioc": 0.03741496598639456,
+     "chi2_eng": 258.84183429836867,
+     "chi2_unif": 23.6938775510204,
+     "distinct": 23
+    }
+   ],
+   "G": 44.18556509002383,
+   "null_mean": 31.55990705156694,
+   "null_sd": 7.855208768135242,
+   "z": 1.6072975793683595,
+   "p": 0.0629
+  },
+  "halves 49/48": {
+   "rows": [
+    {
+     "start": 1,
+     "end": 49,
+     "n": 49,
+     "text": "OBKRUOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZW",
+     "ioc": 0.04591836734693878,
+     "chi2_eng": 516.7362758995489,
+     "chi2_unif": 34.30612244897959,
+     "distinct": 21
+    },
+    {
+     "start": 50,
+     "end": 97,
+     "n": 48,
+     "text": "ATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR",
+     "ioc": 0.03723404255319149,
+     "chi2_eng": 261.84095987167507,
+     "chi2_unif": 23.5,
+     "distinct": 23
+    }
+   ],
+   "G": 44.185565090023815,
+   "null_mean": 31.581423686894354,
+   "null_sd": 7.843652723860682,
+   "z": 1.6069224182742303,
+   "p": 0.06378
+  },
+  "thirds 32/33/32": {
+   "rows": [
+    {
+     "start": 1,
+     "end": 32,
+     "n": 32,
+     "text": "OBKRUOXOGHULBSOLIFBBWFLRVQQPRNGK",
+     "ioc": 0.046370967741935484,
+     "chi2_eng": 206.33528462242336,
+     "chi2_unif": 31.374999999999996,
+     "distinct": 17
+    },
+    {
+     "start": 33,
+     "end": 65,
+     "n": 33,
+     "text": "SSOTWTQSJQSSEKZZWATJKLUDIAWINFBNY",
+     "ioc": 0.043560606060606064,
+     "chi2_eng": 397.6175792931244,
+     "chi2_unif": 29.242424242424242,
+     "distinct": 18
+    },
+    {
+     "start": 66,
+     "end": 97,
+     "n": 32,
+     "text": "PVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR",
+     "ioc": 0.036290322580645164,
+     "chi2_eng": 297.046658091221,
+     "chi2_unif": 23.249999999999996,
+     "distinct": 19
+    }
+   ],
+   "G": 76.92229781507308,
+   "null_mean": 62.72598028689051,
+   "null_sd": 9.571585261311728,
+   "z": 1.4831730732801358,
+   "p": 0.07357
+  },
+  "quarters 24/24/24/25": {
+   "rows": [
+    {
+     "start": 1,
+     "end": 24,
+     "n": 24,
+     "text": "OBKRUOXOGHULBSOLIFBBWFLR",
+     "ioc": 0.06521739130434782,
+     "chi2_eng": 94.18219625366343,
+     "chi2_unif": 40.999999999999986,
+     "distinct": 13
+    },
+    {
+     "start": 25,
+     "end": 48,
+     "n": 24,
+     "text": "VQQPRNGKSSOTWTQSJQSSEKZZ",
+     "ioc": 0.06884057971014493,
+     "chi2_eng": 960.9197474515736,
+     "chi2_unif": 43.16666666666665,
+     "distinct": 14
+    },
+    {
+     "start": 49,
+     "end": 72,
+     "n": 24,
+     "text": "WATJKLUDIAWINFBNYPVTTMZF",
+     "ioc": 0.028985507246376812,
+     "chi2_eng": 110.86797264987158,
+     "chi2_unif": 19.33333333333333,
+     "distinct": 17
+    },
+    {
+     "start": 73,
+     "end": 97,
+     "n": 25,
+     "text": "PKWGDKZXTJCDIGKUHUAUEKCAR",
+     "ioc": 0.043333333333333335,
+     "chi2_eng": 207.4632278543587,
+     "chi2_unif": 28.04,
+     "distinct": 16
+    }
+   ],
+   "G": 115.72001714292534,
+   "null_mean": 91.07293167205222,
+   "null_sd": 10.041843426886267,
+   "z": 2.454438335981463,
+   "p": 0.009405
+  },
+  "OBKR vs rest 4/93": {
+   "rows": [
+    {
+     "start": 1,
+     "end": 4,
+     "n": 4,
+     "text": "OBKR",
+     "ioc": 0.0,
+     "chi2_eng": 52.74937346889696,
+     "chi2_unif": 22.0,
+     "distinct": 4
+    },
+    {
+     "start": 5,
+     "end": 97,
+     "n": 93,
+     "text": "UOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZWATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR",
+     "ioc": 0.03506311360448808,
+     "chi2_eng": 579.4830779932417,
+     "chi2_unif": 16.870967741935484,
+     "distinct": 26
+    }
+   ],
+   "G": 12.805017006374321,
+   "null_mean": 15.996423333839676,
+   "null_sd": 2.380499223020095,
+   "z": -1.34064581773586,
+   "p": 0.955965
+  },
+  "before/after the two X (7,79)": {
+   "rows": [
+    {
+     "start": 1,
+     "end": 6,
+     "n": 6,
+     "text": "OBKRUO",
+     "ioc": 0.06666666666666667,
+     "chi2_eng": 44.53001926944134,
+     "chi2_unif": 28.666666666666657,
+     "distinct": 5
+    },
+    {
+     "start": 7,
+     "end": 78,
+     "n": 72,
+     "text": "XOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZWATJKLUDIAWINFBNYPVTTMZFPKWGDK",
+     "ioc": 0.036384976525821594,
+     "chi2_eng": 507.2256003428126,
+     "chi2_unif": 21.166666666666668,
+     "distinct": 25
+    },
+    {
+     "start": 79,
+     "end": 97,
+     "n": 19,
+     "text": "ZXTJCDIGKUHUAUEKCAR",
+     "ioc": 0.03508771929824561,
+     "chi2_eng": 188.35773148840104,
+     "chi2_unif": 23.42105263157894,
+     "distinct": 14
+    }
+   ],
+   "G": 51.26746717532058,
+   "null_mean": 49.1035845594464,
+   "null_sd": 6.604973670740334,
+   "z": 0.3276141168374462,
+   "p": 0.353685
+  },
+  "pre-crib / cribbed span / post": {
+   "rows": [
+    {
+     "start": 1,
+     "end": 21,
+     "n": 21,
+     "text": "OBKRUOXOGHULBSOLIFBBW",
+     "ioc": 0.06666666666666667,
+     "chi2_eng": 99.36493384493245,
+     "chi2_unif": 39.66666666666667,
+     "distinct": 13
+    },
+    {
+     "start": 22,
+     "end": 74,
+     "n": 53,
+     "text": "FLRVQQPRNGKSSOTWTQSJQSSEKZZWATJKLUDIAWINFBNYPVTTMZFPK",
+     "ioc": 0.038461538461538464,
+     "chi2_eng": 638.0970681894519,
+     "chi2_unif": 25.0,
+     "distinct": 23
+    },
+    {
+     "start": 75,
+     "end": 97,
+     "n": 23,
+     "text": "WGDKZXTJCDIGKUHUAUEKCAR",
+     "ioc": 0.039525691699604744,
+     "chi2_eng": 187.89813546806386,
+     "chi2_unif": 25.60869565217391,
+     "distinct": 15
+    }
+   ],
+   "G": 75.49324868844629,
+   "null_mean": 60.432220390650535,
+   "null_sd": 8.719991725086832,
+   "z": 1.7271837832673833,
+   "p": 0.04799
+  },
+  "doubled-letter blocks": {
+   "rows": [
+    {
+     "start": 1,
+     "end": 18,
+     "n": 18,
+     "text": "OBKRUOXOGHULBSOLIF",
+     "ioc": 0.058823529411764705,
+     "chi2_eng": 75.32767788171502,
+     "chi2_unif": 34.0,
+     "distinct": 12
+    },
+    {
+     "start": 19,
+     "end": 25,
+     "n": 7,
+     "text": "BBWFLRV",
+     "ioc": 0.047619047619047616,
+     "chi2_eng": 64.31875849263015,
+     "chi2_unif": 26.42857142857143,
+     "distinct": 6
+    },
+    {
+     "start": 26,
+     "end": 32,
+     "n": 7,
+     "text": "QQPRNGK",
+     "ioc": 0.047619047619047616,
+     "chi2_eng": 601.9582367858022,
+     "chi2_unif": 26.428571428571427,
+     "distinct": 6
+    },
+    {
+     "start": 33,
+     "end": 42,
+     "n": 10,
+     "text": "SSOTWTQSJQ",
+     "ioc": 0.1111111111111111,
+     "chi2_eng": 480.8705332412301,
+     "chi2_unif": 42.00000000000001,
+     "distinct": 6
+    },
+    {
+     "start": 43,
+     "end": 46,
+     "n": 4,
+     "text": "SSEK",
+     "ioc": 0.16666666666666666,
+     "chi2_eng": 46.23462471417699,
+     "chi2_unif": 35.0,
+     "distinct": 3
+    },
+    {
+     "start": 47,
+     "end": 67,
+     "n": 21,
+     "text": "ZZWATJKLUDIAWINFBNYPV",
+     "ioc": 0.023809523809523808,
+     "chi2_eng": 324.62835641166566,
+     "chi2_unif": 17.38095238095238,
+     "distinct": 16
+    },
+    {
+     "start": 68,
+     "end": 97,
+     "n": 30,
+     "text": "TTMZFPKWGDKZXTJCDIGKUHUAUEKCAR",
+     "ioc": 0.03908045977011494,
+     "chi2_eng": 312.39956760282564,
+     "chi2_unif": 25.466666666666665,
+     "distinct": 18
+    }
+   ],
+   "G": 156.72352773013583,
+   "null_mean": 142.10542984498315,
+   "null_sd": 9.474750759979202,
+   "z": 1.5428477492936994,
+   "p": 0.06619
+  },
+  "K3-style rows of 7 (lag-7)": {
+   "rows": [
+    {
+     "start": 1,
+     "end": 7,
+     "n": 7,
+     "text": "OBKRUOX",
+     "ioc": 0.047619047619047616,
+     "chi2_eng": 131.54991175475922,
+     "chi2_unif": 26.42857142857143,
+     "distinct": 6
+    },
+    {
+     "start": 8,
+     "end": 14,
+     "n": 7,
+     "text": "OGHULBS",
+     "ioc": 0.0,
+     "chi2_eng": 24.88690758281004,
+     "chi2_unif": 19.0,
+     "distinct": 7
+    },
+    {
+     "start": 15,
+     "end": 21,
+     "n": 7,
+     "text": "OLIFBBW",
+     "ioc": 0.047619047619047616,
+     "chi2_eng": 51.30839768958559,
+     "chi2_unif": 26.42857142857143,
+     "distinct": 6
+    },
+    {
+     "start": 22,
+     "end": 28,
+     "n": 7,
+     "text": "FLRVQQP",
+     "ioc": 0.047619047619047616,
+     "chi2_eng": 598.7450748223063,
+     "chi2_unif": 26.428571428571427,
+     "distinct": 6
+    },
+    {
+     "start": 29,
+     "end": 35,
+     "n": 7,
+     "text": "RNGKSSO",
+     "ioc": 0.047619047619047616,
+     "chi2_eng": 34.05727406632389,
+     "chi2_unif": 26.428571428571427,
+     "distinct": 6
+    },
+    {
+     "start": 36,
+     "end": 42,
+     "n": 7,
+     "text": "TWTQSJQ",
+     "ioc": 0.09523809523809523,
+     "chi2_eng": 674.285320958216,
+     "chi2_unif": 33.85714285714285,
+     "distinct": 5
+    },
+    {
+     "start": 43,
+     "end": 49,
+     "n": 7,
+     "text": "SSEKZZW",
+     "ioc": 0.09523809523809523,
+     "chi2_eng": 844.0862420711934,
+     "chi2_unif": 33.857142857142854,
+     "distinct": 5
+    },
+    {
+     "start": 50,
+     "end": 56,
+     "n": 7,
+     "text": "ATJKLUD",
+     "ioc": 0.0,
+     "chi2_eng": 122.19988825938765,
+     "chi2_unif": 19.0,
+     "distinct": 7
+    },
+    {
+     "start": 57,
+     "end": 63,
+     "n": 7,
+     "text": "IAWINFB",
+     "ioc": 0.047619047619047616,
+     "chi2_eng": 27.11190724583223,
+     "chi2_unif": 26.42857142857143,
+     "distinct": 6
+    },
+    {
+     "start": 64,
+     "end": 70,
+     "n": 7,
+     "text": "NYPVTTM",
+     "ioc": 0.047619047619047616,
+     "chi2_eng": 36.58345861037414,
+     "chi2_unif": 26.428571428571427,
+     "distinct": 6
+    },
+    {
+     "start": 71,
+     "end": 77,
+     "n": 7,
+     "text": "ZFPKWGD",
+     "ioc": 0.0,
+     "chi2_eng": 245.93073184102724,
+     "chi2_unif": 18.999999999999996,
+     "distinct": 7
+    },
+    {
+     "start": 78,
+     "end": 84,
+     "n": 7,
+     "text": "KZXTJCD",
+     "ioc": 0.0,
+     "chi2_eng": 416.18897916499986,
+     "chi2_unif": 18.999999999999996,
+     "distinct": 7
+    },
+    {
+     "start": 85,
+     "end": 91,
+     "n": 7,
+     "text": "IGKUHUA",
+     "ioc": 0.047619047619047616,
+     "chi2_eng": 45.4742688887638,
+     "chi2_unif": 26.428571428571427,
+     "distinct": 6
+    },
+    {
+     "start": 92,
+     "end": 97,
+     "n": 6,
+     "text": "UEKCAR",
+     "ioc": 0.0,
+     "chi2_eng": 33.814807599421414,
+     "chi2_unif": 19.999999999999993,
+     "distinct": 6
+    }
+   ],
+   "G": 267.32562443247326,
+   "null_mean": 264.66518256059834,
+   "null_sd": 7.735859007024017,
+   "z": 0.34391033619657374,
+   "p": 0.389915
+  }
+ },
+ "changepoint": {
+  "best_split": 44,
+  "best_G": 53.26503639403699,
+  "p_familywise": 0.04785,
+  "null_mean": 41.55529114764831,
+  "null_sd": 6.514138133524789
+ }
+}

@@ -1,0 +1,74 @@
+============================================================================================================
+TABLE P1 -- best English score reachable by a periodic key of period p, cribs pinned
+============================================================================================================
+  p  free  impossible  best quad                                    combo  null best   excess
+ 27     3        0/24    -1.5047     beaufort/pt=plain/ct=keyed/key=plain    -1.6862  +0.1815
+ 28     4        0/24    -1.4457     beaufort/pt=keyed/ct=keyed/key=plain    -1.6661  +0.2204
+ 29     5        0/24    -1.4325  varbeaufort/pt=keyed/ct=plain/key=plain    -1.6355  +0.2029
+ 30     7       24/24 -1000000000.0000                                        -    -1.6475 -999999998.3525
+ 31     9       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 32    11       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 33    13       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 34    15       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 35    17       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 36    19       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 37    21       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 38    23       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 39    25       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 40    27       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 41    28       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 42    29       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 43    29       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 44    29       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 45    29       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 46    29       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 47    29       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 48    29       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 49    29       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 50    29       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 51    29       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 52    29       24/24 -1000000000.0000                                        - -1000000000.0000  +0.0000
+ 53    29        0/24    -1.1530     beaufort/pt=keyed/ct=plain/key=plain    -1.3596  +0.2066
+ 54    30        0/24    -1.1653     beaufort/pt=plain/ct=keyed/key=plain    -1.2986  +0.1332
+ 55    31        0/24    -1.1029  varbeaufort/pt=plain/ct=keyed/key=plain    -1.3370  +0.2341
+ 56    32        0/24    -1.0718     vigenere/pt=keyed/ct=keyed/key=plain    -1.3359  +0.2641
+ 57    33        0/24    -1.1098     beaufort/pt=keyed/ct=keyed/key=plain    -1.2775  +0.1676
+
+Reference: held-out English -0.741+-0.077; Sanborn K1-K3 plaintext -0.967+-0.087;
+crib-pinned random -1.646.  A real periodic key would put the K4 column in the
+Sanborn band AND far above the null column.
+
+Best decryptions found (crib letters lower-cased):
+  p=56 vigenere/pt=keyed/ct=keyed/key=plain     quad -1.0718 (null -1.3359)
+     key GCELFBQLRCFPLJIHUARBFBKVSBPCXFCTACRTBXDRGCLAHSOSGSFFQIFK
+     pt  ZSVJJTBQVFJYWWWDUFLAMeastnortheastHEVALIDMUSTBEALIZEDCJKCONTHEMberlinclockSFOZIPFIQBMBXYHNJYDPSJU
+  p=55 varbeaufort/pt=plain/ct=keyed/key=plain  quad -1.1029 (null -1.3370)
+     key IPMKPUIEICOPEJKMCZKGESJRXTUOSORAMNCEVDZIPOHYGAUPURPREAJ
+     pt  NXMLKZGJVQJGMPPDRLSOBeastnortheastHISHTOFINERATORYTHERESETHENUMberlinclockDRCJQVXKXCDEAHBXLQOZRWP
+  p=28 beaufort/pt=keyed/ct=keyed/key=plain     quad -1.4457 (null -1.6661)
+     key FHYHMKLBNENTXBQRMAPMOXYHANZE
+     pt  KZXSLOGVKJMYIUEKWHATLeastnortheastSWJKNGAADERKJGLJQLKVTQJKRMNXPberlinclockMZTWZCVWJQJQXFXITSYTTFV
+  p=53 beaufort/pt=keyed/ct=plain/key=plain     quad -1.1530 (null -1.3596)
+     key ZFWMTHTXJGVJQMIMVQKYKQSXZJVQVBRRYWCEXLVNPVWGPTZLLREPH
+     pt  ETFUZNVCPZRXIQQRGECWHeastnortheastHERMOUSOTHECKFILESWHENTNEEDTOberlinclockQFQIDXWFZHCMFBWPERCONVI
+  p=29 varbeaufort/pt=keyed/ct=plain/key=plain  quad -1.4325 (null -1.6355)
+     key BFXOMVNMWWAXSAUQKAABMGWPJDPMN
+     pt  ISAOSCDKYPQBNMBRMORYBeastnortheastCSBIFMSBMFQQZZWFZOZQWMQGWGDNGberlinclockSSPEEPIXESWMWUFLHSZWHVG
+  p=27 beaufort/pt=plain/ct=keyed/key=plain     quad -1.5047 (null -1.6862)
+     key UUARAYZTBUGUHMRUKAFKBQRTPHI
+     pt  PMAQFTBOOGLDZGMDVOXCEeastnortheastOXXCABWXOEPFLCTKPZHRZKLKDJGHTberlinclockEDHTQJEELQCNYEFGNLJHDKT
+  p=57 beaufort/pt=keyed/ct=keyed/key=plain     quad -1.1098 (null -1.2775)
+     key KKAMXFBNENTXBQRMAIPZSXYHANZEFHYHMKTLQOMNFNVZPOKFIQIVBTEKN
+     pt  OYKEYKPBLZXSNDFUEVALUeastnortheastHANDMAININTHESECTORYCKXPGENEWberlinclockEYIMXKPDTIIMAPNLPXKJOOF
+  p=54 beaufort/pt=plain/ct=keyed/key=plain     quad -1.1653 (null -1.2986)
+     key YDDAETVAUUGUHMRUKAFKBQRTPHIUUARAYZTEMPUISYVZCAHRZHRQTV
+     pt  TVDZJOXVHGLDZGMDVOXCEeastnortheastOAPLACCEPTRAISCANATEDTOTHECOMberlinclockEDHTQJEELQCNYEFJFUJIJRU
+
+============================================================================================================
+Periods above 57 are NOT TESTED and CANNOT BE: with >= 34 free key letters, 26^free
+exceeds the 10^48.3 dilution factor, so chance alone supplies an English-looking
+decryption.  Any 'solution' found there is a fit, not a finding.
+
+real	2m56.947s
+user	1m8.426s
+sys	0m0.446s

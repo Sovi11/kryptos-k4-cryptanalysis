@@ -1,0 +1,308 @@
+=== (a) transposition + non-periodic substitution ===
+verification: synthetic keystream recovered=True  intermediate round trip=True  identity-T matches runningkey.md table for all 24 combos=True
+distinct crib images T[j] over the catalogue: 726578
+distinct intermediate crib letter patterns: 721882
+corpus index: 3432 text variants (66 texts x 26 rotations x 2 alphabet orderings), 249780 distinct 13-grams, 237458 distinct 11-grams, 334082 distinct joint (o,o+42) pairs
+
+-- periodic key test (S-then-T; key positions are the fixed crib positions)
+   NB the two crib blocks start 42 apart, so periods above 26 are NOT all
+   vacuous: p=42 still imposes 11 checks.
+   p : checks  chance/row      configs tested   survivors   min violations
+    1 : 23      2.86e-33         5,812,624            0   (chance-expected 0.00)  min viol 15
+    2 : 22      7.42e-32         5,812,624            0   (chance-expected 0.00)  min viol 14
+    3 : 21      1.93e-30         5,812,624            0   (chance-expected 0.00)  min viol 13
+    4 : 20      5.02e-29         5,812,624            0   (chance-expected 0.00)  min viol 12
+    5 : 19      1.3e-27         5,812,624            0   (chance-expected 0.00)  min viol 11
+    6 : 18      3.39e-26         5,812,624            0   (chance-expected 0.00)  min viol 11
+    7 : 17      8.82e-25         5,812,624            0   (chance-expected 0.00)  min viol 10
+    8 : 16      2.29e-23         5,812,624            0   (chance-expected 0.00)  min viol 9
+    9 : 15      5.96e-22         5,812,624            0   (chance-expected 0.00)  min viol 8
+   10 : 14      1.55e-20         5,812,624            0   (chance-expected 0.00)  min viol 7
+   11 : 13      4.03e-19         5,812,624            0   (chance-expected 0.00)  min viol 7
+   12 : 12      1.05e-17         5,812,624            0   (chance-expected 0.00)  min viol 6
+   13 : 11      2.72e-16         5,812,624            0   (chance-expected 0.00)  min viol 5
+   14 : 11      2.72e-16         5,812,624            0   (chance-expected 0.00)  min viol 5
+   15 :  9      1.84e-13         5,812,624            0   (chance-expected 0.00)  min viol 3
+   16 :  8      4.79e-12         5,812,624            0   (chance-expected 0.00)  min viol 2
+   17 :  7      1.25e-10         5,812,624            0   (chance-expected 0.00)  min viol 2
+   18 :  7      1.25e-10         5,812,624            0   (chance-expected 0.00)  min viol 1
+   19 :  9      1.84e-13         5,812,624            0   (chance-expected 0.00)  min viol 3
+   20 : 11      2.72e-16         5,812,624            0   (chance-expected 0.00)  min viol 5
+   21 : 11      2.72e-16         5,812,624            0   (chance-expected 0.00)  min viol 5
+   22 :  9      1.84e-13         5,812,624            0   (chance-expected 0.00)  min viol 4
+   23 :  7      1.25e-10         5,812,624            0   (chance-expected 0.00)  min viol 2
+   24 :  5      8.42e-08         5,812,624            0   (chance-expected 0.49)  min viol 1
+   25 :  3      5.69e-05         5,812,624          339   (chance-expected 330.71)  min viol 0
+   26 :  1      0.0385         5,812,624      219,688   (chance-expected 223,562.46)  min viol 0
+   27 :  0      1         5,812,624    5,812,624   (chance-expected 5,812,624.00)  min viol 0
+   28 :  0      1         5,812,624    5,812,624   (chance-expected 5,812,624.00)  min viol 0
+   29 :  0      1         5,812,624    5,812,624   (chance-expected 5,812,624.00)  min viol 0
+   30 :  1      0.0385         5,812,624      223,570   (chance-expected 223,562.46)  min viol 0
+   31 :  2      0.00148         5,812,624        9,253   (chance-expected 8,598.56)  min viol 0
+   32 :  3      5.69e-05         5,812,624          320   (chance-expected 330.71)  min viol 0
+   33 :  4      2.19e-06         5,812,624           14   (chance-expected 12.72)  min viol 0
+   34 :  5      8.42e-08         5,812,624            2   (chance-expected 0.49)  min viol 0
+   35 :  6      3.24e-09         5,812,624            0   (chance-expected 0.02)  min viol 2
+   36 :  7      1.25e-10         5,812,624            0   (chance-expected 0.00)  min viol 1
+   37 :  8      4.79e-12         5,812,624            0   (chance-expected 0.00)  min viol 3
+   38 :  9      1.84e-13         5,812,624            0   (chance-expected 0.00)  min viol 3
+   39 : 10      7.08e-15         5,812,624            0   (chance-expected 0.00)  min viol 4
+   40 : 11      2.72e-16         5,812,624            0   (chance-expected 0.00)  min viol 5
+   41 : 11      2.72e-16         5,812,624            0   (chance-expected 0.00)  min viol 5
+   42 : 11      2.72e-16         5,812,624            0   (chance-expected 0.00)  min viol 5
+   43 : 10      7.08e-15         5,812,624            0   (chance-expected 0.00)  min viol 5
+   44 :  9      1.84e-13         5,812,624            0   (chance-expected 0.00)  min viol 4
+   45 :  8      4.79e-12         5,812,624            0   (chance-expected 0.00)  min viol 3
+   46 :  7      1.25e-10         5,812,624            0   (chance-expected 0.00)  min viol 2
+   47 :  6      3.24e-09         5,812,624            0   (chance-expected 0.02)  min viol 1
+   48 :  5      8.42e-08         5,812,624            0   (chance-expected 0.49)  min viol 1
+   49 :  4      2.19e-06         5,812,624           29   (chance-expected 12.72)  min viol 0
+   50 :  3      5.69e-05         5,812,624          339   (chance-expected 330.71)  min viol 0
+   51 :  2      0.00148         5,812,624        7,981   (chance-expected 8,598.56)  min viol 0
+   52 :  1      0.0385         5,812,624      219,688   (chance-expected 223,562.46)  min viol 0
+   53 :  0      1         5,812,624    5,812,624   (chance-expected 5,812,624.00)  min viol 0
+   54 :  0      1         5,812,624    5,812,624   (chance-expected 5,812,624.00)  min viol 0
+   55 :  0      1         5,812,624    5,812,624   (chance-expected 5,812,624.00)  min viol 0
+   56 :  0      1         5,812,624    5,812,624   (chance-expected 5,812,624.00)  min viol 0
+   57 :  0      1         5,812,624    5,812,624   (chance-expected 5,812,624.00)  min viol 0
+   58 :  0      1         5,812,624    5,812,624   (chance-expected 5,812,624.00)  min viol 0
+   59 :  0      1         5,812,624    5,812,624   (chance-expected 5,812,624.00)  min viol 0
+   60 :  0      1         5,812,624    5,812,624   (chance-expected 5,812,624.00)  min viol 0
+   periods with >= 5 checks (chance <= 8.4e-8 per configuration): [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48]
+   survivors at those periods (chance-expected 1.51): 2
+     !! (34, 'vigenere/pt=keyed/ct=plain/key=plain', 124025, 'columnar-allperm: w=9 order=(1, 3, 5, 7, 8, 2, 4, 0, 6)', 'HOPDAFYNUDMKQUDMKQUBSOUG')
+        period 34: 19/34 key columns determined -> 15 columns unknown; key = UBSOUG...............HOPDAFYNUDMKQ
+     !! (34, 'vigenere/pt=keyed/ct=plain/key=plain', 124037, 'columnar-allperm: w=9 order=(1, 3, 5, 8, 7, 2, 4, 0, 6)', 'HOPDROYNUDMKQUDMKQUBCEUG')
+        period 34: 19/34 key columns determined -> 15 columns unknown; key = UBCEUG...............HOPDROYNUDMKQ
+
+-- corpus running-key test and English test (all 24 combos)
+   exact 13-gram (EASTNORTHEAST block) corpus hits: 0
+   exact 11-gram (BERLINCLOCK block) corpus hits:   0
+   exact JOINT (both blocks, gap 42) corpus hits:   0
+   comparisons: 17,437,872 (T x combo) against 249,780 13-grams / 237,458 11-grams / 334,082 joint pairs
+   chance expectation: 13-gram 1.76e-06, 11-gram 0.00113, joint 6.4e-22
+
+   top 15 key streams by quadgram score (English prose ~ -4.7, uniform random ~ -8.2):
+     -6.699  varbeaufort/pt=plain/ct=keyed/key=keyed    TEMQANGIEPNNU / XXJSVCMPOYQ   columnar-allperm: w=9 order=(3, 7, 2, 1, 5, 4, 0, 6, 8)
+     -6.726  varbeaufort/pt=keyed/ct=keyed/key=plain    ECJWNFXBYWMWJ / JYGJJTAXGSB   columnar-keyword: w=12 keyword=CHAPELMASTER order=(2, 7, 0, 4, 10, 1, 
+     -6.766  varbeaufort/pt=plain/ct=keyed/key=keyed    TKPQANGIEPREU / XXJSTRMPOYQ   columnar-allperm: w=9 order=(3, 7, 2, 1, 4, 5, 0, 6, 8)
+     -6.802  varbeaufort/pt=keyed/ct=keyed/key=keyed    LFYLYTBXEWLVI / XATTEBPLJNH   columnar-allperm: w=8 order=(2, 1, 5, 4, 7, 3, 0, 6)
+     -6.805  varbeaufort/pt=keyed/ct=keyed/key=keyed    AGELYTBXXBNVI / WATTEBQEONH   columnar-allperm: w=8 order=(2, 1, 6, 4, 5, 3, 0, 7)
+     -6.806  beaufort/pt=keyed/ct=plain/key=plain       BLYALTLWPADQB / RFXEPLOZZFW   columnar-keyword: w=15 keyword=PHYTOPHYLOGENIC order=(14, 11, 10, 1, 6
+     -6.851  varbeaufort/pt=plain/ct=plain/key=plain    APPYMEDZIUJKA / LUPLTAXGAKI   columnar-allperm: w=9 order=(8, 7, 4, 0, 3, 5, 6, 2, 1)
+     -6.855  vigenere/pt=keyed/ct=keyed/key=plain       EKPPEMFWOCSII / HXIPRBQOZFQ   columnar-keyword: w=14 keyword=ERYTHROPHYLLIN order=(0, 4, 8, 12, 10, 
+     -6.864  beaufort/pt=plain/ct=plain/key=keyed       CMPIEBJZLGACZ / WPMPRIEPYVE   columnar-keyword: w=14 keyword=GALACTOPHAGOUS order=(1, 3, 9, 4, 0, 10
+     -6.894  varbeaufort/pt=keyed/ct=plain/key=plain    MOLWALNNPOOQE / HXIOAGEIDIU   columnar-allperm: w=9 order=(1, 0, 5, 7, 2, 6, 4, 3, 8)
+     -6.910  vigenere/pt=plain/ct=keyed/key=keyed       DVFSFJSBXLQOS / ARLIEPHZFLP   columnar-allperm: w=9 order=(1, 2, 4, 5, 6, 0, 8, 7, 3)
+     -6.916  vigenere/pt=plain/ct=keyed/key=plain       WPWLXHADFGAOG / LWSEVPWUSFU   columnar-keyword: w=13 keyword=UNINTELLIGENT order=(5, 10, 9, 2, 8, 6,
+     -6.930  vigenere/pt=plain/ct=plain/key=plain       DRLRXATALQVQG / ZBOZJAADERF   columnar-allperm: w=9 order=(7, 2, 4, 8, 0, 5, 1, 6, 3)
+     -6.935  varbeaufort/pt=plain/ct=plain/key=keyed    KOIMPKWXBQADR / LGIEPKWWVKW   columnar-allperm: w=9 order=(7, 6, 1, 8, 3, 5, 4, 2, 0)
+     -6.936  beaufort/pt=plain/ct=keyed/key=plain       UUAFNSIFOKAYZ / QHPACALIDBW   columnar-keyword: w=10 keyword=NONGRAVITY order=(5, 3, 7, 0, 2, 1, 4, 
+   matched random control (17,500,000 draws of 24 letters sampled without replacement from the ciphertext): max=-6.809, median=-8.321, 99th=-7.781, 99.99th=-7.361
+   upper tail, observed (all 17,437,872 real key streams) vs control (17,500,000 random draws), counts above each threshold:
+      score > -7.4 : observed     1,074   control-scaled          823
+      score > -7.2 : observed        78   control-scaled           57
+      score > -7.0 : observed        10   control-scaled            3
+      score > -6.8 : observed         1   control-scaled            0
+      score > -6.6 : observed         0   control-scaled            0
+
+-- periodic key test (T-then-S; key positions are the scattered T[j])
+   p :   configs tested     survivors    chance-expected
+    1 :    5,812,624            0   0.00
+    2 :    5,812,624            0   0.00
+    3 :    5,812,624            0   0.00
+    4 :    5,812,624            0   0.00
+    5 :    5,812,624            0   0.00
+    6 :    5,812,624            0   0.00
+    7 :    5,812,624            0   0.00
+    8 :    5,812,624            0   0.00
+    9 :    5,812,624            0   0.00
+   10 :    5,812,624            0   0.00
+   11 :    5,812,624            0   0.00
+   12 :    5,812,624            0   0.00
+   13 :    5,812,624            0   0.00
+   14 :    5,812,624            0   0.00
+   15 :    5,812,624            0   0.00
+   16 :    5,812,624            0   0.00
+   17 :    5,812,624            0   0.00
+   18 :    5,812,624            0   0.00
+   19 :    5,812,624            0   0.01
+   20 :    5,812,624            0   0.19
+   21 :    5,812,624            0   0.97
+   22 :    5,812,624           26   23.83
+   23 :    5,812,624          261   268.82
+   24 :    5,812,624        1,823   1,725.76
+   25 :    5,812,624        2,966   3,012.56
+   26 :    5,812,624       11,528   11,547.29
+   27 :    5,812,624        9,193   9,263.64
+   28 :    5,812,624       25,197   25,168.15
+   29 :    5,812,624       21,074   21,127.05
+   30 :    5,812,624       32,514   32,945.12
+   31 :    5,812,624      217,064   210,650.27
+   32 :    5,812,624       85,478   85,496.98
+   33 :    5,812,624       78,866   78,951.70
+   34 :    5,812,624      364,998   366,088.88
+   35 :    5,812,624      125,883   124,823.36
+   36 :    5,812,624       92,208   92,213.19
+   37 :    5,812,624      128,767   128,366.21
+   38 :    5,812,624      183,275   183,328.35
+   39 :    5,812,624      144,036   143,407.27
+   40 :    5,812,624      206,426   209,337.96
+   41 :    5,812,624      244,979   238,310.22
+   42 :    5,812,624      362,766   361,203.09
+   43 :    5,812,624      238,121   237,508.52
+   44 :    5,812,624      234,538   236,871.51
+   45 :    5,812,624      812,366   835,625.98
+   46 :    5,812,624    2,016,481   2,032,139.63
+   47 :    5,812,624      789,059   786,940.17
+   48 :    5,812,624      445,521   445,469.76
+   49 :    5,812,624      552,935   553,314.07
+   50 :    5,812,624    1,098,672   1,093,268.53
+   51 :    5,812,624    3,333,645   3,334,425.05
+   52 :    5,812,624    2,714,565   2,721,963.53
+   53 :    5,812,624      798,892   803,823.42
+   54 :    5,812,624      648,532   648,178.37
+   55 :    5,812,624    1,228,012   1,228,577.62
+   56 :    5,812,624    3,106,421   3,107,342.22
+   57 :    5,812,624    2,588,328   2,588,498.88
+   58 :    5,812,624    1,132,715   1,132,854.21
+   59 :    5,812,624      944,180   944,950.05
+   60 :    5,812,624      822,870   824,982.85
+   survivors at strong periods (listed, truncated per period/combo): 1386
+     !! (22, 'vigenere/pt=plain/ct=plain/key=plain', 553512, 'modular: M=101 a=91 b=81 [inv]', 'GNTZFDBYVEWGBYPYUGUXIIUG')
+     !! (22, 'vigenere/pt=plain/ct=plain/key=plain', 673419, 'modular: M=99 a=74 b=19 [inv]', 'DNYZHNCIDBWTNQNTZHXBYCZW')
+     !! (22, 'vigenere/pt=plain/ct=keyed/key=plain', 152637, 'columnar-keyword: w=10 keyword=GLYCOLURIL order=(3, 0, 8, 1, 5, 9, 4, 7, 6, 2) [inv]', 'EBCEKQIVBNMIBUYGEBSKSQXX')
+     !! (22, 'vigenere/pt=plain/ct=keyed/key=plain', 152794, 'columnar-keyword: w=10 keyword=QUADRATICS order=(2, 5, 8, 3, 7, 0, 4, 9, 6, 1) [inv]', 'EBCEKQIVUCBONUYGEBBGISFF')
+     !! (22, 'vigenere/pt=plain/ct=keyed/key=plain', 153157, 'columnar-keyword: w=10 keyword=ANTRONASAL order=(0, 6, 8, 9, 1, 5, 4, 3, 7, 2) [inv]', 'EBCEKQIVHETOOUYGEBOEQSEH')
+     !! (22, 'vigenere/pt=keyed/ct=plain/key=plain', 159946, 'modular: M=103 a=51 b=31', 'LUCKIPFTGZHUGKISBVUGZMWB')
+     !! (22, 'vigenere/pt=keyed/ct=plain/key=plain', 695284, 'modular: M=99 a=47 b=93 [inv]', 'PJAOAMFNLQIMJKMOFWTWHWZO')
+     !! (22, 'vigenere/pt=keyed/ct=plain/key=plain', 703978, 'modular: M=99 a=65 b=47 [inv]', 'JTLDBRFFRRPITDIYKVZYFEOF')
+     !! (22, 'vigenere/pt=keyed/ct=keyed/key=plain', 628279, 'columnar-keyword: w=13 keyword=MESOPTERYGIAL order=(11, 1, 6, 9, 10, 12, 0, 3, 4, 7, 2, 5, 8) [inv]', 'EHLAEHWRHQQBEHHIQQEXIKUN')
+     !! (22, 'beaufort/pt=plain/ct=plain/key=plain', 167095, 'columnar-keyword: w=10 keyword=GIDDYBRAIN order=(7, 5, 2, 3, 0, 1, 8, 9, 6, 4) [inv]', 'PSKDODTXYWRKLXAKKPUDYGCS')
+     !! (22, 'beaufort/pt=plain/ct=plain/key=plain', 437988, 'route: grid 3x38 fill=row route=spiral-out tl ccw', 'MAOBATSGFTVLMMYYRWKQFFML')
+     !! (22, 'beaufort/pt=plain/ct=plain/key=plain', 438110, 'columnar-allperm: w=7 order=(6, 0, 3, 4, 2, 1, 5) [inv]', 'MNRDVIINMZKIDXTGISXDRZNX')
+     !! (22, 'beaufort/pt=plain/ct=plain/key=plain', 502018, 'modular: M=103 a=52 b=88', 'ZTRIJRQMJMKZTAEAWLNKQBRD')
+     !! (22, 'beaufort/pt=plain/ct=plain/key=plain', 502019, 'modular: M=101 a=51 b=87', 'ZTRIJRQMJMKZTBNCOIVHYDVW')
+     !! (22, 'beaufort/pt=plain/ct=plain/key=plain', 502020, 'modular: M=99 a=50 b=86', 'ZTRIJRQMJMKZTKPULQSPAHOP')
+     !! (22, 'beaufort/pt=plain/ct=plain/key=plain', 502021, 'modular: M=97 a=2 b=24 [inv]', 'ZTRIJRQMJMKZTMHRTNAREAHU')
+     !! (22, 'beaufort/pt=plain/ct=plain/key=plain', 502022, 'route: grid 3x37 fill=row route=diag-main desc rev', 'ZTRIJRQMJMKZTHOOULTWFIMK')
+     !! (22, 'beaufort/pt=keyed/ct=plain/key=plain', 74263, 'modular: M=99 a=52 b=52 [inv]', 'RUYTUESKFEZMUDMGMSGSFPBU')
+     !! (22, 'beaufort/pt=keyed/ct=plain/key=plain', 123605, 'modular: M=99 a=52 b=57 [inv]', 'DWHDKLSXGRXGWNGEEYHTJZNR')
+     !! (22, 'beaufort/pt=keyed/ct=plain/key=plain', 162551, 'modular: M=99 a=49 b=81', 'QILPLQISCCIXGEZTXGJECBKI')
+     !! (22, 'beaufort/pt=keyed/ct=plain/key=plain', 321500, 'route: grid 2x64 fill=row route=boust-cols r-1c1', 'DRFEMQVEKQIVZZZSLDZUSQRB')
+     !! (22, 'beaufort/pt=keyed/ct=plain/key=plain', 631352, 'columnar-keyword: w=13 keyword=PETROSTEARINE order=(8, 1, 7, 12, 10, 11, 4, 0, 3, 9, 5, 2, 6) [inv]', 'RIWUCDLEICDGFLEKTWECNKFU')
+     !! (22, 'beaufort/pt=keyed/ct=keyed/key=plain', 159989, 'route: grid 2x52 fill=row route=spiral-in bl ccw [inv]', 'ITXFPZVHPEUGKIYQBYJNPEJK')
+     !! (22, 'beaufort/pt=keyed/ct=keyed/key=plain', 382389, 'modular: M=99 a=20 b=25 [inv]', 'SZBZGJALFLXSZQFYQXZYPKGQ')
+     !! (22, 'beaufort/pt=keyed/ct=keyed/key=plain', 403796, 'columnar-allperm: w=7 order=(0, 5, 6, 1, 3, 4, 2) [inv]', 'GTKRCACCUIKLYXHBVKCEINDG')
+     !! (22, 'beaufort/pt=keyed/ct=keyed/key=plain', 484045, 'modular: M=98 a=81 b=30 [inv]', 'OEGJAENPRGCDLMICGTXPGJCZ')
+     !! (23, 'vigenere/pt=plain/ct=plain/key=plain', 3213, 'columnar-keyword: w=14 keyword=MISDESCRIPTION order=(6, 3, 4, 1, 8, 11, 0, 13, 12, 9, 7, 2, 5, 10) [inv]', 'XLVZNRPNESTGGQPSEPXMUFYD')
+     !! (23, 'vigenere/pt=plain/ct=plain/key=plain', 3226, 'columnar-keyword: w=14 keyword=THORACOSCHISIS order=(4, 5, 8, 1, 9, 10, 12, 2, 6, 3, 7, 11, 13, 0) [inv]', 'XLVZNRPOKPJXEQBTZAXSDRRQ')
+     !! (23, 'vigenere/pt=plain/ct=plain/key=plain', 58709, 'columnar-allperm: w=9 order=(3, 7, 1, 0, 2, 5, 6, 8, 4)', 'GHQAFLCCSNUIARNCDCSNQPHD')
+     !! (23, 'vigenere/pt=plain/ct=plain/key=plain', 58733, 'columnar-allperm: w=9 order=(3, 8, 1, 0, 2, 5, 6, 7, 4)', 'GHQAMECCSNUIARNCDCSNSNHD')
+     !! (23, 'vigenere/pt=plain/ct=plain/key=plain', 81482, 'columnar-keyword: w=13 keyword=UNFOUNDEDNESS order=(6, 8, 7, 10, 2, 1, 5, 9, 3, 11, 12, 0, 4) [inv]', 'QREHOSQRENQCACPSRDIRIZBK')
+     !! (23, 'vigenere/pt=plain/ct=plain/key=plain', 198528, 'modular: M=98 a=5 b=12 [inv]', 'RNWZRMDPRIWFPPOFAOARZLBX')
+     !! (23, 'vigenere/pt=plain/ct=plain/key=plain', 262927, 'columnar-keyword: w=11 keyword=ADJUSTATION order=(0, 6, 1, 8, 2, 10, 9, 4, 5, 7, 3) [inv]', 'KKQAMGPIZMKVDPPFXRWCDUNG')
+     !! (23, 'vigenere/pt=plain/ct=plain/key=plain', 286670, 'columnar-keyword: w=11 keyword=COELIOSCOPY order=(0, 7, 2, 4, 3, 1, 5, 8, 9, 6, 10) [inv]', 'PZIAKMDSJPWQGFXPFCAUVDFM')
+     !! (23, 'vigenere/pt=plain/ct=plain/key=plain', 295382, 'double-columnar: w1=42 w2=43', 'SJMDXUWFMLDBPPOIIMJZKLUP')
+     !! (23, 'vigenere/pt=plain/ct=plain/key=plain', 295383, 'double-columnar: w1=41 w2=44', 'SJMDXUWFMLDBPRVCJOOTOIXS')
+     !! (23, 'vigenere/pt=plain/ct=keyed/key=plain', 61789, 'columnar-keyword: w=14 keyword=ANACHRONICALLY order=(0, 2, 10, 3, 9, 4, 8, 11, 12, 1, 7, 6, 5, 13) [inv]', 'XMIHCMEVUAQLFHNCVZZLUYCX')
+     !! (23, 'vigenere/pt=plain/ct=keyed/key=plain', 64718, 'columnar-keyword: w=14 keyword=PERSENTISCENCY order=(9, 12, 1, 4, 10, 7, 5, 11, 0, 2, 3, 8, 6, 13) [inv]', 'RIOGGJXCPQAELZLWAPQYQYYQ')
+     !! (23, 'vigenere/pt=plain/ct=keyed/key=plain', 68557, 'columnar-keyword: w=14 keyword=DISINFEUDATION order=(9, 0, 8, 6, 5, 1, 3, 11, 4, 13, 12, 2, 10, 7) [inv]', 'UXNEVWQMBCZUUFZDZKXGJCTU')
+     !! (23, 'vigenere/pt=plain/ct=keyed/key=plain', 69930, 'modular: M=98 a=59 b=0', 'BIUYQSNNSWHQLLQJMMMOEYUC')
+
+-- periodic key test (S-then-T, CT-reading: fixed key values at the relocated positions T^-1[c])
+   p :   configs tested     survivors    chance-expected
+   distinct T^-1 crib images: 726,578
+    1 :    5,812,624            0   0.00
+    2 :    5,812,624            0   0.00
+    3 :    5,812,624            0   0.00
+    4 :    5,812,624            0   0.00
+    5 :    5,812,624            0   0.00
+    6 :    5,812,624            0   0.00
+    7 :    5,812,624            0   0.00
+    8 :    5,812,624            0   0.00
+    9 :    5,812,624            0   0.00
+   10 :    5,812,624            0   0.00
+   11 :    5,812,624            0   0.00
+   12 :    5,812,624            0   0.00
+   13 :    5,812,624            0   0.00
+   14 :    5,812,624            0   0.00
+   15 :    5,812,624            0   0.00
+   16 :    5,812,624            0   0.00
+   17 :    5,812,624            0   0.00
+   18 :    5,812,624            0   0.00
+   19 :    5,812,624            0   0.01
+   20 :    5,812,624            0   0.19
+   21 :    5,812,624            0   0.97
+   22 :    5,812,624           29   23.83
+   23 :    5,812,624          314   268.82
+   24 :    5,812,624        1,221   1,725.76
+   25 :    5,812,624        2,934   3,012.56
+   26 :    5,812,624       13,012   11,547.29
+   27 :    5,812,624        9,870   9,263.64
+   28 :    5,812,624       25,571   25,168.15
+   29 :    5,812,624       21,426   21,127.05
+   30 :    5,812,624       32,767   32,945.12
+   31 :    5,812,624      221,036   210,650.27
+   32 :    5,812,624       85,876   85,496.98
+   33 :    5,812,624       78,984   78,951.70
+   34 :    5,812,624      386,555   366,088.88
+   35 :    5,812,624      124,975   124,823.36
+   36 :    5,812,624       94,582   92,213.19
+   37 :    5,812,624      132,030   128,366.21
+   38 :    5,812,624      183,355   183,328.35
+   39 :    5,812,624      153,799   143,407.27
+   40 :    5,812,624      217,652   209,337.96
+   41 :    5,812,624      308,543   238,310.22
+   42 :    5,812,624      371,650   361,203.09
+   43 :    5,812,624      241,272   237,508.52
+   44 :    5,812,624      240,951   236,871.51
+   45 :    5,812,624      897,080   835,625.98
+   46 :    5,812,624    2,039,179   2,032,139.63
+   47 :    5,812,624      806,145   786,940.17
+   48 :    5,812,624      447,245   445,469.76
+   49 :    5,812,624      554,544   553,314.07
+   50 :    5,812,624    1,114,842   1,093,268.53
+   51 :    5,812,624    3,356,435   3,334,425.05
+   52 :    5,812,624    2,728,213   2,721,963.53
+   53 :    5,812,624      807,626   803,823.42
+   54 :    5,812,624      651,018   648,178.37
+   55 :    5,812,624    1,237,832   1,228,577.62
+   56 :    5,812,624    3,115,715   3,107,342.22
+   57 :    5,812,624    2,615,965   2,588,498.88
+   58 :    5,812,624    1,148,647   1,132,854.21
+   59 :    5,812,624      948,091   944,950.05
+   60 :    5,812,624      828,653   824,982.85
+   survivors at strong periods: 685
+     !! (22, 'beaufort/pt=plain/ct=plain/key=plain', 9576, [2, 11, 20, 29, 38, 47, 56, 65, 74, 83, 92, 4, 13, 89, 0, 9, 18, 27, 36, 45, 54, 63, 72, 81])
+     !! (22, 'beaufort/pt=plain/ct=plain/key=plain', 9593, [2, 11, 20, 29, 38, 47, 56, 65, 74, 83, 92, 4, 13, 95, 0, 9, 18, 27, 36, 45, 54, 63, 72, 81])
+     !! (22, 'beaufort/pt=plain/ct=plain/key=plain', 61179, [3, 12, 21, 30, 39, 48, 57, 66, 75, 84, 93, 5, 14, 90, 1, 10, 19, 28, 37, 46, 55, 64, 73, 82])
+     !! (22, 'beaufort/pt=plain/ct=plain/key=plain', 61196, [3, 12, 21, 30, 39, 48, 57, 66, 75, 84, 93, 5, 14, 96, 1, 10, 19, 28, 37, 46, 55, 64, 73, 82])
+     !! (22, 'beaufort/pt=plain/ct=plain/key=plain', 64132, [4, 13, 22, 31, 40, 49, 58, 67, 76, 85, 94, 6, 15, 91, 2, 11, 20, 29, 38, 47, 56, 65, 74, 83])
+     !! (22, 'beaufort/pt=plain/ct=keyed/key=plain', 393562, [51, 58, 65, 72, 79, 86, 93, 3, 10, 17, 24, 31, 38, 49, 56, 63, 70, 77, 84, 91, 1, 8, 15, 22])
+     !! (22, 'beaufort/pt=plain/ct=keyed/key=plain', 398030, [52, 59, 66, 73, 80, 87, 94, 4, 11, 18, 25, 32, 39, 50, 57, 64, 71, 78, 85, 92, 2, 9, 16, 23])
+     !! (22, 'beaufort/pt=plain/ct=keyed/key=plain', 400866, [53, 60, 67, 74, 81, 88, 95, 5, 12, 19, 26, 33, 40, 51, 58, 65, 72, 79, 86, 93, 3, 10, 17, 24])
+     !! (22, 'beaufort/pt=keyed/ct=plain/key=plain', 4778, [1, 41, 9, 82, 50, 66, 18, 91, 26, 74, 34, 58, 2, 21, 94, 29, 77, 37, 61, 5, 45, 13, 86, 54])
+     !! (22, 'beaufort/pt=keyed/ct=plain/key=plain', 70008, [7, 16, 25, 34, 43, 52, 61, 70, 79, 88, 0, 9, 18, 92, 5, 14, 23, 32, 41, 50, 59, 68, 77, 86])
+     !! (22, 'beaufort/pt=keyed/ct=plain/key=plain', 70018, [7, 16, 25, 34, 43, 52, 61, 70, 79, 88, 0, 9, 18, 94, 5, 14, 23, 32, 41, 50, 59, 68, 77, 86])
+     !! (22, 'beaufort/pt=keyed/ct=plain/key=plain', 70029, [7, 16, 25, 34, 43, 52, 61, 70, 79, 88, 0, 9, 18, 96, 5, 14, 23, 32, 41, 50, 59, 68, 77, 86])
+     !! (22, 'beaufort/pt=keyed/ct=plain/key=plain', 72395, [8, 17, 26, 35, 44, 53, 62, 71, 80, 89, 1, 10, 19, 93, 6, 15, 24, 33, 42, 51, 60, 69, 78, 87])
+     !! (23, 'vigenere/pt=plain/ct=plain/key=plain', 72702, [8, 22, 36, 50, 64, 78, 92, 0, 14, 28, 42, 56, 70, 15, 29, 43, 57, 71, 85, 7, 21, 35, 49, 63])
+     !! (23, 'vigenere/pt=plain/ct=plain/key=plain', 75911, [9, 23, 37, 51, 65, 79, 93, 1, 15, 29, 43, 57, 71, 16, 30, 44, 58, 72, 86, 8, 22, 36, 50, 64])
+     !! (23, 'vigenere/pt=plain/ct=plain/key=plain', 166056, [22, 1, 84, 63, 42, 21, 0, 83, 62, 41, 20, 82, 61, 33, 12, 95, 74, 53, 32, 11, 94, 73, 52, 31])
+     !! (23, 'vigenere/pt=plain/ct=plain/key=plain', 403757, [54, 61, 68, 75, 82, 89, 96, 4, 11, 18, 25, 32, 39, 51, 58, 65, 72, 79, 86, 93, 0, 7, 14, 21])
+     !! (23, 'vigenere/pt=plain/ct=plain/key=plain', 403775, [54, 61, 68, 75, 82, 89, 96, 4, 11, 18, 25, 32, 39, 58, 65, 72, 79, 86, 93, 0, 7, 14, 21, 28])
+     !! (23, 'vigenere/pt=keyed/ct=plain/key=plain', 562962, [75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 0, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40])
+     !! (23, 'vigenere/pt=keyed/ct=plain/key=plain', 618555, [80, 93, 12, 25, 38, 51, 64, 77, 90, 6, 19, 32, 45, 59, 72, 85, 1, 14, 27, 40, 53, 66, 79, 92])
+     !! (23, 'vigenere/pt=keyed/ct=plain/key=plain', 627428, [83, 96, 9, 22, 35, 48, 61, 74, 87, 8, 21, 34, 47, 49, 62, 75, 88, 4, 17, 30, 43, 56, 69, 82])
+     !! (23, 'vigenere/pt=keyed/ct=keyed/key=plain', 73492, [8, 30, 52, 74, 96, 15, 37, 59, 81, 0, 22, 44, 66, 49, 71, 93, 12, 34, 56, 78, 19, 41, 63, 85])
+     !! (23, 'vigenere/pt=keyed/ct=keyed/key=plain', 562962, [75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 0, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40])
+     !! (23, 'vigenere/pt=keyed/ct=keyed/key=plain', 675448, [88, 66, 44, 22, 0, 81, 59, 37, 15, 96, 74, 52, 30, 47, 25, 3, 84, 62, 40, 18, 77, 55, 33, 11])
+     !! (23, 'vigenere/pt=keyed/ct=keyed/key=plain', 702156, [91, 8, 17, 26, 35, 44, 53, 62, 71, 80, 89, 4, 13, 88, 6, 15, 24, 33, 42, 51, 60, 69, 78, 87])
+     !! (23, 'beaufort/pt=plain/ct=plain/key=plain', 432, [0, 9, 18, 27, 36, 45, 54, 63, 72, 81, 90, 7, 16, 93, 2, 11, 20, 29, 38, 47, 56, 65, 74, 83])
+     !! (23, 'beaufort/pt=plain/ct=plain/key=plain', 447, [0, 9, 18, 27, 36, 45, 54, 63, 72, 81, 90, 7, 16, 96, 2, 11, 20, 29, 38, 47, 56, 65, 74, 83])
+     !! (23, 'beaufort/pt=plain/ct=plain/key=plain', 2542, [1, 10, 19, 28, 37, 46, 55, 64, 73, 82, 91, 8, 17, 94, 3, 12, 21, 30, 39, 48, 57, 66, 75, 84])
+     !! (23, 'beaufort/pt=plain/ct=plain/key=plain', 9414, [2, 11, 20, 29, 38, 47, 56, 65, 74, 83, 92, 0, 9, 95, 4, 13, 22, 31, 40, 49, 58, 67, 76, 85])
+     !! (23, 'beaufort/pt=plain/ct=plain/key=plain', 54504, [2, 85, 64, 43, 22, 1, 84, 63, 42, 21, 0, 83, 62, 13, 96, 75, 54, 33, 12, 95, 74, 53, 32, 11])
+
+total runtime 389.7s

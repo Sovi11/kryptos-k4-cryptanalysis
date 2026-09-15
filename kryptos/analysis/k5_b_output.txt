@@ -1,0 +1,358 @@
+
+==============================================================================
+(b) THE K5 LEVER -- rigorous consequences of the two 97-letter messages
+==============================================================================
+ciphertext K4: OBKRUOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZWATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR
+crib pairs   : FLRVQQPRNGKSSNYPVTTMZFPK -> EASTNORTHEASTBERLINCLOCK
+
+==============================================================================
+L1.  WHAT "THE SAME CODED WORDS IN THE SAME POSITION" CAN MEAN
+==============================================================================
+
+The sentence has one ambiguous noun.  "Coded words" is either
+
+   READING A  the ciphertext letter-groups -- the words AFTER coding, i.e. C4 and C5
+              carry identical letter runs at identical indices;
+   READING B  the words that were coded -- the plaintext words, i.e. P4 and P5 carry
+              the same words at the same indices, and nothing is claimed about the
+              ciphertext at all.
+
+Reading B is the ordinary-English one and matches how Sanborn uses the phrase elsewhere
+("the coded words on the sculpture" = the message, not the cipher letters).  Reading A
+is the one this repository's C10 note assumed.  They are NOT equivalent and they imply
+different things, so both are carried through below.
+
+Three models of the cipher are relevant:
+
+   M_pos     C[i] = g_i(P[i]) with g_i a bijection on the alphabet depending only on the
+             position i and on a chart that is the same for both messages.
+   M_auto    the key at i depends on the message itself (plaintext or ciphertext
+             autokey, with a primer).
+   M_2chart  M_pos but K4 and K5 use DIFFERENT charts g_i and g'_i.  The auction lot
+             description -- "alternate K4 plaintext AND coding chart" -- is evidence for
+             exactly this.
+
+
+==============================================================================
+L1b.  THE THREE THEOREMS, VERIFIED BY CONSTRUCTION
+==============================================================================
+T1  Under M_pos (one chart, any bijections):  C4[i]==C5[i]  <=>  P4[i]==P5[i].
+    400 random charts x random message pairs with a planted shared 12-letter word:
+    positions where the ciphertexts agree differed from where the plaintexts agree in 0 of 400 trials.
+    => Under M_pos readings A and B are THE SAME STATEMENT.  A shared ciphertext run
+       is neither more nor less than a shared plaintext run.  Reading A therefore
+       carries no information about the key beyond what reading B carries.
+
+T2  Under M_auto (plaintext autokey, shared primer): if the two plaintexts agree on
+    the whole PREFIX [0,s), the two ciphertexts agree on [0,s) as well.
+    400 trials with a random shared prefix: failures = 0 of 400.
+    => 'shared coded words at shared positions' does NOT by itself exclude autokey.
+       It excludes autokey only for a shared run that starts AFTER the first
+       position at which the two plaintexts differ.  This is the step C10 skipped.
+
+T3  Under M_auto, a shared plaintext word at positions 64-69 (1-indexed) does NOT
+    produce a shared ciphertext run, because the keys have already diverged.
+    4000 trials, shared 6-letter plaintext word planted at 64-69:
+    ciphertext run also shared in 0 trials (chance 26^-6 = 3.237e-09, expected 0.00).
+    => IF a shared ciphertext run is observed at a position where the plaintexts
+       had already diverged, autokey is excluded at odds 26^-len.  IF the shared
+       run sits at the head of the message, nothing is excluded.
+
+T4  Under M_2chart the statement is vacuous: with a free second chart any ciphertext
+    agreement can be manufactured over any plaintext disagreement.
+    constructed example: P4 and P5 differ at all of 64-74, yet C4[64:74]==C5[64:74]: True and every chart column is still a bijection: True
+    => If K5 really has its own coding chart, 'the same coded words in the same
+       position' constrains NOTHING about the mechanism.
+
+==============================================================================
+L1c.  VERDICT ON THE ALLEGED CONTRADICTION
+==============================================================================
+
+The claim in README 3.4 / C10 -- "shared coded words at shared positions is a strong hint
+that the system is positional, and argues against autokey" -- does not survive T1-T4.
+
+  * Under reading A + M_pos the statement is EQUIVALENT to reading B (T1).  It is
+    therefore not evidence FOR M_pos; it is what M_pos predicts once the plaintexts
+    share words, and reading B predicts the plaintext sharing directly.  The inference
+    "shared ciphertext => positional" is affirming the consequent.
+  * Autokey is not excluded (T2).  A shared head-of-message run is exactly what autokey
+    with a shared primer produces.  Only a shared run occurring after the plaintexts
+    have diverged excludes it (T3), and we cannot know that until K5 is published.
+  * A second chart makes the whole statement vacuous (T4), and the auction lot text is
+    direct evidence for a second chart.
+
+SO: there is NO contradiction with the repository's negatives, because the repository has
+not in fact ruled out position-indexed systems -- see L2, which measures how little of
+that space has been searched.  The tension was an artefact of overreading one sentence of
+Sanborn's and of understating what "position-indexed systems are ruled out" means.
+
+The weaker claim the orchestrator anticipated is the correct one: the shared words are
+most likely shared because the two PLAINTEXTS share words at those positions.  That is
+consistent with every cipher model on the table and it is the reading under which
+Sanborn's sentence is a plain statement about his two drafts of the same message.
+
+
+==============================================================================
+L2.  HOW MUCH OF THE POSITION-INDEXED SPACE HAS ACTUALLY BEEN SEARCHED?
+==============================================================================
+A position-indexed key stream for a letterwise cipher on 97 letters is one of
+   26^97 = 1.788e+137  streams.
+The 24 cribs fix exactly 24 of the 97 key symbols (one per crib position; the
+positions are distinct), leaving
+   26^73 = 1.964e+103  streams that fit all 24 cribs EXACTLY, for EVERY one of the 24
+   cipher/alphabet combos.  That is 4.713e+104 crib-perfect key streams in total.
+
+What the repository has searched inside that space (orders of magnitude, generous):
+   periodic keys, periods 2-26 (all keys, via the consistency test) 6.402e+36
+   position-dependent arithmetic shift models                     1.000e+08
+   running key: 66 texts x ~900 offsets x 24 combos x 26 rotations 3.707e+07
+   autokey: 2 directions x primer lengths 1-96 x 24 combos        2.106e+09
+   lateral key material: 194 streams x offsets x combos           1.650e+07
+   two-stage forced-keystream tests                               4.940e+07
+   TOTAL (upper bound, double counting allowed)                   6.402e+36
+
+   fraction of the crib-perfect positional space examined:  6.402e+36 / 1.964e+103 = 3.261e-67
+
+CONCLUSION.  "Position-indexed systems are ruled out" is false as stated.  What is
+ruled out is the STRUCTURED position-indexed streams: short-period, arithmetic in the
+index, or copied in reading order out of a known text.  Roughly 3e-67 of the
+crib-consistent positional space has been touched.  A 97-symbol hand-drawn chart with no
+compressive description is a position-indexed key stream, it fits the cribs trivially,
+and no crib-based search can ever reach it.  That is precisely the object Sanborn keeps
+naming -- "no one has recovered the original matrix" -- and it is entirely consistent
+with K5 sharing words with K4 at the same positions.
+
+==============================================================================
+L3.  WHICH CHART PERIODS DO THE CRIBS REFUTE?  (alphabet-free, family-free)
+==============================================================================
+Model: C[i] = g_i(P[i]) with each g_i a bijection.  Say the chart has period p if
+g_i = g_j whenever i == j (mod p).  Then for any i,j in the same class:
+        P_i == P_j  <=>  C_i == C_j.
+This uses no alphabet, no cipher family and no key algebra: it holds for Vigenere,
+Beaufort, Quagmire, Gromark, a hand-drawn table, anything letterwise.  A crib pair that
+violates it refutes EVERY p dividing |i-j|.
+
+crib pairs that REFUTE g_i == g_j (one of pt/ct equal, the other not): 22
+   their separations: [1, 3, 4, 5, 7, 9, 34, 42, 43, 45, 50]
+crib pairs CONSISTENT with g_i == g_j and informative (both pt and ct equal): 1 -> [(28, 66, 38)]
+
+periods p in 1..97 REFUTED outright by a single crib pair: 19
+periods p in 1..97 that SURVIVE this test: 78
+    [8, 11, 12, 13, 16, 18, 19, 20, 22, 23, 24, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 39, 40, 41, 44, 46, 47, 48, 49, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97]
+
+For each surviving p, the number of crib pairs that would have to agree by
+coincidence if the chart were NOT periodic (i.e. the evidential weight available):
+   p=8    crib collisions c=16   supporting equal-pairs=0   chance 26^-c = 2.293e-23
+   p=11   crib collisions c=13   supporting equal-pairs=0   chance 26^-c = 4.030e-19
+   p=12   crib collisions c=12   supporting equal-pairs=0   chance 26^-c = 1.048e-17
+   p=13   crib collisions c=11   supporting equal-pairs=0   chance 26^-c = 2.725e-16
+   p=16   crib collisions c=8    supporting equal-pairs=0   chance 26^-c = 4.789e-12
+   p=18   crib collisions c=7    supporting equal-pairs=0   chance 26^-c = 1.245e-10
+   p=19   crib collisions c=9    supporting equal-pairs=1   chance 26^-c = 1.842e-13
+   p=20   crib collisions c=11   supporting equal-pairs=0   chance 26^-c = 2.725e-16
+   p=22   crib collisions c=9    supporting equal-pairs=0   chance 26^-c = 1.842e-13
+   p=23   crib collisions c=7    supporting equal-pairs=0   chance 26^-c = 1.245e-10
+   p=24   crib collisions c=5    supporting equal-pairs=0   chance 26^-c = 8.417e-08
+   p=26   crib collisions c=1    supporting equal-pairs=0   chance 26^-c = 3.846e-02
+   p=27   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=28   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=29   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=30   crib collisions c=1    supporting equal-pairs=0   chance 26^-c = 3.846e-02
+   p=31   crib collisions c=2    supporting equal-pairs=0   chance 26^-c = 1.479e-03
+   p=32   crib collisions c=3    supporting equal-pairs=0   chance 26^-c = 5.690e-05
+   p=33   crib collisions c=4    supporting equal-pairs=0   chance 26^-c = 2.188e-06
+   p=35   crib collisions c=6    supporting equal-pairs=0   chance 26^-c = 3.237e-09
+   p=36   crib collisions c=7    supporting equal-pairs=0   chance 26^-c = 1.245e-10
+   p=37   crib collisions c=8    supporting equal-pairs=0   chance 26^-c = 4.789e-12
+   p=38   crib collisions c=9    supporting equal-pairs=1   chance 26^-c = 1.842e-13
+   p=39   crib collisions c=10   supporting equal-pairs=0   chance 26^-c = 7.084e-15
+   p=40   crib collisions c=11   supporting equal-pairs=0   chance 26^-c = 2.725e-16
+   p=41   crib collisions c=11   supporting equal-pairs=0   chance 26^-c = 2.725e-16
+   p=44   crib collisions c=9    supporting equal-pairs=0   chance 26^-c = 1.842e-13
+   p=46   crib collisions c=7    supporting equal-pairs=0   chance 26^-c = 1.245e-10
+   p=47   crib collisions c=6    supporting equal-pairs=0   chance 26^-c = 3.237e-09
+   p=48   crib collisions c=5    supporting equal-pairs=0   chance 26^-c = 8.417e-08
+   p=49   crib collisions c=4    supporting equal-pairs=0   chance 26^-c = 2.188e-06
+   p=51   crib collisions c=2    supporting equal-pairs=0   chance 26^-c = 1.479e-03
+   p=52   crib collisions c=1    supporting equal-pairs=0   chance 26^-c = 3.846e-02
+   p=53   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=54   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=55   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=56   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=57   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=58   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=59   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=60   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=61   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=62   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=63   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=64   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=65   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=66   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=67   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=68   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=69   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=70   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=71   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=72   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=73   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=74   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=75   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=76   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=77   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=78   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=79   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=80   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=81   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=82   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=83   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=84   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=85   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=86   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=87   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=88   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=89   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=90   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=91   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=92   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=93   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=94   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=95   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=96   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+   p=97   crib collisions c=0    supporting equal-pairs=0   chance 26^-c = 1.000e+00
+
+READ THIS CAREFULLY.  Every surviving p with c == 0 is not evidence for that period;
+it is a period the cribs cannot see at all.  The list above is the exact boundary of what
+24 crib letters can say about a positional chart, and it is the same boundary the period
+sweeps hit: nothing above p = 26 carries real weight, and p >= 53 carries none.
+
+==============================================================================
+L4.  THE DEPTH ATTACK: WHAT K5 WOULD ACTUALLY BUY, AND THE PRE-REGISTERED TEST
+==============================================================================
+L4a.  Chance expectations for the aligned-run test (two independent 97-letter texts)
+
+   expected number of aligned equal positions: 97/26 = 3.7308
+   P(at least one aligned run of length >= L), exact DP over 97 positions:
+      L=3    5.187e-03
+      L=4    1.979e-04
+      L=5    7.530e-06
+      L=6    2.865e-07
+      L=9    1.577e-11
+      L=11   2.476e-14
+      L=13   4.441e-16
+
+   DECISION RULE, pre-registered.  On the day K5's ciphertext is published:
+      * any aligned identical run of length >= 5 between C4 and C5 is significant at
+        p < 3e-4 and establishes ONE SHARED POSITIONAL CHART plus shared plaintext there;
+      * an aligned run of length >= 9 (NORTHEAST) or >= 11 (BERLINCLOCK) is decisive
+        (p < 1e-9), and under M_pos it also tells us the shared word is the one Sanborn
+        already released as a crib;
+      * NO aligned run of length >= 4 anywhere is evidence for M_2chart, i.e. for the
+        auction lot's "alternate ... coding chart" reading, and it kills the depth attack.
+
+   SECOND STATISTIC (weaker but more robust): the plain COUNT of aligned equal
+   positions.  Under independence it is Binomial(97, 1/26): mean 3.73, sd 1.89.
+   thresholds:  >=  8 matches  p = 0.0337
+                >= 10 matches  p = 0.0042
+                >= 14 matches  p = 2.14e-05
+   This one matters because two charts drawn on the SAME worksheet by the same hand
+   could share individual columns without sharing whole words.  An excess of isolated
+   aligned matches with no long run would be evidence for that middle case, which
+   neither reading A nor reading B anticipates.
+
+L4b.  How much information is a depth pair worth?  This depends on the chart type.
+
+   CASE 1, shift-structured chart (Quagmire/Vigenere family: g_i is 'add k_i' in a
+   fixed alphabet pair).  Then
+        idx(C4_i) - idx(C5_i) = idx(P4_i) - idx(P5_i)   (mod 26)
+   and the key cancels.  The 97-symbol difference stream is recovered outright; with both
+   plaintexts English this is textbook depth-2 and 97 letters is comfortably enough.
+   Worth: the whole message.
+
+   CASE 2, general per-column chart (97 independent bijections -- a hand-drawn
+   spreadsheet with 97 columns and 26 rows, which is exactly what Sanborn calls "the
+   matrix").  Then knowing (C4_i, C5_i) pins two cells of column i and NOTHING ELSE:
+   for any pair of distinct plaintext letters there exists a bijection realising any pair
+   of distinct ciphertext letters.  The only surviving constraint is
+        C4_i == C5_i  <=>  P4_i == P5_i.
+   Worth: exactly the 97-bit agreement pattern between the two plaintexts, and no more.
+
+   verification of CASE 2: for 2000 random (P4_i != P5_i, C4_i != C5_i) quadruples a
+   valid bijection column realising both was constructed in 2000 of 2000 cases.
+   => under a general chart, depth-2 leaks the agreement pattern and nothing else.
+
+L4c.  The depth machinery itself, validated on synthetic pairs.
+   shift-chart pair: difference stream recovered exactly: True
+   zero-runs of length >= 3 (1-indexed start, end, length): [(64, 74, 11)]
+   planted shared word was at 64-74 (length 11): located = True
+   general-chart pair: ciphertext agreement pattern == plaintext agreement pattern: True (this is all it yields)
+
+L4d.  What the released cribs predict for K5, if there is one shared chart.
+   Sanborn's four released 'coded words' are EAST, NORTHEAST, BERLIN, CLOCK.  If
+   'some of the same coded words in the same position' instantiates on any of them, then
+   under M_pos K5's ciphertext must literally reproduce K4's letters there:
+      EAST       positions 22-25  =>  C5 must read  FLRV
+      NORTHEAST  positions 26-34  =>  C5 must read  QQPRNGKSS
+      BERLIN     positions 64-69  =>  C5 must read  NYPVTT
+      CLOCK      positions 70-74  =>  C5 must read  MZFPK
+   These are falsifiable the moment K5 appears and they cost nothing to check.
+   If they hold, the 24 cribs transfer to K5 unchanged and buy no new equations -- the
+   value then lies entirely in the OTHER aligned runs, each of which localises a shared
+   word that can be crib-dragged.  If they fail while some other aligned run holds, the
+   shared words are not the released ones.  If no aligned run of length >= 4 exists at
+   all, M_2chart is confirmed and K5 is worthless as depth.
+
+==============================================================================
+L5.  THE STRATEGIC CONSEQUENCE NOBODY HAS STATED
+==============================================================================
+
+Put the auction lot text and the 1988 date together:
+
+   item 6 of the RR Auction lot: "Unpublished 1988 alternate K4 plaintext AND CODING
+   CHART -- now known as K5".
+
+Two messages, 97 characters each, EACH WITH ITS OWN CHART, both drawn in 1988, before the
+final plaintext was fixed.  Three consequences follow, and they are the useful output of
+this whole line:
+
+ 1. 97 IS A PROPERTY OF THE WORKSHEET, NOT OF THE MESSAGE.  Sanborn had a 97-cell chart
+    and wrote messages to fit it.  97 = 4 + 31 + 31 + 31 is the panel layout.  Any theory
+    that derives 97 from the plaintext has the causality backwards.
+
+ 2. THE CHART IS PER-MESSAGE, HENCE FITTED, HENCE PLAUSIBLY INCOMPRESSIBLE.  A key stream
+    drawn from a keyword, a text, or a formula would be reused across drafts -- you do not
+    redraw a keyword.  Redrawing the chart for the alternate plaintext is what you do when
+    the chart IS the key material.  This is the single best explanation on offer for 35
+    years of failure: there may be no short description of the key stream to find.
+
+ 3. THEREFORE THE ALIGNED-RUN TEST IN L4a IS THE MOST INFORMATIVE SINGLE EXPERIMENT LEFT,
+    and it costs one minute of work on the day K5 is published.  It decides between:
+        one shared chart      -> depth-2, and (if shift-structured) the message falls;
+        two charts            -> no depth, and the chart itself is the only route.
+    Note that (2) predicts the second outcome, while Sanborn's sentence, read as reading A,
+    predicts the first.  They are in direct conflict, and that conflict is resolvable by
+    one string comparison.  Reading B removes the conflict at the cost of removing the
+    cryptanalytic content of the sentence.
+
+L6.  THE TENSION THIS CREATES WITH SCHEIDT, WHICH IS REAL AND UNRESOLVED.
+
+If the key material is an incompressible 97-symbol chart, then K4 is not breakable from
+the ciphertext, and that contradicts Ed Scheidt directly: "designed to be solved in a
+straight-forward manner with pencil and paper" (2003), a 9/10 difficulty rating, an
+expectation that it would fall in five to ten years, and his own design brief, "don't
+create something that you cannot break".  Both cannot be true.  The documented resolution
+is Sanborn's, not mine: Scheidt gave him systems "plus ways to modify all of those
+systems", and Sanborn says he modified them further so that even Scheidt would not know
+what it says, and nobody ever ran a reverse check on K4.  So Scheidt's breakability
+guarantee covers SCHEIDT'S layer.  The incompressible object, if there is one, is the
+artist's mask on top of it.  That is a statement about where to look: at a hand-drawn
+worksheet, not at an algorithm.
+
+Recommended standing action: watch paradigm.xyz for the K5 ciphertext and run
+    align_runs(C4, C5)
+from this script the moment it appears.  The decision rule is fixed above, in advance.
+
+
+==============================================================================
+END (b)
+==============================================================================

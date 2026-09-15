@@ -1,0 +1,9 @@
+{
+  "_note": "1-indexed positions in the 97-letter K4 ciphertext. All four confirmed by Jim Sanborn. Release dates corrected 2026-09-12 against en.wikipedia.org/wiki/Kryptos and contemporaneous NYT reporting; see README.md section 3.",
+  "cribs": [
+    {"pos": 22, "ct": "FLRV",      "pt": "EAST",      "released": "2020-08 (public; Sanborn said he had 'released this layout to several people as early as April' 2020)"},
+    {"pos": 26, "ct": "QQPRNGKSS", "pt": "NORTHEAST", "released": "2020-01-29 (NYT)"},
+    {"pos": 64, "ct": "NYPVTT",    "pt": "BERLIN",    "released": "2010-11 (NYT, John Schwartz; online 2010-11-20, print 2010-11-21)"},
+    {"pos": 70, "ct": "MZFPK",     "pt": "CLOCK",     "released": "2014-11-20 (NYT, John Schwartz, 'A New Clue to Kryptos')"}
+  ]
+}

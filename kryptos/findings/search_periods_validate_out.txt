@@ -1,0 +1,31 @@
+====================================================================================================
+VALIDATION 1 -- coordinate descent vs EXHAUSTIVE search at p = 27 (3 free key letters)
+====================================================================================================
+vigenere/pt=plain/ct=plain/key=plain         exhaustive -1.6070   descent -1.6128   MISS by 0.0058
+vigenere/pt=plain/ct=plain/key=keyed         exhaustive -1.6070   descent -1.6128   MISS by 0.0058
+vigenere/pt=plain/ct=keyed/key=plain         exhaustive -1.5453   descent -1.5453   MATCH
+vigenere/pt=plain/ct=keyed/key=keyed         exhaustive -1.5453   descent -1.5453   MATCH
+vigenere/pt=keyed/ct=plain/key=plain         exhaustive -1.6204   descent -1.6204   MATCH
+vigenere/pt=keyed/ct=plain/key=keyed         exhaustive -1.6204   descent -1.6204   MATCH
+(1011s)
+
+====================================================================================================
+VALIDATION 2 -- synthetic recovery: a REAL periodic key of period p, 24 letters of
+               plaintext revealed at the K4 crib positions.  Can the optimiser find it?
+====================================================================================================
+  p  free  true score  found score  key letters right  plaintext letters right
+ 27     3     -0.7285      -0.7285       27.0/27                   97.0/97
+ 29     5     -0.6623      -0.7261       28.5/29                   95.5/97
+ 33    13     -0.7920      -0.9127       23.8/33                   69.2/97
+ 40    27     -0.6888      -1.1201       16.0/40                   33.0/97
+ 47    29     -0.8449      -1.0711       22.0/47                   44.8/97
+ 53    29     -0.7834      -0.8458       27.8/53                   55.2/97
+ 60    36     -0.7162      -0.8113       30.0/60                   58.8/97
+ 75    51     -0.7486      -0.8648       29.2/75                   31.8/97
+
+Read validation 2 as the POWER of this attack: where plaintext recovery is near 97/97
+the test can find a real periodic key; where it is not, a negative means nothing.
+
+real	17m0.592s
+user	0m6.109s
+sys	0m0.091s

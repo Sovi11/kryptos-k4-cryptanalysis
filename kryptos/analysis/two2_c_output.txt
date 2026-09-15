@@ -1,0 +1,48 @@
+=== (c) double substitution keyed by the Kryptos sections ===
+engine verification: K1 re-encrypted=True  K2 prefix re-encrypted=True  enc/dec inverse for all 24 combos=True
+cribs: plaintext EASTNORTHEASTBERLINCLOCK  ciphertext FLRVQQPRNGKSSNYPVTTMZFPK  at 0-indexed [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73]
+24 alphabet/family combos per stage: vigenere/pt=plain/ct=plain/key=plain ...
+
+-- C1: both keys in {PALIMPSEST, ABSCISSA, KRYPTOS}, every ordering, every phase, all 24x24 combos
+C1_core: stage-1 configs 600, stage-2 configs 600, pairs decided 360,000, chance-expected solutions 3.95e-29, observed 0   (0.0s)
+   the named case (stage 1 PALIMPSEST, stage 2 ABSCISSA, both Vigenere on the KRYPTOS alphabet, phase 0):
+     stage-1 output required : MXUVVEFDMHHWNWPTWKZGQFKI
+     stage-2 input produced  : SEQIFHQFGANZXFUUJUIFNOVM
+     agree in 0/24 positions (chance 0.92)
+     full decryption: UNPPHVFGKYFRYEAAYNVUOZQOWCBCSCTFBCAMYGBUSOCBTLGADUUKQVWKYHEYRZEWPMDDCBJXOPZRICGGQRFFBTHPRCXOOOEWH
+     quad=-8.30 wordcov=0.19 -> not English
+
+-- C2: both keys from the Kryptos-motivated word list (43 words)
+C2_list: stage-1 configs 10,536, stage-2 configs 10,536, pairs decided 111,007,296, chance-expected solutions 1.22e-26, observed 0   (0.1s)
+
+-- C3: one stage keyed by a known Kryptos key, the other by ANY key word of length 1..24 at any phase (solved by forcing the key letters, so no word list is needed)
+   non-trivial checks per candidate key length: 1:23 2:22 3:21 4:20 5:19 6:18 7:17 8:16 9:15 10:14 11:13 12:12 13:11 14:11 15:9 16:8 17:7 18:7 19:9 20:11 21:11 22:9 23:7 24:5 25:3 26:1
+   stage 1 known, stage 2 free: 6,574,464 (known-config, free-combo, period) tests, 9838 consistent, chance-expected 9.74e+03
+     consistent with >=1 non-trivial check: 9838; of those, implied key word (any rotation) in the dictionary: 0
+       ('XLAYERTWO', 6, 'varbeaufort', 'keyed', 'keyed', 'plain') x ('beaufort', 'plain', 'keyed', 'plain') period=25 checks=3 key=CBECDUVYY....BKJMXRWFTMTO dictword=False
+       ('XLAYERTWO', 6, 'varbeaufort', 'keyed', 'keyed', 'plain') x ('beaufort', 'plain', 'keyed', 'keyed') period=25 checks=3 key=YRTYPQUXX....RDCFWLVONFNH dictword=False
+       ('PALIMPSEST', 0, 'vigenere', 'plain', 'plain', 'plain') x ('vigenere', 'plain', 'keyed', 'plain') period=26 checks=1 key=OIQTUADF...KMXTSZXZYQIGBRS dictword=False
+       ('PALIMPSEST', 0, 'vigenere', 'plain', 'plain', 'plain') x ('vigenere', 'plain', 'keyed', 'keyed') period=26 checks=1 key=HBJNQKPO...DFWNMZWZXJBSRLM dictword=False
+       ('PALIMPSEST', 0, 'vigenere', 'plain', 'plain', 'plain') x ('beaufort', 'keyed', 'plain', 'plain') period=26 checks=1 key=DLIUKRCA...DSCFLFIGKIQCYHZ dictword=False
+       ('PALIMPSEST', 0, 'vigenere', 'plain', 'plain', 'plain') x ('beaufort', 'keyed', 'plain', 'keyed') period=26 checks=1 key=PEBQDLYK...PMYOEOBSDBJYXAZ dictword=False
+       ('PALIMPSEST', 0, 'vigenere', 'plain', 'plain', 'plain') x ('varbeaufort', 'plain', 'keyed', 'plain') period=26 checks=1 key=MSKHGAXV...QODHIBDBCKSUZJI dictword=False
+       ('PALIMPSEST', 0, 'vigenere', 'plain', 'plain', 'plain') x ('varbeaufort', 'plain', 'keyed', 'keyed') period=26 checks=1 key=FMDASKWU...JHPABRPRYDMQZCB dictword=False
+       ('PALIMPSEST', 0, 'vigenere', 'plain', 'plain', 'keyed') x ('vigenere', 'plain', 'keyed', 'plain') period=26 checks=1 key=ABCIGTXY...DGJFLLMLRKBAULE dictword=False
+       ('PALIMPSEST', 0, 'vigenere', 'plain', 'plain', 'keyed') x ('vigenere', 'plain', 'keyed', 'keyed') period=26 checks=1 key=KRYBSNWX...PSCOEEFELDRKQET dictword=False
+   stage 2 known, stage 1 free: 6,574,464 (known-config, free-combo, period) tests, 9838 consistent, chance-expected 9.74e+03
+     consistent with >=1 non-trivial check: 9838; of those, implied key word (any rotation) in the dictionary: 0
+       ('NORTHEASTBERLINCLOCK', 19, 'varbeaufort', 'keyed', 'keyed', 'plain') x ('vigenere', 'plain', 'plain', 'plain') period=25 checks=3 key=EJYUYDTES....CQMZLICZVOUP dictword=False
+       ('NORTHEASTBERLINCLOCK', 19, 'varbeaufort', 'keyed', 'keyed', 'plain') x ('vigenere', 'plain', 'plain', 'keyed') period=25 checks=3 key=TCXQXPNTM....YJFZEBYZUHQI dictword=False
+       ('NORTHEASTBERLINCLOCK', 19, 'varbeaufort', 'keyed', 'keyed', 'plain') x ('varbeaufort', 'plain', 'plain', 'plain') period=25 checks=3 key=WRCGCXHWI....YKOBPSYBFMGL dictword=False
+       ('NORTHEASTBERLINCLOCK', 19, 'varbeaufort', 'keyed', 'keyed', 'plain') x ('varbeaufort', 'plain', 'plain', 'keyed') period=25 checks=3 key=VLYSYWAVB....XDHRIMXROFSE dictword=False
+       ('PALIMPSEST', 0, 'vigenere', 'plain', 'plain', 'keyed') x ('beaufort', 'plain', 'keyed', 'plain') period=26 checks=1 key=OCKXOKAD...DRJOXGRIQEGVBDG dictword=False
+       ('PALIMPSEST', 0, 'vigenere', 'plain', 'plain', 'keyed') x ('beaufort', 'plain', 'keyed', 'keyed') period=26 checks=1 key=HYDWHDKP...PLCHWSLBJTSURPS dictword=False
+       ('PALIMPSEST', 0, 'vigenere', 'plain', 'keyed', 'plain') x ('vigenere', 'plain', 'plain', 'plain') period=26 checks=1 key=OIQTUADF...KMXTSZXZYQIGBRS dictword=False
+       ('PALIMPSEST', 0, 'vigenere', 'plain', 'keyed', 'plain') x ('vigenere', 'plain', 'plain', 'keyed') period=26 checks=1 key=HBJNQKPO...DFWNMZWZXJBSRLM dictword=False
+       ('PALIMPSEST', 0, 'vigenere', 'plain', 'keyed', 'plain') x ('varbeaufort', 'plain', 'plain', 'plain') period=26 checks=1 key=MSKHGAXV...QODHIBDBCKSUZJI dictword=False
+       ('PALIMPSEST', 0, 'vigenere', 'plain', 'keyed', 'plain') x ('varbeaufort', 'plain', 'plain', 'keyed') period=26 checks=1 key=FMDASKWU...JHPABRPRYDMQZCB dictword=False
+
+-- C4: does any *single* stage of this engine already fit the cribs? (sanity: it must not, since periodic substitution is ruled out)
+   10,536 single-stage configurations tested, 0 fit all 24 cribs
+
+runtime 18.1s

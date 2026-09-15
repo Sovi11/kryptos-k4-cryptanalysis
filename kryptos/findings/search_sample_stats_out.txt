@@ -1,0 +1,34 @@
+================================================================================================
+TABLE S1 -- exact conditional statistics of the language model
+================================================================================================
+log10 P(any 97-letter string)          =    -0.0000   (1.0000 expected; check)
+log10 P(the 24 Sanborn crib letters at their true positions) =   -24.1791
+   i.e. the cribs cost 24.18 log10 units = 1.007 per pinned letter
+   (24 uniform-random letters would cost 33.96; English text makes them much cheaper than that)
+
+mean log10 P(sample) under the model   = -79.132
+conditional entropy of the 73 free letters = 54.95 log10 units = 182.5 bits
+   -> the number of DISTINCT crib-consistent English plaintexts the model
+      considers about as likely as each other is on the order of 10^55.
+      (0.753 log10 units per free letter, vs 1.415 for random.)
+
+quadgram score of exact samples: mean -0.8022 sd 0.0495
+   held-out English -0.741 +- 0.077;  Sanborn K1-K3 -0.967 +- 0.087;
+   ANNEALED (the mode) about -0.66.  Exact samples sit where real text sits;
+   the annealer's mode does not.  This is why annealing cannot be used as evidence.
+
+Ten independent EXACT samples (crib letters lower-cased):
+   UWCJOINTOFVARIABLELINeastnortheastTOHAVIOUSDHEACHMATIVERATRANUMberlinclockFORTRYFROMSCRIBUTIONAND
+   HRNCAUSESLESNOMEASINGeastnortheastOBEYOUDETOWINDOREEKSMAYOUMUSTberlinclockETHEWILLCALLYDOCUMEDFIN
+   KHBORTDNSXZLIBPNGITCLeastnortheastWHENTATTERISCSEARCHIVEWILLMEMberlinclockEDATAINADABANDITOVIDECI
+   DETHATIONSTEMPLEMISSUeastnortheastHEOBJECTIVENTIALCULTIPLEXPLORberlinclockCIFIESAMELYBESTTFAILENA
+   EEIFTHENCEASOPTIONFINeastnortheastACHARENTAINTHEFROMATCHECONNUMberlinclockTUZSVXTWILLBUFFERROUTPU
+   TERDERMSIFICALLONLYSEeastnortheastMAYALLDEREXAMINALSOURCEMOVEDLberlinclockTHASLASTEMPLEERAYOFCALM
+   EOITYOFMINITINGONCPAPeastnortheastHISTHEOBJECTTHERESSAGETANENUMberlinclockSLASSOMERGEOBJECTORELYU
+   SYVIEWRESULTOFFERSTTHeastnortheastHENFILESSETHISCLASHARDERSWILLberlinclockOUTFORPCRETUREOVEDFISEN
+   LEUSEAKENTSLISTOTETYPeastnortheastDOESNECALLECANDCMDHFILETIMILLberlinclockEYSHOWGROUTTHEMULTINGTH
+   EPTERCODEDROUPNAMESFReastnortheastFIXEDNSNAMEDIFYTHEFOLLOWTHISTberlinclockEDRANSLATEXPERATIONFIGF
+
+real	0m1.865s
+user	0m1.035s
+sys	0m0.166s

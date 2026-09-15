@@ -1,0 +1,104 @@
+# (a) Reconstruction of the Kryptos right-hand tableau panel
+
+## 1. Transcription agreement
+
+data/sculpture_panels.txt [RIGHT] == Wikipedia/Elonka transcription: True
+left-panel row lengths (local)   : [32, 31, 31, 29, 31, 32, 31, 30, 32, 30, 30, 31, 31, 31, 32, 30, 31, 30, 32, 30, 32, 31, 33, 29, 30, 31, 31, 31]
+left-panel row lengths (Elonka)  : [32, 31, 31, 30, 31, 32, 31, 31, 32, 31, 30, 31, 31, 31, 32, 30, 31, 30, 32, 30, 32, 31, 33, 29, 31, 31, 31, 31]
+left-panel row lengths agree     : True
+
+## 2. Shape of the carved tableau
+
+28 carved rows.  Row 0 and row 27 are the unlabelled plain header/footer
+  'ABCDEFGHIJKLMNOPQRSTUVWXYZ' + 'ABCD' = 30 letters.
+Rows 1..26 are 'row label' + a 30-letter window of the KRYPTOS-keyed alphabet:
+  row with label L(i) carries KEYED rotated left by i, then its first 4 letters again.
+row lengths (physical): [30, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 32, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 30]
+row lengths (ideal)   : [30, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 30]
+total letters physical = 867, ideal = 866, difference = 1
+  866 = 2*30 (header+footer) + 26*(1 label + 30 body).
+
+## 3. Complete anomaly inventory (physical minus ideal)
+
+rows that differ from the ideal tableau: 1
+  row index 14 (carved label 'N', 1-indexed carved row 15):
+    physical 'NGHIJLMNQUVWXZKRYPTOSABCDEFGHIJL'  (32 chars)
+    ideal    'NGHIJLMNQUVWXZKRYPTOSABCDEFGHIJ'  (31 chars)
+    first divergence at column 31 (0-indexed within the row)
+    physical row = ideal row + one extra 'L' appended at the end
+
+There is exactly ONE deviation: a single extra letter L at the end of the row
+labelled N (carved row 15 of 28, 1-indexed).  Everything else is a perfect
+KRYPTOS-keyed Vigenere tableau.
+
+linear index of the extra L in the 867-letter physical reading:
+  0-indexed 464, 1-indexed 465
+  letters before it: 464 ; letters after it: 402
+  factorisations of interest: 465 = 3*5*31 = 15*31 ; 464 = 16*29 ; 867 = 3*17^2
+
+## 4. Rightmost column of the carved rows (the Bauer/Link/Molle 'HILL')
+
+physical last column, rows A..Z : PTOSABCDEFGHILLMNQUVWXZKRY
+ideal    last column, rows A..Z : PTOSABCDEFGHIJLMNQUVWXZKRY
+physical contains 'HILL': True at index 11
+ideal    contains 'HILL': False
+(the extra L turns ...H I J L... into ...H I L L..., i.e. rows L,M,N,O)
+
+## 5. Every column of the carved tableau read downward (rows A..Z only)
+
+  col  0 (26 letters): ABCDEFGHIJKLMNOPQRSTUVWXYZ
+  col  1 (26 letters): KRYPTOSABCDEFGHIJLMNQUVWXZ
+  col  2 (26 letters): RYPTOSABCDEFGHIJLMNQUVWXZK
+  col  3 (26 letters): YPTOSABCDEFGHIJLMNQUVWXZKR
+  col  4 (26 letters): PTOSABCDEFGHIJLMNQUVWXZKRY
+  col  5 (26 letters): TOSABCDEFGHIJLMNQUVWXZKRYP
+  col  6 (26 letters): OSABCDEFGHIJLMNQUVWXZKRYPT
+  col  7 (26 letters): SABCDEFGHIJLMNQUVWXZKRYPTO
+  col  8 (26 letters): ABCDEFGHIJLMNQUVWXZKRYPTOS
+  col  9 (26 letters): BCDEFGHIJLMNQUVWXZKRYPTOSA
+  col 10 (26 letters): CDEFGHIJLMNQUVWXZKRYPTOSAB
+  col 11 (26 letters): DEFGHIJLMNQUVWXZKRYPTOSABC
+  col 12 (26 letters): EFGHIJLMNQUVWXZKRYPTOSABCD
+  col 13 (26 letters): FGHIJLMNQUVWXZKRYPTOSABCDE
+  col 14 (26 letters): GHIJLMNQUVWXZKRYPTOSABCDEF
+  col 15 (26 letters): HIJLMNQUVWXZKRYPTOSABCDEFG
+  col 16 (26 letters): IJLMNQUVWXZKRYPTOSABCDEFGH
+  col 17 (26 letters): JLMNQUVWXZKRYPTOSABCDEFGHI
+  col 18 (26 letters): LMNQUVWXZKRYPTOSABCDEFGHIJ
+  col 19 (26 letters): MNQUVWXZKRYPTOSABCDEFGHIJL
+  col 20 (26 letters): NQUVWXZKRYPTOSABCDEFGHIJLM
+  col 21 (26 letters): QUVWXZKRYPTOSABCDEFGHIJLMN
+  col 22 (26 letters): UVWXZKRYPTOSABCDEFGHIJLMNQ
+  col 23 (26 letters): VWXZKRYPTOSABCDEFGHIJLMNQU
+  col 24 (26 letters): WXZKRYPTOSABCDEFGHIJLMNQUV
+  col 25 (26 letters): XZKRYPTOSABCDEFGHIJLMNQUVW
+  col 26 (26 letters): ZKRYPTOSABCDEFGHIJLMNQUVWX
+  col 27 (26 letters): KRYPTOSABCDEFGHIJLMNQUVWXZ
+  col 28 (26 letters): RYPTOSABCDEFGHIJLMNQUVWXZK
+  col 29 (26 letters): YPTOSABCDEFGHIJLMNQUVWXZKR
+  col 30 (26 letters): PTOSABCDEFGHIJLMNQUVWXZKRY
+  col 31 ( 1 letters): L
+
+## 6. Row/column alignment of K4 with the tableau panel
+
+K4 occupies the last 4 characters of left-panel row 25 and all of rows 26,27,28
+(1-indexed), each of which is exactly 31 characters wide.
+  left  row 25 (31 chars): ECDMRIPFEIMEHNLSSTTRTVDOHW?OBKR
+  right row 25 (31 chars): XWXZKRYPTOSABCDEFGHIJLMNQUVWXZK
+  left  row 26 (31 chars): UOXOGHULBSOLIFBBWFLRVQQPRNGKSSO
+  right row 26 (31 chars): YXZKRYPTOSABCDEFGHIJLMNQUVWXZKR
+  left  row 27 (31 chars): TWTQSJQSSEKZZWATJKLUDIAWINFBNYP
+  right row 27 (31 chars): ZZKRYPTOSABCDEFGHIJLMNQUVWXZKRY
+  left  row 28 (31 chars): VTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR
+  right row 28 (30 chars): ABCDEFGHIJKLMNOPQRSTUVWXYZABCD
+
+Same-row/same-column key stream for K4 (the 'physical keystream'):
+  row25 cols 28-31 : WXZK   (under left-panel  OBKR)
+  row26            : YXZKRYPTOSABCDEFGHIJLMNQUVWXZKR
+  row27            : ZZKRYPTOSABCDEFGHIJLMNQUVWXZKRY
+  row28 (footer)   : ABCDEFGHIJKLMNOPQRSTUVWXYZABCD   <-- only 30 letters, the footer has no row label
+  concatenated     : WXZKYXZKRYPTOSABCDEFGHIJLMNQUVWXZKRZZKRYPTOSABCDEFGHIJLMNQUVWXZKRYABCDEFGHIJKLMNOPQRSTUVWXYZABCD  (96 letters)
+NOTE: the footer row carries 30 letters, not 31, because it has no row-label
+letter.  A naive same-column reading therefore runs out of letters one short
+for K4 positions 67..97; solvekryptos.com patches this by inserting a blank.
+

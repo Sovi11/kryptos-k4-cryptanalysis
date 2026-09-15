@@ -1,0 +1,225 @@
+# (a) The tableau's anomalies as signal
+
+Null calibration (Monte-Carlo, 200,000 random 24-letter key streams):
+  best-over-26-rotations crib match: mean 3.249, p95 5, p99 5, max 9
+  P(>=k) for k = 3:0.89, 4:0.3, 5:0.051, 6:0.0063, 7:0.00062, 8:5e-05, 9:1.5e-05
+  Any 'best' figure below must be read against this table.  7/24 happens by chance
+  once per ~1,600 random streams; 9/24 once per ~67,000.
+
+## A1. The deviation list, re-derived from scratch
+
+carved letters 867 ; ideal letters 866 ; difflib similarity 0.999423
+opcodes that are not 'equal': 1
+  insert  ideal[464:464]='' -> physical[464:465]='L'   (1-indexed physical pos 465)
+rows differing from the ideal tableau: 1 -> [14]
+  row 14 (label 'N'): carved 'NGHIJLMNQUVWXZKRYPTOSABCDEFGHIJL' (32) / ideal 'NGHIJLMNQUVWXZKRYPTOSABCDEFGHIJ' (31)
+
+lateral/tableau_anomalies.json agrees with this independent re-derivation: True
+ANOMALY SET = { (position 465 1-indexed / 464 0-indexed, inserted letter 'L') }
+cardinality = 1.  There is no second deviation to build a sequence out of.
+
+## A2. What a one-element deviation list can possibly encode
+
+An observer who knows the ideal tableau learns, from the carving, only:
+  which position was altered : log2(867) = 9.76 bits
+  which letter was inserted  : log2(26)  = 4.70 bits
+  total                      : 14.46 bits
+A 97-letter key stream carries 97*log2(26) = 456 bits.
+A 24-letter crib fit demands 24*log2(26) = 113 bits of key information.
+
+So the anomaly CANNOT BE the key: it is short of a 97-letter stream by a factor of
+32, and short of even the crib block by a factor of 7.8.
+The only cryptographically coherent roles left for it are SELECTOR roles -- it can
+name a number (a period, an offset, a shift, a switch point) or flip a rule.  A3-A6
+test every such role exhaustively.  This bound is why (a) can be CLOSED rather than
+merely searched: the space of things one datum can select is small and finite.
+
+## A3. The anomaly POSITION as a number, used every way a number can be used
+
+### A3(i) as a constant additive shift  key_i = A[k] for all i
+A constant key is monoalphabetic; the 24 crib pairs demand 24 equal required-key
+indices.  Number of combos for which the 24 required indices are all equal:
+  0 / 24 combos.  (A constant shift is therefore impossible regardless of WHICH
+  number the anomaly names; this re-confirms the monoalphabetic negative.)
+
+### A3(ii) as a key PERIOD
+| number | meaning | constraints c_p | chance 26^-c_p | combos consistent |
+|---|---|---|---|---|
+| 11 | L is index 11 of the plain alphabet | 13 | 4.03e-19 | 0/24 |
+| 13 | N is index 13 of the plain alphabet | 11 | 2.72e-16 | 0/24 |
+| 14 | row N is the 14th lettered row (0-indexed), carved row 14 of 28 | 11 | 2.72e-16 | 0/24 |
+| 15 | row N is carved row 15 (1-indexed) | 9 | 1.84e-13 | 0/24 |
+| 18 | L is index 18 of the KRYPTOS alphabet | 7 | 1.25e-10 | 0/24 |
+| 26 | rows in the tableau body (alphabet size) | 1 | 0.0385 | 0/24 |
+| 30 | ideal body-row width | 1 | 0.0385 | 0/24 |
+| 31 | the extra L sits at column 31 (0-indexed) of its row | 2 | 0.00148 | 0/24 |
+| 32 | carved row N is 32 characters long | 3 | 5.69e-05 | 0/24 |
+| 97 | K4 length (for reference) | 0 | 1 | 24/24 VACUOUS|
+| 402 | letters after the extra L | 0 | 1 | 24/24 VACUOUS|
+| 464 | 0-indexed linear position of the extra L | 0 | 1 | 24/24 VACUOUS|
+| 465 | 1-indexed linear position of the extra L | 0 | 1 | 24/24 VACUOUS|
+| 866 | ideal tableau length | 0 | 1 | 24/24 VACUOUS|
+| 867 | carved tableau length | 0 | 1 | 24/24 VACUOUS|
+
+### A3(iii) as a DECIMATION step into the tableau
+key_i = source[(o + step*i) mod len(source)], for each anomaly number as `step`,
+every start o, both tableau variants and their reversals, 24 combos, 26 rotations.
+  trials 1,164,576 ; 24/24 hits 0 ; expected by chance 3.32e-27 ; best 10/24 ('phys_rev', 30, 513, 'beaufort/pt=plain/ct=plain/key=plain', 23)
+  P(a single random stream reaching 10/24) <= 2.2e-07 ; expected number of trials at
+  or above that mark over 1,164,576 trials: 0.26.  Observed: 1.
+    best decimation model -> cribs 10/24
+      plaintext : ERIBYEVEMLYJTAEHKNRRUeysotuvtxeassWRORUSIBSSGALLOKRBDULDYGKYTBFtirlnncpbrwKADWHJNXEFVXTJWJDJZTBDM
+      bigram -6.984 (English ~-5.3, random ~-7.5 ; random 99th pct -7.05), IoC 0.0399
+      dict words >=5 letters outside the cribs: none
+
+### A3(iv) as a Gronsfeld / numeric key
+The digits of each anomaly number, repeated, used as shift values 0-9:
+| number | digits | best crib match | where |
+|---|---|---|---|
+| 11 | 11 | 5/24 | ('beaufort/pt=plain/ct=plain/key=plain', 0, 9) |
+| 13 | 13 | 5/24 | ('vigenere/pt=plain/ct=keyed/key=plain', 1, 11) |
+| 14 | 14 | 7/24 | ('beaufort/pt=plain/ct=keyed/key=plain', 0, 16) |
+| 15 | 15 | 6/24 | ('beaufort/pt=plain/ct=plain/key=plain', 0, 9) |
+| 18 | 18 | 5/24 | ('beaufort/pt=plain/ct=plain/key=plain', 1, 2) |
+| 26 | 26 | 6/24 | ('beaufort/pt=plain/ct=plain/key=plain', 0, 8) |
+| 30 | 30 | 7/24 | ('beaufort/pt=plain/ct=keyed/key=plain', 1, 17) |
+| 31 | 31 | 5/24 | ('vigenere/pt=plain/ct=keyed/key=plain', 0, 11) |
+| 32 | 32 | 6/24 | ('beaufort/pt=plain/ct=plain/key=plain', 0, 7) |
+| 97 | 97 | 5/24 | ('vigenere/pt=plain/ct=keyed/key=plain', 0, 5) |
+| 402 | 402 | 6/24 | ('beaufort/pt=plain/ct=plain/key=plain', 0, 10) |
+| 464 | 464 | 5/24 | ('vigenere/pt=keyed/ct=keyed/key=plain', 1, 22) |
+| 465 | 465 | 5/24 | ('vigenere/pt=keyed/ct=plain/key=plain', 1, 8) |
+| 866 | 866 | 5/24 | ('vigenere/pt=keyed/ct=keyed/key=plain', 0, 20) |
+| 867 | 867 | 5/24 | ('varbeaufort/pt=keyed/ct=plain/key=plain', 1, 6) |
+  Structural impossibility, independent of search: the 24 required shifts under
+  every combo need values that no 0-9 digit stream can supply for 24 of 24 combos;
+  combos where SOME rotation brings all 24 required shifts into 0..9: 0/24.
+
+## A4. The anomaly LETTERS as a key stream
+
+The deviation list contains exactly one letter, 'L'.  As a key stream of length 1
+it is a constant key, i.e. a monoalphabetic shift, already impossible by A3(i).
+For completeness, all 24 combos with the single key letter L repeated:
+  best crib match over 24 combos x 26 rotations: 5/24 (chance-level: P(>=5)=0.0504)
+
+Extending the 'letters' reading to every letter the anomaly touches -- the inserted
+L, its row label N, the four letters of the HILL column, the row-N body, and the
+two rows either side of the plate seam -- used as repeated key blocks:
+
+| key block | len | best crib match | chance P(>=that) | where |
+|---|---|---|---|---|
+| L | 1 | 5/24 | 0.0504 | ('beaufort/pt=plain/ct=plain/key=plain', 'start=0', 'rot=25') |
+| N | 1 | 5/24 | 0.0504 | ('beaufort/pt=plain/ct=plain/key=plain', 'start=0', 'rot=23') |
+| HILL | 4 | 6/24 | 0.00622 | ('beaufort/pt=plain/ct=keyed/key=plain', 'start=3', 'rot=9') |
+| row N carved (32) | 32 | 7/24 | 0.000628 | ('varbeaufort/pt=keyed/ct=plain/key=plain', 'start=0', 'rot=6') |
+| row N body carved (31) | 31 | 7/24 | 0.000628 | ('varbeaufort/pt=keyed/ct=plain/key=plain', 'start=18', 'rot=12') |
+| row N ideal body (30) | 30 | 7/24 | 0.000628 | ('varbeaufort/pt=keyed/ct=keyed/key=plain', 'start=16', 'rot=12') |
+| rows M,N at the plate seam | 63 | 7/24 | 0.000628 | ('varbeaufort/pt=keyed/ct=plain/key=keyed', 'start=27', 'rot=3') |
+| last-column carved A..Z | 26 | 6/24 | 0.00622 | ('vigenere/pt=plain/ct=plain/key=plain', 'start=20', 'rot=6') |
+| last-column ideal A..Z | 26 | 6/24 | 0.00622 | ('beaufort/pt=plain/ct=keyed/key=plain', 'start=3', 'rot=19') |
+
+  total trials 123,264 ; 24/24 hits 0 ; expected by chance 3.52e-28
+
+## A5. The anomaly position as a SWITCH POINT where the rule changes
+
+This is the only reading in which one datum can do real cryptographic work: it
+names an index s at which the system changes behaviour.  The anomaly's own
+candidate switch points, mapped into K4's 0..96 index range:
+  s = 0   <- 97 (K4 length (for reference))
+  s = 11  <- 11 (L is index 11 of the plain alphabet)
+  s = 13  <- 13 (N is index 13 of the plain alphabet)
+  s = 14  <- 14 (row N is the 14th lettered row (0-indexed), carved row 14 of 28); 402 (letters after the extra L)
+  s = 15  <- 15 (row N is carved row 15 (1-indexed))
+  s = 18  <- 18 (L is index 18 of the KRYPTOS alphabet)
+  s = 26  <- 26 (rows in the tableau body (alphabet size))
+  s = 30  <- 30 (ideal body-row width)
+  s = 31  <- 31 (the extra L sits at column 31 (0-indexed) of its row)
+  s = 32  <- 32 (carved row N is 32 characters long)
+  s = 76  <- 464 (0-indexed linear position of the extra L)
+  s = 77  <- 465 (1-indexed linear position of the extra L)
+  s = 90  <- 866 (ideal tableau length)
+  s = 91  <- 867 (carved tableau length)
+
+Rather than test only those, every model below is swept over ALL 96 interior switch
+points, so the anomaly-named ones can be scored against the best obtainable.
+
+### A5-M1  two constant shifts (regime A before s, regime B from s on)
+key_i = a for i < s, b for i >= s.  Free: a, b (and the combo).  The 24 cribs then
+impose (n1-1)+(n2-1) = 22 constraints, chance 26^-22 = 7.42e-32 per (s, combo).
+  (s, combo) pairs tested: 2304 ; consistent: 0 ; expected by chance 1.71e-28
+    none.
+
+### A5-M2  the CIPHER ITSELF changes at s (combo A before, combo B after), each
+side a constant shift.  24x24 combo pairs x 96 switch points = 55296 models.
+  consistent models: 0 ; expected by chance 4.1e-27
+    none.
+
+### A5-M3  periodic key of period p with a PHASE JUMP of d at s
+key_i = K[(i + d*[i>=s]) mod p].  p 2..30, d 1..p-1, s 1..96, 24 combos.
+The crib constraint count c = 24 - #distinct key slots touched; a model with c<=0
+is vacuous and is reported separately, never as a hit.
+  models tested 1,002,240 (of which 108,960 vacuous, c<=0) ; consistent non-vacuous: 274
+  expected consistent-by-chance over the same non-vacuous models: 3141.0045
+  (a 'consistent' model here is NOT a candidate solution: with c constraints the
+   key still has p - (24-c) free letters, so the 73 non-crib positions are not
+   determined at all.  Only c >= a large value would make the model predictive.)
+  consistent models by period: {23: 2, 24: 22, 25: 10, 26: 64, 27: 62, 28: 58, 29: 56}
+    p=23 d=10 s=28 c=1 beaufort/pt=plain/ct=keyed/key=plain
+    p=23 d=10 s=28 c=1 beaufort/pt=plain/ct=keyed/key=keyed
+    p=24 d=11 s=27 c=1 beaufort/pt=keyed/ct=plain/key=plain
+    p=24 d=11 s=27 c=1 beaufort/pt=keyed/ct=plain/key=keyed
+    p=24 d=18 s=33 c=1 vigenere/pt=keyed/ct=plain/key=plain
+    p=24 d=18 s=33 c=1 vigenere/pt=keyed/ct=plain/key=keyed
+    p=24 d=18 s=33 c=1 vigenere/pt=keyed/ct=keyed/key=plain
+    p=24 d=18 s=33 c=1 vigenere/pt=keyed/ct=keyed/key=keyed
+    p=24 d=18 s=33 c=1 varbeaufort/pt=keyed/ct=plain/key=plain
+    p=24 d=18 s=33 c=1 varbeaufort/pt=keyed/ct=plain/key=keyed
+    p=24 d=18 s=33 c=1 varbeaufort/pt=keyed/ct=keyed/key=plain
+    p=24 d=18 s=33 c=1 varbeaufort/pt=keyed/ct=keyed/key=keyed
+    p=24 d=18 s=64 c=1 beaufort/pt=plain/ct=plain/key=plain
+    p=24 d=18 s=64 c=1 beaufort/pt=plain/ct=plain/key=keyed
+    p=24 d=18 s=64 c=1 beaufort/pt=plain/ct=keyed/key=plain
+
+### A5-M4  periodic key of period p that RESTARTS (phase resets to 0) at s
+  models tested 66,816 (4,128 vacuous) ; consistent non-vacuous 10 ; expected by chance 119.5372
+    p=27 s=22 c=1 beaufort/pt=keyed/ct=plain/key=plain
+    p=27 s=22 c=1 beaufort/pt=keyed/ct=plain/key=keyed
+    p=27 s=28 c=1 vigenere/pt=plain/ct=plain/key=plain
+    p=27 s=28 c=1 vigenere/pt=plain/ct=plain/key=keyed
+    p=27 s=28 c=1 beaufort/pt=plain/ct=keyed/key=plain
+    p=27 s=28 c=1 beaufort/pt=plain/ct=keyed/key=keyed
+    p=27 s=28 c=1 varbeaufort/pt=plain/ct=plain/key=plain
+    p=27 s=28 c=1 varbeaufort/pt=plain/ct=plain/key=keyed
+    p=29 s=73 c=1 beaufort/pt=plain/ct=plain/key=plain
+    p=29 s=73 c=1 beaufort/pt=plain/ct=plain/key=keyed
+
+## A6. The PHASE-SLIP hypothesis
+
+Motivation, and it is documented rather than invented: in April 2006 Sanborn
+announced that he had OMITTED one ciphertext letter from K2, which threw the tail
+of that message out of phase with its key and made the ending unreadable
+(https://elonka.com/kryptos/CorrectedK2Announcement.html).  The tableau anomaly is
+an INSERTED letter.  If a running key were drawn from the carved panel, an
+insertion is exactly the defect that puts everything after it one place out.
+So: running key from the tableau, with one letter deleted or duplicated at every
+possible slip point, every offset, all 24 combos, all 26 rotations.
+
+| source | len | trials | 24/24 hits | expected | best | P(>=best) |
+|---|---|---|---|---|---|---|
+| tableau carved (867) | 867 | 3,617,376 | 0 | 1.03e-26 | 8/24 ('skip', 22, 329, 'varbeaufort/pt=keyed/ct=keyed/key=plain', 12) | 5.26e-05 |
+| tableau ideal (866) | 866 | 3,612,672 | 0 | 1.03e-26 | 8/24 ('skip', 22, 329, 'varbeaufort/pt=keyed/ct=keyed/key=plain', 12) | 5.26e-05 |
+| tableau carved reversed | 867 | 3,617,376 | 0 | 1.03e-26 | 9/24 ('skip', 64, 204, 'vigenere/pt=keyed/ct=plain/key=plain', 14) | 3.7e-06 |
+| tableau ideal reversed | 866 | 3,612,672 | 0 | 1.03e-26 | 9/24 ('skip', 64, 204, 'vigenere/pt=keyed/ct=plain/key=plain', 14) | 3.7e-06 |
+| tableau carved, labels stripped (781) | 781 | 3,212,832 | 0 | 9.17e-27 | 9/24 ('skip', 31, 92, 'varbeaufort/pt=keyed/ct=keyed/key=plain', 6) | 3.7e-06 |
+| tableau carved body column-major | 781 | 3,212,832 | 0 | 9.17e-27 | 9/24 ('skip', 25, 12, 'beaufort/pt=keyed/ct=keyed/key=plain', 22) | 3.7e-06 |
+
+  TOTAL trials 20,885,760 ; 24/24 hits 0 ; expected by chance 5.96e-26 ; wall 10.6s
+  best overall 9/24 at ('tableau carved reversed', 'skip', 64, 204, 'vigenere/pt=keyed/ct=plain/key=plain', 14)
+  A random key stream reaches 9/24 with probability 3.7e-06, so over 20,885,760 trials the
+  expected number of streams at or above that mark is 77.2 -- i.e. the best result
+  here is not merely consistent with chance, it is BELOW what chance predicts.
+    best phase-slip model -> cribs 9/24
+      plaintext : AXXFVRFTWZJPMDDDBSTORemztkrreezasgJSECADOIEDKCZKZTXILNPGNFJSSYIbetedebxocsUSTGPYZJDFMLVHOGWBZFIIA
+      bigram -7.204 (English ~-5.3, random ~-7.5 ; random 99th pct -7.05), IoC 0.0397
+      dict words >=5 letters outside the cribs: ['STORE']
+

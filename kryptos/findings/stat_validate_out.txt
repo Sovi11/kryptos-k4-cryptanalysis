@@ -1,0 +1,72 @@
+==============================================================================
+stat_validate.py -- verification of the statistical machinery
+==============================================================================
+
+-- 1. data integrity ----------------------------------------------
+[ok  ] K4 is 97 letters   OBKRUOXOGHUL...
+[ok  ] panel splits to 63/369/336/97
+[ok  ] K1 ct begins EMUFPHZLRF   EMUFPHZLRF
+[ok  ] K4 ct begins OBKRUOXOGH
+[ok  ] K3 ct is an anagram of K3 pt
+[ok  ] to_ints/to_str round trip
+
+-- 2. published K4 statistics reproduced --------------------------
+[ok  ] K4 IoC == 0.03608   0.036082
+[ok  ] K4 has all 26 letters
+[ok  ] K4 has 6 doubled letters
+[ok  ] doubles at 19,26,33,43,47,68   [19, 26, 33, 43, 47, 68]
+[ok  ] lag-7 coincidences == 9   9
+[ok  ] lag-7 z == +3.04   +3.036
+[ok  ] 10 repeated bigram occurrences (Bean)   10 extra occurrences, 10 distinct
+[ok  ] 0 repeated trigrams
+
+-- 3. exact IoC null moments vs Monte-Carlo ------------------------
+[ok  ] n=30 mean matches (exact 0.038462, mc 0.038472)   |d|=1.04e-05
+[ok  ] n=30 sd matches (exact 0.009220, mc 0.009250)   rel 0.0032
+[ok  ] n=97 mean matches (exact 0.038462, mc 0.038465)   |d|=3.36e-06
+[ok  ] n=97 sd matches (exact 0.002818, mc 0.002823)   rel 0.0018
+[ok  ] n=369 mean matches (exact 0.038462, mc 0.038462)   |d|=3.85e-07
+[ok  ] n=369 sd matches (exact 0.000738, mc 0.000738)   rel 0.0007
+
+-- 4. exact IoC lattice DP vs brute-force enumeration -------------
+[ok  ] DP == exhaustive enumeration (n=8, c=4)   14 lattice points, sum dp = 1.000000000000
+[ok  ] DP == exhaustive enumeration (n=7, c=3)   sum dp = 1.000000000000
+[ok  ] truncated DP agrees with untruncated on the retained tail
+
+-- 5. coupon-collector exact vs Monte-Carlo ------------------------
+[ok  ] n=60: exact 0.04938 vs mc 0.04911   se=0.00048
+[ok  ] n=97: exact 0.54246 vs mc 0.54362   se=0.00111
+[ok  ] n=200: exact 0.98984 vs mc 0.98974   se=0.00023
+
+-- 6. adjacent-doubles are exactly Binomial(n-1, 1/26) -------------
+[ok  ] pmf matches to <0.002 everywhere   max |exact-mc| = 0.00089
+[ok  ] binom_cdf + binom_sf consistent
+
+-- 7. autocorrelation z null is standard normal-ish ----------------
+[ok  ] mean ~ 0   +0.0000
+[ok  ] sd ~ 1   0.9985
+
+-- 8. cipher routines round-trip -----------------------------------
+[ok  ] vigenere round trip
+[ok  ] beaufort round trip (involutive)
+[ok  ] plaintext-autokey round trip
+[ok  ] gromark round trip
+[ok  ] gromark keystream is the lagged-Fibonacci one
+[ok  ] transposition preserves the letter multiset
+[ok  ] random_polyalpha is invertible per slot
+
+-- 9. Vigenere machinery reproduces a known Kryptos fact -----------
+[ok  ] Quagmire-III re-encryption of K1 == carved K1   EMUFPHZLRFAXYUSDJKZL vs EMUFPHZLRFAXYUSDJKZL
+
+-- 10. LetterPool is uniform ---------------------------------------
+[ok  ] 26 symbols only
+[ok  ] chi-square vs uniform < 52 (df 25)   chi2 = 23.4
+
+-- 11. English corpus ----------------------------------------------
+[ok  ] corpus >= 1e6 letters   22,409,130 letters
+[ok  ] corpus IoC is English (0.060-0.072)   0.06601
+[ok  ] english_windows yields 97-letter windows
+
+==============================================================================
+ALL CHECKS PASSED
+==============================================================================

@@ -1,0 +1,201 @@
+# (c) The solvekryptos.com 'tableau side + one-bit gate' claim: a mechanical audit
+
+## C1. The published data, and how it was obtained
+
+Fetched for this task on 2026-09-13 from https://solvekryptos.com/verify and
+https://solvekryptos.com/solution.  Their paid verifier was NOT used and nothing
+was submitted anywhere.  The R-grid, r-grid and gate map transcribed above match,
+cell for cell, the copy transcribed independently into this repo on 2026-09-12,
+so the data this audit runs on is confirmed by two separate fetches.
+
+Their stated model, verbatim from /solution:
+    "r = ( f(C) + g_state(T) ) mod 26 ; R = r + gate ; P = ( stdpos(C) - R ) mod 26"
+
+Grid sizes: R 97 cells, r 97 cells, gate 97 cells (7 tiers x 14, last cell empty).
+Their plaintext: THECOMPASSROSEISHEREXEASTNORTHEASTTHISISYOURPOSITIONXCOMMISSIONBERLINCLOCKWHICHISNORTHEASTOFHEREX (97 letters)
+
+## C2. Does their own arithmetic close?
+
+  R_i == (C_i - P_i) mod 26 for their plaintext: 97 / 97 positions
+  (R_i - r_i) mod 26 in {0,1} for all i: True
+  (R_i - r_i) equals the published gate bit: 97 / 97
+  published gate distribution: {0: 28, 1: 69}
+
+  The arithmetic closes exactly.  This is the point at which it is easy to be
+  impressed and wrong: R is DEFINED as (C - P) mod 26, so publishing an R grid is
+  publishing the plaintext.  The R grid is a restatement of the answer, not
+  evidence for it.  Everything hinges on whether r, f, g and the gate are
+  independently derivable -- C3 to C6.
+
+## C3. Is the helper packet T derivable from public data?
+
+Claim: T_i is the letter carved on the tableau side at the same row and column as
+K4's ciphertext letter i.  K4 occupies the last 4 cells of left-panel row 25 and
+all of rows 26-28, each 31 cells wide.
+
+  reconstructed from data/sculpture_panels.txt : WXZKYXZKRYPTOSABCDEFGHIJLMNQUVWXZKRZZKRYPTOSABCDEFGHIJLMNQUVWXZKRYABCDEFGHIJKLMNOPQRSTUVWXYZABCD  (96 letters)
+  published packet                            : WXZKYXZKRYPTOSABCDEFGHIJLMNQUVWXZKRZZKRYPTOSABCDEFGHIJLMNQUVWXZKRY_ABCDEFGHIJKLMNOPQRSTUVWXYZABCD  (97 cells)
+  positions 1-66 agree : True
+  positions 67-97      : the tableau FOOTER row carries 30 letters, not 31, because
+    it has no row label.  A same-column reading therefore runs one letter short for
+    the last tier.  Their packet marks position 67 blank ('_') and then their
+    'basis handoff' silently re-reads tableau row Z for that whole tier instead:
+      same-column reading, positions 67-97 :  ABCDEFGHIJKLMNOPQRSTUVWXYZABCD
+      their effective Z2 pass              : ZZKRYPTOSABCDEFGHIJLMNQUVWXZKRY
+      identical? False
+
+  VERDICT C3: positions 1-66 of the helper packet ARE derivable from the carving --
+  that is a real, checkable, public fact and the strongest part of their claim.
+  Positions 67-97 are NOT: the physical reading runs out, and the substitute is a
+  choice, not a reading.  31 of 97 helper letters are authored.
+
+## C4. How many of the 97 shift values are knowable from public data?
+
+R_i = (C_i - P_i) mod 26 is computable exactly where P_i is public.  P is public at
+the four Sanborn cribs and nowhere else.
+  positions with publicly known plaintext : 24  (1-indexed 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74)
+  positions where R is therefore public   : 24
+  positions where R comes from the ASSUMED plaintext : 73
+
+  So 73 of the 97 shift values in the published R grid are a restatement of an
+  assumed plaintext.  That is the number the brief asks about, and it is exactly
+  right: 97 - 24 = 73.
+
+  Their own per-position audit is in the same territory from the other direction:
+  27 derived + 2 public-relational + 22 witness-claimed + 1 bridge + 45
+  back-solved-only.  'Witness-claimed' means asserted from the sealed archive, not
+  derived, so by their own grading at most 29 of 97 are publicly checkable, and
+  the 24 crib positions are a subset of those.
+
+  Their plaintext reproduces 24 / 24 crib letters (it must: the cribs are public and
+  were an input to their reconstruction, not an output of it).
+
+## C5. THE DECISIVE TEST: can the model fit an arbitrary plaintext?
+
+The model's cryptographic content lives entirely in the equation
+    f(C_i) + g_state(i)(T_i) = r_i        (mod 26),  i = 1..97
+This is a linear system over Z/26 on a bipartite incidence graph whose left nodes
+are the distinct ciphertext letters and whose right nodes are the distinct
+(state, helper-letter) pairs.  Each position is one edge.
+
+If that graph is a FOREST, the system is solvable for EVERY right-hand side: f and
+g can be tuned to produce any shift stream at all, so the model cannot be
+contradicted by any plaintext and therefore says nothing about the true one.
+Cycles are the only thing that can make it falsifiable, because a cycle imposes a
+consistency condition on r that a wrong plaintext would violate.
+
+  positions (edges)                    : 97
+  distinct ciphertext letters (f nodes): 26
+  distinct (state, T) pairs (g nodes)  : 82
+  total nodes V                        : 108
+  distinct edges E                     : 97
+  duplicate edges (repeated (C,state,T)): 0
+  connected components                 : 11
+  independent cycles among distinct edges: E - V + C = 0
+  total independent consistency conditions on r: 0 (cycles) + 0 (duplicates) = 0
+  free parameters left after fitting   : one gauge constant per component = 11
+
+  Variants of the helper-packet convention, to show the conclusion does not depend
+  on which patch is used for the blank at position 67:
+  | packet convention | nodes | edges | components | cycles | duplicate edges |
+  |---|---|---|---|---|---|
+  | their 'basis handoff' (row Z re-read) | 108 | 97 | 11 | 0 | 0 |
+  | packet exactly as published, '_' kept | 109 | 97 | 12 | 0 | 0 |
+  | literal same-column read, blank at 67 | 109 | 97 | 12 | 0 | 0 |
+
+  Under every convention the graph is a FOREST: zero independent cycles and zero
+  duplicate edges, hence zero consistency conditions.  (solvekryptos states 'six
+  degrees of freedom'; this computation gives 11 gauge freedoms under their handoff
+  convention.  The exact count depends on how the f card's unused entries are
+  counted and does not affect the conclusion, which follows from cycles = 0.)
+
+### C5(b) Empirical: fit random plaintexts
+  20000 uniformly random 97-letter plaintexts, gate held at the PUBLISHED bits,
+  f and g free: 20000 of them (100.00%) are exactly realisable by the model.
+
+  Control, to show the test is not vacuous: an artificially CONTRADICTORY system
+    there are NO repeated (C,state,T) triples, so no shift stream at all can
+    contradict the model.  Every one of the 26^97 possible plaintexts fits.
+
+## C6. Does the model PREDICT anything from public data alone?
+
+The fair test of a cipher method: give it only what is public -- the ciphertext,
+the carved tableau, the four Sanborn cribs -- fit whatever free parameters it has
+to those, and count how many of the remaining 73 plaintext letters come out
+FORCED.  A method with content forces some; a curve fit forces none.
+
+  fitting f and g to the 24 crib positions only (gate taken as published):
+    the 24 crib constraints are mutually consistent: True
+    of the 73 unknown positions, the number whose shift r is then FORCED: 0
+
+  Repeating the same test with the gate bits treated as UNKNOWN (the honest
+  position, since the gate map is not derivable -- see C7): every forced r admits
+  two plaintext letters, so the number of letters predicted outright is 0.
+
+  VERDICT C6: fitting the published model to everything the public actually knows
+  predicts 0 of the 73 unknown letters. The model is not wrong; it is unfalsifiable.
+
+## C7. Is the gate map derivable 'from position alone'?
+
+The site describes the gate as a one-bit, position-fixed adjustment.  If it really
+is a function of position, some simple positional rule should reproduce it.  Every
+rule of the form gate_i = [ (a*i + b) mod m < k ] and every parity/tier/row rule
+was tried; also the tableau letters themselves as a one-bit gate.
+
+  published gate: 69 ones, 28 zeros out of 97
+  TRIVIAL BASELINE FIRST: the gate is 69 ones and 28 zeros, so the constant rule
+  'gate = 1 always' already agrees with 69/97 positions.  Any real rule has to beat
+  that, not 48/97.
+
+  1,460,200 positional threshold rules tried (each also negated, 2,920,400 in all);
+  best agreement 75/97 by NOT[(5*i+0) mod 33 < 4]
+  distinct prediction vectors among them: 431,976
+
+  PERMUTATION NULL, which is the only fair one because the rules are massively
+  correlated and the gate is 71% ones: shuffle the gate's own 97 bits and re-run
+  the ENTIRE rule family against each shuffle.  That measures exactly how well a
+  family this large fits a gate map with this bias and no positional structure.
+  120 shuffles: best-of-family agreement mean 76.4/97, min 75, max 79.
+  Observed best on the REAL gate map: 75/97.
+  Shuffles whose best-of-family agreement matches or beats it: 120 of 120  (p = 1.000).
+
+  letter-based one-bit gates (best of rule and its negation):
+    C in KRYPTOS     66/97
+    T is a vowel     60/97
+    T in KRYPTOS     56/97
+    C is a vowel     56/97
+    C index even     53/97
+    T index even     49/97
+
+  VERDICT C7: no positional or letter-based rule reproduces the gate map better
+  than the best-of-many-rules noise level.  The 97 gate bits are 97 free
+  parameters, fitted, not derived.
+
+## C8. Verdict
+
+| component of the claim | status |
+|---|---|
+| helper packet, positions 1-66 | **derivable** from the carving, and correct |
+| helper packet, positions 67-97 | not derivable; the footer row is 30 letters, so
+  the same-column reading fails and a substitute pass is authored |
+| the R grid | a restatement of (C - P); 24 of its 97 values are public, 73 are the
+  assumed plaintext |
+| the f card | 11 of 26 entries claimed forward-derived, 15 back-solved (their figure) |
+| the four g cards | back-solved (their figure) |
+| the 97 gate bits | back-solved; no positional or letter rule reproduces them (C7) |
+| the f/g system as a whole | incidence graph has 0 independent cycles and 0
+  duplicate-edge conditions, so it is a FOREST and fits every possible plaintext |
+
+The honest summary is the one their own site reaches: this is an internally
+consistent reconstruction, not an independent recovery.  The brief asked whether
+'roughly 73 of 97 values are back-solved from an assumed plaintext'.  The answer is
+yes, and 73 is exactly right -- it is 97 minus the 24 crib positions, the only
+places where the plaintext is public.  Fitted to public data alone the model
+predicts nothing, and it cannot be refuted by any plaintext, which is the same fact
+stated twice.
+
+Fairness note: solvekryptos.com publishes this audit against itself, retracted an
+earlier 'solved' framing, and grades its own positions.  Nothing here is a charge of
+bad faith; the site is the most careful of the public claims.  What this section
+establishes is only that its model cannot be used as evidence about K4, and that no
+part of it can be borrowed as a crib.

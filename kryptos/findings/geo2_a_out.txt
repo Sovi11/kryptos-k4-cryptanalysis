@@ -1,0 +1,146 @@
+reading orders built: 274
+sanity: identity text == CT: True
+sanity: "97 rowmajor LR/TB" == CT: True cribs identical: True
+sanity: body93 rowmajor == CT[4:]: True cribs shifted by 4: True n cribs 24
+col-major text: UTVOWTXTTOQMGSZHJFUQPLSKBSWSEGOKDLZKIZZFWXBATBTJWJCFKDLLIRUGVDKQIUQAHPWURIANNUGFEOKBKBSNCKSYAROPR
+  crib positions there: [3, 6, 9, 12, 15, 18, 21, 24, 52, 55, 58, 61, 64, 67, 70, 73, 76, 79, 83, 87, 88, 91, 92, 96]
+
+== periodic-key crib consistency over every reading order ==
+   periods 2..26, 12 cipher/alphabet pairings
+   tests run: 82200
+   constraint-count histogram (c = #crib collisions; tests at that c):
+      c= 0 :     96 tests, each passes by chance with prob 26^-0 = 1
+      c= 1 :   1128 tests, each passes by chance with prob 26^-1 = 0.0385
+      c= 2 :    960 tests, each passes by chance with prob 26^-2 = 0.00148
+      c= 3 :   3456 tests, each passes by chance with prob 26^-3 = 5.69e-05
+      c= 4 :   3360 tests, each passes by chance with prob 26^-4 = 2.19e-06
+      c= 5 :   3456 tests, each passes by chance with prob 26^-5 = 8.42e-08
+      c= 6 :   3384 tests, each passes by chance with prob 26^-6 = 3.24e-09
+      c= 7 :   5688 tests, each passes by chance with prob 26^-7 = 1.25e-10
+      c= 8 :   6000 tests, each passes by chance with prob 26^-8 = 4.79e-12
+      c= 9 :   5280 tests, each passes by chance with prob 26^-9 = 1.84e-13
+      c=10 :   4296 tests, each passes by chance with prob 26^-10 = 7.08e-15
+      c=11 :   8256 tests, each passes by chance with prob 26^-11 = 2.72e-16
+      c=12 :   3312 tests, each passes by chance with prob 26^-12 = 1.05e-17
+      c=13 :   3648 tests, each passes by chance with prob 26^-13 = 4.03e-19
+      c=14 :   3552 tests, each passes by chance with prob 26^-14 = 1.55e-20
+      c=15 :   3120 tests, each passes by chance with prob 26^-15 = 5.96e-22
+      c=16 :   3432 tests, each passes by chance with prob 26^-16 = 2.29e-23
+      c=17 :   3336 tests, each passes by chance with prob 26^-17 = 8.82e-25
+      c=18 :   3240 tests, each passes by chance with prob 26^-18 = 3.39e-26
+      c=19 :   3336 tests, each passes by chance with prob 26^-19 = 1.3e-27
+      c=20 :   3288 tests, each passes by chance with prob 26^-20 = 5.02e-29
+      c=21 :   3288 tests, each passes by chance with prob 26^-21 = 1.93e-30
+      c=22 :   3288 tests, each passes by chance with prob 26^-22 = 7.42e-32
+   EXPECTED number of consistent cases by chance: 141.0
+   OBSERVED number of consistent cases:           104
+   observed consistent by constraint count c: {0: 96, 1: 8}
+   expected consistent by constraint count c: {0: 96.0, 1: 43.38, 2: 1.42, 3: 0.2, 4: 0.01, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0, 10: 0.0, 11: 0.0, 12: 0.0, 13: 0.0, 14: 0.0, 15: 0.0, 16: 0.0, 17: 0.0, 18: 0.0, 19: 0.0, 20: 0.0, 21: 0.0, 22: 0.0}
+
+   every consistent case with >= 3 real constraints (chance <= 5.7e-5 each):
+      NONE
+
+   top 15 consistent cases ranked by unigram log-prob of the NEW (non-crib) letters
+   (English ~ -2.90, uniform random ~ -3.30, K4-letter-pool shuffle ~ -3.4):
+      logp=-3.504 c= 0 p=24 beau     plain   plain   rows132FRR OBKR-end          known=24 words=[]
+            QGNWEEAGSSAVTBFBSEASTNORTHEASTGATIECHGMVUZFBLBVNNVAHEPKCOLCNILREBIGWGHEYHAZABSUVULECJOQTWTSNVPDWT
+      logp=-3.504 c= 0 p=24 beau     plain   plain   rows231FFR OBKRrev-front     known=24 words=[]
+            TWDPVNSTWTQOJCELUVUSBAZAHYEHGWGIBERLINCLOCKPEHAVNNVBLBFZUVMGHCEITAGTSAEHTRONTSAESBFBTVASSGAEEWNGQ
+      logp=-3.509 c= 0 p=24 beau     plain   plain   rows132FRR OBKR-front        known=24 words=[]
+            ACUPQGNWEEAGSSAVTBFBSEASTNORTHEASTGATIECHGMVUZFBLBVNNVAHEPKCOLCNILREBIGWGHEYHAZABSUVULECJOQTWTSNV
+      logp=-3.515 c= 0 p=24 beau     plain   plain   rows132FRR OBKR-dropped      known=24 words=[]
+            QGNWEEAGSSAVTBFBSEASTNORTHEASTGATIECHGMVUZFBLBVNNVAHEPKCOLCNILREBIGWGHEYHAZABSUVULECJOQTWTSNV
+      logp=-3.515 c= 0 p=24 beau     plain   plain   rows231FFR OBKR-dropped      known=24 words=[]
+            VNSTWTQOJCELUVUSBAZAHYEHGWGIBERLINCLOCKPEHAVNNVBLBFZUVMGHCEITAGTSAEHTRONTSAESBFBTVASSGAEEWNGQ
+      logp=-3.526 c= 0 p=24 beau     plain   plain   rows132FRR OBKRrev-front     known=24 words=[]
+            XTDSQGNWEEAGSSAVTBFBSEASTNORTHEASTGATIECHGMVUZFBLBVNNVAHEPKCOLCNILREBIGWGHEYHAZABSUVULECJOQTWTSNV
+      logp=-3.526 c= 0 p=24 beau     plain   plain   rows231FFR OBKR-end          known=24 words=[]
+            VNSTWTQOJCELUVUSBAZAHYEHGWGIBERLINCLOCKPEHAVNNVBLBFZUVMGHCEITAGTSAEHTRONTSAESBFBTVASSGAEEWNGQSDTX
+      logp=-3.526 c= 0 p=24 beau     plain   plain   rows231FFR OBKR-front        known=24 words=[]
+            WFUMVNSTWTQOJCELUVUSBAZAHYEHGWGIBERLINCLOCKPEHAVNNVBLBFZUVMGHCEITAGTSAEHTRONTSAESBFBTVASSGAEEWNGQ
+      logp=-3.587 c= 1 p=25 beau     kryptos plain   rows132FFF OBKRrev-front     known=23 words=[]
+            MEIAAPQDJ.MWEPYZJO.QGEASTNORTHEAST.LINCLOCK.ISSNKSKNGGUAWLY.MTYNJNOH.OLAYOAOELVOLXIF.MOTUQYEO.BER
+      logp=-3.587 c= 1 p=25 beau     kryptos plain   rows231RRR OBKR-end          known=23 words=[]
+            REB.OEYQUTOM.FIXLOVLEOAOYALO.HONJNYTM.YLWAUGGNKSKNSSI.KCOLCNIL.TSAEHTRONTSAEGQ.OJZYPEWM.JDQPAAIEM
+      logp=-3.625 c= 1 p=25 beau     kryptos plain   rows132FFF OBKR-end          known=23 words=[]
+            APQDJ.MWEPYZJO.QGEASTNORTHEAST.LINCLOCK.ISSNKSKNGGUAWLY.MTYNJNOH.OLAYOAOELVOLXIF.MOTUQYEO.BERTVIM
+      logp=-3.625 c= 1 p=25 beau     kryptos plain   rows231RRR OBKRrev-front     known=23 words=[]
+            MIVTREB.OEYQUTOM.FIXLOVLEOAOYALO.HONJNYTM.YLWAUGGNKSKNSSI.KCOLCNIL.TSAEHTRONTSAEGQ.OJZYPEWM.JDQPA
+      logp=-3.643 c= 1 p=25 beau     kryptos plain   rows132FFF OBKR-dropped      known=23 words=[]
+            APQDJ.MWEPYZJO.QGEASTNORTHEAST.LINCLOCK.ISSNKSKNGGUAWLY.MTYNJNOH.OLAYOAOELVOLXIF.MOTUQYEO.BER
+      logp=-3.643 c= 1 p=25 beau     kryptos plain   rows231RRR OBKR-dropped      known=23 words=[]
+            REB.OEYQUTOM.FIXLOVLEOAOYALO.HONJNYTM.YLWAUGGNKSKNSSI.KCOLCNIL.TSAEHTRONTSAEGQ.OJZYPEWM.JDQPA
+      logp=-3.660 c= 1 p=25 beau     kryptos plain   rows132FFF OBKR-front        known=23 words=[]
+            UQSTAPQDJ.MWEPYZJO.QGEASTNORTHEAST.LINCLOCK.ISSNKSKNGGUAWLY.MTYNJNOH.OLAYOAOELVOLXIF.MOTUQYEO.BER
+
+== periodic-IoC scan over every reading order, p=2..12 ==
+   (only p<=12 -- with 97 letters a period p leaves columns of ~97/p letters and the
+    IoC of a <8-letter column is almost pure noise, which is why the p=25..30 maxima
+    reported in geometry_4_out.txt are artefacts, not signal.)
+   null (random shuffles of K4's own letters, 4000 trials):
+   p2:0.0361/0.0412  p3:0.0361/0.0429  p4:0.0361/0.0445  p5:0.0360/0.0458  p6:0.0360/0.0470  p7:0.0361/0.0481  p8:0.0362/0.0490  p9:0.0363/0.0507  p10:0.0364/0.0511  p11:0.0360/0.0519  p12:0.0362/0.0529
+   (mean / 95th percentile)
+   reading orders whose periodic IoC exceeds the 95th-percentile null, top 20
+   of 74 such (order, p) pairs out of 2046 tested -- 5% of 2046 = 102 expected:
+      IoC=0.0737 (null95=0.0529) p=12  rows213FFF OBKR-front
+      IoC=0.0678 (null95=0.0529) p=12  rows312RRR OBKR-front
+      IoC=0.0678 (null95=0.0529) p=12  rows312RRR OBKR-end
+      IoC=0.0678 (null95=0.0529) p=12  rows312RFR OBKR-front
+      IoC=0.0678 (null95=0.0529) p=12  rows213FFF OBKRrev-front
+      IoC=0.0618 (null95=0.0529) p=12  rows312RRR OBKRrev-front
+      IoC=0.0618 (null95=0.0529) p=12  rows213FRF OBKR-front
+      IoC=0.0618 (null95=0.0529) p=12  rows213FFF OBKR-end
+      IoC=0.0612 (null95=0.0529) p=12  rows312RFR OBKR-end
+      IoC=0.0612 (null95=0.0529) p=12  rows213FRF OBKRrev-front
+      IoC=0.0524 (null95=0.0445) p= 4  rows312RFR OBKR-end
+      IoC=0.0524 (null95=0.0445) p= 4  rows213FRF OBKRrev-front
+      IoC=0.0583 (null95=0.0511) p=10  rows321FRR OBKRrev-front
+      IoC=0.0583 (null95=0.0511) p=10  rows123FFR OBKR-end
+      IoC=0.0514 (null95=0.0445) p= 4  rows312RFR OBKR-front
+      IoC=0.0589 (null95=0.0529) p=12  rows213RFF OBKR-front
+      IoC=0.0589 (null95=0.0529) p=12  rows213FFR OBKR-front
+      IoC=0.0499 (null95=0.0445) p= 4  97 spiral-out TR ccw
+      IoC=0.0499 (null95=0.0445) p= 4  97 spiral-in TR ccw
+      IoC=0.0499 (null95=0.0445) p= 4  rows312FFR OBKR-end
+
+== APPENDIX: general periodic POLYALPHABETIC over every reading order ==
+   Each of the p key slots gets its own arbitrary mixed alphabet (strictly more
+   general than Quagmire I-IV and than any additive key).  The only crib constraint
+   is that within a residue class the ct->pt map be a partial bijection.  A period
+   that fails here is impossible for EVERY alphabet set, not just keyed ones.
+   186 reading orders of all 97 letters x periods 2..31
+   p  : reading orders KILLED (of 186) -- i.e. no polyalphabetic of that period can
+        produce K4 from that reading order under any alphabets at all
+    2 :  186/186  ########################################
+    3 :  186/186  ########################################
+    4 :  186/186  ########################################
+    5 :  186/186  ########################################
+    6 :  158/186  #################################
+    7 :  160/186  ##################################
+    8 :  134/186  ############################
+    9 :  184/186  #######################################
+   10 :  100/186  #####################
+   11 :   82/186  #################
+   12 :  104/186  ######################
+   13 :   98/186  #####################
+   14 :  144/186  ##############################
+   15 :   78/186  ################
+   16 :   62/186  #############
+   17 :  100/186  #####################
+   18 :   58/186  ############
+   19 :   90/186  ###################
+   20 :   12/186  ##
+   21 :   62/186  #############
+   22 :   22/186  ####
+   23 :   54/186  ###########
+   24 :   62/186  #############
+   25 :   84/186  ##################
+   26 :   36/186  #######
+   27 :   80/186  #################
+   28 :   96/186  ####################
+   29 :   44/186  #########
+   30 :   34/186  #######
+   31 :   16/186  ###
+   (order, period) pairs NOT killed: 2682 of 5580
+   periods killed for EVERY one of the 186 reading orders: [2, 3, 4, 5]
+   periods killed for NO reading order: []

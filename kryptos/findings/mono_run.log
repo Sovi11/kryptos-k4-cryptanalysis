@@ -1,0 +1,30 @@
+crib pairs (1-indexed position: cipher -> plain):
+  22:F->E, 23:L->A, 24:R->S, 25:V->T, 26:Q->N, 27:Q->O, 28:P->R, 29:R->T, 30:N->H, 31:G->E, 32:K->A, 33:S->S, 34:S->T, 64:N->B, 65:Y->E, 66:P->R, 67:V->L, 68:T->I, 69:T->N, 70:M->C, 71:Z->L, 72:F->O, 73:P->C, 74:K->K
+
+cipher letters that would have to decrypt to two or more different plain letters:
+  F -> ['E', 'O']   at positions [22, 72]
+  K -> ['A', 'K']   at positions [32, 74]
+  N -> ['B', 'H']   at positions [30, 64]
+  P -> ['C', 'R']   at positions [28, 66, 73]
+  Q -> ['N', 'O']   at positions [26, 27]
+  R -> ['S', 'T']   at positions [24, 29]
+  S -> ['S', 'T']   at positions [33, 34]
+  T -> ['I', 'N']   at positions [68, 69]
+  V -> ['L', 'T']   at positions [25, 67]
+plain letters that would have to come from two or more different cipher letters (bijection violated):
+  ['K', 'L'] -> A   at positions [23, 32]
+  ['M', 'P'] -> C   at positions [70, 73]
+  ['F', 'G', 'Y'] -> E   at positions [22, 31, 65]
+  ['V', 'Z'] -> L   at positions [67, 71]
+  ['Q', 'T'] -> N   at positions [26, 69]
+  ['F', 'Q'] -> O   at positions [27, 72]
+  ['R', 'S'] -> S   at positions [24, 33]
+  ['R', 'S', 'V'] -> T   at positions [25, 29, 34]
+
+9 forward conflicts, 8 reverse conflicts -> simple substitution ruled out.
+letters mapped to themselves (fine for substitution in general, fatal for Playfair/Porta): [(33, 'S'), (74, 'K')]
+affine/Caesar fits (both alphabets, 1352 keys): none
+pure transposition (no substitution): crib letter counts exceeding ciphertext supply: {'E': (3, 2)}
+  crib letters: {'A': 2, 'B': 1, 'C': 2, 'E': 3, 'H': 1, 'I': 1, 'K': 1, 'L': 2, 'N': 2, 'O': 2, 'R': 2, 'S': 2, 'T': 3}
+  ciphertext  : {'A': 4, 'B': 5, 'C': 2, 'D': 3, 'E': 2, 'F': 4, 'G': 4, 'H': 2, 'I': 4, 'J': 3, 'K': 8, 'L': 4, 'M': 1, 'N': 3, 'O': 5, 'P': 3, 'Q': 4, 'R': 4, 'S': 6, 'T': 6, 'U': 6, 'V': 2, 'W': 5, 'X': 2, 'Y': 1, 'Z': 4}
+  -> a pure transposition of the 97 letters cannot yield these cribs.

@@ -1,0 +1,120 @@
+
+==============================================================================
+(c) CROSS-SECTION KEY CONTINUATION
+==============================================================================
+K4 ciphertext: OBKRUOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZWATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR
+
+==============================================================================
+C0.  VALIDATION
+==============================================================================
+k5_lib selftest (round trips, planted-period recovery, perturbation rejection,
+explicit-key crib scoring, K1 re-encryption under PALIMPSEST): PASS
+positive control: a synthetic K4 built with PALIMPSEST at phase 8 (Quagmire III)
+   is recovered at 24/24 by the explicit phase test.  Expected 24.
+
+==============================================================================
+C1.  EVERY DEFENSIBLE CUMULATIVE COUNT BEFORE K4, AND THE PHASE IT IMPLIES
+==============================================================================
+
+Raw lengths actually in the data (verified, not quoted):
+   K1 plaintext  63   K1 ciphertext  63
+   K2 plaintext 370   K2 ciphertext 369   (Sanborn's 2006 dropped S: pt is 1 longer)
+   K3 plaintext 336   K3 ciphertext 336
+   question marks carved: 3 inside K2, 1 ending K3
+   panel offset of K4 among all 869 carved characters: 772
+   panel offset of K4 among the 865 carved letters   : 768
+
+cumulative count before K4                          n   mod 10    mod 8   mod 18    mod 7
+K1 only (ct=pt=63)                                 63        3        7        9        0
+K1+K2 ciphertext (63+369)                         432        2        0        0        5
+K1+K2 plaintext  (63+370)                         433        3        1        1        6
+K2 ciphertext only                                369        9        1        9        5
+K2 plaintext only                                 370        0        2       10        6
+K3 only                                           336        6        0       12        0
+K2+K3 ciphertext                                  705        5        1        3        5
+K2+K3 plaintext                                   706        6        2        4        6
+K1+K2+K3 ciphertext (=panel letters, 768)         768        8        0       12        5
+K1+K2+K3 plaintext (769)                          769        9        1       13        6
+K1+K2+K3 ct + 4 question marks (=772)             772        2        4       16        2
+K1+K2+K3 pt, X separators stripped                761        1        1        5        5
+K1+K2 pt, X stripped                              426        6        2       12        6
+
+So the phases to test are, for PALIMPSEST (L=10): [0, 1, 2, 3, 5, 6, 8, 9]
+                       for ABSCISSA   (L=8) : [0, 1, 2, 4, 7]
+                       for PALIMPSESTABSCISSA (L=18): [0, 1, 3, 4, 5, 9, 10, 12, 13, 16]
+
+==============================================================================
+C2.  THE SUBSUMPTION THEOREM, AND THE EXPLICIT PER-PHASE TEST ANYWAY
+==============================================================================
+
+THEOREM.  Let W be any key word of length L and s any phase.  The key stream
+k_i = W[(s+i) mod L] is periodic with period L.  The crib-consistency test at period L
+asks only whether the 24 crib-forced key values are constant on residue classes mod L;
+it quantifies over ALL period-L key streams at once, hence over all (W, s) pairs
+simultaneously.  Therefore a period-L test that returns zero survivors kills every
+keyword of length L at every phase, including every cross-section continuation phase.
+
+Corollary.  Rotating an alphabet is also absorbed: replacing the plaintext alphabet by
+its rotation by r maps every forced key value k -> k - r (Vigenere/variant-Beaufort) or
+k + r (Beaufort), a constant offset that cannot change whether the values are constant on
+a residue class.  The same holds for the ciphertext alphabet.  So "the alphabet rotation
+carried over from K1/K2" is subsumed too.
+
+This makes (c) a CLOSED corollary of findings/families.md, where periods 2-26 were swept
+over 7.09M keyed-alphabet pairs with zero survivors.  The explicit test below is run so
+that the negative is a measured number rather than an inference.
+
+Period-L crib consistency for the relevant L (12 combos = 3 rules x 2 pt x 2 ct):
+L           c  survivors    chance/test     expected
+7          17          0      8.820e-25    1.058e-23
+8          16          0      2.293e-23    2.752e-22
+10         14          0      1.550e-20    1.860e-19
+18          7          0      1.245e-10    1.494e-09
+25          3          0      5.690e-05    6.827e-04
+
+(c = number of independent equalities the 24 cribs force on a period-L key.)
+
+==============================================================================
+C2b.  EXPLICIT: build the actual continued key stream and count crib hits
+==============================================================================
+Key alphabet now matters (a concrete key TEXT is supplied), so all 24 combos
+(3 rules x 2 pt x 2 ct x 2 key alphabets) are scored.  Chance = 24/26 = 0.923 of
+the 24 crib letters; only 24/24 counts.
+
+tests: 1176 (word x continuation phase x combo)
+best crib agreement: 5/24 at ('ABSCISSAPALIMPSEST', 1, 'vigenere/pt=plain/ct=kryptos/key=plain')
+agreement histogram: {0: 484, 1: 425, 2: 193, 3: 64, 4: 8, 5: 2}
+expected total crib hits by chance: 1085.5 ; observed: 1045
+P(any one test reaches 24/24) = 26^-24 = 1.098e-34 ; over 1176 tests, expected 1.291e-31
+
+==============================================================================
+C3.  THE CASES SUBSUMPTION DOES NOT COVER
+==============================================================================
+
+C3a. PROGRESSIVE continuation: the key letter advances by one each time the
+     keyword restarts, and the advance counter CONTINUES from the count reached
+     at the end of K3 -- k_i = W[(s+i) mod L] + floor((n0+i)/L), n0 = the count.
+     tests: 2496 ; best 5/24 at ('PALIMPSEST', 336, 1, 'vigenere/pt=kryptos/ct=plain/key=plain')
+     chance: expected best-of-2496 under 24 independent 1/26 draws is ~0.9/24
+
+C3b. RUNNING-key continuation: the key is the SCULPTURE TEXT itself, continued
+     past the end of K3 into K4 -- i.e. the key letter for K4 position i is the
+     (n0+i)th letter of the concatenated text.  n0 is the cross-section count.
+     (findings/runningkey.md swept all offsets of these texts; this restricts to
+     the specific continuation offsets and is reported for completeness.)
+     continuation offsets tested: 56 ; best:
+        5/24  tableau_physical       n0=433  vigenere/pt=plain/ct=kryptos/key=plain
+        5/24  tableau_physical       n0=369  varbeaufort/pt=kryptos/ct=kryptos/key=kryptos
+        5/24  tableau_ideal          n0=369  varbeaufort/pt=kryptos/ct=kryptos/key=kryptos
+        4/24  tableau_physical       n0=705  varbeaufort/pt=plain/ct=kryptos/key=kryptos
+        4/24  tableau_physical       n0=432  varbeaufort/pt=kryptos/ct=plain/key=kryptos
+
+C3c. The 'one key per section, the NEXT key in the list' reading.  K1 used the
+     first keyword, K2 the second; the next keyword of the same provenance would
+     key K4.  Sanborn's own vocabulary supplies the candidate list.  A keyword of
+     length L is subsumed by the period-L sweep, so this is a confirmation run.
+     27 keywords x all phases x 24 combos = 6384 tests ; best 5/24 at ('ASYMPTOTE', 1, 'vigenere/pt=plain/ct=kryptos/key=plain')
+
+==============================================================================
+END (c)
+==============================================================================

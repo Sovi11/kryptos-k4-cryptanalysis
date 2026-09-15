@@ -1,0 +1,75 @@
+verification: a synthetic period-9 key with one inserted key letter at
+position 40 is recovered by the D1 scan (correct period and correct gap).  OK
+
+==============================================================================
+(d) INTERRUPTED / IRREGULAR PERIODIC KEY
+==============================================================================
+configurations per test: 867 (3 families x 17 pt x 17 ct alphabets)
+
+------------------------------------------------------------------------------
+D0. free desync between the two crib runs (subsumes any number of
+    insertions/deletions occurring outside the crib runs)
+------------------------------------------------------------------------------
+D0: 350 (pattern, period) tests x 867 configs = 303,450 configurations
+   observed survivors 5567;  expected by chance 5483.60
+   constraint counts: c=0:6 c=1:8 c=2:11 c=3:14 c=4:17 c=5:20 c=6:23 c=7:26 c=8:29 c=9:32 c=10:35 c=11:52 c=12:12 c=13:11 c=14:10 c=15:9 c=16:8 c=17:7 c=18:6 c=19:5 c=20:4 c=21:3 c=22:2
+   survivors with c >= 4 (chance 1.90e-03/test): 0
+   max constraints available at each period (adversary picks the best d):
+   2:22 3:21 4:20 5:19 6:18 7:17 8:16 9:15 10:14 11:13 12:12 13:11 14:11 15:11 16:11 17:11 18:11 19:11 20:11 21:11 22:11 23:11 24:11 25:11 26:11
+
+------------------------------------------------------------------------------
+D1. exactly one inserted (+1) or deleted (-1) key letter at unknown position
+------------------------------------------------------------------------------
+   distinct crib-restricted pointer maps: 49 (from 192 (b, sign) pairs)
+D1: 931 (pattern, period) tests x 867 configs = 807,177 configurations
+   observed survivors 0;  expected by chance 0.00
+   constraint counts: c=6:13 c=7:52 c=8:91 c=9:60 c=10:62 c=11:100 c=12:62 c=13:50 c=14:49 c=15:49 c=16:49 c=17:49 c=18:49 c=19:49 c=20:49 c=21:49 c=22:49
+   survivors with c >= 4 (chance 1.90e-03/test): 0
+
+------------------------------------------------------------------------------
+D2. two inserted/deleted key letters at unknown positions
+------------------------------------------------------------------------------
+   distinct crib-restricted pointer maps: 1201 (from 18,624 (b1,b2,sign,sign) combinations)
+D2: 22819 (pattern, period) tests x 867 configs = 19,784,073 configurations
+   observed survivors 0;  expected by chance 0.00
+   constraint counts: c=6:111 c=7:1354 c=8:1757 c=9:2212 c=10:1091 c=11:2473 c=12:1677 c=13:1318 c=14:1213 c=15:1204 c=16:1202 c=17:1202 c=18:1201 c=19:1201 c=20:1201 c=21:1201 c=22:1201
+   survivors with c >= 4 (chance 1.90e-03/test): 0
+
+------------------------------------------------------------------------------
+Decryptions of the fully determined survivors
+------------------------------------------------------------------------------
+total fully determined decryptable survivors: 1
+(uniform-random 97-letter quadgram score -8.23 +- 0.15; English about -4.7;
+ the best of n chance decrypts rises with n, so compare against the null line)
+ best-of-1 chance threshold (95%): -8.019
+  q=-7.388 *** D0 p=22 d=15 c=2 ('beaufort', 'COMPASS', 'LAYERTWO') key=EJQKVLXDUUAOYKLMRVROMT
+     XOCBZAZWEDAKNLAIPGFBBEASTNORTHEASTQSSDXCMUQYOTQHLGRKAUAAGFSYZGFBERLINCLOCKPACSIZYSHNCIULZVUVHWGPS
+
+------------------------------------------------------------------------------
+Dictionary-alphabet second pass on the constrained D0/D1 patterns
+------------------------------------------------------------------------------
+distinct constraint patterns with c >= 3: 918
+comparisons: 19,534,997,772
+observed survivors 5829;  expected by chance 5087.97
+   c=7  D0 p=17 d=2              vigenere     ct-fixed=LAYERTWO     -> 1 alphabets, e.g. ['EPIGUANINE']
+   c=7  D0 p=17 d=2              varbeaufort  ct-fixed=LAYERTWO     -> 1 alphabets, e.g. ['EPIGUANINE']
+   c=6  D1 b~29 eps=+1 p=18      beaufort     ct-fixed=COMPASS      -> 1 alphabets, e.g. ['REIMPRINT']
+   c=5  D0 p=19 d=6              vigenere     pt-fixed=COMPASS      -> 1 alphabets, e.g. ['REPRESSEDLY']
+   c=5  D0 p=19 d=6              vigenere     ct-fixed=DESPARATLY   -> 1 alphabets, e.g. ['TRICUSPAL']
+   c=5  D0 p=19 d=6              varbeaufort  pt-fixed=COMPASS      -> 1 alphabets, e.g. ['REPRESSEDLY']
+   c=5  D0 p=19 d=6              varbeaufort  ct-fixed=DESPARATLY   -> 1 alphabets, e.g. ['TRICUSPAL']
+   c=5  D0 p=19 d=8              vigenere     ct-fixed=PALIMPSEST   -> 1 alphabets, e.g. ['RESINBUSH']
+   c=5  D0 p=19 d=8              varbeaufort  ct-fixed=PALIMPSEST   -> 1 alphabets, e.g. ['RESINBUSH']
+   c=4  D0 p=20 d=7              vigenere     pt-fixed=SANBORN      -> 1 alphabets, e.g. ['SEXTIPARTITION']
+   c=4  D0 p=20 d=7              vigenere     ct-fixed=KRYPTOS      -> 1 alphabets, e.g. ['TAMEHEARTEDNESS']
+   c=4  D0 p=20 d=7              vigenere     ct-fixed=MASKING      -> 1 alphabets, e.g. ['BEEFISH']
+   c=4  D0 p=20 d=7              beaufort     pt-fixed=ABSCISSA     -> 1 alphabets, e.g. ['DEVELOPABILITY']
+   c=4  D0 p=20 d=7              beaufort     ct-fixed=DESPARATLY   -> 1 alphabets, e.g. ['ALBUMINIZE']
+   c=4  D0 p=20 d=7              beaufort     ct-fixed=MASKING      -> 6 alphabets, e.g. ['CLOAKWISE', 'GLAUMRIE', 'KHAGIARITE', 'LANDRAKER', 'OLIGARCHIZE']
+   c=4  D0 p=20 d=7              varbeaufort  pt-fixed=SANBORN      -> 1 alphabets, e.g. ['SEXTIPARTITION']
+   c=4  D0 p=20 d=7              varbeaufort  ct-fixed=KRYPTOS      -> 1 alphabets, e.g. ['TAMEHEARTEDNESS']
+   c=4  D0 p=20 d=7              varbeaufort  ct-fixed=MASKING      -> 1 alphabets, e.g. ['BEEFISH']
+   c=4  D0 p=20 d=8              vigenere     pt-fixed=KRYPTOS      -> 9 alphabets, e.g. ['KNIGHT', 'KNIGHTAGE', 'KNIGHTHEAD', 'KNOTHOLE', 'KNOTLIKE']
+   c=4  D0 p=20 d=8              vigenere     pt-fixed=ABSCISSA     -> 3 alphabets, e.g. ['COMPOSEDLY', 'PSALMY', 'TEMPESTUOUSLY']
+
+[runtime 622.3s]

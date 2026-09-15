@@ -1,0 +1,50 @@
+====================================================================================================
+TABLE A1 -- calibration of the quadgram model (mean log10 P(letter|prev 3); higher = more English)
+====================================================================================================
+text                                                      n    mean     sd      p1     p50     p99  z vs Eng
+held-out English 97-grams (model's own domain)        20000  -0.741  0.077  -0.961  -0.736  -0.582     +0.00
+K1 plaintext 97-grams (n=1)                               1  -0.940  0.000  -0.940  -0.940  -0.940     -2.58
+K2 plaintext 97-grams (n=274)                           274  -0.980  0.106  -1.179  -0.945  -0.847     -3.09
+K3 plaintext 97-grams (n=240)                           240  -0.924  0.029  -0.982  -0.924  -0.827     -2.36
+K1+K2+K3 plaintext 97-grams (n=673)                     673  -0.967  0.087  -1.168  -0.937  -0.845     -2.92
+uniform random 97-grams                               20000  -1.810  0.057  -1.949  -1.809  -1.684    -13.83
+unigram-random 97-grams                               20000  -1.862  0.076  -2.033  -1.864  -1.681    -14.51
+crib-pinned random (24 fixed + 73 uniform)            20000  -1.646  0.050  -1.766  -1.645  -1.532    -11.71
+K4 CIPHERTEXT                                             1  -1.709  0.000  -1.709  -1.709  -1.709    -12.53
+ANNEALED to fit the cribs (n=400 restarts)              400  -0.657  0.021  -0.704  -0.657  -0.600     +1.09
+ANNEALED, control pins (n=40)                            40  -0.830  0.035  -0.893  -0.833  -0.732     -1.15
+
+held-out English:  mean -0.741  sd 0.077   -> z = (score - -0.741) / 0.077
+
+====================================================================================================
+TABLE A2 -- public plaintext claims scored on the same scale
+====================================================================================================
+claim                     len  cribs    quad       z    pent  verdict-on-length-and-cribs
+solvekryptos.com           97   24/24  -0.941   -2.59  -0.953  len=97 OK; cribs 24/24 OK
+mattklepp/k4               97   24/24  -1.640  -11.63  -1.731  len=97 OK; cribs 24/24 OK
+Naughton/Grok-3            69    2/24  -1.072   -4.29  -0.994  len=69 FAIL; cribs 2/24 FAIL
+figshare Genie             88    1/24  -1.102   -4.67  -1.071  len=88 FAIL; cribs 1/24 FAIL
+ChatGPT (Toponce #2)       74   24/24  -1.098   -4.62  -1.287  len=74 FAIL; cribs 24/24 OK
+ChatGPT (Toponce #1)       37    1/24  -1.075   -4.32  -0.992  len=37 FAIL; cribs 1/24 FAIL
+ChatGPT (Toponce #3)       32    0/24  -1.083   -4.42  -0.921  len=32 FAIL; cribs 0/24 FAIL
+
+Reference band for a TRUE K4 plaintext (from the only known Sanborn plaintexts):
+   K1+K2+K3 97-gram windows: mean -0.967  sd 0.087  range -1.183 .. -0.810
+   i.e. z in [-5.72, -0.89] against held-out English.
+
+====================================================================================================
+TABLE A3 -- domain sensitivity: the same texts under corpus-restricted model variants
+====================================================================================================
+text                                                 all       man   docinfo
+held-out English 97-grams (that variant's holdout)    -0.742    -0.741    -0.775
+K1+K2+K3 plaintext (whole)                        -0.961    -0.967    -0.970
+solvekryptos claim                                -0.941    -0.947    -0.950
+K4 ciphertext                                     -1.709    -1.623    -1.653
+
+Read A3 as: the absolute numbers move with the training domain, so only DIFFERENCES
+within one column are meaningful.  The ordering (English > Sanborn plaintext >>
+ciphertext) is stable across variants.
+
+real	0m2.319s
+user	0m1.314s
+sys	0m0.248s

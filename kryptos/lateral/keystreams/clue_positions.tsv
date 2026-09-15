@@ -1,0 +1,5 @@
+clue_word	start	end	source_url	confidence
+EAST	22	25	https://twitter.com/jswatz/status/1297658577914667008	high
+NORTHEAST	26	34	https://www.nytimes.com/interactive/2020/01/29/climate/kryptos-sculpture-final-clue.html	high
+BERLIN	64	69	https://www.nytimes.com/2010/11/21/us/21code.html	high
+CLOCK	70	74	https://www.nytimes.com/2014/11/21/us/another-kryptos-clue-is-offered-in-a-24-year-old-mystery-at-the-cia.html	high

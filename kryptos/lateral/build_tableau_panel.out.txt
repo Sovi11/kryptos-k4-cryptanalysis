@@ -1,0 +1,65 @@
+==============================================================================
+KRYPTOS RIGHT-HAND (TABLEAU) PANEL - PHYSICAL vs IDEAL
+==============================================================================
+physical rows            : 28
+physical letters         : 867   (published figure: 867)
+physical chars incl 2 blank label cells : 869   (published figure: 869)
+ideal letters            : 866   (866)
+difference               : 1
+
+top-right plate letters  : 433 (+1 blank cell = 434; published: 434)
+bot-right plate letters  : 434 (+1 blank cell = 435; published: 435)
+
+------------------------------------------------------------------------------
+ROW-LEVEL DIFF (physical row vs ideal row)
+------------------------------------------------------------------------------
+  row 14 (label N): INSERT  expected '' -> actual 'L' at offset 31 within the row (0-indexed, label counted)
+
+TOTAL ANOMALIES: 1
+  stream position 465 (1-indexed, letters only); row 14 label N; column-in-row 31; expected None; actual L; kind=insert
+
+------------------------------------------------------------------------------
+GLOBAL STREAM DIFF (866-letter ideal -> 867-letter physical)
+------------------------------------------------------------------------------
+  INSERT: ideal[464:464]='' -> physical[464:465]='L'  (1-indexed physical position 465)
+  similarity ratio: 0.999423
+
+------------------------------------------------------------------------------
+LAST-COLUMN READING (the Bauer/Link/Molle 'HILL' observation)
+------------------------------------------------------------------------------
+  physical last char of each of the 28 rows: DPTOSABCDEFGHILLMNQUVWXZKRYD
+  rows L,M,N,O (indices 12..15)            : HILL
+  ideal  last char of each of the 28 rows  : DPTOSABCDEFGHIJLMNQUVWXZKRYD
+  ideal rows L,M,N,O                       : HIJL
+
+------------------------------------------------------------------------------
+CROSS-PANEL: superscript letters on the CIPHER side vs the same row here
+------------------------------------------------------------------------------
+  Cipher side, top line of bottom-left plate: ENDYAHROHNLSRHEOCPTEOIBIDYSHNAIA
+  superscript/raised letters are chars 4,5,7 -> Y, A, R  ('YA_R')
+  Tableau side, same line (row N)          : NGHIJLMNQUVWXZKRYPTOSABCDEFGHIJL
+  chars 4,5,7 of row N                     : I, J, M  -> anagram 'JIM'
+
+------------------------------------------------------------------------------
+wrote 21 keystream files to /Users/pravarkataria/Desktop/crypto/kryptos/lateral/keystreams
+  tab_phys_full.txt                    867 chars
+  tab_phys_full_rev.txt                867 chars
+  tab_ideal_full.txt                   866 chars
+  tab_ideal_full_rev.txt               866 chars
+  tab_phys_body.txt                    781 chars
+  tab_ideal_body.txt                   780 chars
+  tab_core_rows.txt                    676 chars
+  tab_core_cols.txt                    676 chars
+  tab_phys_body_cols.txt               781 chars
+  tab_row_labels.txt                    26 chars
+  tab_col_labels.txt                    30 chars
+  tab_rowlabel_per_index.txt           867 chars
+  tab_collabel_per_index.txt           867 chars
+  tab_anomaly_positions.txt              3 chars
+  tab_anomaly_letters.txt                1 chars
+  tab_last_column.txt                   28 chars
+  tab_last_column_ideal.txt             28 chars
+  tab_core_diag_main.txt                26 chars
+  tab_core_diag_anti.txt                26 chars
+  tab_phys_top_plate.txt               433 chars
+  tab_phys_bottom_plate.txt            434 chars

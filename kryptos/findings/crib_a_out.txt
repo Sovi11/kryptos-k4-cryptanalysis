@@ -1,0 +1,178 @@
+==============================================================================
+TASK (a)  CRIB VARIANTS AT THE STATED POSITIONS
+==============================================================================
+window A: 1-indexed 22-34 (13 letters), ct = FLRVQQPRNGKSS
+window B: 1-indexed 64-74 (11 letters), ct = NYPVTTMZFPK
+periods 2-26, 12 cipher/alphabet combos (3 rules x pt in {plain,KRYPTOS} x ct in {plain,KRYPTOS}).
+The key alphabet is irrelevant to a consistency test, so these 12
+combos cover Quagmire I-IV restricted to those two alphabets.
+
+### 0. BASELINE (control): EASTNORTHEAST / BERLINCLOCK
+  variant pairs              : 1  (A=1, B=1)
+  (pair, period, combo) tests: 300
+  survivors observed 0   vs chance expectation 0.4622
+  alphabet-free necessary condition: 12 / 25 (pair, period) pairs pass (48.00%) -- failing it rules the pair out for EVERY pair of 26-letter alphabets, not just the 12 combos
+  by number of constraints c (a random key survives with prob 26^-c):
+    c             tests       expected       observed
+    22               12      8.908e-31              0
+    21               12      2.316e-29              0
+    20               12      6.022e-28              0
+    19               12      1.566e-26              0
+    18               12      4.071e-25              0
+    17               12      1.058e-23              0
+    16               12      2.752e-22              0
+    15               12      7.155e-21              0
+    14               12       1.86e-19              0
+    13               12      4.836e-18              0
+    12               12      1.257e-16              0
+    11               48      1.308e-14              0
+    9                36       6.63e-12              0
+    8                12      5.746e-11              0
+    7                36      4.482e-09              0
+    5                12       1.01e-06              0
+    (strata with c < 5 and no survivors omitted; a genuine solution would appear at large c)
+  no survivor with c >= 5.
+
+### 1. FULL VARIANT CROSS-PRODUCT (separators, longer phrases, Sanborn-style misspellings, German renderings, partial cribs)
+  variant pairs              : 124271  (A=433, B=287)
+  (pair, period, combo) tests: 37281300
+  survivors observed 2051527   vs chance expectation 2.052e+06
+  alphabet-free necessary condition: 1277824 / 3106775 (pair, period) pairs pass (41.13%) -- failing it rules the pair out for EVERY pair of 26-letter alphabets, not just the 12 combos
+  by number of constraints c (a random key survives with prob 26^-c):
+    c             tests       expected       observed
+    22            50400      3.741e-27              0
+    21           156840      3.027e-25              0
+    20           323652      1.624e-23              0
+    19           542364      7.076e-22              0
+    18           800088      2.714e-20              0
+    17          1049016      9.252e-19              0
+    16          1241052      2.846e-17              0
+    15          1374720      8.196e-16              0
+    14          1453728      2.253e-14              0
+    13          1491252       6.01e-13              0
+    12          1491252      1.563e-11              0
+    11          1815972      4.948e-10              0
+    10          2120484      1.502e-08              0
+    9           2957568      5.447e-07              0
+    8           3361320       1.61e-05              0
+    7           4073880      0.0005072              0
+    6           2209404       0.007152              0
+    5           2962992         0.2494              0
+    4           1613460          3.531              1
+    3           1857108          105.7             95
+    2           1125228           1665           1244
+    1           1205508      4.637e+04          46175
+    0           2004012      2.004e+06        2004012
+    (strata with c < 5 and no survivors omitted; a genuine solution would appear at large c)
+  no survivor with c >= 5.
+
+### 2. ONE substituted letter in EASTNORTHEAST (325 mutants + original), BERLINCLOCK fixed
+  variant pairs              : 326  (A=326, B=1)
+  (pair, period, combo) tests: 97800
+  survivors observed 12   vs chance expectation 150.7
+  alphabet-free necessary condition: 3762 / 8150 (pair, period) pairs pass (46.16%) -- failing it rules the pair out for EVERY pair of 26-letter alphabets, not just the 12 combos
+  by number of constraints c (a random key survives with prob 26^-c):
+    c             tests       expected       observed
+    22             3912      2.904e-28              0
+    21             3912       7.55e-27              0
+    20             3912      1.963e-25              0
+    19             3912      5.104e-24              0
+    18             3912      1.327e-22              0
+    17             3912       3.45e-21              0
+    16             3912      8.971e-20              0
+    15             3912      2.332e-18              0
+    14             3912      6.064e-17              0
+    13             3912      1.577e-15              0
+    12             3912      4.099e-14              0
+    11            15648      4.263e-12              0
+    9             11736      2.162e-09              0
+    8              3912      1.873e-08              0
+    7             11736      1.461e-06              0
+    5              3912      0.0003293              0
+    1              3912          150.5             12
+    (strata with c < 5 and no survivors omitted; a genuine solution would appear at large c)
+  no survivor with c >= 5.
+
+### 3. ONE substituted letter in BERLINCLOCK (275 mutants + original), EASTNORTHEAST fixed
+  variant pairs              : 276  (A=1, B=276)
+  (pair, period, combo) tests: 82800
+  survivors observed 12   vs chance expectation 127.6
+  alphabet-free necessary condition: 3172 / 6900 (pair, period) pairs pass (45.97%) -- failing it rules the pair out for EVERY pair of 26-letter alphabets, not just the 12 combos
+  by number of constraints c (a random key survives with prob 26^-c):
+    c             tests       expected       observed
+    22             3312      2.459e-28              0
+    21             3312      6.392e-27              0
+    20             3312      1.662e-25              0
+    19             3312      4.321e-24              0
+    18             3312      1.123e-22              0
+    17             3312      2.921e-21              0
+    16             3312      7.595e-20              0
+    15             3312      1.975e-18              0
+    14             3312      5.134e-17              0
+    13             3312      1.335e-15              0
+    12             3312      3.471e-14              0
+    11            13248      3.609e-12              0
+    9              9936       1.83e-09              0
+    8              3312      1.586e-08              0
+    7              9936      1.237e-06              0
+    5              3312      0.0002788              0
+    1              3312          127.4             12
+    (strata with c < 5 and no survivors omitted; a genuine solution would appear at large c)
+  no survivor with c >= 5.
+
+### 4. ONE substituted letter in EACH window (326 x 276)
+  variant pairs              : 89976  (A=326, B=276)
+  (pair, period, combo) tests: 26992800
+  survivors observed 6912   vs chance expectation 4.159e+04
+  alphabet-free necessary condition: 1000016 / 2249400 (pair, period) pairs pass (44.46%) -- failing it rules the pair out for EVERY pair of 26-letter alphabets, not just the 12 combos
+  by number of constraints c (a random key survives with prob 26^-c):
+    c             tests       expected       observed
+    22          1079712      8.015e-26              0
+    21          1079712      2.084e-24              0
+    20          1079712      5.418e-23              0
+    19          1079712      1.409e-21              0
+    18          1079712      3.663e-20              0
+    17          1079712      9.523e-19              0
+    16          1079712      2.476e-17              0
+    15          1079712      6.437e-16              0
+    14          1079712      1.674e-14              0
+    13          1079712      4.352e-13              0
+    12          1079712      1.131e-11              0
+    11          4318848      1.177e-09              0
+    9           3239136      5.966e-07              0
+    8           1079712       5.17e-06              0
+    7           3239136      0.0004033              0
+    5           1079712        0.09087              0
+    1           1079712      4.153e+04           6912
+    (strata with c < 5 and no survivors omitted; a genuine solution would appear at large c)
+  no survivor with c >= 5.
+
+### 5. PARTIAL cribs only (each released word on its own)
+  variant pairs              : 9  (A=3, B=3)
+  (pair, period, combo) tests: 2700
+  survivors observed 363   vs chance expectation 366.7
+  alphabet-free necessary condition: 146 / 225 (pair, period) pairs pass (64.89%) -- failing it rules the pair out for EVERY pair of 26-letter alphabets, not just the 12 combos
+  by number of constraints c (a random key survives with prob 26^-c):
+    c             tests       expected       observed
+    22               12      8.908e-31              0
+    21               12      2.316e-29              0
+    20               12      6.022e-28              0
+    19               12      1.566e-26              0
+    18               24      8.141e-25              0
+    17               36      3.175e-23              0
+    16               48      1.101e-21              0
+    15               48      2.862e-20              0
+    14               48      7.441e-19              0
+    13               72      2.902e-17              0
+    12               84      8.802e-16              0
+    11              120      3.269e-14              0
+    10               72        5.1e-13              0
+    9               144      2.652e-11              0
+    8                96      4.597e-10              0
+    7               156      1.942e-08              0
+    6               180      5.827e-07              0
+    5               324      2.727e-05              0
+    1               168          6.462              3
+    0               360            360            360
+    (strata with c < 5 and no survivors omitted; a genuine solution would appear at large c)
+  no survivor with c >= 5.

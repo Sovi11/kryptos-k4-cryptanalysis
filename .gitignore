@@ -1,0 +1,15 @@
+# Generated corpora, language models and caches (regenerable, ~85MB)
+.stat_corpus.bin
+.search_corpus*.txt
+.search_lm*.npz
+.quadgrams_cache.json
+*.bin
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store

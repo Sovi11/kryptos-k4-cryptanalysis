@@ -1,0 +1,98 @@
+verification: synthetic HOLD-skip key with period 7 is recovered by the same
+machinery, and 3 of 4 wrong periods are rejected.  OK
+
+==============================================================================
+(c) TRIGGER-DRIVEN KEY ADVANCE ('skip rule') - crib consistency sweep
+==============================================================================
+cipher configurations per test: 867 (3 families x 17 pt alphabets x 17 ct alphabets)
+doubled letters (1-indexed, 2nd of pair): [20, 27, 34, 44, 48, 69]
+X positions (1-indexed): [7, 80]
+
+tests run: 8000 (variant x trigger x delay x period)
+total configurations examined: 6,936,000
+observed survivors: 22828;  expected by chance: 22130.7
+
+distribution of constraint counts c (c=0 means the test is vacuous):
+  c=0:22  c=1:88  c=2:91  c=3:108  c=4:108  c=5:170  c=6:177  c=7:346  c=8:410  c=9:526  c=10:541  c=11:591  c=12:393  c=13:360  c=14:306  c=15:319  c=16:286  c=17:302  c=18:270  c=19:280  c=20:526  c=21:633  c=22:937  c=23:210
+  vacuous tests (c=0): 22 of 8000
+
+survivors with c >= 3 (chance < 0.049 per test): 1
+  HOLD         trig=letter G         delay=0 p=25  c=3   survivors=1 (exp 4.93e-02)
+
+best-constrained tests and their outcome:
+  ADVANCE_ONLY trig=letter A         delay=0 p=2   c=23  survivors=0 (exp 2.48e-30)
+  ADVANCE_ONLY trig=letter A         delay=1 p=2   c=23  survivors=0 (exp 2.48e-30)
+  ADVANCE_ONLY trig=letter C         delay=0 p=2   c=23  survivors=0 (exp 2.48e-30)
+  ADVANCE_ONLY trig=letter C         delay=0 p=3   c=23  survivors=0 (exp 2.48e-30)
+  ADVANCE_ONLY trig=letter C         delay=0 p=4   c=23  survivors=0 (exp 2.48e-30)
+  ADVANCE_ONLY trig=letter C         delay=0 p=5   c=23  survivors=0 (exp 2.48e-30)
+  ADVANCE_ONLY trig=letter C         delay=0 p=6   c=23  survivors=0 (exp 2.48e-30)
+  ADVANCE_ONLY trig=letter C         delay=0 p=7   c=23  survivors=0 (exp 2.48e-30)
+  ADVANCE_ONLY trig=letter C         delay=0 p=8   c=23  survivors=0 (exp 2.48e-30)
+  ADVANCE_ONLY trig=letter C         delay=0 p=9   c=23  survivors=0 (exp 2.48e-30)
+  ADVANCE_ONLY trig=letter C         delay=0 p=10  c=23  survivors=0 (exp 2.48e-30)
+  ADVANCE_ONLY trig=letter C         delay=0 p=11  c=23  survivors=0 (exp 2.48e-30)
+  ADVANCE_ONLY trig=letter C         delay=0 p=12  c=23  survivors=0 (exp 2.48e-30)
+  ADVANCE_ONLY trig=letter C         delay=0 p=13  c=23  survivors=0 (exp 2.48e-30)
+  ADVANCE_ONLY trig=letter C         delay=0 p=14  c=23  survivors=0 (exp 2.48e-30)
+
+------------------------------------------------------------------------------
+Decryptions of every survivor with c >= 2, scored against the chance level
+------------------------------------------------------------------------------
+fully-determined decryptable survivors: 9
+(uniform-random 97-letter quadgram score is -8.23; English about -4.7)
+  q=-7.197 RESET_AFTER  trig=letter S         d=0 p=22  c=2  vigenere/pt=SHADOW/ct=DESPARATLY key=IVQKLHWDFFCEQKLREOCMAK
+     ILSUGJANCERDRQIJYHYAHEASTNORTHEASTIICVFUCZJTRUFMJXGJIARVYTJXLXCBERLINCLOCKQCYJFLUYBJJSNIWSLINFLHS
+  q=-7.197 RESET_AFTER  trig=letter S         d=0 p=22  c=2  varbeaufort/pt=SHADOW/ct=DESPARATLY key=SFKQPTEXVVYWKQPJWMYOAQ
+     ILSUGJANCERDRQIJYHYAHEASTNORTHEASTIICVFUCZJTRUFMJXGJIARVYTJXLXCBERLINCLOCKQCYJFLUYBJJSNIWSLINFLHS
+  q=-7.197 RESET_AT     trig=letter S         d=1 p=22  c=2  vigenere/pt=SHADOW/ct=DESPARATLY key=IVQKLHWDFFCEQKLREOCMAK
+     ILSUGJANCERDRQIJYHYAHEASTNORTHEASTIICVFUCZJTRUFMJXGJIARVYTJXLXCBERLINCLOCKQCYJFLUYBJJSNIWSLINFLHS
+  q=-7.197 RESET_AT     trig=letter S         d=1 p=22  c=2  varbeaufort/pt=SHADOW/ct=DESPARATLY key=SFKQPTEXVVYWKQPJWMYOAQ
+     ILSUGJANCERDRQIJYHYAHEASTNORTHEASTIICVFUCZJTRUFMJXGJIARVYTJXLXCBERLINCLOCKQCYJFLUYBJJSNIWSLINFLHS
+  q=-7.219 HOLD         trig=vowels AEIOU     d=1 p=22  c=2  beaufort/pt=COMPASS/ct=LAYERTWO key=DUUAOYKLMRVROMTEJQKVLX
+     WIANADNDIHKHPQGVDBFBBEASTNORTHEASTQSABRWBXTQNKSGGFNBVXDGBTKBELBBERLINCLOCKPACSIZYSHNCIEKYLHNFWPNQ
+  q=-7.327 HOLD         trig=vowels AEIOU     d=0 p=22  c=2  beaufort/pt=COMPASS/ct=LAYERTWO key=DUUAOYKLMRVROMTEJQKVLX
+     WVANATMDMHKGPQGQDGFBBEASTNORTHEASTQTABRWBXTQNPSGGFSBVXDTBTKBMLBBERLINCLOCKPACSIZYSHNCMEKXLGLEVPNJ
+  q=-7.388 RESET_AT     trig=letter J         d=0 p=22  c=2  beaufort/pt=COMPASS/ct=LAYERTWO key=EJQKVLXDUUAOYKLMRVROMT
+     XOCBZAZWEDAKNLAIPGFBBEASTNORTHEASTQSSDXCLLVLRVYAKTVLTNKHXWXBMLBBERLINCLOCKPACSIZYLCBWFVONYTAHEOGE
+  q=-7.463 RESET_AFTER  trig=letter S         d=0 p=22  c=2  beaufort/pt=BERLIN/ct=KRYPTOS key=ZIJZCBKNXTPZJFUEOGYTDF
+     UBFYCWJDGNUDEZUQUKUTKEASTNORTHEASTUIJVDVFMLTMDGBNUAXXRUOUYXOVUPBERLINCLOCKBANZGCPMNWFALGHKRIQEEAW
+  q=-7.463 RESET_AT     trig=letter S         d=1 p=22  c=2  beaufort/pt=BERLIN/ct=KRYPTOS key=ZIJZCBKNXTPZJFUEOGYTDF
+     UBFYCWJDGNUDEZUQUKUTKEASTNORTHEASTUIJVDVFMLTMDGBNUAXXRUOUYXOVUPBERLINCLOCKBANZGCPMNWFALGHKRIQEEAW
+
+------------------------------------------------------------------------------
+Second pass: 208k dictionary keyword-mixed alphabets on the free side
+------------------------------------------------------------------------------
+distinct keyword-mixed alphabets from /usr/share/dict/words: 208,627
+distinct non-vacuous constraint patterns: 2730
+patterns with c >= 2 tested against the dictionary: 2710
+comparisons: 57,668,675,340
+observed survivors: 849261;  expected by chance: 984036.7
+top hits (by constraint count c):
+  c=7  DOUBLE       trig=letter A         d=0 p=17  vigenere ct-fixed=LAYERTWO -> 1 alphabets, e.g. ['EPIGUANINE']
+  c=7  DOUBLE       trig=letter A         d=0 p=17  varbeaufort ct-fixed=LAYERTWO -> 1 alphabets, e.g. ['EPIGUANINE']
+  c=6  DOUBLE       trig=KRYPTOS letters  d=1 p=26  vigenere ct-fixed=SANBORN -> 1 alphabets, e.g. ['BOLTMAKER']
+  c=6  DOUBLE       trig=KRYPTOS letters  d=1 p=26  varbeaufort ct-fixed=SANBORN -> 1 alphabets, e.g. ['BOLTMAKER']
+  c=6  RESET_AFTER  trig=letter L         d=1 p=18  vigenere ct-fixed=DESPARATLY -> 1 alphabets, e.g. ['MEANINGFULLY']
+  c=6  RESET_AFTER  trig=letter L         d=1 p=18  varbeaufort ct-fixed=DESPARATLY -> 1 alphabets, e.g. ['MEANINGFULLY']
+  c=5  HOLD         trig=letter B         d=1 p=24  vigenere ct-fixed=LODESTONE -> 3 alphabets, e.g. ['EXCISEMAN', 'MERYCISMUS', 'UNEXCURSIVE']
+  c=5  HOLD         trig=letter B         d=1 p=24  vigenere ct-fixed=MASKING -> 1 alphabets, e.g. ['FOREACCUSTOM']
+  c=5  HOLD         trig=letter B         d=1 p=24  varbeaufort ct-fixed=LODESTONE -> 3 alphabets, e.g. ['EXCISEMAN', 'MERYCISMUS', 'UNEXCURSIVE']
+  c=5  HOLD         trig=letter B         d=1 p=24  varbeaufort ct-fixed=MASKING -> 1 alphabets, e.g. ['FOREACCUSTOM']
+  c=5  HOLD         trig=letter G         d=1 p=24  vigenere pt-fixed=LANGLEY -> 1 alphabets, e.g. ['COAFFOREST']
+  c=5  HOLD         trig=letter G         d=1 p=24  varbeaufort pt-fixed=LANGLEY -> 1 alphabets, e.g. ['COAFFOREST']
+  c=5  HOLD         trig=letter M         d=0 p=24  vigenere pt-fixed=LANGLEY -> 1 alphabets, e.g. ['SUBFRAME']
+  c=5  HOLD         trig=letter M         d=0 p=24  varbeaufort pt-fixed=LANGLEY -> 1 alphabets, e.g. ['SUBFRAME']
+  c=5  HOLD         trig=letter M         d=1 p=24  vigenere pt-fixed=BERLIN -> 4 alphabets, e.g. ['SALUTARY', 'SCLEROCAULY', 'SCLERODACTYLY', 'WOOLSORTER']
+  c=5  HOLD         trig=letter M         d=1 p=24  vigenere ct-fixed=LAYERTWO -> 8 alphabets, e.g. ['BEPLAIDED', 'DELAINE', 'FELLAHEEN', 'FELLANI', 'MELALGIA']
+  c=5  HOLD         trig=letter M         d=1 p=24  varbeaufort pt-fixed=BERLIN -> 4 alphabets, e.g. ['SALUTARY', 'SCLEROCAULY', 'SCLERODACTYLY', 'WOOLSORTER']
+  c=5  HOLD         trig=letter M         d=1 p=24  varbeaufort ct-fixed=LAYERTWO -> 8 alphabets, e.g. ['BEPLAIDED', 'DELAINE', 'FELLAHEEN', 'FELLANI', 'MELALGIA']
+  c=5  HOLD         trig=letter Y         d=0 p=24  vigenere ct-fixed=LODESTONE -> 1 alphabets, e.g. ['EXCISEMAN']
+  c=5  HOLD         trig=letter Y         d=0 p=24  varbeaufort ct-fixed=LODESTONE -> 1 alphabets, e.g. ['EXCISEMAN']
+  c=5  HOLD         trig=letter Y         d=1 p=24  vigenere ct-fixed=PALIMPSEST -> 1 alphabets, e.g. ['KEYSMITH']
+  c=5  HOLD         trig=letter Y         d=1 p=24  beaufort ct-fixed=ABSCISSA -> 1 alphabets, e.g. ['WAISTCOATED']
+  c=5  HOLD         trig=letter Y         d=1 p=24  varbeaufort ct-fixed=PALIMPSEST -> 1 alphabets, e.g. ['KEYSMITH']
+  c=5  DOUBLE       trig=letter S         d=0 p=19  vigenere ct-fixed=LODESTONE -> 2 alphabets, e.g. ['ANTIBIOSIS', 'ANTIBLASTIC']
+  c=5  DOUBLE       trig=letter S         d=0 p=19  varbeaufort ct-fixed=LODESTONE -> 2 alphabets, e.g. ['ANTIBIOSIS', 'ANTIBLASTIC']
+
+[runtime 7584.7s]

@@ -1,0 +1,111 @@
+==============================================================================
+PART 1 — Antipodes Latin side vs the Kryptos left panel
+==============================================================================
+transcription rows                : 47
+glyphs incl. dots/spaces          : 1594
+carved dots '.'                   : 2  (Kryptos has 0)
+space glyphs                      : 2
+letters + '?'                     : 1590
+letters only                      : 1583
+'?' count                          : 7   (Kryptos left panel: 4)
+
+expected order                    : K3 K4 GAP K1 K2 K3 K4 K1 K2
+expected length if untruncated    : 1738
+actual Antipodes length           : 1590  -> truncation point inside final K2
+
+letterwise diff over first 1590 glyphs: 2 mismatch(es)
+  Antipodes stream index  612  (= K2 offset 115, 1-indexed 116) Kryptos 'R' -> Antipodes 'E'
+    Kryptos   ...UEENJTBJLBQC[R]TBJDFHRRYIZE...
+    Antipodes ...UEENJTBJLBQC[E]TBJDFHRRYIZE...
+  Antipodes stream index 1481  (= K2 offset 115, 1-indexed 116) Kryptos 'R' -> Antipodes 'E'
+    Kryptos   ...UEENJTBJLBQC[R]TBJDFHRRYIZE...
+    Antipodes ...UEENJTBJLBQC[E]TBJDFHRRYIZE...
+
+--- dot and gap placement (relative to the reconstructed stream) ---
+  GAP at stream index 434: between the end of K4 (the first K4, ending at 433) and the start of K1
+  dot after stream index 727 (= K2 offset 230, 1-indexed 231)  context: ...GTEZ?FKZBS·FDQVGOGIPU...
+  dot after stream index 728 (= K2 offset 231, 1-indexed 232)  context: ...TEZ?FKZBSF·DQVGOGIPUF...
+  second K4/K1 junction at stream index 1303: ...GKUHUAUEKCAR|EMUFPHZLRFAX...  (no gap carved)
+
+--- the Antipodes Latin tableau vs an ideal rotation table ---
+  rows: 32   widths: [33]
+  rows differing from an ideal 32x33 KRYPTOS rotation table: 0
+  total letters: 1056  (26x33 + 6x33 = 1056 for an ideal table)
+  Kryptos, by contrast, carries an extra L at the end of tableau row N (867 letters vs 866).
+
+--- the Antipodes Cyrillic tableau vs an ideal ТЕНЬ rotation table ---
+  rows: 32   rows differing from ideal: 0
+
+K4 occurrences in the Antipodes stream: 2 at [337, 1206]
+  offset 337: len 97  identical to Kryptos K4: True
+  offset 1206: len 97  identical to Kryptos K4: True
+
+==============================================================================
+PART 2 — does Antipodes carve UNDERGROUND where Kryptos carves UNDERGRUUND?
+==============================================================================
+K2 plaintext 0-indexed position of 'UNDERGRUUND' : 107 (1-indexed 108)
+re-encrypting both plaintexts under Quagmire III / KRYPTOS / ABSCISSA differs at exactly: [(114, 'R', 'E')]
+  K2 LETTER index 114 (1-indexed 115): UNDERGRUUND->'R'   UNDERGROUND->'E'
+    Kryptos K2 carves       : ...BJLBQC[R]TBJDFH...
+    predicted UNDERGROUND ct: ...BJLBQC[E]TBJDFH...
+    carved letter == UNDERGRUUND prediction 'R' : True
+    carved letter == UNDERGROUND prediction 'E' : False
+  Kryptos   K2 has 'BQCRTBJDFHRRYI' at K2 offset 112
+  Antipodes has 'BQCETBJDFHRR' at stream index 609
+  Antipodes has 'BQCETBJDFHRR' at stream index 1478
+
+==============================================================================
+PART 3 — recovering the Cyrillic Projector / Antipodes-Cyrillic cipher
+==============================================================================
+Cyrillic Projector ct/pt lengths : 1133 / 1133   equal: True
+Antipodes Cyrillic ct/pt lengths : 1558 / 1558  equal: True
+CP ciphertext is a prefix of the Antipodes ciphertext: True
+alphabets — plain 32: АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ
+          — keyed 32: ТЕНЬАБВГДЖЗИЙКЛМОПРСУФХШЦЧЩЪЫЭЮЯ
+keyed alphabet is a permutation of the plain one: True
+Ё present anywhere in ct or pt: False
+distinct letters used            : 32
+alphabet letters never used      : []
+
+--- period-6 agreement for every combo, published key ЙБАСГТ, no key restart ---
+  vigenere     pt=plain ct=plain key-alpha=plain :   156/1558 =  10.0%   (chance 3.1%)
+  vigenere     pt=plain ct=keyed key-alpha=keyed :   777/1558 =  49.9%   (chance 3.1%)
+  vigenere     pt=keyed ct=keyed key-alpha=plain :   177/1558 =  11.4%   (chance 3.1%)
+  best combo: vigenere pt=plain ct=keyed key-alpha=keyed at 777/1558
+
+winning combo matches exactly for the first 777 characters, then breaks.
+  plaintext around the break : ...ТИМЕЖЛИЧНОСТНЫХОТНОШЕНИЙ | ОБИЗГОТОВЛЕНИИСАХАРОВЫМО...
+  -> that is the boundary between message 1 and message 2 (the KGB/Sakharov report).
+  tail with key phase +0: 781/781  <== the key RESTARTS here
+  tail with key phase +1: 0/781
+  tail with key phase +2: 0/781
+  tail with key phase +3: 0/781
+  tail with key phase +4: 0/781
+  tail with key phase +5: 0/781
+
+ANTIPODES Cyrillic side, key restart at 777:
+  decrypt(ciphertext) == stored plaintext : True   (1558/1558 characters)
+  encrypt(plaintext)  == carved ciphertext: True
+
+CYRILLIC PROJECTOR alone, same key and restart point:
+  decrypt(ciphertext) vs the stored CP plaintext file: 1131/1133 agree
+    index 777: file has 'З', decryption gives 'О'  <-- defect in lateral/keystreams/cyrillic_projector_plaintext_cyrillic.txt
+    index 778: file has 'Я', decryption gives 'Б'  <-- defect in lateral/keystreams/cyrillic_projector_plaintext_cyrillic.txt
+
+--- the key ЙБАСГТ is МЕДУЗА (MEDUSA) written in the cipher's own alphabet ---
+  МЕДУЗА indices in the STRAIGHT alphabet : [12, 5, 4, 19, 7, 0]
+  letters at those indices in the KEYED alphabet : ЙБАСГТ   == ЙБАСГТ : True
+  shift sequence from ЙБАСГТ read in the KEYED alphabet   : [12, 5, 4, 19, 7, 0]
+  shift sequence from МЕДУЗА read in the STRAIGHT alphabet: [12, 5, 4, 19, 7, 0]
+  identical: True
+  => the operative key is MEDUSA, the clue word carved in Latin letters on the sculpture.
+
+--- the keyed alphabet is NOT a plain keyword-mixed alphabet ---
+  straight alphabet minus ТЕНЬ : АБВГДЖЗИЙКЛМОПРСУФХЦЧШЩЪЫЭЮЯ
+  carved keyed alphabet tail   : АБВГДЖЗИЙКЛМОПРСУФХШЦЧЩЪЫЭЮЯ
+  identical: False
+  Ш has been lifted out of its normal slot (between Ч and Щ) and parked next to Х.
+
+--- classification ---
+  plaintext alphabet = straight; ciphertext alphabet = keyed; key letter = the ciphertext
+  of plaintext А  ->  ACA Quagmire II (Kryptos K1/K2 are Quagmire III).

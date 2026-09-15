@@ -1,0 +1,30 @@
+whole ciphertext: IoC = 0.0361 (English ~0.066, uniform random 0.0385); chi-square vs English monograms = 576.5 (df 25)
+expected number of distinct values among 24 uniform draws from 26: 15.9
+
+[straight vig ] required shifts: [1, 11, 25, 2, 3, 2, 24, 24, 6, 2, 10, 0, 25, 12, 20, 24, 10, 11, 6, 10, 14, 17, 13, 0]
+    as key letters (straight alphabet): BLZCDCYYGCKAZ | MUYKLGKORNA
+    distinct values 14/24 (uniform expectation 15.9); repeated: {'L': 2, 'Z': 2, 'C': 3, 'Y': 3, 'G': 2, 'K': 3, 'A': 2}
+    chi-square vs uniform = 30.2 (df 25; 95th percentile 37.7); adjacent equal shifts: 1; successive differences: [10, 14, 3, 1, 25, 22, 0, 8, 22, 8, 16, 25, 8, 4, 12, 1, 21, 4, 4, 3, 22, 13]
+    running-key test: chi-square of key letters vs English = 318.6 (df 25), bigram score -8.06 / -7.48 (English ~ -5.3, random ~ -7.4)
+
+[straight beau] required shifts: [9, 11, 9, 14, 3, 4, 6, 10, 20, 10, 10, 10, 11, 14, 2, 6, 6, 1, 6, 14, 10, 19, 17, 20]
+    as key letters (straight alphabet): JLJODEGKUKKKL | OCGGBGOKTRU
+    distinct values 12/24 (uniform expectation 15.9); repeated: {'J': 2, 'L': 2, 'O': 3, 'G': 4, 'K': 5, 'U': 2}
+    chi-square vs uniform = 49.7 (df 25; 95th percentile 37.7); adjacent equal shifts: 3; successive differences: [2, 24, 5, 15, 1, 2, 4, 10, 16, 0, 0, 1, 14, 4, 0, 21, 5, 8, 22, 9, 24, 3]
+    running-key test: chi-square of key letters vs English = 277.3 (df 25), bigram score -7.98 / -7.35 (English ~ -5.3, random ~ -7.4)
+
+[kryptos  vig ] required shifts: [1, 10, 21, 18, 1, 15, 2, 23, 5, 2, 19, 0, 2, 11, 17, 2, 5, 15, 11, 9, 8, 7, 20, 0]
+    as key letters (kryptos alphabet): RDUMRIYWOYNKY | ELYOIECBAQK
+    distinct values 16/24 (uniform expectation 15.9); repeated: {'R': 2, 'I': 2, 'Y': 4, 'O': 2, 'K': 2, 'E': 2}
+    chi-square vs uniform = 25.8 (df 25; 95th percentile 37.7); adjacent equal shifts: 0; successive differences: [9, 11, 23, 9, 14, 13, 21, 8, 23, 17, 7, 2, 6, 11, 3, 10, 22, 24, 25, 25, 13, 6]
+    running-key test: chi-square of key letters vs English = 94.3 (df 25), bigram score -7.37 / -6.96 (English ~ -5.3, random ~ -7.4)
+
+[kryptos  beau] required shifts: [23, 24, 7, 0, 13, 25, 4, 5, 7, 24, 7, 12, 10, 1, 13, 4, 13, 19, 23, 1, 16, 17, 12, 0]
+    as key letters (kryptos alphabet): WXAKGZTOAXAFD | RGTGNWRJLFK
+    distinct values 14/24 (uniform expectation 15.9); repeated: {'W': 2, 'X': 2, 'A': 3, 'K': 2, 'G': 3, 'T': 2, 'F': 2, 'R': 2}
+    chi-square vs uniform = 28.0 (df 25; 95th percentile 37.7); adjacent equal shifts: 0; successive differences: [1, 9, 19, 13, 12, 5, 1, 2, 17, 9, 5, 24, 12, 17, 9, 6, 4, 4, 15, 1, 21, 14]
+    running-key test: chi-square of key letters vs English = 241.6 (df 25), bigram score -7.64 / -7.61 (English ~ -5.3, random ~ -7.4)
+
+Interpretation: with 24 samples, chi-square against uniform has df=25; values near 25 are what a uniform
+(one-time-pad-like) key stream gives.  A keyword-based key stream would show fewer distinct values and
+a skew toward common letters; a running English key would give key letters with English statistics.

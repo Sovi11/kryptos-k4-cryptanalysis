@@ -1,0 +1,212 @@
+NULL for the key-stream battery (uniform-random 97-letter streams, n=4000):
+   ioc         mean    0.0385  sd   0.0028  p99    0.0464
+   per_excess  mean    0.0455  sd   0.0125  p99    0.0805
+   rep4        mean    0.0080  sd   0.0918  p99    0.0000
+   quad        mean   -1.8093  sd   0.0578  p99   -1.6788
+   run         mean    2.1128  sd   0.4044  p99    3.0000
+   ap          mean    3.1082  sd   0.3982  p99    4.0000
+   d1          mean    7.9582  sd   1.1849  p99   11.0000
+   ndistinct   mean   25.4322  sd   0.7190  p99   26.0000
+   ac_z        mean    2.3417  sd   0.6609  p99    4.3603
+   sculpture-corpus substring hit rate 2.9%   lateral-corpus hit rate 7.5%
+
+========================================================================================================
+CLAIM: solvekryptos.com
+source: https://solvekryptos.com/solution (site itself calls the mechanism back-solved)
+========================================================================================================
+raw      : THE COMPASS ROSE IS HERE X EAST NORTHEAST THIS IS YOUR POSITION X COMMISSION BERLIN CLOCK WHICH IS NORTHEAST OF HERE X
+letters  : THECOMPASSROSEISHEREXEASTNORTHEASTTHISISYOURPOSITIONXCOMMISSIONBERLINCLOCKWHICHISNORTHEASTOFHEREX
+LENGTH   : 97   (K4 = 97)  ->  MATCH
+  crib EAST      at 1-idx 22-25: claim has 'EAST'        OK
+  crib NORTHEAST at 1-idx 26-34: claim has 'NORTHEAST'   OK
+  crib BERLIN    at 1-idx 64-69: claim has 'BERLIN'      OK
+  crib CLOCK     at 1-idx 70-74: claim has 'CLOCK'       OK
+  crib letters in place: 24/24  ->  PASS
+  quadgram : -0.9411   z vs held-out English -2.60   z vs Sanborn K1-K3 plaintext +0.30
+  5-gram   : -0.9533
+  -> English-likeness is INSIDE the band of real Sanborn plaintext. Not refutable on this statistic.
+  quadgram of the NON-CRIB letters alone (73): -0.8915  (z vs Sanborn +0.87)
+  dictionary words >=5 outside the cribs: [(4, 'COMPASS'), (26, 'NORTH'), (45, 'POSIT'), (45, 'POSITION'), (47, 'SITIO'), (54, 'COMMISSION'), (57, 'MISSION'), (75, 'WHICH'), (81, 'SNORT'), (82, 'NORTH')]
+
+--- key streams implied by solvekryptos.com
+    PT  THECOMPASSROSEISHEREXEASTNORTHEASTTHISISYOURPOSITIONXCOMMISSIONBERLINCLOCKWHICHISNORTHEASTOFHEREX
+    PT quad -0.9411  (English -0.741+-0.077; Sanborn K1-K3 -0.967)
+    combo                                         zioczper_excess     zquad     zrep4      zrun       zap       zd1     zac_z   corpus hits
+    beaufort/pt=keyed/ct=keyed/key=plain         +0.89     -0.85     +0.74     -0.09     -0.28     +2.24     -0.81     -0.82   
+    beaufort/pt=keyed/ct=keyed/key=keyed         +0.89     -0.85     +1.34     -0.09     -0.28     +2.24     -0.81     -0.82   
+    beaufort/pt=plain/ct=plain/key=plain         +1.87     -0.16     -0.60     -0.09     +2.19     -0.27     -0.81     +0.38   
+    beaufort/pt=plain/ct=plain/key=keyed         +1.87     -0.16     +1.18     -0.09     +2.19     -0.27     -0.81     +0.38   
+    vigenere/pt=plain/ct=keyed/key=plain         +1.19     +1.04     +0.62     -0.09     -0.28     -0.27     +0.04     +1.88   
+    vigenere/pt=plain/ct=keyed/key=keyed         +1.19     +1.04     +0.60     -0.09     -0.28     -0.27     +0.04     +1.88   
+    varbeaufort/pt=plain/ct=keyed/key=plain      +1.19     +1.04     +0.77     -0.09     -0.28     -0.27     +0.04     +1.88   
+    varbeaufort/pt=plain/ct=keyed/key=keyed      +1.19     +1.04     -1.73     -0.09     -0.28     -0.27     +0.04     +1.88   
+    beaufort/pt=keyed/ct=plain/key=plain         +0.59     -0.39     +0.56     -0.09     -0.28     -0.27     +0.04     -1.90   
+    beaufort/pt=keyed/ct=plain/key=keyed         +0.59     -0.39     +0.50     -0.09     -0.28     -0.27     +0.04     -1.90   LAT:XVMAE(antipodes_cyrillic_plaintext_translit.txt)
+    varbeaufort/pt=keyed/ct=plain/key=keyed      -0.54     -1.39     +1.57     -0.09     -0.28     -0.27     +0.04     -0.66   
+    varbeaufort/pt=keyed/ct=keyed/key=keyed      +0.51     +1.04     -1.50     -0.09     -0.28     -0.27     +0.04     +1.31   
+    varbeaufort/pt=plain/ct=plain/key=plain      +0.13     -0.16     +1.45     -0.09     -0.28     -0.27     +0.88     -1.37   
+    vigenere/pt=keyed/ct=plain/key=plain         -0.54     -1.39     +0.84     -0.09     -0.28     -0.27     +0.04     -0.66   LAT:EADIA(mlu_day_rowletters_5760.txt)
+    vigenere/pt=keyed/ct=plain/key=keyed         -0.54     -1.39     -0.57     -0.09     -0.28     -0.27     +0.04     -0.66   
+    varbeaufort/pt=keyed/ct=plain/key=plain      -0.54     -1.39     +0.81     -0.09     -0.28     -0.27     +0.04     -0.66   
+    varbeaufort/pt=plain/ct=plain/key=keyed      +0.13     -0.16     +1.38     -0.09     -0.28     -0.27     +0.88     -1.37   
+    vigenere/pt=plain/ct=plain/key=plain         +0.13     -0.16     +0.14     -0.09     -0.28     -0.27     +0.88     -1.37   
+    vigenere/pt=plain/ct=plain/key=keyed         +0.13     -0.16     +0.45     -0.09     -0.28     -0.27     +0.88     -1.37   
+    vigenere/pt=keyed/ct=keyed/key=plain         +0.51     +1.04     +0.76     -0.09     -0.28     -0.27     +0.04     +1.31   SCU:PLJIH(tableau_physical_rev)
+    vigenere/pt=keyed/ct=keyed/key=keyed         +0.51     +1.04     +1.00     -0.09     -0.28     -0.27     +0.04     +1.31   
+    varbeaufort/pt=keyed/ct=keyed/key=plain      +0.51     +1.04     +0.40     -0.09     -0.28     -0.27     +0.04     +1.31   
+    beaufort/pt=plain/ct=keyed/key=plain         -0.77     -0.47     -0.35     -0.09     -0.28     -0.27     -0.81     -0.25   
+    beaufort/pt=plain/ct=keyed/key=keyed         -0.77     -0.47     -0.21     -0.09     -0.28     -0.27     -0.81     -0.25   
+    LARGEST |z| anywhere in the 24x9 grid: 2.24  (beaufort/pt=keyed/ct=keyed/key=plain)
+    Expected largest |z| over 216 independent N(0,1) draws: about 3.0 (P(max>3.5) ~ 0.10).
+
+========================================================================================================
+CLAIM: mattklepp/k4
+source: github.com/mattklepp/k4 README, Wayback 2026-05-28 (repo now 404)
+========================================================================================================
+raw      : UDILKAFSGDMZLYQJCVNJA EASTNORTHEAST OPOHAYLOMIQSDZSSHTQNSXYMEMNBT BERLINCLOCK SYRUFZRDSPQKKQZIKAGIWQD
+letters  : UDILKAFSGDMZLYQJCVNJAEASTNORTHEASTOPOHAYLOMIQSDZSSHTQNSXYMEMNBTBERLINCLOCKSYRUFZRDSPQKKQZIKAGIWQD
+LENGTH   : 97   (K4 = 97)  ->  MATCH
+  crib EAST      at 1-idx 22-25: claim has 'EAST'        OK
+  crib NORTHEAST at 1-idx 26-34: claim has 'NORTHEAST'   OK
+  crib BERLIN    at 1-idx 64-69: claim has 'BERLIN'      OK
+  crib CLOCK     at 1-idx 70-74: claim has 'CLOCK'       OK
+  crib letters in place: 24/24  ->  PASS
+  quadgram : -1.6398   z vs held-out English -11.67   z vs Sanborn K1-K3 plaintext -7.73
+  5-gram   : -1.7313
+  -> English-likeness is BELOW the Sanborn band: the non-crib text does not read as English.
+  quadgram of the NON-CRIB letters alone (73): -1.8739  (z vs Sanborn -10.42)
+  dictionary words >=5 outside the cribs: [(26, 'NORTH')]
+
+--- key streams implied by mattklepp/k4
+    PT  UDILKAFSGDMZLYQJCVNJAEASTNORTHEASTOPOHAYLOMIQSDZSSHTQNSXYMEMNBTBERLINCLOCKSYRUFZRDSPQKKQZIKAGIWQD
+    PT quad -1.6398  (English -0.741+-0.077; Sanborn K1-K3 -0.967)
+    combo                                         zioczper_excess     zquad     zrep4      zrun       zap       zd1     zac_z   corpus hits
+    vigenere/pt=plain/ct=plain/key=plain         +7.30    +44.15     -0.31   +576.96     -0.28    +67.54    +56.58    +36.61   
+    vigenere/pt=plain/ct=plain/key=keyed         +7.30    +44.15     +1.62   +576.96     -0.28    +67.54    +56.58    +36.61   
+    varbeaufort/pt=plain/ct=plain/key=plain      +7.30    +44.15     -0.43   +576.96     -0.28    +67.54    +56.58    +36.61   
+    varbeaufort/pt=plain/ct=plain/key=keyed      +7.30    +44.15     +3.68   +576.96     -0.28    +67.54    +56.58    +36.61   
+    beaufort/pt=plain/ct=plain/key=plain        +12.28     +3.83     -1.90    +10.80     +2.19     +2.24     +2.57     +4.07   
+    beaufort/pt=plain/ct=plain/key=keyed        +12.28     +3.83     +0.81    +10.80     +2.19     +2.24     +2.57     +4.07   
+    vigenere/pt=plain/ct=keyed/key=plain         +0.59     +8.66     +1.56    +10.80     -0.28     +4.75     +8.47     +4.18   
+    vigenere/pt=plain/ct=keyed/key=keyed         +0.59     +8.66     +0.06    +10.80     -0.28     +4.75     +8.47     +4.18   
+    varbeaufort/pt=plain/ct=keyed/key=plain      +0.59     +8.66     +1.84    +10.80     -0.28     +4.75     +8.47     +4.18   
+    varbeaufort/pt=plain/ct=keyed/key=keyed      +0.59     +8.66     -0.94    +10.80     -0.28     +4.75     +8.47     +4.18   SCU:GNILB(K3_pt_rev)
+    vigenere/pt=keyed/ct=plain/key=plain         +0.06     +4.54     -0.31     -0.09     -0.28     -0.27     +5.10     +3.99   LAT:EADIA(mlu_day_rowletters_5760.txt)
+    vigenere/pt=keyed/ct=plain/key=keyed         +0.06     +4.54     +0.15     -0.09     -0.28     -0.27     +5.10     +3.99   
+    varbeaufort/pt=keyed/ct=plain/key=plain      +0.06     +4.54     -0.48     -0.09     -0.28     -0.27     +5.10     +3.99   
+    varbeaufort/pt=keyed/ct=plain/key=keyed      +0.06     +4.54     +0.38     -0.09     -0.28     -0.27     +5.10     +3.99   
+    vigenere/pt=keyed/ct=keyed/key=plain         +0.21     +2.89     +0.79     -0.09     -0.28     -0.27     -0.81     +0.55   SCU:PLJIH(tableau_physical_rev)
+    vigenere/pt=keyed/ct=keyed/key=keyed         +0.21     +2.89     +2.20     -0.09     -0.28     -0.27     -0.81     +0.55   
+    varbeaufort/pt=keyed/ct=keyed/key=plain      +0.21     +2.89     +0.35     -0.09     -0.28     -0.27     -0.81     +0.55   
+    varbeaufort/pt=keyed/ct=keyed/key=keyed      +0.21     +2.89     -0.52     -0.09     -0.28     -0.27     -0.81     +0.55   
+    beaufort/pt=keyed/ct=plain/key=plain         -0.09     -1.39     +0.61     -0.09     -0.28     +2.24     -0.81     +2.41   
+    beaufort/pt=keyed/ct=plain/key=keyed         -0.09     -1.39     +0.50     -0.09     -0.28     +2.24     -0.81     +2.41   
+    beaufort/pt=plain/ct=keyed/key=plain         +0.81     -1.21     -0.78     -0.09     -0.28     +2.24     -0.81     -0.25   
+    beaufort/pt=plain/ct=keyed/key=keyed         +0.81     -1.21     -0.41     -0.09     -0.28     +2.24     -0.81     -0.25   
+    beaufort/pt=keyed/ct=keyed/key=plain         +1.34     -0.64     +0.26     -0.09     -0.28     -0.27     +0.04     -0.84   
+    beaufort/pt=keyed/ct=keyed/key=keyed         +1.34     -0.64     +0.21     -0.09     -0.28     -0.27     +0.04     -0.84   LAT:AFDDA(mlu_day_rowletters_5760.txt)
+    LARGEST |z| anywhere in the 24x9 grid: 576.96  (vigenere/pt=plain/ct=plain/key=plain)
+    Expected largest |z| over 216 independent N(0,1) draws: about 3.0 (P(max>3.5) ~ 0.10).
+
+========================================================================================================
+CLAIM: ChatGPT (Toponce #2)
+source: gist.github.com/atoponce -- 'No, ChatGPT didn't solve Kryptos 4'
+========================================================================================================
+raw      : INTHECENTEROFTHISCITYEASTNORTHEASTNEARROTESRATHAUSCHIMESFROMTHEBERLINCLOCK
+letters  : INTHECENTEROFTHISCITYEASTNORTHEASTNEARROTESRATHAUSCHIMESFROMTHEBERLINCLOCK
+LENGTH   : 74   (K4 = 97)  ->  MISMATCH -- REFUTED
+  crib EAST      at 1-idx 22-25: claim has 'EAST'        OK
+  crib NORTHEAST at 1-idx 26-34: claim has 'NORTHEAST'   OK
+  crib BERLIN    at 1-idx 64-69: claim has 'BERLIN'      OK
+  crib CLOCK     at 1-idx 70-74: claim has 'CLOCK'       OK
+  crib letters in place: 24/24  ->  PASS
+  quadgram : -1.0983   z vs held-out English -4.64   z vs Sanborn K1-K3 plaintext -1.51
+  5-gram   : -1.2871
+  -> English-likeness is INSIDE the band of real Sanborn plaintext. Not refutable on this statistic.
+  quadgram of the NON-CRIB letters alone (50): -1.0891  (z vs Sanborn -1.40)
+  dictionary words >=5 outside the cribs: [(6, 'CENTER'), (7, 'ENTER'), (21, 'YEAST'), (26, 'NORTH'), (51, 'CHIME')]
+  -> length != 97, so no key stream can be derived.  REFUTED; no further tests.
+
+========================================================================================================
+CLAIM: Naughton/Grok-3
+source: medium.com/@michaelpnaughton, Feb 2025 (author later walked it back)
+========================================================================================================
+raw      : THIS IS A GUIDE TO THE BERLIN CLOCK WHICH IS NORTHEST OF HERE AT CIA LANGLEY VIRGINIA
+letters  : THISISAGUIDETOTHEBERLINCLOCKWHICHISNORTHESTOFHEREATCIALANGLEYVIRGINIA
+LENGTH   : 69   (K4 = 97)  ->  MISMATCH -- REFUTED
+  crib EAST      at 1-idx 22-25: claim has 'INCL'        MISMATCH
+  crib NORTHEAST at 1-idx 26-34: claim has 'OCKWHICHI'   MISMATCH
+  crib BERLIN    at 1-idx 64-69: claim has 'RGINIA'      MISMATCH
+  crib CLOCK     at 1-idx 70-74: claim has '(short)'     MISMATCH
+  crib letters in place: 2/24  ->  FAIL
+  quadgram : -1.0724   z vs held-out English -4.30   z vs Sanborn K1-K3 plaintext -1.21
+  5-gram   : -0.9941
+  -> English-likeness is INSIDE the band of real Sanborn plaintext. Not refutable on this statistic.
+  quadgram of the NON-CRIB letters alone (50): -1.1251  (z vs Sanborn -1.82)
+  dictionary words >=5 outside the cribs: [(8, 'GUIDE'), (29, 'WHICH'), (35, 'SNORT'), (36, 'NORTH'), (36, 'NORTHEST'), (46, 'HEREAT'), (55, 'LANGLE'), (56, 'ANGLE'), (62, 'VIRGIN'), (62, 'VIRGINIA')]
+  -> length != 97, so no key stream can be derived.  REFUTED; no further tests.
+
+========================================================================================================
+CLAIM: figshare Genie
+source: figshare 'Genie Replication Package', 2025-26
+========================================================================================================
+raw      : TO SET THE EAST NORTHEAST HOUR BY BEARING BERLIN CLOCK DEGREES GRID POINT NORTHWEST TO FIND GROSSER STERN
+letters  : TOSETTHEEASTNORTHEASTHOURBYBEARINGBERLINCLOCKDEGREESGRIDPOINTNORTHWESTTOFINDGROSSERSTERN
+LENGTH   : 88   (K4 = 97)  ->  MISMATCH -- REFUTED
+  crib EAST      at 1-idx 22-25: claim has 'HOUR'        MISMATCH
+  crib NORTHEAST at 1-idx 26-34: claim has 'BYBEARING'   MISMATCH
+  crib BERLIN    at 1-idx 64-69: claim has 'RTHWES'      MISMATCH
+  crib CLOCK     at 1-idx 70-74: claim has 'TTOFI'       MISMATCH
+  crib letters in place: 1/24  ->  FAIL
+  quadgram : -1.1024   z vs held-out English -4.69   z vs Sanborn K1-K3 plaintext -1.56
+  5-gram   : -1.0706
+  -> English-likeness is INSIDE the band of real Sanborn plaintext. Not refutable on this statistic.
+  quadgram of the NON-CRIB letters alone (64): -1.0691  (z vs Sanborn -1.17)
+  dictionary words >=5 outside the cribs: [(13, 'NORTH'), (28, 'BEARING'), (29, 'EARING'), (46, 'DEGREE'), (57, 'POINT'), (62, 'NORTH'), (62, 'NORTHWEST'), (77, 'GROSS'), (77, 'GROSSER'), (78, 'ROSSER'), (84, 'STERN')]
+  -> length != 97, so no key stream can be derived.  REFUTED; no further tests.
+
+========================================================================================================
+CLAIM: ChatGPT (Toponce #1)
+source: same gist
+========================================================================================================
+raw      : BERLINCLOCKINNORTHEASTAREAKEYTOPUZZLE
+letters  : BERLINCLOCKINNORTHEASTAREAKEYTOPUZZLE
+LENGTH   : 37   (K4 = 97)  ->  MISMATCH -- REFUTED
+  crib EAST      at 1-idx 22-25: claim has 'TARE'        MISMATCH
+  crib NORTHEAST at 1-idx 26-34: claim has 'AKEYTOPUZ'   MISMATCH
+  crib BERLIN    at 1-idx 64-69: claim has '(short)'     MISMATCH
+  crib CLOCK     at 1-idx 70-74: claim has '(short)'     MISMATCH
+  crib letters in place: 1/24  ->  FAIL
+  quadgram : -1.0752   z vs held-out English -4.34   z vs Sanborn K1-K3 plaintext -1.24
+  5-gram   : -0.9916
+  -> English-likeness is INSIDE the band of real Sanborn plaintext. Not refutable on this statistic.
+  quadgram of the NON-CRIB letters alone (24): -1.1383  (z vs Sanborn -1.97)
+  dictionary words >=5 outside the cribs: [(14, 'NORTH'), (20, 'ASTARE'), (21, 'STARE'), (22, 'TAREA'), (32, 'PUZZLE')]
+  -> length != 97, so no key stream can be derived.  REFUTED; no further tests.
+
+========================================================================================================
+CLAIM: ChatGPT (Toponce #3)
+source: same gist
+========================================================================================================
+raw      : ABANDONCONTACTNEARTHEBERLINCLOCK
+letters  : ABANDONCONTACTNEARTHEBERLINCLOCK
+LENGTH   : 32   (K4 = 97)  ->  MISMATCH -- REFUTED
+  crib EAST      at 1-idx 22-25: claim has 'BERL'        MISMATCH
+  crib NORTHEAST at 1-idx 26-34: claim has '(short)'     MISMATCH
+  crib BERLIN    at 1-idx 64-69: claim has '(short)'     MISMATCH
+  crib CLOCK     at 1-idx 70-74: claim has '(short)'     MISMATCH
+  crib letters in place: 0/24  ->  FAIL
+  quadgram : -1.0832   z vs held-out English -4.44   z vs Sanborn K1-K3 plaintext -1.34
+  5-gram   : -0.9208
+  -> English-likeness is INSIDE the band of real Sanborn plaintext. Not refutable on this statistic.
+  quadgram of the NON-CRIB letters alone (21): -1.0427  (z vs Sanborn -0.87)
+  dictionary words >=5 outside the cribs: [(1, 'ABANDON'), (2, 'BANDO'), (8, 'CONTACT'), (16, 'EARTH')]
+  -> length != 97, so no key stream can be derived.  REFUTED; no further tests.
+
+========================================================================================================
+CLAIM: 'The Kryptos K4 Structured Solution' (YouTube, Creation Unified, May 2026)
+========================================================================================================
+No plaintext and no procedure is published anywhere reachable (creationunified.com
+has no K4 page; /kryptos, /kryptos-k4, /k4 and the sitemap were all probed in
+findings/prior_art.md and 404).  NOT EVALUABLE -- there is nothing to test.
+

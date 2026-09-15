@@ -1,0 +1,200 @@
+verification: the conflict list is exactly the set of crib pairs that break
+function-ness or injectivity, and a synthetic period-5 cipher built from five
+ARBITRARY random mixed alphabets is not declared impossible at its true
+period.  OK
+
+==============================================================================
+H0. MACHINERY CHECK - plain periodic key, alphabet-independent
+==============================================================================
+conflicting crib pairs (cannot share a key slot under ANY alphabet): 22
+    pos 22 F->E   vs  pos 31 G->E   (different ct, same pt)
+    pos 22 F->E   vs  pos 65 Y->E   (different ct, same pt)
+    pos 22 F->E   vs  pos 72 F->O   (same ct, different pt)
+    pos 23 L->A   vs  pos 32 K->A   (different ct, same pt)
+    pos 24 R->S   vs  pos 29 R->T   (same ct, different pt)
+    pos 24 R->S   vs  pos 33 S->S   (different ct, same pt)
+    pos 25 V->T   vs  pos 29 R->T   (different ct, same pt)
+    pos 25 V->T   vs  pos 34 S->T   (different ct, same pt)
+    pos 25 V->T   vs  pos 67 V->L   (same ct, different pt)
+    pos 26 Q->N   vs  pos 27 Q->O   (same ct, different pt)
+    pos 26 Q->N   vs  pos 69 T->N   (different ct, same pt)
+    pos 27 Q->O   vs  pos 72 F->O   (different ct, same pt)
+    pos 28 P->R   vs  pos 73 P->C   (same ct, different pt)
+    pos 29 R->T   vs  pos 34 S->T   (different ct, same pt)
+    pos 30 N->H   vs  pos 64 N->B   (same ct, different pt)
+    pos 31 G->E   vs  pos 65 Y->E   (different ct, same pt)
+    pos 32 K->A   vs  pos 74 K->K   (same ct, different pt)
+    pos 33 S->S   vs  pos 34 S->T   (same ct, different pt)
+    pos 66 P->R   vs  pos 73 P->C   (same ct, different pt)
+    pos 67 V->L   vs  pos 71 Z->L   (different ct, same pt)
+    pos 68 T->I   vs  pos 69 T->N   (same ct, different pt)
+    pos 70 M->C   vs  pos 73 P->C   (different ct, same pt)
+
+plain periodic key - periods IMPOSSIBLE for every alphabet set: [2, 3, 4, 5, 6, 7, 9, 10, 14, 15, 17, 21, 25]
+published list in findings/geometry.md section 5:                [2, 3, 4, 5, 6, 7, 9, 10, 14, 15, 17, 21, 25]
+match: YES
+(geometry.md scanned 2..26; this scan goes to 30.)
+
+==============================================================================
+H1. CIPHERTEXT-TRIGGERED RULES (the seg_c family), alphabet-independent
+==============================================================================
+(rule, trigger, delay, period) combinations: 8,000
+IMPOSSIBLE for every alphabet set that exists: 5,551 (69.4%)
+not excluded by this argument alone: 2,449
+  by rule: HOLD:933/1600  DOUBLE:822/1600  RESET_AFTER:1069/1600  RESET_AT:1127/1600  ADVANCE_ONLY:1600/1600
+  periods among the not-excluded: 5:1 6:28 7:18 8:114 9:16 10:78 11:103 12:127 13:141 14:95 15:114 16:151 17:110 18:178 19:176 20:151 21:110 22:124 23:140 24:155 25:146 26:173
+  (seg_c then killed all of these on the 867 keyword configurations and the
+   208,627-alphabet dictionary pass, at exactly the chance rate.)
+
+==============================================================================
+H2. PLAINTEXT-TRIGGERED RULES with free per-run offsets (seg_e E1 family),
+    alphabet-independent
+==============================================================================
+(rule, trigger, period, offset1, offset2) combinations: 961,000
+IMPOSSIBLE for every alphabet set: 543,573 (56.6%)
+not excluded: 417,427
+  not-excluded counts by (rule, period), top 12:
+    DOUBLE       p=26  16536
+    DOUBLE       p=25  15150
+    DOUBLE       p=24  13752
+    HOLD         p=26  12974
+    DOUBLE       p=23  12466
+    RESET_AFTER  p=26  11950
+    HOLD         p=25  11875
+    DOUBLE       p=22  11264
+    RESET_AFTER  p=25  10922
+    HOLD         p=24  10824
+    RESET_AT     p=26  10173
+    DOUBLE       p=21  10101
+  (seg_e then tested all of these against 867 configurations: 0 survivors
+   at c >= 5, and the E2 forward simulation predicted 0 of 11 BERLINCLOCK
+   letters better than chance in 673,297 fully determined simulations.)
+
+==============================================================================
+H3. INTERRUPTED KEYS - inserted / deleted key letters (seg_d family),
+    alphabet-independent
+==============================================================================
+D0 free desync: 350 (period, offset) pairs, 121 impossible for every
+   alphabet (34.6%), 229 not excluded
+D1 one insert/delete: 49 distinct crib-restricted maps x 19 periods = 931 tests
+   impossible for every alphabet: 538 (57.8%), 393 not excluded
+D2 two inserts/deletes: 1201 distinct crib-restricted maps x 19 periods = 22,819 tests
+   impossible for every alphabet: 14,770 (64.7%), 8,049 not excluded
+
+==============================================================================
+H4. THE UNRESTRICTED IRREGULAR ADVANCE, alphabet-independent
+==============================================================================
+No trigger, no rule: the key pointer is ANY monotone path whose increments
+come from the step set.  For each period, is there ANY such path at all whose
+induced key slots avoid all 22 conflicting crib pairs?  Answering NO kills the
+whole family at that period for every alphabet, every key, every trigger and
+every skip pattern simultaneously.
+
+Consistency depends only on the 12 increments inside EASTNORTHEAST, the 10
+inside BERLINCLOCK and the residue offset D between the runs; increments
+outside the crib spans are free and affect nothing.
+
+--- step set {0,1} pure skip   (4,096 x 1,024 increment vectors)
+      p  paths in run1  paths in run2   admissible (R1,R2,D)          verdict
+    ('~' marks a 500k-draw Monte Carlo estimate; IMPOSSIBLE is always exact)
+      2              0             64                      0       IMPOSSIBLE
+      3             44            144                    531  10^-4.37 of all
+      4            155            240                 12,661  10^-3.12 of all
+      5            330            328                100,307  10^-2.32 of all
+      6            511            400                301,471  10^-1.92 of all
+      7            746            440                666,335  10^-1.64 of all
+      8            937            448              1,142,966  10^-1.47 of all
+      9          1,012            448              1,601,380  10^-1.37 of all
+     10          1,024            448              2,020,842  10^-1.32 of all
+     11          1,024            448              2,430,446 ~10^-1.28 of all
+     12          1,024            448              2,847,286 ~10^-1.25 of all
+     13          1,024            448              3,269,378 ~10^-1.22 of all
+     14          1,024            448              3,718,618 ~10^-1.20 of all
+     15          1,024            448              4,177,680 ~10^-1.18 of all
+     16          1,024            448              4,632,867 ~10^-1.16 of all
+     17          1,024            448              5,084,979 ~10^-1.15 of all
+     18          1,024            448              5,548,800 ~10^-1.13 of all
+     19          1,024            448              6,005,331 ~10^-1.12 of all
+     20          1,024            448              6,461,632 ~10^-1.11 of all
+     21          1,024            448              6,922,881 ~10^-1.10 of all
+     22          1,024            448              7,373,310 ~10^-1.10 of all
+     23          1,024            448              7,834,105 ~10^-1.09 of all
+     24          1,024            448              8,293,076 ~10^-1.08 of all
+     25          1,024            448              8,764,411 ~10^-1.08 of all
+     26          1,024            448              9,220,284 ~10^-1.07 of all
+     27          1,024            448              9,679,946 ~10^-1.07 of all
+     28          1,024            448             10,126,939 ~10^-1.06 of all
+     29          1,024            448             10,593,051 ~10^-1.06 of all
+     30          1,024            448             11,052,079 ~10^-1.06 of all
+    periods IMPOSSIBLE for every alphabet, key and skip pattern: [2]
+
+--- step set {1,2} pure double-advance   (4,096 x 1,024 increment vectors)
+      p  paths in run1  paths in run2   admissible (R1,R2,D)          verdict
+    ('~' marks a 500k-draw Monte Carlo estimate; IMPOSSIBLE is always exact)
+      2              0             64                      0       IMPOSSIBLE
+      3            260            288                  4,622  10^-3.43 of all
+      4            596            408                 97,995  10^-2.23 of all
+      5          1,364            336                295,810  10^-1.85 of all
+      6          1,251            464                681,637  10^-1.57 of all
+      7            668            752                846,811  10^-1.54 of all
+      8          1,592            904              3,445,668 ~10^-0.99 of all
+      9          2,887            856              7,546,434 ~10^-0.70 of all
+     10          3,674            744             10,985,432 ~10^-0.58 of all
+     11          3,446            744             13,755,952 ~10^-0.53 of all
+     12          2,626            856             14,742,141 ~10^-0.53 of all
+     13          1,926            968             13,851,758 ~10^-0.60 of all
+     14          1,926          1,016             15,793,681 ~10^-0.57 of all
+     15          2,626          1,024             23,748,734 ~10^-0.42 of all
+     16          3,446          1,024             34,231,026 ~10^-0.29 of all
+     17          3,926          1,024             42,605,257 ~10^-0.22 of all
+     18          4,076          1,024             47,742,419 ~10^-0.20 of all
+     19          4,096          1,024             51,378,404 ~10^-0.19 of all
+     20          4,096          1,024             55,158,117 ~10^-0.18 of all
+     21          4,096          1,024             59,391,194 ~10^-0.17 of all
+     22          4,096          1,024             63,906,681 ~10^-0.16 of all
+     23          4,096          1,024             68,509,963 ~10^-0.15 of all
+     24          4,096          1,024             72,802,716 ~10^-0.14 of all
+     25          4,096          1,024             76,766,459 ~10^-0.14 of all
+     26          4,096          1,024             80,726,762 ~10^-0.13 of all
+     27          4,096          1,024             84,609,639 ~10^-0.13 of all
+     28          4,096          1,024             88,434,819 ~10^-0.12 of all
+     29          4,096          1,024             92,501,575 ~10^-0.12 of all
+     30          4,096          1,024             96,707,480 ~10^-0.11 of all
+    periods IMPOSSIBLE for every alphabet, key and skip pattern: [2]
+
+--- step set {0,1,2} skip and double   (531,441 x 59,049 increment vectors)
+      p  paths in run1  paths in run2   admissible (R1,R2,D)          verdict
+    ('~' marks a 500k-draw Monte Carlo estimate; IMPOSSIBLE is always exact)
+      2              0          2,160                      0       IMPOSSIBLE
+      3         11,664         11,664              7,915,597 ~10^-4.08 of all
+      4         33,240         16,119            149,739,857 ~10^-2.92 of all
+      5         50,861         20,277            683,685,342 ~10^-2.36 of all
+      6         68,676         24,624          1,980,204,782 ~10^-1.98 of all
+      7         95,565         27,972          4,827,848,085 ~10^-1.66 of all
+      8        113,942         30,024          8,938,319,976 ~10^-1.45 of all
+      9        123,214         32,076         13,800,627,247 ~10^-1.31 of all
+     10        131,414         34,128         19,379,419,298 ~10^-1.21 of all
+     11        147,469         35,991         27,010,368,751 ~10^-1.11 of all
+     12        171,075         37,179         37,268,926,803 ~10^-1.00 of all
+     13        196,173         37,719         49,401,565,496 ~10^-0.92 of all
+     14        215,961         37,881         61,528,133,339 ~10^-0.85 of all
+     15        228,026         37,908         72,726,115,517 ~10^-0.81 of all
+     16        233,691         37,908         82,583,472,168 ~10^-0.78 of all
+     17        235,668         37,908         91,846,073,667 ~10^-0.76 of all
+     18        236,136         37,908        100,658,946,217 ~10^-0.75 of all
+     19        236,196         37,908        109,393,696,758 ~10^-0.74 of all
+     20        236,196         37,908        117,897,544,121 ~10^-0.73 of all
+     21        236,196         37,908        126,337,193,325 ~10^-0.72 of all
+     22        236,196         37,908        135,017,625,913 ~10^-0.71 of all
+     23        236,196         37,908        143,853,369,693 ~10^-0.70 of all
+     24        236,196         37,908        152,501,730,064 ~10^-0.69 of all
+     25        236,196         37,908        161,563,125,444 ~10^-0.69 of all
+     26        236,196         37,908        170,625,058,047 ~10^-0.68 of all
+     27        236,196         37,908        179,237,120,045 ~10^-0.67 of all
+     28        236,196         37,908        187,924,787,238 ~10^-0.67 of all
+     29        236,196         37,908        197,079,247,562 ~10^-0.66 of all
+     30        236,196         37,908        205,855,287,951 ~10^-0.66 of all
+    periods IMPOSSIBLE for every alphabet, key and skip pattern: [2]
+
+
+[runtime 1033.0s]

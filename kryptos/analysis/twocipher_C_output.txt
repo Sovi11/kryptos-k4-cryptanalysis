@@ -1,0 +1,19 @@
+(C) double periodic substitution: 7744 configurations (p1,p2 in 2..12, 4x4 alphabet arrangements, 2x2 families)
+  consistent (>=1 solution): 1
+  consistent AND null-expectation < 1 (non-vacuous): 1
+
+Top configurations by (solutions found)/(null expectation):
+  p1 p2  alph1    alph2    f1   f2   found   expected   V1 V2 comps
+  11 12  Ppt/Kct  P/P      beau beau     1      0.0385  11 12 1  P(consistent|null)=0.0378
+
+All consistent configurations with null expectation < 0.05 (would be surprising):
+
+  p1=11 p2=12 Ppt/Kct P/P beau/beau: 1 solutions, expected 0.0385, P(consistent|null)=0.0378
+    s1={0: 17, 1: 0, 2: 24, 3: 12, 4: 9, 5: 7, 6: 23, 7: 22, 8: 18, 9: 22, 10: 4} s2={0: 9, 1: 15, 2: 10, 3: 24, 4: 10, 5: 21, 6: 13, 7: 5, 8: 23, 9: 15, 10: 22, 11: 18}
+    dec: VVRYPTDVRHVDLAPQYDEHOEASTNORTHEASTLZTMMKOGALNOAIQEWTLWAIXVFJKXGBERLINCLOCKNQQAVJBWMUOCPTHSFVFVCQM   quad=-7.45 wordcov=0.39 not English
+
+Analytic null: expected number of consistent configurations = 4.99; observed = 1.
+Empirical null (30 trials with random crib ciphertext letters): consistent configs per trial mean=2.73 sd=1.91 min=0 max=10
+
+Per (p1,p2): number of the 64 alphabet/family combos that are consistent, and null expectation per combo
+  p1=11 p2=12:  1/64 consistent  (P(consistent|null) per combo 0.0378, i.e. ~2.42 expected)

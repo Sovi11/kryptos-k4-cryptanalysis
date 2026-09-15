@@ -1,0 +1,197 @@
+==============================================================================
+TASK (e)  PLAINTEXT-POSITION vs CIPHERTEXT-POSITION READINGS OF THE CRIBS
+==============================================================================
+K4 = OBKRUOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZWATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR
+
+==============================================================================
+E1.  THE TWO READINGS COINCIDE FOR EVERY POSITION-PRESERVING CIPHER
+==============================================================================
+Claim: if the cipher maps plaintext letter i to ciphertext letter i
+(any letterwise rule, any per-position key, any alphabets), then
+   'the ciphertext at 64..69 decrypts to BERLIN'   (CT-reading)
+and
+   'the plaintext at 64..69 is BERLIN'             (PT-reading)
+are the same sentence, so task (e) cannot separate them.
+
+Demonstration: build random position-keyed ciphers (a fresh random key
+value at every one of the 97 positions, all 12 rule/alphabet combos),
+and check the two readings always pick out the identical 24 (ct, pt)
+pairs.
+  identical in 240 / 240 trials  [PASS]
+
+  So (e) has teeth only when a stage moves letters -- a transposition,
+  a fractionation, or a variable-length encoding.  findings/twocipher.md
+  enumerates the four (stage order x reading) cases over a 1.17M-entry
+  transposition catalogue plus 2.45M compositions and finds nothing;
+  the sections below attack the readings from the placement side
+  instead, which does not need a transposition catalogue at all.
+
+==============================================================================
+E2.  VALIDATION: PLANTED CIPHERS MUST BE RECOVERED
+==============================================================================
+Before any negative below is believed, plant a periodic cipher whose
+crib blocks sit at a KNOWN non-standard placement and check the free
+slide finds exactly that placement.
+  planted A@30 B@63 period  9 vigenere/pt=plain/ct=plain   -> free slide of A fires at [30]  [PASS]
+  planted A@21 B@50 period 11 beaufort/pt=plain/ct=kryptos -> free slide of A fires at [21]  [PASS]
+  planted A@40 B@70 period 13 varbeaufort/pt=plain/ct=plain -> free slide of A fires at [40]  [PASS]
+  validation: ALL PASS
+
+==============================================================================
+E3.  ASYMMETRIC ANCHORS: SLIDE ONE PHRASE, NAIL THE OTHER
+==============================================================================
+crib_c_sources.py A5: BERLIN's window is fixed by two independently
+published facts (the 64th-69th characters, AND that they read NYPVTT);
+EAST's rests on one layout image whose reading rumkin.com flags as
+possibly 'confirmed out of hand'.  So the hypothesis worth the compute
+is not a global slide but a one-sided one.
+
+### E3a. BERLINCLOCK nailed at 64-74, EASTNORTHEAST slid over all starts
+  moving-block placements tested : 62
+  combos 12 x periods 25  ->  18600 (placement, period, combo) tests
+  survivors observed 249   vs chance expectation 250.3
+  by number of constraints c (a random key survives with prob 26^-c):
+    c           tests       expected     observed    univ-pass
+    22            744      5.523e-29            0            0
+    21            744      1.436e-27            0            0
+    20            744      3.733e-26            0            0
+    19            744      9.707e-25            0            0
+    18            744      2.524e-23            0            1
+    17            744      6.562e-22            0            0
+    16            744      1.706e-20            0           14
+    15            744      4.436e-19            0            0
+    14            744      1.153e-17            0           17
+    13            744      2.999e-16            0           31
+    12            744      7.796e-15            0           27
+    11           2340      6.375e-13            0          121
+    10           1524       1.08e-11            0           42
+    9            1272      2.343e-10            0           41
+    8            1116      5.344e-09            0           48
+    7             936      1.165e-07            0           56
+    6             756      2.447e-06            0           47
+    2             360         0.5325            1           30
+    1             252          9.692            8           21
+    0             240            240          240           20
+  no survivor with c >= 8.
+
+### E3b. EASTNORTHEAST nailed at 22-34, BERLINCLOCK slid over all starts (the mirror; weaker prior, run for symmetry)
+  moving-block placements tested : 64
+  combos 12 x periods 25  ->  19200 (placement, period, combo) tests
+  survivors observed 280   vs chance expectation 275.2
+  by number of constraints c (a random key survives with prob 26^-c):
+    c           tests       expected     observed    univ-pass
+    22            768      5.701e-29            0            0
+    21            768      1.482e-27            0            0
+    20            768      3.854e-26            0            0
+    19            768      1.002e-24            0            0
+    18            768      2.605e-23            0            9
+    17            768      6.774e-22            0            7
+    16            768      1.761e-20            0           19
+    15            768      4.579e-19            0            0
+    14            768      1.191e-17            0           13
+    13            768      3.095e-16            0           23
+    12            768      8.048e-15            0           39
+    11           2412      6.572e-13            0          139
+    10           1560      1.105e-11            0           45
+    9            1320      2.431e-10            0           49
+    8            1140      5.459e-09            0           49
+    7             960      1.195e-07            0           63
+    6             804      2.603e-06            0           54
+    1             276          10.62           16           22
+    0             264            264          264           22
+  no survivor with c >= 8.
+
+==============================================================================
+E4.  RIGID CYCLIC ROTATION: PT INDEX i CARRIED BY CT INDEX (i+d) mod 97
+==============================================================================
+The simplest way the two readings can both be literally true while
+disagreeing: the quoted numbers index the plaintext, and plaintext and
+ciphertext are offset by one constant.  crib_b's global slide covers the
+non-wrapping offsets; here every d in 0..96 is tested, wrap included, so
+a crib may straddle the end of the 97 letters.
+
+  rotations tested : 97   tests: 29100
+  survivors observed 27   vs chance expectation 22.91
+    c           tests       expected     observed    univ-pass
+    22           1164      8.641e-29            0            0
+    21           1164      2.247e-27            0            0
+    20           1164      5.841e-26            0            0
+    19           1164      1.519e-24            0            0
+    18           1164      3.949e-23            0            8
+    17           1164      1.027e-21            0            5
+    16           1164      2.669e-20            0           44
+    15           1164       6.94e-19            0            0
+    14           1164      1.804e-17            0           42
+    13           1296      5.223e-16            0           42
+    12           1236      1.295e-14            0           83
+    11           3960      1.079e-12            0          193
+    10            636      4.505e-12            0           16
+    9            2436      4.487e-10            0           81
+    8            2292      1.098e-08            0          130
+    7            2268      2.824e-07            0          122
+    6             600      1.942e-06            0           29
+    1             564          21.69           27           47
+  no survivor with c >= 8.
+
+==============================================================================
+E5.  REVERSED READINGS
+==============================================================================
+K3 is a route transposition read right-to-left, so 'which end do you
+count from' is a live question for this designer.  Two variants:
+  R1  the quoted 1-indexed positions counted from the END of K4
+      (crib word at 97-hi+1 .. 97-lo+1, word left-to-right);
+  R2  the same, with the crib word itself reversed, i.e. the plaintext
+      is written backwards under the ciphertext.
+
+  R1 positions mirrored, word forward
+    placement: 24:R->B 25:V->E 26:Q->R 27:Q->L 28:P->I 29:R->N 30:N->C 31:G->L 32:K->O 33:S->C 34:S->K 64:N->E 65:Y->A 66:P->S 67:V->T 68:T->N 69:T->O 70:M->R 71:Z->T 72:F->H 73:P->E 74:K->A 75:W->S 76:G->T
+    survivors 0 over 300 tests, chance expectation 0.4622
+    periods where the alphabet-free necessary condition still permits a solution: [10, 18, 20, 23, 25, 26]
+    survivors with c >= 8: none
+
+  R2 positions mirrored, word reversed
+    placement: 24:R->K 25:V->C 26:Q->O 27:Q->L 28:P->C 29:R->N 30:N->I 31:G->L 32:K->R 33:S->E 34:S->B 64:N->T 65:Y->S 66:P->A 67:V->E 68:T->H 69:T->T 70:M->R 71:Z->O 72:F->N 73:P->T 74:K->S 75:W->A 76:G->E
+    survivors 1 over 300 tests, chance expectation 0.4622
+    periods where the alphabet-free necessary condition still permits a solution: [8, 10, 11, 12, 13, 16, 18, 20, 22, 23, 24, 25, 26]
+    survivors with c >= 8: none
+
+==============================================================================
+E6.  HOW MUCH DOES EACH READING ACTUALLY CONSTRAIN?
+==============================================================================
+S = letterwise substitution whose key may vary with position;
+T = transposition.  Constraint counts are for a period-p key; c is the
+number of independent equalities the 24 crib letters impose, and a
+random key passes with probability 26^-c.
+
+  CT-reading, T then S   the 24 (ct, pt) pairs are exactly those of a
+                         one-stage cipher; T is invisible to the test.
+                         c by period:
+    p2:22  p3:21  p4:20  p5:19  p6:18  p7:17  p8:16  p9:15  p10:14  
+    p11:13  p12:12  p13:11  p14:11  p15:9  p16:8  p17:7  p18:7  p19:9  
+    p20:11  p21:11  p22:9  p23:7  p24:5  p25:3  p26:1  
+
+  CT-reading, S then T   same 24 key VALUES, but sitting at the
+                         relocated positions T^-1[c]; testable only once
+                         T is enumerated.  Covered exhaustively in
+                         findings/twocipher.md (0 survivors).
+
+  PT-reading, S then T   key stream fully determined at the 24 known
+                         PLAINTEXT positions for each candidate T; no
+                         periodicity needed.  Covered: twocipher.md
+                         two2_a/two2_b/two2_d (0 survivors).
+
+  PT-reading, T then S   the 24 key values are known but their POSITIONS
+                         depend on T.  For an un-enumerated T the cribs
+                         impose c = 0 at every period -- they cannot
+                         test it at all.  This reading is in exactly the
+                         same evidential position as periods >= 27:
+                         crib-free, decidable only by whether the output
+                         reads as English.
+
+  Bottom line for (e): the reading question changes nothing for any
+  position-preserving cipher (E1), is closed by twocipher.md for two of
+  the three transposition cases, and in the fourth case removes the
+  cribs from play entirely rather than relocating them.  There is no
+  version of (e) in which the standard 24 pairs are simply shifted to
+  some other 24 contiguous pairs -- E3, E4 and E5 test those directly
+  and find nothing above chance.

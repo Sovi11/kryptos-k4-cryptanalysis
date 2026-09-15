@@ -1,0 +1,96 @@
+==============================================================================
+(b) LETTER COVERAGE -- 'all 26 appear in 97 characters'
+==============================================================================
+
+--- 1. Exact, under a uniform-random source -------------------------
+  n =  63 (K1 length):  P(all 26 present) = 0.072704
+  n =  97 (K4 length):  P(all 26 present) = 0.542462
+  n = 336 (K3 length):  P(all 26 present) = 0.999951
+  n = 369 (K2 length):  P(all 26 present) = 0.999987
+
+  For K4's 97 letters this is 0.542 -- MORE LIKELY THAN NOT.
+  'All 26 letters appear' is the majority outcome, not an anomaly.
+
+--- 2. Exact distribution of the distinct-letter count at n = 97 ----
+  mean distinct = 25.4209   sd = 0.7210
+
+     k   P(exactly k)      P(<= k)
+    19       0.000000     0.000000
+    20       0.000002     0.000002
+    21       0.000055     0.000057
+    22       0.001070     0.001126
+    23       0.012926     0.014052
+    24       0.092255     0.106307
+    25       0.351231     0.457538
+    26       0.542462     1.000000
+
+  K4 has 26 distinct.  P(distinct >= 26) = P(= 26) = 0.542462
+  z of 26 against the null = +0.803
+  => a +0.7 sigma outcome.  Carries essentially no information.
+
+--- 3. What each candidate cipher predicts --------------------------
+200,000 simulated 97-letter outputs per row (plaintext = random window of real English).
+
+source                  mean distinct   P(all 26)   P(>=26)   compatible with K4?
+uniform                        25.420     0.54158   0.54158                   yes
+English (plaintext)            20.148     0.00005   0.00005        NO -- excluded
+OTP over English               25.420     0.54196   0.54196                   yes
+Vigenere L=1                   20.155     0.00003   0.00003        NO -- excluded
+Vigenere L=2                   22.975     0.02145   0.02145                   yes
+Vigenere L=3                   23.900     0.09109   0.09109                   yes
+Vigenere L=4                   24.344     0.16195   0.16195                   yes
+Vigenere L=5                   24.607     0.21905   0.21905                   yes
+Vigenere L=6                   24.766     0.26331   0.26331                   yes
+Vigenere L=7                   24.885     0.30204   0.30204                   yes
+Vigenere L=8                   24.964     0.33066   0.33066                   yes
+Vigenere L=9                   25.022     0.35114   0.35114                   yes
+Vigenere L=10                  25.066     0.36822   0.36822                   yes
+Vigenere L=11                  25.110     0.38627   0.38627                   yes
+Vigenere L=12                  25.143     0.40146   0.40146                   yes
+Vigenere L=13                  25.164     0.41033   0.41033                   yes
+Vigenere L=14                  25.192     0.42425   0.42425                   yes
+Vigenere L=15                  25.210     0.43262   0.43262                   yes
+Vigenere L=16                  25.226     0.43948   0.43948                   yes
+Vigenere L=17                  25.238     0.44481   0.44481                   yes
+Vigenere L=18                  25.249     0.44980   0.44980                   yes
+Vigenere L=19                  25.268     0.46014   0.46014                   yes
+Vigenere L=20                  25.275     0.46279   0.46279                   yes
+Vigenere L=21                  25.285     0.46935   0.46935                   yes
+Vigenere L=22                  25.292     0.47138   0.47138                   yes
+Vigenere L=23                  25.299     0.47523   0.47523                   yes
+Vigenere L=24                  25.307     0.47961   0.47961                   yes
+Vigenere L=25                  25.311     0.48159   0.48159                   yes
+Vigenere L=26                  25.317     0.48503   0.48503                   yes
+Vigenere L=27                  25.324     0.48922   0.48922                   yes
+Vigenere L=28                  25.326     0.48918   0.48918                   yes
+Vigenere L=29                  25.329     0.49098   0.49098                   yes
+Vigenere L=30                  25.336     0.49454   0.49454                   yes
+Vigenere L=40                  25.364     0.51002   0.51002                   yes
+Vigenere L=50                  25.386     0.52329   0.52329                   yes
+
+--- 4. Likelihood ratios: what does 'all 26 present' buy you? -------
+  P(all 26 | uniform-random / OTP / long key) = 0.5425
+  P(all 26 | English (plaintext) ) =    0.00005   LR vs uniform = 12054.7
+  P(all 26 | Vigenere L=1        ) =    0.00003   LR vs uniform = 21698.5
+  P(all 26 | Vigenere L=2        ) =    0.02145   LR vs uniform =    25.3
+  P(all 26 | Vigenere L=3        ) =    0.09109   LR vs uniform =     6.0
+  P(all 26 | Vigenere L=5        ) =    0.21905   LR vs uniform =     2.5
+  P(all 26 | Vigenere L=8        ) =    0.33066   LR vs uniform =     1.6
+  P(all 26 | Vigenere L=12       ) =    0.40146   LR vs uniform =     1.4
+
+  Reading: the observation 'K4 contains all 26 letters' is ~2x more likely
+  under a flat source than under a short-key Vigenere, and ~18x more likely
+  than under raw English.  Two-to-eighteen-fold likelihood ratios on a single
+  binary observation are weak evidence (a Bayes factor of 2 moves a 50% prior
+  to 67%).  The honest statement: coverage tells you K4 is not raw English and
+  not a one-alphabet cipher, which the IoC already told you far more loudly,
+  and it tells you nothing else.
+
+--- 5. Which letters are rare in K4 ---------------------------------
+  letters appearing exactly once: M Y (2 of 26)
+  expected number of singletons under uniform random = 2.25
+  most frequent: Kx8, Ux6, Sx6, Tx6, Ox5, Bx5
+  chi-square vs uniform (df 25) = 19.1  [95th pct 37.7, 99th 44.3]
+  chi-square vs English (df 25) = 571.0
+  => K4's letter distribution is statistically indistinguishable from flat,
+     and decisively NOT English.

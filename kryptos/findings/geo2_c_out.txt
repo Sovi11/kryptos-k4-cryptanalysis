@@ -1,0 +1,91 @@
+==============================================================================
+1. OBSERVED
+==============================================================================
+  all lags 1..96             max z = +3.036 at lag 7 (9 coincidences / 90 pairs)
+  lags 1..48 (>=49 pairs)    max z = +3.036 at lag 7 (9 coincidences / 90 pairs)
+  lags 1..30 (>=67 pairs)    max z = +3.036 at lag 7 (9 coincidences / 90 pairs)
+  lags 1..20                 max z = +3.036 at lag 7 (9 coincidences / 90 pairs)
+
+==============================================================================
+2. NULL DISTRIBUTION OF THE MAXIMUM z  (the multiple-testing question)
+==============================================================================
+  uniform random 26-letter strings (200000 trials):
+    lags  1..96 : null max-z mean +3.26, 95th +5.00, 99th +5.66 ; observed +3.04 -> p = 0.5572
+    lags  1..48 : null max-z mean +2.60, 95th +3.76, 99th +4.47 ; observed +3.04 -> p = 0.2183
+    lags  1..30 : null max-z mean +2.32, 95th +3.50, 99th +4.22 ; observed +3.04 -> p = 0.1374
+    lags  7.. 7 : null max-z mean +0.00, 95th +1.94, 99th +2.49 ; observed +3.04 -> p = 0.0076
+  random permutations of K4's own 97 letters (the transposition null) (200000 trials):
+    lags  1..96 : null max-z mean +3.12, 95th +5.00, 99th +5.37 ; observed +3.04 -> p = 0.4733
+    lags  1..48 : null max-z mean +2.43, 95th +3.54, 99th +4.22 ; observed +3.04 -> p = 0.1485
+    lags  1..30 : null max-z mean +2.15, 95th +3.31, 99th +3.97 ; observed +3.04 -> p = 0.0873
+    lags  7.. 7 : null max-z mean -0.12, 95th +1.39, 99th +2.49 ; observed +3.04 -> p = 0.0048
+
+==============================================================================
+3. WHERE THE LAG-7 COINCIDENCES ARE
+==============================================================================
+  the 9 coincident pairs (1-indexed): [(1, 8, 'O'), (8, 15, 'O'), (13, 20, 'B'), (16, 23, 'L'), (33, 40, 'S'), (46, 53, 'K'), (66, 73, 'P'), (77, 84, 'D'), (87, 94, 'K')]
+  positions of the first member mod 7: [(0, 1), (1, 2), (2, 1), (3, 2), (4, 1), (5, 1), (6, 1)]
+  pairs lying entirely inside a crib region: 1
+  pairs in the first half (both <=48): 5 ; second half: 4
+  removing the 24 crib letters and recomputing lag-7 on what is left is not
+  meaningful (it changes the spacing), so instead: lag-7 coincidences among the
+  73 NON-crib positions only (both members non-crib): 6 of 52 such pairs
+
+==============================================================================
+4. WHAT A PERIOD-7 STRUCTURE WOULD HAVE TO BE
+==============================================================================
+  (a) additive period-7 key (Vigenere / Beaufort / variant-Beaufort, either alphabet
+      on either side).  The 24 cribs occupy only 7 residues, so there are 17
+      constraints; chance of passing = 26^-17 = 8.8e-25.
+      all 12 pairings inconsistent (verified).  Worst-case detail for vig/plain/plain:
+      conflicting residues -> [(0, [1, 12, 14, 24]), (1, [6, 11, 17, 20]), (2, [2, 13, 24, 25]), (3, [0, 2, 10]), (4, [0, 3, 11]), (5, [2, 6, 25]), (6, [10, 24])]
+
+  (b) GENERAL period-p polyalphabetic: p INDEPENDENT, arbitrary mixed alphabets
+      (strictly more general than Quagmire I-IV, which force all p alphabets to be
+      rotations of one mixed alphabet).  The only crib constraint is that within each
+      residue class the ct->pt map be a partial BIJECTION.  Tested p = 2..31 on the
+      97 letters and on the 93-letter body.
+      p : 97-letter (ok, fwd-conflicts, rev-conflicts) | 93-letter body
+       2 : (False, 4, 3)          | (False, 4, 3)         
+       3 : (False, 3, 6)          | (False, 3, 6)         
+       4 : (False, 0, 2)          | (False, 0, 2)         
+       5 : (False, 3, 2)          | (False, 3, 2)         
+       6 : (False, 2, 0)          | (False, 2, 0)         
+       7 : (False, 3, 0)          | (False, 3, 0)         
+       8 : (True, 0, 0)           | (True, 0, 0)             <-- survives
+       9 : (False, 1, 5)          | (False, 1, 5)         
+      10 : (False, 1, 0)          | (False, 1, 0)         
+      11 : (True, 0, 0)           | (True, 0, 0)             <-- survives
+      12 : (True, 0, 0)           | (True, 0, 0)             <-- survives
+      13 : (True, 0, 0)           | (True, 0, 0)             <-- survives
+      14 : (False, 2, 0)          | (False, 2, 0)         
+      15 : (False, 1, 1)          | (False, 1, 1)         
+      16 : (True, 0, 0)           | (True, 0, 0)             <-- survives
+      17 : (False, 1, 1)          | (False, 1, 1)         
+      18 : (True, 0, 0)           | (True, 0, 0)             <-- survives
+      19 : (True, 0, 0)           | (True, 0, 0)             <-- survives
+      20 : (True, 0, 0)           | (True, 0, 0)             <-- survives
+      21 : (False, 2, 0)          | (False, 2, 0)         
+      22 : (True, 0, 0)           | (True, 0, 0)             <-- survives
+      23 : (True, 0, 0)           | (True, 0, 0)             <-- survives
+      24 : (True, 0, 0)           | (True, 0, 0)             <-- survives
+      25 : (False, 1, 0)          | (False, 1, 0)         
+      26 : (True, 0, 0)           | (True, 0, 0)             <-- survives
+      27 : (True, 0, 0)           | (True, 0, 0)             <-- survives
+      28 : (True, 0, 0)           | (True, 0, 0)             <-- survives
+      29 : (True, 0, 0)           | (True, 0, 0)             <-- survives
+      30 : (True, 0, 0)           | (True, 0, 0)             <-- survives
+      31 : (True, 0, 0)           | (True, 0, 0)             <-- survives
+      NOTE: a general period-p polyalphabetic has p x 26 free parameters and only 24
+      crib letters, so surviving this test is nearly automatic once p is large; it is
+      a NECESSARY condition, not evidence.  The informative fact is which small p
+      are KILLED by it, because those are killed for every possible alphabet set.
+
+  (c) the six doubled letters and the modulus 7
+      doubled-letter start positions: [19, 26, 33, 43, 47, 68]
+      largest single residue class over all moduli m=2..48: 5 of 6 at m=7
+      residues mod 7: [(1, 1), (5, 5)]
+      null (6 uniform positions in 1..96, 200000 trials):
+        P(some modulus 2..48 collects >= 5 of the 6) = 0.2472   <-- the honest,
+          multiple-testing-corrected p-value for this observation
+        P(modulus 7 alone collects >= 5 of the 6)     = 0.0012   (the naive p-value)

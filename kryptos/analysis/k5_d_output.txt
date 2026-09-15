@@ -1,0 +1,113 @@
+
+==============================================================================
+(d) THE QUESTION MARK
+==============================================================================
+K4 ciphertext: OBKRUOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZWATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR
+
+==============================================================================
+D0.  VALIDATION
+==============================================================================
+k5_lib selftest: PASS
+   planted period-9 cipher, true tail length 3: sweep survivors at k = [3] -> true k recovered: True
+   planted period-13 cipher, true tail length 11: sweep survivors at k = [11] -> true k recovered: True
+   planted period-7 cipher, true tail length 25: sweep survivors at k = [25] -> true k recovered: True
+
+==============================================================================
+D1.  DOES SANBORN'S INDEX COUNT THE `?` ?  (one-line re-derivation)
+==============================================================================
+Sanborn, NYT 2010: 'the characters that are the 64th through 69th ... read NYPVTT'.
+   K4 alone, 1-indexed, 64-69   : NYPVTT  <- matches the published string
+   '?'+K4,  1-indexed, 64-69    : BNYPVT
+   K4 alone, 0-indexed, 64-69   : YPVTTM
+Only the first reading reproduces NYPVTT, so the `?` is NOT counted in the index.
+This agrees with findings/crib_placement.md 1.3 and with the delta=-1 cryptanalytic
+sweep there (2 survivors against 0.46 expected, all at period 26, c=1).
+
+==============================================================================
+D2.  K4 BEGINS BEFORE OBKR: K3's TAIL AS THE HEAD OF K4
+==============================================================================
+
+Model.  The message actually enciphered is  X = T[-k:] + K4  for some tail T of the
+preceding carved text, and Sanborn's index 64 counts from the start of X.  Then the crib
+letter at index 64 pairs with X[63] instead of CT[63].  For k <= 21 this is exactly the
+delta = -k global slide already swept in findings/crib_placement.md 2; this run extends
+it to k = 1..31 (the whole of panel row 25) and to k = 1..40, and adds the two tails that
+the -k slide cannot express: K3's PLAINTEXT tail, and the tail taken from the panel's
+letter stream rather than from K3's ciphertext.
+
+Chance bookkeeping: a placement that forces c independent equalities on a period-p key is
+passed by a random key with probability 26^-c, and the expectation column below is the
+sum of 26^-c over every (k, p, combo) triple actually tested.
+
+--- alphabet set: 12 combos (12 cipher configurations) ---
+tail source                       k    tests  survivors   chance exp  max c
+K3 ciphertext tail             1-40    13920       1482      1476.95      1
+K3 plaintext tail              1-40    13920       1477      1476.95      1
+panel letters before K4        1-40    13920       1482      1476.95      1
+K3 ciphertext tail REVERSED    1-40    13920       1489      1476.95      1
+
+--- alphabet set: 867 combos (867 cipher configurations) ---
+tail source                       k    tests  survivors   chance exp  max c
+K3 ciphertext tail             1-40  1005720     106778    106709.67      1
+K3 plaintext tail              1-40  1005720     106801    106709.67      1
+panel letters before K4        1-40  1005720     106778    106709.67      1
+K3 ciphertext tail REVERSED    1-40  1005720     106814    106709.67      1
+
+A genuine solution would appear as a survivor at c >= 10.  Nothing does.
+
+==============================================================================
+D2b.  THE `?` AS A KEY SLOT (the key advances, the letter does not)
+==============================================================================
+
+If the worksheet had 98 cells and the `?` consumed one key symbol, K4's key stream begins
+at key index 1 rather than 0.  For a repeating key of length Lk this is the phase shift
+s -> s+1, already quantified over in (c) and in every period sweep.  For a key stream
+read out of a fixed text it is the offset shift n0 -> n0+1, already quantified over in
+findings/runningkey.md's all-offsets sweep.  Formally:
+
+  THEOREM.  Let the crib positions be {i_1..i_24}.  Shifting every position by a constant
+  d changes the residues mod p by the same constant d mod p, so the PARTITION of the crib
+  positions into residue classes is unchanged and the number of forced equalities c_p is
+  identical.  Hence no constant key-slot offset can change any periodic crib test.
+
+Verified numerically below for d = 0..8 and p = 2..40.
+constant-shift invariance of c_p over d=0..8, p=2..40: HOLDS (0 exceptions)
+So D2b adds nothing that (c) and runningkey.md have not already covered.  The only
+part of the `?` hypothesis with real content is D2 -- a changed ciphertext/crib
+PAIRING -- and that is the part just tested, negatively.
+
+==============================================================================
+D3.  THE MISSING ANSWER -- 'YES, WONDERFUL THINGS' AS KEY MATERIAL
+==============================================================================
+
+The sculpture carries Carter's question and withholds his reply.  That reply is the one
+piece of Kryptos-narrative text that is deliberately absent from the stone, so it is
+absent from the 66-text running-key corpus in findings/runningkey.md and has never been
+tested.  Sanborn, April 2006: "the answers to the first three passages contain clues to
+the fourth passage."  This is the most literal possible reading of that sentence.
+
+Three tests: (i) the phrase as an explicit key stream at every phase, (ii) the phrase as
+a keyword-mixed ALPHABET crossed with all periods (a genuinely new alphabet -- keyed
+alphabets built from multi-word phrases are not in the 208,627-alphabet dictionary set),
+(iii) the phrase as a running key against the required key blocks by Hamming distance.
+
+D3a. explicit key stream, every phase, 24 combos
+   tests 6264 ; best 6/24 at ('YESWONDERFULTHINGS', 8, 'vigenere/pt=plain/ct=kryptos/key=plain')
+   histogram {0: 2589, 1: 2298, 2: 1016, 3: 275, 4: 76, 5: 9, 6: 1} ; expected total hits 5782.2, observed 5510
+
+D3b. as keyword-mixed ALPHABETS (new alphabets), periods 2-30, 3 rules
+   distinct alphabets: 34 of 34
+   configurations per period: 3468 ; total tests 100572
+   survivors 10646 ; expected by chance 10670.97
+   (c, period, survivors) for periods with any survivor: [(1, 26, 128), (0, 27, 3468), (0, 28, 3468), (0, 29, 3468), (1, 30, 114)]
+
+D3c. as a running key: does the phrase contain the required key block?
+   (the 13-letter block for EASTNORTHEAST and the 11-letter block for BERLINCLOCK,
+    separated by the fixed 29-letter gap; 24 combos x 26 key-alphabet rotations)
+   tests 162864 ; best joint Hamming distance 16 of 24 (0 = solution)
+   at ('YESWONDERFUL', 'varbeaufort/pt=keyed/ct=plain/key=plain', 9, 9)
+   chance: with 24 independent letters at 1/26, P(<=2 mismatches) = 1.901e-29
+
+==============================================================================
+END (d)
+==============================================================================

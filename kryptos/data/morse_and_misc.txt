@@ -1,0 +1,26 @@
+# Morse code on the copper sheets sandwiched in granite slabs outside the New Headquarters Building
+# (sometimes called "K0"). Transcription corrected 2026-09-12 to the reading given in the Wikipedia
+# "Kryptos" article and at rumkin.com/reference/kryptos/k0/, which is the reading usually cited.
+# The slabs are read facing south; "|" marks the break between the two lines of a slab; the runs of
+# lone E's (dit) appear to be spacing/filler, not letters of the message.
+# ORDER AND EXACT SPELLING ARE UNCERTAIN: parts of the text run under the granite and under the
+# lodestone, and published transcriptions disagree on several words. Treat these as approximate.
+E E VIRTUALLY E | E E E E E E INVISIBLE
+DIGETAL E E E | INTERPRETATIT          # also published as INTERPRETATU / INTERPRETATAU; most likely "DIGITAL INTERPRETATION", truncated
+E E SHADOW E E | FORCES E E E E E
+LUCID E E E | MEMORY E
+T IS YOUR | POSITION E                 # widely read as a truncation of "WHAT IS YOUR POSITION"; partly obscured by the lodestone
+SOS
+RQ                                     # also read as YR; disputed
+
+# Keyed alphabet used on the tableau (right panel) and in K1/K2. Contains all 26 letters.
+KRYPTOSABCDEFGHIJLMNQUVWXZ
+
+# Keys: K1 = PALIMPSEST, K2 = ABSCISSA (both Quagmire III with the KRYPTOS alphabet).
+# K3 = transposition only, no substitution.
+# K4 = unknown. Ed Scheidt (the retired CIA cryptographer who designed the systems with Sanborn) has
+# said the K1-K3 methods leave "the English language still visible through the code" but that for the
+# fourth part he "masked the English language", i.e. a masking/disguising layer on top -- so one must
+# "solve the technique first and then go for the puzzle". Scheidt also described an intentional
+# "change in the methodology" between the sections. These are Scheidt's paraphrased remarks in
+# interviews, not a specification; "masking technique" is his word, not a named cipher.

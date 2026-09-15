@@ -1,0 +1,230 @@
+
+==============================================================================
+B1. Constraint accounting: what do the cribs constrain inside a segment?
+==============================================================================
+A period-p key inside a segment is pinned only where two crib positions of that
+segment share a residue mod p.  constraints c = (#crib positions in segment) -
+(#distinct residues mod p).  A random key passes with probability 26^-c, so
+c = 0 means the test is VACUOUS - every key passes.
+
+--- whole text (baseline)
+  period:        2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26
+  seg   1-97  :  22  21  20  19  18  17  16  15  14  13  12  11  11   9   8   7   7   9  11  11   9   7   5   3   1   (24 crib letters)
+  TOTAL c       22  21  20  19  18  17  16  15  14  13  12  11  11   9   8   7   7   9  11  11   9   7   5   3   1
+  vacuous from period p = >26
+--- panel rows 4/31/31/31
+  period:        2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26
+  seg   1-4   : no cribs -> completely unconstrained (4 letters of free plaintext)
+  seg   5-35  :  11  10   9   8   7   6   5   4   3   2   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   (13 crib letters)
+  seg  36-66  :   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   (3 crib letters)
+  seg  67-97  :   6   5   4   3   2   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   (8 crib letters)
+  TOTAL c       18  15  13  11   9   7   5   4   3   2   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+  vacuous from period p = 13
+--- halves 48/49
+  period:        2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26
+  seg   1-48  :  11  10   9   8   7   6   5   4   3   2   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   (13 crib letters)
+  seg  49-97  :   9   8   7   6   5   4   3   2   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   (11 crib letters)
+  TOTAL c       20  18  16  14  12  10   8   6   4   2   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+  vacuous from period p = 13
+--- thirds 32/33/32
+  period:        2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26
+  seg   1-32  :   9   8   7   6   5   4   3   2   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   (11 crib letters)
+  seg  33-65  :   2   1   1   1   1   0   1   0   1   0   0   0   0   1   1   0   0   0   0   0   0   0   0   0   0   (4 crib letters)
+  seg  66-97  :   7   6   5   4   3   2   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   (9 crib letters)
+  TOTAL c       18  15  13  11   9   6   5   2   2   0   0   0   0   1   1   0   0   0   0   0   0   0   0   0   0
+  vacuous from period p = 11
+--- crib blocks (5 parts)
+  period:        2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26
+  seg   1-21  : no cribs -> completely unconstrained (21 letters of free plaintext)
+  seg  22-34  :  11  10   9   8   7   6   5   4   3   2   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   (13 crib letters)
+  seg  35-63  : no cribs -> completely unconstrained (29 letters of free plaintext)
+  seg  64-74  :   9   8   7   6   5   4   3   2   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   (11 crib letters)
+  seg  75-97  : no cribs -> completely unconstrained (23 letters of free plaintext)
+  TOTAL c       20  18  16  14  12  10   8   6   4   2   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+  vacuous from period p = 13
+
+The whole-text row is the one the earlier sweeps used.  Splitting the text
+strictly REDUCES c, so any per-segment model is weaker, never stronger: a
+'survivor' of a per-segment test is only meaningful if the decryption is English.
+
+==============================================================================
+B2. LOCAL KEY EXTENSION: key fully determined by one crib run, decrypt outwards
+==============================================================================
+For a run of L consecutive crib positions and period p <= L every residue class
+mod p contains a crib, so the key is FULLY determined - no search, no freedom.
+The decryption of the rest of the text is then a prediction.  If K4 is locally
+periodic (a key that changes only at a boundary), the letters next to the run
+must come out English.
+
+configurations with a fully determined key: 3631
+
+    pre20 BERLINCLOCK          win=20 best=-7.145 (null mean -8.231 sd 0.270; best-of-907 expect -6.763 95% -6.309) 
+          -> vigenere/pt=SANBORN/ct=SANBORN p=11 key=GHRKKFLAZQM
+          -> KNDELIWEJLZEARGINXYB
+    pre20 EASTNORTHEAST        win=20 best=-6.729 (null mean -8.231 sd 0.270; best-of-904 expect -6.764 95% -6.309) 
+          -> beaufort/pt=STRAIGHT/ct=BERLIN p=13 key=FHVMONKLNDUOE
+          -> HIKUYNWDSALENSSIFNKP
+    pre20 row3-tail(BER)       win=20 best=-7.266 (null mean -8.231 sd 0.270; best-of-940 expect -6.756 95% -6.293) 
+          -> vigenere/pt=DESPARATLY/ct=ABSCISSA p=3 key=FXL
+          -> RUTSIMPYRIEJYOUZOBCK
+    pre20 row4-head(LINCLOCK)  win=20 best=-7.164 (null mean -8.231 sd 0.270; best-of-880 expect -6.769 95% -6.309) 
+          -> beaufort/pt=PALIMPSEST/ct=DESPARATLY p=8 key=MFYJWABC
+          -> LIKAQUERELYAAVMKQDML
+   post20 BERLINCLOCK          win=20 best=-7.018 (null mean -8.231 sd 0.270; best-of-907 expect -6.763 95% -6.309) 
+          -> vigenere/pt=IQLUSION/ct=UNDERGRUUND p=11 key=TUOGXEIXTNY
+          -> UPSTOCHJSTHFILMNPTNC
+   post20 EASTNORTHEAST        win=20 best=-6.563 (null mean -8.231 sd 0.270; best-of-904 expect -6.764 95% -6.309) 
+          -> vigenere/pt=STRAIGHT/ct=SCHEIDT p=13 key=EAAIGMIHFNBCF
+          -> LTVENWLSSURESUJGEGIN
+   post20 row3-tail(BER)       win=20 best=-6.549 (null mean -8.231 sd 0.270; best-of-940 expect -6.756 95% -6.293) 
+          -> vigenere/pt=SHADOW/ct=PALIMPSEST p=3 key=KQH
+          -> IPSTFONZMATEMCSORDRV
+   post20 row4-head(LINCLOCK)  win=20 best=-6.942 (null mean -8.231 sd 0.270; best-of-880 expect -6.769 95% -6.309) 
+          -> beaufort/pt=SCHEIDT/ct=SANBORN p=8 key=SAIXIRMZ
+          -> KLCELHZLHOWAYDATAESE
+  pre_all BERLINCLOCK          win=63 best=-7.512 (null mean -8.230 sd 0.146; best-of-907 expect -7.593 95% -7.458) 
+          -> beaufort/pt=LODESTONE/ct=SANBORN p=11 key=VGZZZKADKBK
+          -> PEGUTNEZLMMNEZVFYPLATONOSAARVOLIFVDNENQLMQOFIQLLECAMWHMJUYEIBPL
+  pre_all EASTNORTHEAST        win=21 best=-6.826 (null mean -8.232 sd 0.262; best-of-904 expect -6.853 95% -6.466) 
+          -> beaufort/pt=STRAIGHT/ct=BERLIN p=13 key=FHVMONKLNDUOE
+          -> QHIKUYNWDSALENSSIFNKP
+  pre_all row3-tail(BER)       win=63 best=-7.702 (null mean -8.230 sd 0.146; best-of-940 expect -7.591 95% -7.453) 
+          -> beaufort/pt=LODESTONE/ct=PALIMPSEST p=3 key=YBT
+          -> ARSTADOFAGAPMWDWYBMRXIZLECOYBEHHJRFHDUORIORWICDUDLHFHPSPMXTMBMG
+  pre_all row4-head(LINCLOCK)  win=66 best=-7.699 (null mean -8.230 sd 0.143; best-of-880 expect -7.602 95% -7.438) 
+          -> beaufort/pt=PALIMPSEST/ct=DESPARATLY p=8 key=MFYJWABC
+          -> RWBMATICPQILHYBVYUKPZKUXNFMEOBKGDISIZUTPXFWTVDLIKAQUERELYAAVMKQDML
+ post_all BERLINCLOCK          win=23 best=-6.906 (null mean -8.230 sd 0.250; best-of-907 expect -6.936 95% -6.605) 
+          -> vigenere/pt=LANGLEY/ct=DESPARATLY p=11 key=WVEKZWWDMEL
+          -> IDOTETVPMEILJHQLLINTMAS
+ post_all EASTNORTHEAST        win=63 best=-7.741 (null mean -8.230 sd 0.146; best-of-904 expect -7.594 95% -7.458) 
+          -> vigenere/pt=SHADOW/ct=MASKING p=13 key=NXYEYBCIDMSBB
+          -> JCOQNMNRYOFHPVGFQJNPVWBSTVAZMOXDYUMAYFESGLEAJSUFGEAYSETRSCKWODP
+ post_all row3-tail(BER)       win=31 best=-7.306 (null mean -8.231 sd 0.212; best-of-940 expect -7.177 95% -6.922) 
+          -> vigenere/pt=SHADOW/ct=PALIMPSEST p=3 key=KQH
+          -> IPSTFONZMATEMCSORDRVEGXKPOZWRTF
+ post_all row4-head(LINCLOCK)  win=23 best=-6.755 (null mean -8.230 sd 0.250; best-of-880 expect -6.941 95% -6.605) 
+          -> beaufort/pt=SCHEIDT/ct=SANBORN p=8 key=SAIXIRMZ
+          -> KLCELHZLHOWAYDATAESETYL
+  whole97 BERLINCLOCK          win=97 best=-7.458 (null mean -8.230 sd 0.117; best-of-907 expect -7.731 95% -7.609) ***
+          -> beaufort/pt=LODESTONE/ct=SANBORN p=11 key=VGZZZKADKBK
+          -> PEGUTNEZLMMNEZVFYPLATONOSAARVOLIFVDNENQLMQOFIQLLECAMWHMJUYEIBPLBERLINCLOCKJPEAADNHSRPLIMFHYTPWUDT
+  whole97 EASTNORTHEAST        win=97 best=-7.325 (null mean -8.230 sd 0.117; best-of-904 expect -7.731 95% -7.609) ***
+          -> beaufort/pt=SHADOW/ct=PALIMPSEST p=13 key=WTNRURFZTETPI
+          -> WIYYSSEECPZKSPAILFFXDEASTNORTHEASTAXXENPWUJMINSTEQETCPRCPNFVDRIZGVYBGNQTZOECWRXVBDICAKOGBUCAKYERY
+  whole97 row3-tail(BER)       win=97 best=-7.818 (null mean -8.230 sd 0.117; best-of-940 expect -7.729 95% -7.597) 
+          -> vigenere/pt=IQLUSION/ct=KRYPTOS p=3 key=LRK
+          -> TMKKSVGHUUSAXJVNYLXMGQIMEUDPDCLCWVHTFGDVZDVJQJBJFKTOCADROWNOBVYBEREGTABLPCGLRKHATOPISWKDXEWSQJPXK
+  whole97 row4-head(LINCLOCK)  win=97 best=-7.607 (null mean -8.230 sd 0.117; best-of-880 expect -7.733 95% -7.609) ***
+          -> vigenere/pt=LANGLEY/ct=KRYPTOS p=8 key=WNWTCLZX
+          -> FUEDSTZDQAZXBUBTSZJOUARELCXHZDMGHSFIUSUFTCHKFOLNATDWXBVKSTAVQAFVBPLINCLOCKATDOLADGKQKNAXRDINFOHHY
+
+Top 12 configurations by whole-97-letter quadgram score:
+(null for 97 random letters: mean -8.230 sd 0.117; best-of-3631 expect -7.652, 95% -7.526; English about -4.7)
+  q=-7.325 wc=0.34 EASTNORTHEAST        p=13 beaufort/pt=SHADOW/ct=PALIMPSEST key=WTNRURFZTETPI
+     WIYYSSEECPZKSPAILFFXDEASTNORTHEASTAXXENPWUJMINSTEQETCPRCPNFVDRIZGVYBGNQTZOECWRXVBDICAKOGBUCAKYERY
+  q=-7.345 wc=0.38 EASTNORTHEAST        p=13 vigenere/pt=COMPASS/ct=IQLUSION key=AAAVFMZLEYOCL
+     SENYYTYUFNLCXASMSDWFHEASTNORTHEASTOWERNALOFZZQKVYTRANMPLVVXLMKUAJRVUZIJJDIYZESZXUUAYOMISCOWPHNKMD
+  q=-7.345 wc=0.38 EASTNORTHEAST        p=13 varbeaufort/pt=COMPASS/ct=IQLUSION key=AAAFVOBPWCMYP
+     SENYYTYUFNLCXASMSDWFHEASTNORTHEASTOWERNALOFZZQKVYTRANMPLVVXLMKUAJRVUZIJJDIYZESZXUUAYOMISCOWPHNKMD
+  q=-7.378 wc=0.36 EASTNORTHEAST        p=13 vigenere/pt=BERLIN/ct=IQLUSION key=MQAVMKMLLWBCW
+     TSPYQVHURSRBJSORNBYWHEASTNORTHEASTUYVSNSZEFSEIMMBASTIJLOMXGOVPCIRANUZNOBCNBJDUKCUUXBMRNCKEHQVPMVF
+  q=-7.378 wc=0.36 EASTNORTHEAST        p=13 varbeaufort/pt=BERLIN/ct=IQLUSION key=OKAFOQOPPEZYE
+     TSPYQVHURSRBJSORNBYWHEASTNORTHEASTUYVSNSZEFSEIMMBASTIJLOMXGOVPCIRANUZNOBCNBJDUKCUUXBMRNCKEHQVPMVF
+  q=-7.435 wc=0.23 EASTNORTHEAST        p=12 beaufort/pt=IQLUSION/ct=DESPARATLY key=QAZWZGXXGWOJ
+     XMCMSGZSTCRLAYNJEVHHCEASTNORTHEASTVURTOTDFVVONJDRWRACZLXPPMVYJKSMUQMIOJYGDLDZKYZIASCLHCQFERLONSOE
+  q=-7.444 wc=0.29 EASTNORTHEAST        p=13 vigenere/pt=LODESTONE/ct=COMPASS key=QKNEHHBAGIOQL
+     GWOJIUWOSENZVKPDBDZTWEASTNORTHEASTVGBENKESOYOIZRJMEDYTAETXVHFOQLIIGNKVQBEBJWPECINCRLGFBHXSRSYOWXG
+  q=-7.444 wc=0.29 EASTNORTHEAST        p=13 varbeaufort/pt=LODESTONE/ct=COMPASS key=KQNWTTZAUSMKP
+     GWOJIUWOSENZVKPDBDZTWEASTNORTHEASTVGBENKESOYOIZRJMEDYTAETXVHFOQLIIGNKVQBEBJWPECINCRLGFBHXSRSYOWXG
+  q=-7.446 wc=0.38 EASTNORTHEAST        p=13 vigenere/pt=BERLIN/ct=LODESTONE key=DPAVKJMLJUBCN
+     YTOYGSHPRSTYVEJBSBZWHEASTNORTHEASTSHVLNEZSFUULMPRALEJHUCLYGRXPCIHMANGAPYAARGBRWDNTZTEBABHSUQMOMXG
+  q=-7.446 wc=0.38 EASTNORTHEAST        p=13 varbeaufort/pt=BERLIN/ct=LODESTONE key=XLAFQROPRGZYN
+     YTOYGSHPRSTYVEJBSBZWHEASTNORTHEASTSHVLNEZSFUULMPRALEJHUCLYGRXPCIHMANGAPYAARGBRWDNTZTEBABHSUQMOMXG
+  q=-7.454 wc=0.31 EASTNORTHEAST        p=13 vigenere/pt=PALIMPSEST/ct=IQLUSION key=KZMTHPZXGBOOL
+     VCMPWNYBTHKJXUENTSRCZEASTNORTHEASTZRBENUNKFXWOLRVREMEIOORQXIPFUQHBWBADDHVDVZWSKYBWLVANDLPKWRGMNPM
+  q=-7.454 wc=0.31 EASTNORTHEAST        p=13 varbeaufort/pt=PALIMPSEST/ct=IQLUSION key=QBOHTLBDUZMMP
+     VCMPWNYBTHKJXUENTSRCZEASTNORTHEASTZRBENUNKFXWOLRVREMEIOORQXIPFUQHBWBADDHVDVZWSKYBWLVANDLPKWRGMNPM
+
+==============================================================================
+B3. Do the two crib runs imply the same periodic key?
+==============================================================================
+If one periodic key covered both runs we would already have a solution (it does
+not - established).  But the DEGREE of agreement says whether a key change
+between them is plausible: with a genuine shared period we would expect the two
+independently derived keys to agree on many residues by accident of the data.
+
+  p best agree  of p  chance E  best config
+ 11          0    11      0.42  vigenere/pt=BERLIN/ct=SCHEIDT HBCNDPAEJGI vs SCBHWUKZPXP
+
+(Both keys exist for every config, so 'consistent' would mean agreement = p.
+ Maximum agreement found is reported; chance is p/26 residues.)
+
+==============================================================================
+B4. Exhaustive short-period search on each segment, with a best-of-N null
+==============================================================================
+Give every segment its OWN key and period and ask for the most English-looking
+decryption.  The null is the IDENTICAL exhaustive search run on scrambles of the
+same segment, so the margin reported is exactly 'how much better than chance'.
+Configs: 3 families x {STRAIGHT,KRYPTOS} plaintext alphabet x {STRAIGHT,KRYPTOS}
+ciphertext alphabet = 12, times every one of the 26^p keys.
+
+--- pre-crib 1-21  p=1 keys=     26 nulls= 60: best q=-7.264  null mean -7.115 sd 0.211 max -6.659
+        vigenere/pt=STRAIGHT/ct=STRAIGHT key=D  -> LYHORLULDERIYPLIFCYYT
+--- pre-crib 1-21  p=2 keys=    676 nulls= 60: best q=-6.275  null mean -6.517 sd 0.247 max -5.631
+        beaufort/pt=STRAIGHT/ct=KRYPTOS key=IT  -> DLISNOKOVFNCANDCTHALL
+--- pre-crib 1-21  p=3 keys=  17576 nulls= 60: best q=-6.165  null mean -5.968 sd 0.240 max -5.351
+        beaufort/pt=STRAIGHT/ct=KRYPTOS key=CXF  -> XPFBCAESSOCOURALITUPI
+--- pre-crib 1-21  p=4 keys= 456976 nulls= 12: best q=-5.731  null mean -5.626 sd 0.205 max -5.118
+        vigenere/pt=KRYPTOS/ct=STRAIGHT key=BMRK  -> GINANYSTOUPRKSWRANDLU
+
+--- mid 35-63      p=1 keys=     26 nulls= 60: best q=-6.977  null mean -7.383 sd 0.152 max -6.992  *** beats every null
+        vigenere/pt=KRYPTOS/ct=KRYPTOS key=T  -> FETERGWRGGMASSTHEWAXYLVHTVKNI
+--- mid 35-63      p=2 keys=    676 nulls= 60: best q=-6.922  null mean -6.957 sd 0.171 max -6.432
+        beaufort/pt=STRAIGHT/ct=KRYPTOS key=XU  -> SQAQDOHAROMUYVANTEXDCKINAFEIP
+--- mid 35-63      p=3 keys=  17576 nulls= 60: best q=-6.698  null mean -6.550 sd 0.154 max -6.058
+        beaufort/pt=KRYPTOS/ct=KRYPTOS key=LAK  -> SVGASTUSTOIDFRGTVQECIREPHELZM
+--- mid 35-63      p=4 keys= 456976 nulls= 12: best q=-6.332  null mean -6.190 sd 0.095 max -6.019
+        beaufort/pt=KRYPTOS/ct=KRYPTOS key=IVII  -> PLETHIMHYIWBCVERTOBLGENRESIVK
+
+--- post 75-97     p=1 keys=     26 nulls= 60: best q=-7.583  null mean -7.200 sd 0.206 max -6.443
+        vigenere/pt=STRAIGHT/ct=STRAIGHT key=Q  -> GQNUJHDTMNSQUEREKEOUMKB
+--- post 75-97     p=2 keys=    676 nulls= 60: best q=-6.837  null mean -6.655 sd 0.188 max -6.111
+        beaufort/pt=STRAIGHT/ct=STRAIGHT key=RY  -> VSOOSBYPPVJSHEKERENOPYA
+--- post 75-97     p=3 keys=  17576 nulls= 60: best q=-6.244  null mean -6.200 sd 0.187 max -5.565
+        beaufort/pt=KRYPTOS/ct=STRAIGHT key=PLH  -> NOTOFDVYOFPROLKUEGEROIQ
+--- post 75-97     p=4 keys= 456976 nulls= 12: best q=-5.837  null mean -5.762 sd 0.252 max -5.124
+        beaufort/pt=KRYPTOS/ct=STRAIGHT key=GFOV  -> DZEEABUFTYSIVEARSEDETOW
+
+--- row2 5-35      p=1 keys=     26 nulls= 60: best q=-7.514  null mean -7.433 sd 0.134 max -7.039
+        vigenere/pt=KRYPTOS/ct=STRAIGHT key=W  -> XMRMDEXIOVMIFCOOKCIUZQQNULDHVVM
+--- row2 5-35      p=2 keys=    676 nulls= 60: best q=-7.094  null mean -7.025 sd 0.140 max -6.587
+        beaufort/pt=KRYPTOS/ct=STRAIGHT key=CW  -> BBOBVIBERTHEQLRUSLLOASFAECVFDTH
+--- row2 5-35      p=3 keys=  17576 nulls= 60: best q=-6.700  null mean -6.630 sd 0.142 max -6.165
+        vigenere/pt=STRAIGHT/ct=KRYPTOS key=OJV  -> HWDRETHINSWWBDNUORDSBGLINKSMXLR
+--- row2 5-35      p=4 keys= 456976 nulls= 12: best q=-6.433  null mean -6.256 sd 0.131 max -5.977
+        vigenere/pt=STRAIGHT/ct=STRAIGHT key=DMXX  -> RCARDVXOYGROFTEETTOUSETSOBJNPGR
+
+--- row3 36-66     p=1 keys=     26 nulls= 60: best q=-7.155  null mean -7.432 sd 0.165 max -6.930
+        vigenere/pt=KRYPTOS/ct=KRYPTOS key=T  -> ETERGWRGGMASSTHEWAXYLVHTVKNIKCD
+--- row3 36-66     p=2 keys=    676 nulls= 60: best q=-7.033  null mean -7.012 sd 0.161 max -6.371
+        beaufort/pt=STRAIGHT/ct=KRYPTOS key=UX  -> QAQDOHAROMUYVANTEXDCKINAFEIPBVR
+--- row3 36-66     p=3 keys=  17576 nulls= 60: best q=-6.789  null mean -6.620 sd 0.186 max -5.976
+        vigenere/pt=KRYPTOS/ct=KRYPTOS key=AOT  -> TCEQMWQMGEFSZCHTYALALINTIONBOCP
+--- row3 36-66     p=4 keys= 456976 nulls= 12: best q=-6.550  null mean -6.372 sd 0.096 max -6.243
+        beaufort/pt=KRYPTOS/ct=KRYPTOS key=VENM  -> LACMIHNSINGGVASBOTVLEISISERTYYD
+
+--- row4 67-97     p=1 keys=     26 nulls= 60: best q=-7.577  null mean -7.453 sd 0.183 max -6.730
+        beaufort/pt=STRAIGHT/ct=KRYPTOS key=O  -> SKKWPCLORBEOPQKYFEZBOTATHTDOFHN
+--- row4 67-97     p=2 keys=    676 nulls= 60: best q=-7.073  null mean -6.991 sd 0.160 max -6.466
+        beaufort/pt=STRAIGHT/ct=STRAIGHT key=RY  -> WFYMSTCOVSOOSBYPPVJSHEKERENOPYA
+--- row4 67-97     p=3 keys=  17576 nulls= 60: best q=-6.592  null mean -6.653 sd 0.118 max -6.325
+        beaufort/pt=STRAIGHT/ct=KRYPTOS key=HNE  -> LJAPOSENHUDEIPAREUSAEMZJASTHEXG
+--- row4 67-97     p=4 keys= 456976 nulls= 12: best q=-5.982  null mean -6.235 sd 0.135 max -5.990  *** beats every null
+        vigenere/pt=STRAIGHT/ct=STRAIGHT key=SBAT  -> DSTTHEPREFDRHWTQKCINSTHBITERKZR
+
+English 97-letter text scores about -4.7 on this quadgram model; uniform random
+-8.2.  A short segment searched over 26^p keys will always score well above -8.2:
+the only meaningful comparison is against the null column.
+
+[runtime 6217.7s]

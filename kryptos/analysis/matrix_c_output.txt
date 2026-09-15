@@ -1,0 +1,136 @@
+==============================================================================
+(d) NOMENCLATOR / CODEBOOK
+==============================================================================
+
+C1. THE CRIBS ARE EXACTLY LENGTH-MATCHED
+    ct[22:25] = FLRV       <->  pt = EAST        4 ct letters, 4 pt letters
+    ct[26:34] = QQPRNGKSS  <->  pt = NORTHEAST   9 ct letters, 9 pt letters
+    ct[64:69] = NYPVTT     <->  pt = BERLIN      6 ct letters, 6 pt letters
+    ct[70:74] = MZFPK      <->  pt = CLOCK       5 ct letters, 5 pt letters
+    4 clues, 4 exact length matches, total 24 ciphertext letters <-> 24
+    plaintext letters.  A codebook cannot do that except by coincidence.
+
+    Cost under explicit code-group models (P that all four words would come
+    out length-matched):
+      (i)   fixed group length g: needs g = 4 and 9 and 6 and 5 at once -> 0
+      (ii)  group length uniform on {2,3,4}  (classic nomenclator):
+            NORTHEAST(9), BERLIN(6), CLOCK(5) are unreachable -> 0
+      (iii) group length uniform on {2,..,6} (a generous chart):
+            NORTHEAST needs 9 -> 0
+      (iv)  group length uniform on {2,..,10} (absurdly generous):
+            P = (1/9)^4 = 1.52e-04
+      (v)   a chart whose group lengths happen to equal the word lengths is
+            not a code chart -- it is a letter cipher with extra steps.
+    CONCLUSION: at the 24 positions where we can see the mapping, it is
+    length-preserving and letter-for-letter.  The cribs are not code groups.
+    Note which words these are: EAST, NORTHEAST, BERLIN, CLOCK -- a direction,
+    a city and an object, precisely the vocabulary a nomenclator exists to
+    encode.  The hybrid 'cipher for text, code groups for names and places'
+    is refuted at the only four places it is observable.
+
+C2. TILING ARITHMETIC FOR THE THREE NON-CRIB GAPS
+    If the crib spans are letter-for-letter and the gaps hold fixed-length
+    code groups, each gap length must be divisible by the group length.
+    gaps: [0,21) = 21, [34,63) = 29, [74,97) = 23  (total 73 letters)
+      g   21   29   23   all three?
+      2   False False False no
+      3   True False False no
+      4   False False False no
+      5   False False False no
+      6   False False False no
+      7   True False False no
+      8   False False False no
+      9   False False False no
+     10   False False False no
+     11   False False False no
+    gcd(21,29,23) = 1.  No uniform group length >= 2 tiles all three gaps.
+    (29 and 23 are prime; 21 = 3*7.  g=3 and g=7 fit the first gap only.)
+    Variable-length groups can of course tile anything -- but then something
+    must mark the boundaries, which is what C3 tests.
+
+C3. ARE THE DOUBLED LETTERS GROUP MARKERS?
+    doubled letters at 1-indexed positions: 19 BB, 26 QQ, 33 SS, 43 SS, 47 ZZ, 68 TT
+    doubles that fall INSIDE a Sanborn crib (so their plaintext is known):
+      26 QQ lies inside NORTHEAST and stands for the plaintext pair 'NO'
+      33 SS lies inside NORTHEAST and stands for the plaintext pair 'ST'
+      68 TT lies inside BERLIN    and stands for the plaintext pair 'IN'
+    3 of the 6 doubles are inside cribs and decrypt to ordinary letter pairs.
+    A doubled letter is therefore NOT a sentinel, a group marker or a shift
+    indicator in K4; it is ordinary cipher output.
+    (Count check: 6 doubles observed; the random-permutation null in C4 gives
+    3.46 on average, P(null >= 6) = 0.13 -- no excess worth explaining.)
+
+C4. REPETITION STRUCTURE -- a codebook reuses its groups
+    Null: random permutations of K4's own 97 letters (letter multiset fixed).
+    50000 permutations.
+    n    observed   null mean    null sd      P(null >= obs)
+    2    10         5.705        2.146        0.0459
+    3    0          0.209        0.473        1.0000
+    4    0          0.008        0.092        1.0000
+    5    0          0.000        0.016        1.0000
+    repeated bigrams in K4: DI x2, EK x2, FB x2, GK x2, HU x2, KZ x2, QS x2, SO x2, SS x2, TJ x2
+    repeated trigrams or longer: NONE
+    doubled-letter count: observed 6, null mean 3.46 sd 1.82, P(null >= obs) = 0.132
+    Reading, stated carefully.  The only test that moves at all is the
+    bigram one: 10 repeated bigrams against a null mean of 5.7, one-sided
+    p = 0.047 -- and that is one of four n-gram tests plus the doubles test,
+    so the Sidak-corrected p is 1-(1-0.047)^5 = 0.21.  Nothing survives
+    correction.  Decisively, there is not a single repeated TRIGRAM in K4,
+    where the null already expects only 0.2, so the data cannot distinguish
+    K4 from a random permutation of its own letters in the direction that
+    matters.  A 97-letter codebook message would be
+    about 19-32 groups; real code traffic repeats its commonest groups
+    (articles, prepositions, 'STOP', numerals).  K4 shows no such excess.
+
+C5. SHARED RUNS BETWEEN K4 AND THE OTHER KRYPTOS CIPHERTEXTS
+    left panel letters: 1732 ; K1-K3 portion: 768
+    longest K4 substring also occurring in K1-K3 ciphertext: 4 letters
+      pos 28 PRNG
+    null (random permutations of K4's letters, 20000 trials): P(longest >= 4) = 0.123
+    No shared run long enough to be a reused code group.
+
+C6. THE LENGTH TRAP FOR A MIXED LETTER + CODEGROUP READING
+    Suppose the 24 crib positions are letter-for-letter (C1 forces that) and
+    the 73 gap positions mix plain letters with code groups.  Let the gaps
+    hold c code groups whose ciphertext lengths are g_1..g_c and whose
+    plaintext expansions are w_1..w_c letters, plus u plain letters:
+        sum(g_i) + u = 73          (ciphertext side, known)
+        sum(w_i) + u = L - 24      (plaintext side)
+    If the plaintext is also 97 letters -- which is the standing assumption
+    behind every crib position Sanborn has released, and which his statement
+    that K5 is likewise 97 characters reinforces -- then L = 97 and
+        sum(g_i) = sum(w_i).
+    The code groups must be length-preserving IN AGGREGATE.  A chart whose
+    groups are on average as long as the words they replace buys no brevity
+    and no extra security; it is a codebook that is not a codebook.
+
+    Quantitatively, English word length averages ~4.5 letters and nomenclator
+    groups run 2-4 characters, so a real chart SHORTENS by ~40 percent.  For 73
+    ciphertext letters that is a plaintext of ~124 letters in the gaps, i.e.
+    a total plaintext of ~148 rather than 97.
+
+    If instead L != 97, then ciphertext index and plaintext index diverge and
+    'positions 64-69 decrypt to BERLIN' can only be read as a statement about
+    ciphertext positions -- which is how this repo already reads it, and which
+    leaves the 73 gap letters completely unconstrained.  In that case the
+    codebook hypothesis is UNFALSIFIABLE from the cribs: any assignment of
+    code groups to the gaps is consistent, and no search can distinguish them.
+    That is the honest boundary.  What the cribs DO settle is that the four
+    clue words themselves are not code groups (C1) and that nothing in K4's
+    surface statistics -- repeats, doubles, shared runs -- shows the
+    signature of reused groups (C3-C5).
+
+C7. SANBORN'S 'CODED WORDS' REMARK
+    Sanborn (2025, Scientific American): K5 is also 97 characters and the two
+    messages 'will share some of the same coded words in the same positions'.
+    Two readings:
+      (1) the same PLAINTEXT words appear at the same positions in K4 and K5
+          -- a statement about content, and the reading that fits 97 = 97;
+      (2) the same CODE GROUPS appear -- which would be the first real
+          evidence for a codebook.
+    Reading (2) cannot be tested: the K5 ciphertext is not public.  Reading
+    (1) is the only one consistent with both messages being exactly 97
+    characters if the system is length-preserving, which C1 shows it is at
+    every position we can see.  Note also what (1) implies: if plaintext
+    position i carries the same word in both messages and the ciphertexts
+    differ, the keystream is POSITIONAL, not autokeyed.

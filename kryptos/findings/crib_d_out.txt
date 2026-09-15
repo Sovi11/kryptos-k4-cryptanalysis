@@ -1,0 +1,13 @@
+==============================================================================
+TASK (d)  PART 1: what a misspelling-tolerant score actually tolerates
+==============================================================================
+q_tolD = mean quadgram log10 probability after discarding the D worst
+quadgrams.  One wrong letter damages at most 4 quadgrams, so D=8
+absorbs two deliberate misspellings and D=16 absorbs four.
+
+  97-letter text                                    q     q_tol8    q_tol16
+  English, 0 random letters corrupted          -4.972     -4.670     -4.438
+  English, 1 random letters corrupted          -5.053     -4.744     -4.487
+  English, 2 random letters corrupted          -5.144     -4.839     -4.549
+  English, 3 random letters corrupted          -5.225     -4.923     -4.622
+  English, 5 random letters corrupted          -5.391     -5.105     -4.780

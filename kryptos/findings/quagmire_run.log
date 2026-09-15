@@ -1,0 +1,50 @@
+distinct dictionary keyed alphabets: 208627
+short alphabets: 17
+
+alphabet pairs tested: 7093607  (short x short 289, short x dict both roles 7093318)
+elapsed 14s
+
+period  constraints  expected_by_chance  observed
+     2           22            5.27e-25  0
+     3           21            1.37e-23  0
+     4           20            3.56e-22  0
+     5           19            9.25e-21  0
+     6           18            2.41e-19  0
+     7           17            6.26e-18  0
+     8           16            1.63e-16  0
+     9           15            4.23e-15  0
+    10           14             1.1e-13  0
+    11           13            2.86e-12  0
+    12           12            7.43e-11  0
+    13           11            1.93e-09  0
+    14           11            1.93e-09  0
+    15            9            1.31e-06  0
+    16            8             3.4e-05  0
+    17            7            0.000883  0
+    18            7            0.000883  0
+    19            9            1.31e-06  0
+    20           11            1.93e-09  0
+    21           11            1.93e-09  0
+    22            9            1.31e-06  0
+    23            7            0.000883  0
+    24            5               0.597  0
+    25            3                 404  0
+    26            1            2.73e+05  487280
+
+=== period 26: 487280 survivors (expected by chance 272831); top 40 by English score ===
+  PT=AMORPHIA     CT=UNDERGRUUND  score=-6.172  ATOCHRWN???UTHEABOXAJeastnortheast???APHIPLGTINACUSEXALINTVF???berlinclockCTAFDDDNJLEH???ISGXZPZU
+  PT=MORULATION   CT=COMPASS      score=-6.196  DARKWPER???NSLCUOKDYUeastnortheast???EALWASFFTTRETLLYGNTGVDF???berlinclockEEPABWIERYOD???FPQKRHEX
+  PT=COCCYGOMORPH CT=UNDERGRUUND  score=-6.203  ZUGDPEWN???VTHEHATXZReastnortheast???YRHHELMTRAOLUSEVYLANOVF???berlinclockLTOFAEDQJWEP???ASJXPRNU
+  PT=MALACANTHUS  CT=SANBORN      score=-6.213  CHIBVOTB???WKCEDXWHESeastnortheast???MTCRGEGEWEASNCZGPREGINO???berlinclockSGOMYMQOURRJ???AIXJBOIS
+  PT=STRONTIUM    CT=LODESTONE    score=-6.223  EPXRVQPY???OWHYSENTTHeastnortheast???AUHDLOYWALTNGDSSDRDGSLC???berlinclockNLATCAFXCVBA???XVISHATE
+  PT=BASIFUGAL    CT=SCHEIDT      score=-6.235  MEKNTUZE???YTSSEKIONKeastnortheast???PFSXNDTHROBEOUCENVAFWYY???berlinclockERFDXZLLATGF???URWNDEAA
+  PT=PARABOLIZATION CT=COMPASS      score=-6.242  GLOKVGEO???RSODRRKEABeastnortheast???ILOWOUFGNIRTIILAGCIGKDH???berlinclockTESIEVNERSAF???ZMQMAJEX
+  PT=CAPILLARIOMOTOR CT=COMPASS      score=-6.246  KTLKVHEL???TSMDZDMEISeastnortheast???FLMWAIIGEWATROGINDRGNDJ???berlinclockTEUHHZBEAUCG???GNWNYYPX
+  PT=PHYLLOMIC    CT=UNDERGRUUND  score=-6.250  YALOIEWQ???VTTXPCHEYFeastnortheast???YMTTOKECAKHNUSDZKNYQHVF???berlinclockNTHEEXDFJWEI???ASHEZOXA
+  PT=ARCHIMORPHIC CT=UNDERGRUUND  score=-6.252  IQCOMHWN???VTHEYPWXIPeastnortheast???RIHOCLOTEEABUSERYLINTVF???berlinclockBTAFJPDKJLEM???PSEXXITU
+  PT=LUBRIFACTION CT=PALIMPSEST   score=-6.263  TDIMSTES???HWTWZAHOAReastnortheast???QATQJTTCGALLBSAAFOTRPDA???berlinclockLGXCKLWEOUPJ???AJXDEEIS
+  PT=GAULISH      CT=SCHEIDT      score=-6.270  MEKETSUE???STUYFKLJNKeastnortheast???YIURODTBROGERSCENVWIWAY???berlinclockEWIDXZBUATDI???JRWFEEAX
+  PT=ABSCISSA     CT=PROTOMA      score=-6.270  ZYFTOMES???ANKTQYHTKZeastnortheast???MAKDTIRWUSVEEBJLGLAGPDM???berlinclockELEKWOVESTWK???IMLAPRIN
+  PT=FATIGABILITY CT=SCHEIDT      score=-6.273  MEUNSBPQ???ISTAEKINNKeastnortheast???VGTVNDSEROFECKCENIAGVOL???berlinclockEHJDWZNYASXJ???ERVMDEAF
+  PT=HASTINGS     CT=SCHEIDT      score=-6.280  LEWIUNZR???NUSDFTTXMKeastnortheast???YISIOZUQROHEOLYEMIOIWYB???berlinclockERKZXZOWAUGK???JRWWEHAC
+done

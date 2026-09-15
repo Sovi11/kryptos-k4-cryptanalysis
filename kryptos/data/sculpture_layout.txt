@@ -1,0 +1,18 @@
+# Layout of K4 on the left (ciphertext) panel of Kryptos.
+#
+# CORRECTED 2026-09-12: the left panel is NOT a uniform 31-wide grid. In the standard transcription
+# (Wikipedia / Elonka, 28 rows, 869 characters = 865 letters + 4 question marks) the row lengths are
+#   32 31 31 30 31 32 31 31 32 31 30 31 31 31 32 30 31 30 32 30 32 31 33 29 31 31 31 31
+# i.e. they vary from 29 to 33 and average ~31. Do NOT assume a rectangular 31-column grid for the
+# whole panel.
+#
+# What IS true: the LAST FOUR rows of the panel are each exactly 31 characters, and K4 occupies the
+# last 4 characters of row 25 plus all of rows 26, 27, 28. So 97 = 4 + 31 + 31 + 31 for K4 itself.
+# The "?" immediately before OBKR is the question mark that ends K3 ("CAN YOU SEE ANYTHING?");
+# K4 proper starts at the O of OBKR.
+#
+# Row 25 in full: ECDMRIPFEIMEHNLSSTTRTVDOHW?OBKR
+?OBKR
+UOXOGHULBSOLIFBBWFLRVQQPRNGKSSO
+TWTQSJQSSEKZZWATJKLUDIAWINFBNYP
+VTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR

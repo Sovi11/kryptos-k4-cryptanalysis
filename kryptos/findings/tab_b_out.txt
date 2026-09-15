@@ -1,0 +1,155 @@
+# (b) The tableau as a key TABLE: an exact, exhaustive elimination
+
+Null calibration: for a random 24-letter key stream the best-over-26-rotations crib
+match has mean 3.25; P(>=6) <= 0.00622, P(>=7) <= 0.000628, P(>=8) <= 5.26e-05, P(>=9) <= 3.7e-06.
+
+## B0. The collapse theorem
+
+Carved body (labels stripped), 26 rows of widths [30, 31]:
+  cells where carved != KEYED[(row+col) mod 26] : 0
+
+The anomalous extra L is at body row 13 (label N), column 30 (0-indexed).
+  KEYED[(13+30) mod 26] = KEYED[17] = 'L' ; carved = 'L'
+  So the extra L is not a WRONG letter -- it is the RIGHT letter in an extra
+  column.  The carver continued the row's own rotation one step too far.  This is
+  what a miscount looks like and not what a planted signal looks like, and it
+  means the carved body and the ideal body are the SAME function of (row, col).
+
+Cells that are NOT that function: the 26 row labels (they are the PLAIN alphabet,
+  not the keyed one -- 25 of the 26 differ from KEYED[row]; only label Z coincides)
+  and the 2 header/footer rows (plain A-Z + ABCD).  Those are handled in B4.
+
+CONSEQUENCE, and it is the main structural result of this task: for any lookup
+path through the tableau body, key_i = KEYED[(row_i + col_i) mod 26].  The two
+coordinates are not independent sources of key material -- only their sum matters.
+A 26x30 table of 780 cells therefore carries exactly 26 distinct key values, i.e.
+log2(26) = 4.7 bits per position, the same as a bare shift.  'Looking the key up in
+the tableau' is arithmetically identical to 'adding two position functions mod 26'.
+
+## B1. The literal family: row = i mod r, col = i mod c
+
+| grid | r range | c range | models | trials (x24 combos) | 24/24 hits | expected | best |
+|---|---|---|---|---|---|---|---|
+| core26 (26x26) | 1..26 | 1..26 | 676 | 16,224 | 0 | 4.63e-29 | 7/24 r=24 c=26 vigenere/pt=plain/ct=plain/key=plain |
+| body30_carved | 1..26 | 1..31 | 806 | 19,344 | 0 | 5.52e-29 | 7/24 r=24 c=26 vigenere/pt=plain/ct=plain/key=plain |
+| body30_ideal | 1..26 | 1..30 | 780 | 18,720 | 0 | 5.34e-29 | 7/24 r=24 c=26 vigenere/pt=plain/ct=plain/key=plain |
+
+  total trials in B1: 54,288 ; expected 24/24 by chance 1.55e-28
+  P(a random stream reaching 7/24) <= 0.000628, 8/24 <= 5.26e-05 -- the bests above are
+  what this many trials is supposed to produce.
+
+## B2. The FULL affine lookup family, solved exactly
+
+Model: row_i = (r0 + p*i) mod mr, col_i = (c0 + q*i) mod mc, key_i =
+KEYED[(row_i + col_i + t) mod 26] by B0.  Free: mr, p, r0, mc, q, c0, t, the combo.
+
+  row parameter triples (mr<=28): 7,714
+  col parameter triples (mc<=32): 11,440
+  coordinate models: 7,714 x 11,440 = 88,248,160
+  x 24 combos x 26 key rotations = 55,066,851,840 trials
+  expected 24/24 by chance: 55,066,851,840 * 26^-24 = 6.05e-24
+
+Solved by hash join, not enumeration.  The crib condition is
+  PLAINidx_or_KEYEDidx( KEYED[(a_j + b_j + t) mod 26] ) = req_j + rot   for all j,
+which for each of the 26 candidate rot values inverts to a required sum vector
+v_j, and the condition becomes (a_j - v_j) + b_j = const -- separable in the row
+and column parameters, hence an exact O(nrow + ncol) join per (combo, rot).
+
+  hash join complete in 1.0s ; verified 24/24 solutions: 0 ; expected 6.05e-24
+    NONE.  The entire affine lookup family is eliminated, exactly, not sampled.
+
+## B3. Diagonal, anti-diagonal and knight's-move walks
+
+Constant-step walks (including both diagonals and all 8 knight moves) are the
+special case p,q in {+-1,+-2} of B2 and are therefore already eliminated exactly.
+Listed here explicitly, with their best crib fit, because the brief names them:
+
+| walk | best over all starts, 24 combos, 26 rotations | P(>=best) |
+|---|---|---|
+| main diagonal (+1,+1) | 7/24 at start (23,28) varbeaufort/pt=keyed/ct=plain/key=plain rot=17 | 0.000628 |
+| anti-diagonal (+1,-1) | 7/24 at start (0,17) beaufort/pt=plain/ct=plain/key=plain rot=15 | 0.000628 |
+| (+1,+2) | 7/24 at start (0,26) vigenere/pt=plain/ct=plain/key=plain rot=25 | 0.000628 |
+| (+2,+1) | 7/24 at start (16,24) beaufort/pt=keyed/ct=keyed/key=plain rot=23 | 0.000628 |
+| (+1,-2) | 7/24 at start (17,9) vigenere/pt=keyed/ct=plain/key=plain rot=12 | 0.000628 |
+| (+2,-1) | 7/24 at start (11,4) vigenere/pt=plain/ct=plain/key=plain rot=16 | 0.000628 |
+| (-1,+2) | 7/24 at start (17,25) beaufort/pt=plain/ct=keyed/key=plain rot=19 | 0.000628 |
+| (-2,+1) | 7/24 at start (21,4) vigenere/pt=plain/ct=plain/key=plain rot=19 | 0.000628 |
+| (-1,-2) | 7/24 at start (21,18) varbeaufort/pt=plain/ct=keyed/key=plain rot=24 | 0.000628 |
+| (-2,-1) | 7/24 at start (13,5) vigenere/pt=keyed/ct=plain/key=plain rot=2 | 0.000628 |
+| (+2,+3) leaper (not a knight move) | 8/24 at start (6,10) beaufort/pt=plain/ct=keyed/key=plain rot=16 | 5.26e-05 |
+| row-only (+1,0) | 6/24 at start (12,30) vigenere/pt=plain/ct=keyed/key=plain rot=1 | 0.00622 |
+| col-only (0,+1) | 7/24 at start (21,26) beaufort/pt=keyed/ct=keyed/key=plain rot=19 | 0.000628 |
+
+  constant-step walk trials: 251,472 ; 24/24 hits 0 ; expected 7.18e-28
+
+Alternating knight's moves (step vectors alternate between two of the 8), which
+are NOT in the affine family:
+  trials 1,238,016 ; best 9/24 at ((1, 2), (-2, 1), 22, 28, 'vigenere/pt=plain/ct=keyed/key=plain', 25) ; P(>=9) <= 3.7e-06 ; expected 24/24 3.53e-27
+
+A genuine non-repeating knight's TOUR is not testable as a family: the number of
+open tours on a 26x30 board is astronomically large and no canonical one is named
+by the sculpture, so a 'tour' hypothesis has more free parameters than the 97
+letters it would explain.  It is excluded on parsimony, not by search, and this
+report says so rather than pretending to have covered it.
+
+## B4. The grids where the collapse theorem does NOT hold
+
+The row-label column and the header/footer rows are plain-alphabet, so grids that
+include them are not a function of (row+col).  Those are swept directly.
+
+| grid | shape | models (r,c sweep incl. offsets) | trials | 24/24 | expected | best | E[#>=best] |
+|---|---|---|---|---|---|---|---|
+| labelled31_carved | 26x32 | 185,328 | 4,447,872 | 0 | 1.27e-26 | 9/24 (21, 9, 29, 18, 'vigenere/pt=plain/ct=plain/key=plain', 5) | 16.44 |
+| labelled31_ideal | 26x31 | 174,096 | 4,178,304 | 0 | 1.19e-26 | 9/24 (21, 9, 29, 18, 'vigenere/pt=plain/ct=plain/key=plain', 5) | 15.44 |
+| full28_carved | 28x32 | 214,368 | 5,144,832 | 0 | 1.47e-26 | 10/24 (21, 10, 29, 18, 'vigenere/pt=plain/ct=plain/key=plain', 5) | 1.13 |
+| full28_ideal | 28x31 | 201,376 | 4,833,024 | 0 | 1.38e-26 | 10/24 (21, 10, 29, 18, 'vigenere/pt=plain/ct=plain/key=plain', 5) | 1.06 |
+
+  total B4 trials 18,604,032 ; expected 24/24 5.31e-26
+  The single best model in B4, decrypted in full:
+    full28_ideal mr=21 r0=10 mc=29 c0=18 vigenere/pt=plain/ct=plain/key=plain -> cribs 10/24
+      plaintext : ZYMUOGNCSQZGMPQOCXRPIoqrtbnruhyastNPAZXNXKKISWIEWYEGMTJQSIXHJJHutimigsloukMNYDQMGTKEHCOAOPTLTXMVC
+      bigram -7.339 (English ~-5.3, random median -7.50, random 99th pct -7.05), IoC 0.0376
+  Its 10/24 is reached by chance 4.09 times in 18,604,032 trials, so it is not a lead.
+
+## B5. Serial readings of the grid as running keys
+
+Raster, boustrophedon, column-major, diagonal-stripe and spiral traversals of each
+grid, forward and reversed, at every start offset.
+
+| reading | len | best (all starts x 24 combos x 26 rot) | P(>=best) | 24/24 | expected |
+|---|---|---|---|---|---|
+| carved body boustrophedon  | 781 | 8/24 at (2, 'vigenere/pt=plain/ct=plain/key=keyed', 0) | 5.26e-05 | 0 | 5.35e-29 |
+| carved body boustrophedon reversed | 781 | 8/24 at (32, 'varbeaufort/pt=plain/ct=plain/key=keyed', 25) | 5.26e-05 | 0 | 5.35e-29 |
+| carved body column-major  | 781 | 8/24 at (313, 'beaufort/pt=keyed/ct=keyed/key=plain', 22) | 5.26e-05 | 0 | 5.35e-29 |
+| carved body column-major reversed | 781 | 7/24 at (721, 'vigenere/pt=keyed/ct=plain/key=plain', 14) | 0.000628 | 0 | 5.35e-29 |
+| carved body diagonals  | 781 | 9/24 at (664, 'beaufort/pt=plain/ct=plain/key=plain', 1) | 3.7e-06 | 0 | 5.35e-29 |
+| carved body diagonals reversed | 781 | 8/24 at (27, 'beaufort/pt=plain/ct=plain/key=plain', 24) | 5.26e-05 | 0 | 5.35e-29 |
+| carved body raster  | 781 | 8/24 at (360, 'varbeaufort/pt=keyed/ct=plain/key=plain', 6) | 5.26e-05 | 0 | 5.35e-29 |
+| carved body raster reversed | 781 | 8/24 at (320, 'beaufort/pt=keyed/ct=plain/key=plain', 4) | 5.26e-05 | 0 | 5.35e-29 |
+| carved full 28 boustrophedon  | 867 | 8/24 at (65, 'vigenere/pt=plain/ct=plain/key=keyed', 0) | 5.26e-05 | 0 | 5.94e-29 |
+| carved full 28 boustrophedon reversed | 867 | 9/24 at (96, 'varbeaufort/pt=plain/ct=plain/key=keyed', 0) | 3.7e-06 | 0 | 5.94e-29 |
+| carved full 28 column-major  | 867 | 7/24 at (17, 'vigenere/pt=plain/ct=plain/key=plain', 21) | 0.000628 | 0 | 5.94e-29 |
+| carved full 28 column-major reversed | 867 | 8/24 at (774, 'vigenere/pt=keyed/ct=plain/key=keyed', 5) | 5.26e-05 | 0 | 5.94e-29 |
+| carved full 28 diagonals  | 867 | 8/24 at (774, 'beaufort/pt=plain/ct=plain/key=plain', 23) | 5.26e-05 | 0 | 5.94e-29 |
+| carved full 28 diagonals reversed | 867 | 9/24 at (42, 'beaufort/pt=plain/ct=plain/key=plain', 24) | 3.7e-06 | 0 | 5.94e-29 |
+| carved full 28 raster  | 867 | 7/24 at (488, 'beaufort/pt=plain/ct=keyed/key=plain', 19) | 0.000628 | 0 | 5.94e-29 |
+| carved full 28 raster reversed | 867 | 8/24 at (678, 'vigenere/pt=keyed/ct=plain/key=plain', 11) | 5.26e-05 | 0 | 5.94e-29 |
+| carved labelled boustrophedon  | 807 | 8/24 at (4, 'vigenere/pt=plain/ct=plain/key=keyed', 1) | 5.26e-05 | 0 | 5.53e-29 |
+| carved labelled boustrophedon reversed | 807 | 9/24 at (97, 'varbeaufort/pt=plain/ct=plain/key=keyed', 1) | 3.7e-06 | 0 | 5.53e-29 |
+| carved labelled column-major  | 807 | 8/24 at (339, 'beaufort/pt=keyed/ct=keyed/key=plain', 22) | 5.26e-05 | 0 | 5.53e-29 |
+| carved labelled column-major reversed | 807 | 7/24 at (751, 'vigenere/pt=plain/ct=keyed/key=plain', 17) | 0.000628 | 0 | 5.53e-29 |
+| carved labelled diagonals  | 807 | 9/24 at (690, 'beaufort/pt=plain/ct=plain/key=plain', 1) | 3.7e-06 | 0 | 5.53e-29 |
+| carved labelled diagonals reversed | 807 | 9/24 at (506, 'beaufort/pt=plain/ct=plain/key=plain', 16) | 3.7e-06 | 0 | 5.53e-29 |
+| carved labelled raster  | 807 | 7/24 at (458, 'beaufort/pt=plain/ct=keyed/key=plain', 19) | 0.000628 | 0 | 5.53e-29 |
+| carved labelled raster reversed | 807 | 8/24 at (648, 'vigenere/pt=keyed/ct=plain/key=plain', 11) | 5.26e-05 | 0 | 5.53e-29 |
+| ideal full 28 boustrophedon  | 866 | 8/24 at (65, 'vigenere/pt=plain/ct=plain/key=keyed', 0) | 5.26e-05 | 0 | 5.93e-29 |
+| ideal full 28 boustrophedon reversed | 866 | 9/24 at (96, 'varbeaufort/pt=plain/ct=plain/key=keyed', 0) | 3.7e-06 | 0 | 5.93e-29 |
+| ideal full 28 column-major  | 866 | 8/24 at (839, 'beaufort/pt=plain/ct=keyed/key=plain', 20) | 5.26e-05 | 0 | 5.93e-29 |
+| ideal full 28 column-major reversed | 866 | 8/24 at (773, 'vigenere/pt=keyed/ct=plain/key=keyed', 5) | 5.26e-05 | 0 | 5.93e-29 |
+| ideal full 28 diagonals  | 866 | 8/24 at (773, 'beaufort/pt=plain/ct=plain/key=plain', 23) | 5.26e-05 | 0 | 5.93e-29 |
+| ideal full 28 diagonals reversed | 866 | 9/24 at (41, 'beaufort/pt=plain/ct=plain/key=plain', 24) | 3.7e-06 | 0 | 5.93e-29 |
+| ideal full 28 raster  | 866 | 7/24 at (487, 'beaufort/pt=plain/ct=keyed/key=plain', 19) | 0.000628 | 0 | 5.93e-29 |
+| ideal full 28 raster reversed | 866 | 8/24 at (677, 'vigenere/pt=keyed/ct=plain/key=plain', 11) | 5.26e-05 | 0 | 5.93e-29 |
+
+  total B5 trials 637,632 ; expected 24/24 1.82e-27
+

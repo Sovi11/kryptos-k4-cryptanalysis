@@ -1,0 +1,412 @@
+{
+ "porta": {
+  "straight": {
+   "same_half_pairs": [
+    [
+     22,
+     "F",
+     "E"
+    ],
+    [
+     23,
+     "L",
+     "A"
+    ],
+    [
+     24,
+     "R",
+     "S"
+    ],
+    [
+     25,
+     "V",
+     "T"
+    ],
+    [
+     26,
+     "Q",
+     "N"
+    ],
+    [
+     27,
+     "Q",
+     "O"
+    ],
+    [
+     28,
+     "P",
+     "R"
+    ],
+    [
+     29,
+     "R",
+     "T"
+    ],
+    [
+     31,
+     "G",
+     "E"
+    ],
+    [
+     32,
+     "K",
+     "A"
+    ],
+    [
+     33,
+     "S",
+     "S"
+    ],
+    [
+     34,
+     "S",
+     "T"
+    ],
+    [
+     66,
+     "P",
+     "R"
+    ],
+    [
+     69,
+     "T",
+     "N"
+    ],
+    [
+     70,
+     "M",
+     "C"
+    ],
+    [
+     74,
+     "K",
+     "K"
+    ]
+   ],
+   "standard": {
+    "positions_with_no_row": 16,
+    "surviving_periods": []
+   },
+   "bellaso": {
+    "positions_with_no_row": 16,
+    "surviving_periods": []
+   }
+  },
+  "kryptos": {
+   "same_half_pairs": [
+    [
+     22,
+     "F",
+     "E"
+    ],
+    [
+     24,
+     "R",
+     "S"
+    ],
+    [
+     26,
+     "Q",
+     "N"
+    ],
+    [
+     28,
+     "P",
+     "R"
+    ],
+    [
+     29,
+     "R",
+     "T"
+    ],
+    [
+     30,
+     "N",
+     "H"
+    ],
+    [
+     32,
+     "K",
+     "A"
+    ],
+    [
+     33,
+     "S",
+     "S"
+    ],
+    [
+     34,
+     "S",
+     "T"
+    ],
+    [
+     65,
+     "Y",
+     "E"
+    ],
+    [
+     66,
+     "P",
+     "R"
+    ],
+    [
+     67,
+     "V",
+     "L"
+    ],
+    [
+     71,
+     "Z",
+     "L"
+    ],
+    [
+     72,
+     "F",
+     "O"
+    ],
+    [
+     73,
+     "P",
+     "C"
+    ],
+    [
+     74,
+     "K",
+     "K"
+    ]
+   ],
+   "standard": {
+    "positions_with_no_row": 16,
+    "surviving_periods": []
+   },
+   "bellaso": {
+    "positions_with_no_row": 16,
+    "surviving_periods": []
+   }
+  }
+ },
+ "gronsfeld": {
+  "straight/vig": {
+   "shifts": [
+    1,
+    11,
+    25,
+    2,
+    3,
+    2,
+    24,
+    24,
+    6,
+    2,
+    10,
+    0,
+    25,
+    12,
+    20,
+    24,
+    10,
+    11,
+    6,
+    10,
+    14,
+    17,
+    13,
+    0
+   ],
+   "n_over_9": 15,
+   "surviving_periods": []
+  },
+  "straight/beau": {
+   "shifts": [
+    9,
+    11,
+    9,
+    14,
+    3,
+    4,
+    6,
+    10,
+    20,
+    10,
+    10,
+    10,
+    11,
+    14,
+    2,
+    6,
+    6,
+    1,
+    6,
+    14,
+    10,
+    19,
+    17,
+    20
+   ],
+   "n_over_9": 14,
+   "surviving_periods": []
+  },
+  "straight/varbeau": {
+   "shifts": [
+    25,
+    15,
+    1,
+    24,
+    23,
+    24,
+    2,
+    2,
+    20,
+    24,
+    16,
+    0,
+    1,
+    14,
+    6,
+    2,
+    16,
+    15,
+    20,
+    16,
+    12,
+    9,
+    13,
+    0
+   ],
+   "n_over_9": 15,
+   "surviving_periods": []
+  },
+  "kryptos/vig": {
+   "shifts": [
+    1,
+    10,
+    21,
+    18,
+    1,
+    15,
+    2,
+    23,
+    5,
+    2,
+    19,
+    0,
+    2,
+    11,
+    17,
+    2,
+    5,
+    15,
+    11,
+    9,
+    8,
+    7,
+    20,
+    0
+   ],
+   "n_over_9": 11,
+   "surviving_periods": []
+  },
+  "kryptos/beau": {
+   "shifts": [
+    23,
+    24,
+    7,
+    0,
+    13,
+    25,
+    4,
+    5,
+    7,
+    24,
+    7,
+    12,
+    10,
+    1,
+    13,
+    4,
+    13,
+    19,
+    23,
+    1,
+    16,
+    17,
+    12,
+    0
+   ],
+   "n_over_9": 14,
+   "surviving_periods": []
+  },
+  "kryptos/varbeau": {
+   "shifts": [
+    25,
+    16,
+    5,
+    8,
+    25,
+    11,
+    24,
+    3,
+    21,
+    24,
+    7,
+    0,
+    24,
+    15,
+    9,
+    24,
+    21,
+    11,
+    15,
+    17,
+    18,
+    19,
+    6,
+    0
+   ],
+   "n_over_9": 16,
+   "surviving_periods": []
+  }
+ },
+ "trithemius": {
+  "straight/vig": {
+   "fits": [],
+   "best_partial": [
+    7,
+    20,
+    4
+   ]
+  },
+  "straight/beau": {
+   "fits": [],
+   "best_partial": [
+    5,
+    10,
+    0
+   ]
+  },
+  "kryptos/vig": {
+   "fits": [],
+   "best_partial": [
+    5,
+    17,
+    16
+   ]
+  },
+  "kryptos/beau": {
+   "fits": [],
+   "best_partial": [
+    5,
+    25,
+    12
+   ]
+  }
+ },
+ "progressive_periodic": {
+  "A": [],
+  "B": []
+ },
+ "autokey": {
+  "plaintext_autokey": [],
+  "ciphertext_autokey": []
+ }
+}

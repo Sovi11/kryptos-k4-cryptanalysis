@@ -1,0 +1,14 @@
+poly/sawtooth done for ('vig', 'plain', 'plain')
+poly/sawtooth done for ('vig', 'plain', 'kryptos')
+poly/sawtooth done for ('vig', 'kryptos', 'plain')
+poly/sawtooth done for ('vig', 'kryptos', 'kryptos')
+poly/sawtooth done for ('beau', 'plain', 'plain')
+poly/sawtooth done for ('beau', 'plain', 'kryptos')
+poly/sawtooth done for ('beau', 'kryptos', 'plain')
+poly/sawtooth done for ('beau', 'kryptos', 'kryptos')
+poly/sawtooth done for ('varbeau', 'plain', 'plain')
+poly/sawtooth done for ('varbeau', 'plain', 'kryptos')
+poly/sawtooth done for ('varbeau', 'kryptos', 'plain')
+poly/sawtooth done for ('varbeau', 'kryptos', 'kryptos')
+rowcol done 37.19181227684021
+bilinear done 43.54268503189087

@@ -1,0 +1,110 @@
+==============================================================================
+(b) HOMOPHONIC / POLYPHONIC SUBSTITUTION AND THE 'BELOW RANDOM' IoC
+==============================================================================
+
+B1. Is IoC = 0.0361 evidence of deliberate frequency flattening?
+    observed IoC (delta form, sum n(n-1)/N(N-1)) = 0.036082
+    uniform-random expectation                   = 1/26 = 0.038462
+    English                                      ~ 0.0667
+    counts: A4 B5 C2 D3 E2 F4 G4 H2 I4 J3 K8 L4 M1 N3 O5 P3 Q4 R4 S6 T6 U6 V2 W5 X2 Y1 Z4
+    exact E[IoC] under uniform = 0.038462 (= 1/26)
+    null simulation: 2000000 uniform random 97-letter strings
+      mean 0.038462  sd 0.002820
+      z of observed = -0.844
+      *** P(IoC <= 0.03608) = 0.2159  (21.6% of random strings are at least
+          this flat) ***
+      P(IoC <= 0.0361 AND all 26 letters present) = 0.1757
+    VERDICT: 'below uniform random' is NOT a signature of anything.  A flat
+    ciphertext is exactly what a long-key polyalphabetic already produces, and
+    one string in 5 of *pure random noise* is this flat or flatter.
+
+    Reference: IoC of 97-letter windows of the carved K1-K3 ciphertext
+      672 windows: min 0.0363  1st-quartile 0.0434  median 0.0462  max 0.0887
+      fraction of K1-K3 windows with IoC <= K4's = 0.000
+      Read this correctly.  K4 IS flatter than every 97-letter window of the
+      carved K1-K3 ciphertext (min 0.0363 vs K4's 0.03608) -- but that is
+      because K1/K2 are Vigenere with 10- and 8-letter keys over English, which
+      leaves a lot of residual structure, and K3 is a bare transposition of
+      English.  The correct null for 'was this flattened on purpose?' is
+      uniform random, and against that null K4 is at the 22nd percentile.
+      So the IoC says the K4 keystream is LONG or APERIODIC (unlike K1/K2), not
+      that frequencies were deliberately flattened by a homophonic device.
+
+B2. Homophonic substitution (plaintext letter -> several ciphertext symbols)
+    Definition used: a partition of the ciphertext alphabet into disjoint
+    classes, one class per plaintext letter.  Disjointness is what makes a
+    homophonic cipher decipherable at all.
+    Ciphertext letters that stand for >1 plaintext letter (kills disjointness):
+      F -> E/O   at [(22, 'E'), (72, 'O')]
+      K -> A/K   at [(32, 'A'), (74, 'K')]
+      N -> B/H   at [(30, 'H'), (64, 'B')]
+      P -> C/R   at [(28, 'R'), (66, 'R'), (73, 'C')]
+      Q -> N/O   at [(26, 'N'), (27, 'O')]
+      R -> S/T   at [(24, 'S'), (29, 'T')]
+      S -> S/T   at [(33, 'S'), (34, 'T')]
+      T -> I/N   at [(68, 'I'), (69, 'N')]
+      V -> L/T   at [(25, 'T'), (67, 'L')]
+    count = 9 of the 14 distinct ciphertext letters seen in the cribs
+    RESULT: homophonic substitution with a fixed, position-independent table is
+    IMPOSSIBLE.  Any class containing F would have to be a subclass of both E's
+    and O's class.  This holds for ANY number of homophones and ANY assignment,
+    and it also kills 'cycling homophones' (n-th occurrence uses the n-th
+    equivalent), because that scheme still has disjoint classes.
+
+    Counting argument, independently: homophony needs MORE ciphertext symbols
+    than plaintext letters.  K4's ciphertext alphabet has exactly 26 symbols and
+    all 26 occur.  Giving any letter a second equivalent leaves at most 25
+    classes, i.e. at least one plaintext letter becomes unwritable.  A 26-symbol
+    homophonic cipher over a 26-letter plaintext alphabet does not exist unless
+    the mapping is position-dependent -- and a position-dependent substitution
+    is a polyalphabetic cipher, which is the space already exhausted in
+    findings/families.md.
+
+B3. Polyphonic substitution (one ciphertext symbol -> several plaintext letters,
+    disambiguated by context; the plaintext->ciphertext map is a FUNCTION)
+    Plaintext letters written with >1 ciphertext symbol (kills functionality):
+      A <- K/L   at [(23, 'L'), (32, 'K')]
+      C <- M/P   at [(70, 'M'), (73, 'P')]
+      E <- F/G/Y   at [(22, 'F'), (31, 'G'), (65, 'Y')]
+      L <- V/Z   at [(67, 'V'), (71, 'Z')]
+      N <- Q/T   at [(26, 'Q'), (69, 'T')]
+      O <- F/Q   at [(27, 'Q'), (72, 'F')]
+      S <- R/S   at [(24, 'R'), (33, 'S')]
+      T <- R/S/V   at [(25, 'V'), (29, 'R'), (34, 'S')]
+    count = 8 of the 13 distinct plaintext letters in the cribs
+    RESULT: pure polyphonic substitution is IMPOSSIBLE too -- plaintext E is
+    written F (22), G (31) and Y (65); T is written R, S and V.
+    So the cribs are simultaneously non-injective in both directions: this is
+    the fingerprint of a polyalphabetic/keystream cipher, not of a flattening
+    substitution of any kind.
+
+    Chance baseline for the two rule-outs (how easily would random cribs do it?)
+      random English plaintext on the SAME 24 ciphertext letters:
+        P(some forward conflict)  = 1.0000
+        P(some backward conflict) = 1.0000
+      i.e. the conflicts are what you expect; the rule-out is real but it is
+      not 'evidence of a keystream', it is just the absence of evidence for a
+      single fixed table.
+      distribution of the forced-alphabet count (chromatic number) under
+      random English cribs, 5000 trials: {2: 16, 3: 1439, 4: 2168, 5: 989, 6: 286, 7: 80, 8: 17, 9: 5}
+      mean conflict edges 27.6 (K4 has 22)
+
+B4. How many substitution alphabets do the cribs FORCE?
+    Build a conflict graph on the 24 crib positions: join i,j if they cannot
+    share one alphabet, i.e. same ciphertext letter but different plaintext, or
+    same plaintext letter but different ciphertext.  The chromatic number is
+    the minimum number of distinct substitution alphabets any cipher must use.
+    conflict edges: 22
+    *** chromatic number = 3 ***
+    So at least 3 different substitution alphabets are needed.  One legal
+    3-colouring of the crib positions (1-indexed):
+      alphabet 1: [22, 24, 25, 26, 30, 32, 68, 71, 73]
+      alphabet 2: [23, 27, 28, 29, 31, 33, 64, 66, 67, 69, 70, 74]
+      alphabet 3: [34, 65, 72]
+
+    Consequence for periodic ciphers (alphabet-free): a period p is possible
+    only if no conflicting pair of positions is congruent mod p.
+    conflicting-pair distances: [1, 3, 4, 5, 7, 9, 34, 42, 43, 45, 50]
+    periods 1..97 surviving: [8, 11, 12, 13, 16, 18, 19, 20, 22, 23, 24, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 39, 40, 41, 44, 46, 47, 48, 49, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97]
+    (This reproduces, with no alphabet assumptions at all, the known result
+    that short periods are dead; it is the same test as crib_lib.universal_ok.)

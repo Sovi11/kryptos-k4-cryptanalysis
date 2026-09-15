@@ -1,0 +1,97 @@
+==============================================================================
+ADVERSARIAL VERIFICATION part 3 -- null = uniform, 500,000 replicates
+==============================================================================
+
+--- A. reproduce the report's marginal / family-wise numbers --------
+  statistic                         mine     +-se    report   agree?
+  IoC             P(<=obs)        0.2157   0.0006    0.2157       OK
+  distinct        P(>=26)         0.5421   0.0007    0.5425       OK
+  doubles         P(>=6)          0.1653   0.0005    0.1651       OK
+  rep bigram prs  P(>=10)         0.1489   0.0005    0.1483       OK
+  rep trigram prs P(=0)           0.7825   0.0006    0.7820       OK
+  maxz lags 1-24  P(>=obs)        0.1093   0.0004    0.1091       OK
+  maxz lags 1-30  P(>=obs)        0.1368   0.0005    0.1364       OK
+  maxz lags 1-48  P(>=obs)        0.2184   0.0006    0.2185       OK
+  maxz lags 1-67  P(>=obs)        0.3191   0.0007    0.3199       OK
+  maxz lags 1-96  P(>=obs)        0.5566   0.0007    0.5571       OK
+  min-binom-p 1-96 P(<=obs)       0.3132   0.0007    0.3127       OK
+  maxperz 2-48    P(>=obs)        0.9912   0.0001    0.9913       OK
+  maxperz 2-48    P(<=obs)        0.0096   0.0001    0.0087       OK
+  maxperz 2-30    P(<=obs)        0.0636   0.0003 -         
+  colbig w21 pairs P(>=11)        0.0065   0.0001    0.0063       OK
+  colbig w21 excess P(>=11)       0.0017   0.0001    0.0015       OK
+  colbig MAX pairs P(>=11)        0.4185   0.0007    0.4191       OK
+  colbig MAX excess P(>=11)       0.2390   0.0006    0.2400       OK
+  doubles mod-class P(>=5)        0.0831   0.0004    0.2452 **DIFF**
+
+--- B. the report's omnibus, re-run with an unbiased split sample ---
+  battery as published (7 statistics, two-sided):
+    ioc            K4 = 0.0361     two-sided p = 0.4319
+    distinct       K4 = 26.0000    two-sided p = 1.0000
+    doubles        K4 = 6.0000     two-sided p = 0.3300
+    maxz_1_48      K4 = 3.0358     two-sided p = 0.4379
+    maxperz_2_30   K4 = 1.1285     two-sided p = 0.1268
+    bigrams        K4 = 10.0000    two-sided p = 0.2980
+    trigrams       K4 = 0.0000     two-sided p = 1.0000
+    -> K4 min-p = 0.1268 at maxperz_2_30
+    -> OMNIBUS min-p   p = 0.4030   (report 0.4142)
+    -> Fisher combined p = 0.2521
+    null min-p: median 0.1709, 5th pct 0.0147
+
+--- C. stress: does the omnibus survive the analyst's choices? ------
+  variant                           K4 min-p   omnibus    Fisher
+  published battery                   0.1268    0.4030    0.2521
+  maxperz over 2-48 not 2-30          0.0192    0.0702    0.1147
+  drop the 2 saturated stats          0.1268    0.3824    0.1933
+  drop saturated + use 2-48           0.0192    0.0664    0.0807
+  + width-21 colbigram (excess)       0.0033    0.0150    0.0341
+  + width-scan colbigram max          0.1268    0.4461    0.3140
+  maximal battery (everything)        0.0192    0.1020    0.2411
+
+  one-sided variants of the published battery:
+    structure direction (upper tail)   min-p 0.1490  omnibus 0.4366  Fisher 0.3237
+    flatness direction (lower tail)    min-p 0.0634  omnibus 0.2088  Fisher 0.4763
+
+--- D. the most powerful omnibus available: Mahalanobis in R^7 ------
+  correlation of the 7 battery statistics under the null (upper triangle):
+           ioc distinc doubles maxz_1_ maxperz bigrams trigram
+  ioc     1.000  -0.439   0.146   0.295   0.379   0.366   0.108
+  disti           1.000  -0.066  -0.134  -0.166  -0.162  -0.048
+  doubl                   1.000   0.042  -0.006   0.052   0.016
+  maxz_                           1.000   0.526   0.191   0.093
+  maxpe                                   1.000   0.200   0.083
+  bigra                                           1.000   0.376
+  trigr                                                   1.000
+
+  K4 standardised: ioc=-0.84  distin=+0.80  double=+1.23  maxz_1=+0.68  maxper=-1.83  bigram=+1.21  trigra=-0.49
+  Mahalanobis D^2 = 12.683; null median 5.645, 95th 16.676
+  P(D^2 >= obs | null) = 0.1083   <- omnibus with FULL power
+
+--- E. is the periodic-IoC 'flatness' anything but the overall IoC? -
+  conditioning on S in [324,348] (163,173 replicates of 500,000)
+  unconditional P(maxperz_2-48 <= K4's) = 0.0096
+  CONDITIONAL   P(maxperz_2-48 <= K4's | same IoC) = 0.0155
+  conditional   P(maxperz_2-30 <= K4's | same IoC) = 0.1061
+
+--- F. GLOBAL correction over every scanned choice in the report ----
+  19 statistics, each already family-wise corrected inside its own scan.
+    maxperz_2_48     two-sided p = 0.0192
+    maxperz_2_30     two-sided p = 0.1268
+    modmax           two-sided p = 0.1652
+    minp_1_24        two-sided p = 0.2084
+    maxz_1_24        two-sided p = 0.2189
+    maxz_1_30        two-sided p = 0.2743
+    bigrams          two-sided p = 0.2980
+    doubles          two-sided p = 0.3300
+    minp_1_48        two-sided p = 0.3846
+    ioc              two-sided p = 0.4319
+    chi2u            two-sided p = 0.4319
+    maxz_1_48        two-sided p = 0.4379
+    colbmax_excess   two-sided p = 0.4796
+    minp_1_96        two-sided p = 0.6271
+    maxz_1_67        two-sided p = 0.6381
+    colbmax_pairs    two-sided p = 0.8373
+    maxz_1_96        two-sided p = 0.8905
+    distinct         two-sided p = 1.0000
+    trigrams         two-sided p = 1.0000
+  K4's smallest = 0.0192; GLOBAL omnibus p = 0.1338; Fisher p = 0.2164

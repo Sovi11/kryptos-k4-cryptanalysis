@@ -1,0 +1,83 @@
+annealed plaintexts available: 400   score range -0.7196 .. -0.5771
+
+----------------------------------------------------------------------------------------------------
+TOP-150 ANNEALED PLAINTEXTS (highest language-model score): 150 plaintexts x 24 combos = 3600 key streams, 32400 z-scores
+----------------------------------------------------------------------------------------------------
+statistic      mean z    sd z   max|z|  n |z|>=3.5  expected
+ioc              0.04    1.01     4.73          14       1.7
+per_excess      -0.02    0.94     4.14           2       1.7
+rep4            -0.01    0.92    10.80          26       1.7
+quad             0.21    0.92     2.98           0       1.7
+run              0.03    0.98     4.67           4       1.7
+ap              -0.05    0.81     4.75           4       1.7
+d1               0.07    1.03     5.94           4       1.7
+ndistinct       -0.10    1.05     4.77           4       1.7
+ac_z             0.09    1.02     4.76          14       1.7
+ALL                              10.80          72      15.1   (streams with any |z|>=3.5)
+
+sculpture-corpus substring hits (>=5 letters):   268   expected by chance 103.5  ratio 2.59
+lateral-corpus   substring hits (>=5 letters):   360   expected by chance 270.9  ratio 1.33
+   most common sculpture matches: [('PLJIH', 150), ('GAORE', 25), ('QUQTQ', 7), ('SDDRY', 4), ('AECNU', 2), ('DAMIS', 2)]
+   longest: ('beaufort/pt=keyed/ct=keyed/key=keyed', 'OSRQDI', 'morse')
+   most common lateral matches: [('EADIA', 149), ('CACEC', 9), ('BJBEB', 7), ('BEBLC', 4), ('NFERE', 3), ('WNWNW', 2)]
+   longest: ('vigenere/pt=plain/ct=plain/key=plain', 'BGDDBG', 'mlu_day_rowletters_5760.txt')
+
+----------------------------------------------------------------------------------------------------
+150 CRIB-PINNED RANDOM PLAINTEXTS (matched null): 150 plaintexts x 24 combos = 3600 key streams, 32400 z-scores
+----------------------------------------------------------------------------------------------------
+statistic      mean z    sd z   max|z|  n |z|>=3.5  expected
+ioc              0.13    1.01     4.51          28       1.7
+per_excess       0.10    0.98     4.01          12       1.7
+rep4             0.02    1.11    21.69          32       1.7
+quad             0.22    0.94     3.49           0       1.7
+run              0.06    1.03     4.67           8       1.7
+ap              -0.02    0.78     2.78           0       1.7
+d1               0.00    1.00     3.41           0       1.7
+ndistinct       -0.09    1.02     4.77           4       1.7
+ac_z             0.05    0.99     5.12          14       1.7
+ALL                              21.69          98      15.1   (streams with any |z|>=3.5)
+
+sculpture-corpus substring hits (>=5 letters):   246   expected by chance 103.5  ratio 2.38
+lateral-corpus   substring hits (>=5 letters):   396   expected by chance 270.9  ratio 1.46
+   most common sculpture matches: [('PLJIH', 148), ('NAHGN', 2), ('TQUQB', 2), ('KXZKR', 2), ('FDVFP', 2), ('DENUM', 1)]
+   longest: ('beaufort/pt=keyed/ct=keyed/key=plain', 'EHTDER', 'K3_pt_rev')
+   most common lateral matches: [('EADIA', 148), ('HCECH', 8), ('DDDEE', 6), ('DDDED', 5), ('IPOLI', 2), ('BECEC', 2)]
+   longest: ('varbeaufort/pt=plain/ct=plain/key=plain', 'CBBACBB', 'mlu_day_rowletters_5760.txt')
+
+====================================================================================================
+The single highest-scoring annealed plaintext, in full:
+====================================================================================================
+--- best annealed (score -0.5771)
+    PT  OSPECIFICATETHETERNAMEASTNORTHEASTHECONTHEINGTHEFIRSTRINGANYNUMBERLINCLOCKETABLEFOLLOWITHISFUNCTI
+    PT quad -0.5771  (English -0.741+-0.077; Sanborn K1-K3 -0.967)
+    combo                                         zioczper_excess     zquad     zrep4      zrun       zap       zd1     zac_z   corpus hits
+    vigenere/pt=keyed/ct=plain/key=plain         +0.74     +0.75     +1.38     -0.09     -0.28     -0.27     +0.04     +0.08   LAT:EADIA(mlu_day_rowletters_5760.txt)
+    vigenere/pt=keyed/ct=plain/key=keyed         +0.74     +0.75     -1.61     -0.09     -0.28     -0.27     +0.04     +0.08   
+    varbeaufort/pt=keyed/ct=plain/key=plain      +0.74     +0.75     +0.44     -0.09     -0.28     -0.27     +0.04     +0.08   LAT:DAKAD(mlu_day_rowletters_5760.txt)
+    varbeaufort/pt=keyed/ct=plain/key=keyed      +0.74     +0.75     +0.62     -0.09     -0.28     -0.27     +0.04     +0.08   
+    vigenere/pt=plain/ct=keyed/key=plain         +0.13     +1.87     +2.45     -0.09     -0.28     -0.27     -0.81     +0.07   
+    beaufort/pt=plain/ct=plain/key=plain         +0.29     +1.27     +0.84     -0.09     +2.19     -0.27     +0.04     +0.85   
+    beaufort/pt=plain/ct=plain/key=keyed         +0.29     +1.27     +0.12     -0.09     +2.19     -0.27     +0.04     +0.85   
+    varbeaufort/pt=plain/ct=plain/key=keyed      +0.81     +0.01     +2.14     -0.09     -0.28     -0.27     +0.04     +0.17   
+    varbeaufort/pt=plain/ct=plain/key=plain      +0.81     +0.01     +2.13     -0.09     -0.28     -0.27     +0.04     +0.17   
+    vigenere/pt=plain/ct=keyed/key=keyed         +0.13     +1.87     +0.33     -0.09     -0.28     -0.27     -0.81     +0.07   LAT:WNWNW(rose_16_abbrev.txt)
+    varbeaufort/pt=plain/ct=keyed/key=plain      +0.13     +1.87     +1.64     -0.09     -0.28     -0.27     -0.81     +0.07   
+    varbeaufort/pt=plain/ct=keyed/key=keyed      +0.13     +1.87     +0.60     -0.09     -0.28     -0.27     -0.81     +0.07   
+    beaufort/pt=keyed/ct=plain/key=keyed         -1.37     +0.06     +1.67     -0.09     -0.28     -0.27     -0.81     -1.10   
+    beaufort/pt=plain/ct=keyed/key=plain         +0.29     -1.48     -0.56     -0.09     -0.28     -0.27     +0.04     -0.66   
+    beaufort/pt=plain/ct=keyed/key=keyed         +0.29     -1.48     -1.39     -0.09     -0.28     -0.27     +0.04     -0.66   
+    beaufort/pt=keyed/ct=plain/key=plain         -1.37     +0.06     +0.74     -0.09     -0.28     -0.27     -0.81     -1.10   LAT:CDDJD(mlu_day_rowletters_5760.txt)
+    beaufort/pt=keyed/ct=keyed/key=plain         -0.77     +0.82     -1.23     -0.09     -0.28     -0.27     +0.04     +0.27   
+    varbeaufort/pt=keyed/ct=keyed/key=keyed      +0.59     +0.71     +1.23     -0.09     -0.28     -0.27     -0.81     -0.13   
+    varbeaufort/pt=keyed/ct=keyed/key=plain      +0.59     +0.71     +1.08     -0.09     -0.28     -0.27     -0.81     -0.13   
+    vigenere/pt=plain/ct=plain/key=plain         +0.81     +0.01     -1.00     -0.09     -0.28     -0.27     +0.04     +0.17   
+    beaufort/pt=keyed/ct=keyed/key=keyed         -0.77     +0.82     +0.43     -0.09     -0.28     -0.27     +0.04     +0.27   
+    vigenere/pt=plain/ct=plain/key=keyed         +0.81     +0.01     -0.59     -0.09     -0.28     -0.27     +0.04     +0.17   
+    vigenere/pt=keyed/ct=keyed/key=plain         +0.59     +0.71     +0.11     -0.09     -0.28     -0.27     -0.81     -0.13   SCU:PLJIH(tableau_physical_rev)
+    vigenere/pt=keyed/ct=keyed/key=keyed         +0.59     +0.71     +0.16     -0.09     -0.28     -0.27     -0.81     -0.13   
+    LARGEST |z| anywhere in the 24x9 grid: 3.38  (vigenere/pt=keyed/ct=plain/key=plain)
+    Expected largest |z| over 216 independent N(0,1) draws: about 3.0 (P(max>3.5) ~ 0.10).
+
+real	0m54.378s
+user	0m31.663s
+sys	0m0.323s

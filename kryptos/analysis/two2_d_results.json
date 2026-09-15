@@ -1,0 +1,243 @@
+{
+ "base": 1565,
+ "compositions": 2449225,
+ "ct_contiguous": 32945,
+ "ct_nonvacuous": [
+  "((86, 87, 88, 89, 54, 55, 56, 57, 58, 59, 60, 61, 62, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30), 23, 'beau', 'plain/plain', 1, 'route 49x2 row rows r1c1', 'route 6x18 row rows r-1c1')",
+  "((53, 54, 55, 56, 17, 18, 19, 20, 21, 22, 23, 24, 25, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92), 26, 'beau', 'plain/plain', 1, 'route 20x5 col cols r1c-1 [inv]', 'blocks (2, 3, 1, 0) rev=0000')",
+  "((3, 4, 5, 6, 43, 44, 45, 46, 47, 48, 49, 50, 51, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91), 25, 'beau', 'plain/plain', 1, 'route 6x18 row rows r-1c1 [inv]', 'route 3x36 row rows r-1c1')",
+  "((91, 92, 93, 94, 57, 58, 59, 60, 61, 62, 63, 64, 65, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29), 25, 'beau', 'plain/plain', 1, 'route 6x19 row rows r1c-1', 'blocks (0, 3, 2, 1) rev=1110')",
+  "((1, 2, 3, 4, 64, 65, 66, 67, 68, 69, 70, 71, 72, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86), 24, 'beau', 'plain/plain', 1, 'route 5x23 row rows r-1c1 [inv]', 'route 3x36 row rows r-1c1')",
+  "((20, 21, 22, 23, 59, 60, 61, 62, 63, 64, 65, 66, 67, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83), 25, 'beau', 'plain/plain', 1, 'route 5x24 row rows r-1c1', 'route 3x36 row rows r-1c1')",
+  "((93, 94, 95, 96, 38, 39, 40, 41, 42, 43, 44, 45, 46, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14), 23, 'beau', 'plain/plain', 1, 'route 3x38 row rows r1c-1', 'blocks (3, 2, 0, 1) rev=1011 [inv]')",
+  "((55, 56, 57, 58, 0, 1, 2, 3, 4, 5, 6, 7, 8, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91), 23, 'beau', 'plain/plain', 1, 'route 3x38 row rows r-1c1 [inv]', 'route 3x46 row rows r-1c1 [inv]')",
+  "((35, 36, 37, 38, 3, 4, 5, 6, 7, 8, 9, 10, 11, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71), 23, 'beau', 'plain/plain', 1, 'route 3x46 row rows r-1c1', 'route 6x18 row rows r-1c1')",
+  "((45, 46, 47, 48, 13, 14, 15, 16, 17, 18, 19, 20, 21, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81), 23, 'beau', 'plain/plain', 1, 'route 3x46 row rows r-1c1 [inv]', 'route 6x18 row rows r-1c1')",
+  "((93, 94, 95, 96, 35, 36, 37, 38, 39, 40, 41, 42, 43, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34), 24, 'beau', 'plain/plain', 1, 'blocks (0, 2, 3, 1) rev=1110', 'route 20x5 col cols r-1c1')",
+  "((90, 91, 92, 93, 58, 59, 60, 61, 62, 63, 64, 65, 66, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34), 23, 'beau', 'plain/plain', 1, 'blocks (1, 2, 3, 0) rev=0000', 'route 6x18 row rows r-1c1')",
+  "((82, 83, 84, 85, 50, 51, 52, 53, 54, 55, 56, 57, 58, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26), 23, 'beau', 'plain/plain', 1, 'blocks (1, 2, 3, 0) rev=0000 [inv]', 'route 6x18 row rows r-1c1')",
+  "((93, 94, 95, 96, 12, 13, 14, 15, 16, 17, 18, 19, 20, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10), 24, 'beau', 'plain/plain', 1, 'blocks (2, 0, 1, 3) rev=0000 [inv]', 'route 25x4 col cols r1c-1 [inv]')",
+  "((27, 28, 29, 30, 66, 67, 68, 69, 70, 71, 72, 73, 74, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65), 25, 'beau', 'plain/plain', 1, 'blocks (2, 0, 3, 1) rev=1101 [inv]', 'route 20x5 col cols r-1c1')",
+  "((89, 90, 91, 92, 31, 32, 33, 34, 35, 36, 37, 38, 39, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30), 24, 'beau', 'plain/plain', 1, 'blocks (3, 1, 2, 0) rev=0111 [inv]', 'route 20x5 col cols r-1c1')"
+ ],
+ "pt_exact": {
+  "b13": 0,
+  "b11": 0,
+  "joint": 0,
+  "tests": 31866192
+ },
+ "pt_periodic": {
+  "1": 0,
+  "2": 0,
+  "3": 0,
+  "4": 0,
+  "5": 0,
+  "6": 0,
+  "7": 0,
+  "8": 0,
+  "9": 0,
+  "10": 0,
+  "11": 0,
+  "12": 0,
+  "13": 0,
+  "14": 0,
+  "15": 0,
+  "16": 0,
+  "17": 0,
+  "18": 0,
+  "19": 0,
+  "20": 0,
+  "21": 0,
+  "22": 0,
+  "23": 0,
+  "24": 0,
+  "25": 601,
+  "26": 410261,
+  "27": 10622064,
+  "28": 10622064,
+  "29": 10622064,
+  "30": 418824,
+  "31": 15160,
+  "32": 649,
+  "33": 17,
+  "34": 0,
+  "35": 0,
+  "36": 0,
+  "37": 0,
+  "38": 0,
+  "39": 0,
+  "40": 0,
+  "41": 0,
+  "42": 0,
+  "43": 0,
+  "44": 0,
+  "45": 0,
+  "46": 0,
+  "47": 0,
+  "48": 0,
+  "49": 37,
+  "50": 601,
+  "51": 15208,
+  "52": 410261,
+  "53": 10622064,
+  "54": 10622064,
+  "55": 10622064,
+  "56": 10622064,
+  "57": 10622064,
+  "58": 10622064,
+  "59": 10622064,
+  "60": 10622064
+ },
+ "pt_top": [
+  [
+   -6.723132027520074,
+   "beaufort/pt=plain/ct=plain/key=plain",
+   "AQLYCXCKJVNVOFXBUHXBWKWL"
+  ],
+  [
+   -6.748222351074219,
+   "vigenere/pt=keyed/ct=plain/key=plain",
+   "EEEKBUTSXOIWOKIPCELRXASK"
+  ],
+  [
+   -6.800513797336155,
+   "varbeaufort/pt=plain/ct=keyed/key=keyed",
+   "GEEHPQNQRLRHHWTIMGXJELRW"
+  ],
+  [
+   -6.814598931206597,
+   "vigenere/pt=plain/ct=plain/key=plain",
+   "OWANCHOIEXRKBQTQZGTJDRUH"
+  ],
+  [
+   -6.8147532145182295,
+   "beaufort/pt=plain/ct=plain/key=keyed",
+   "AMCXCLGTLXNYMHPBLRREMDBK"
+  ],
+  [
+   -6.819947984483507,
+   "varbeaufort/pt=plain/ct=plain/key=keyed",
+   "ITBELREHTPJOQLNIPBBDDVRV"
+  ],
+  [
+   -6.820459365844727,
+   "varbeaufort/pt=plain/ct=keyed/key=keyed",
+   "AEEHPQNQRLVFFWZIMGXJELRR"
+  ],
+  [
+   -6.84973865085178,
+   "varbeaufort/pt=plain/ct=plain/key=plain",
+   "HGISSFBPCICYUQCLSHWZGSWU"
+  ],
+  [
+   -6.855840259128147,
+   "varbeaufort/pt=plain/ct=plain/key=keyed",
+   "WGBBUTUOLZZYLBABITILRBXP"
+  ],
+  [
+   -6.8701977199978295,
+   "vigenere/pt=keyed/ct=keyed/key=plain",
+   "PZWDMZPEMPFTAWDYPQUQRZRW"
+  ],
+  [
+   -6.876887427435981,
+   "beaufort/pt=keyed/ct=plain/key=plain",
+   "LYRVBUTIWGIUKQFVBELSEKXA"
+  ],
+  [
+   -6.890013588799371,
+   "vigenere/pt=plain/ct=plain/key=plain",
+   "EBVZSAASTECNRYOTDVGELIRA"
+  ],
+  [
+   -6.894014146592882,
+   "varbeaufort/pt=plain/ct=keyed/key=keyed",
+   "TUAYBEEXAXWGQFTNCHPLSUSR"
+  ],
+  [
+   -6.894869486490886,
+   "beaufort/pt=plain/ct=plain/key=keyed",
+   "VEEGWXKKGGYXSMBETCXQEKJI"
+  ],
+  [
+   -6.900459925333659,
+   "beaufort/pt=plain/ct=plain/key=keyed",
+   "WPAFERZPPBEPANKKDTFTUHTE"
+  ],
+  [
+   -6.900459925333659,
+   "beaufort/pt=plain/ct=plain/key=keyed",
+   "WPAFERZPPBEPAJUMDTFTUHTE"
+  ],
+  [
+   -6.913513395521376,
+   "vigenere/pt=keyed/ct=keyed/key=plain",
+   "STHPLHKBDEFOLPCJJTELRFWU"
+  ],
+  [
+   -6.934047698974609,
+   "beaufort/pt=plain/ct=keyed/key=plain",
+   "TGSBUTEBEIPPILFWWVGALLPP"
+  ],
+  [
+   -6.934047698974609,
+   "beaufort/pt=plain/ct=keyed/key=plain",
+   "TISBUTEBEIPPILFWWVGALLPP"
+  ],
+  [
+   -6.938075171576606,
+   "varbeaufort/pt=plain/ct=keyed/key=keyed",
+   "TKMTKPQJQVCZGERNKUVOAFPI"
+  ],
+  [
+   -6.938135359022352,
+   "vigenere/pt=plain/ct=plain/key=plain",
+   "OWANCHOIEXHFYTGJJTEATGIT"
+  ],
+  [
+   -6.945867750379774,
+   "beaufort/pt=plain/ct=keyed/key=plain",
+   "IEWXKTHXXYMFCBERAQTWWUXS"
+  ],
+  [
+   -6.949906667073567,
+   "beaufort/pt=keyed/ct=keyed/key=keyed",
+   "YXHTKHPBLUEFPEEOWWXWWLXH"
+  ],
+  [
+   -6.95343377855089,
+   "varbeaufort/pt=keyed/ct=plain/key=plain",
+   "ACKDSATTATIBPOLHFWAOCHWZ"
+  ],
+  [
+   -6.960274590386285,
+   "beaufort/pt=plain/ct=plain/key=keyed",
+   "WVLWOWAIUVSCCDTJUKPQTAQQ"
+  ],
+  [
+   -6.962573369344075,
+   "beaufort/pt=keyed/ct=keyed/key=plain",
+   "PPZETBEBNEGAOFLHPKXYSLEB"
+  ],
+  [
+   -6.972093794080946,
+   "varbeaufort/pt=keyed/ct=keyed/key=plain",
+   "EMRCBIDPTCXQEOYXBPPZYCKN"
+  ],
+  [
+   -6.979440053304036,
+   "varbeaufort/pt=keyed/ct=keyed/key=plain",
+   "BETELCUPWMSKNLITXASEFXBF"
+  ],
+  [
+   -6.979440053304036,
+   "varbeaufort/pt=keyed/ct=keyed/key=plain",
+   "BETELCUPWMSKYLITXASEFXBF"
+  ],
+  [
+   -6.980895572238499,
+   "varbeaufort/pt=plain/ct=plain/key=plain",
+   "NHYTUTUFZIKTWAEXTDVGLWDW"
+  ]
+ ]
+}

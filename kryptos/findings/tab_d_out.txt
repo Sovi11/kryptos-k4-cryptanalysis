@@ -1,0 +1,166 @@
+# (d) Tableau column and row-label streams as key material
+
+## D0. Coverage check against lateral/test_lateral.py
+
+  lateral/keystreams/*.txt present now : 194 files
+  of those, tableau-derived (tab_*.txt) : 0
+  lateral/test_lateral.py globs exactly that directory and keeps streams of
+  length >= 11; its own log records 73 streams of 194 files.
+  MANIFEST.tsv rows naming tab_* files  : 0
+
+  -> the tableau streams are NOT present.  lateral/tableau_panel.md records that
+     a sibling process deleted every file in that directory that was not its own;
+     the 0 tab_* files it registered in MANIFEST.tsv are gone.
+     lateral/test_lateral_out.txt confirms it: its 73 surviving streams are all
+     Cyrillic / Mengenlehreuhr / compass-rose / world-clock material.  So NO
+     tableau column or row-label stream has been tested by it, and this section
+     is required, not duplicative.
+
+## D1. The streams, regenerated from the carving
+
+| stream | len | first 40 |
+|---|---|---|
+| anti-diagonal of the 26x26 core | 26 | ZZZZZZZZZZZZZZZZZZZZZZZZZZ |
+| carved body column 0 (down) | 26 | KRYPTOSABCDEFGHIJLMNQUVWXZ |
+| carved body column 1 (down) | 26 | RYPTOSABCDEFGHIJLMNQUVWXZK |
+| carved body column 10 (down) | 26 | DEFGHIJLMNQUVWXZKRYPTOSABC |
+| carved body column 11 (down) | 26 | EFGHIJLMNQUVWXZKRYPTOSABCD |
+| carved body column 12 (down) | 26 | FGHIJLMNQUVWXZKRYPTOSABCDE |
+| carved body column 13 (down) | 26 | GHIJLMNQUVWXZKRYPTOSABCDEF |
+| carved body column 14 (down) | 26 | HIJLMNQUVWXZKRYPTOSABCDEFG |
+| carved body column 15 (down) | 26 | IJLMNQUVWXZKRYPTOSABCDEFGH |
+| carved body column 16 (down) | 26 | JLMNQUVWXZKRYPTOSABCDEFGHI |
+| carved body column 17 (down) | 26 | LMNQUVWXZKRYPTOSABCDEFGHIJ |
+| carved body column 18 (down) | 26 | MNQUVWXZKRYPTOSABCDEFGHIJL |
+| carved body column 19 (down) | 26 | NQUVWXZKRYPTOSABCDEFGHIJLM |
+| carved body column 2 (down) | 26 | YPTOSABCDEFGHIJLMNQUVWXZKR |
+| carved body column 20 (down) | 26 | QUVWXZKRYPTOSABCDEFGHIJLMN |
+| carved body column 21 (down) | 26 | UVWXZKRYPTOSABCDEFGHIJLMNQ |
+| carved body column 22 (down) | 26 | VWXZKRYPTOSABCDEFGHIJLMNQU |
+| carved body column 23 (down) | 26 | WXZKRYPTOSABCDEFGHIJLMNQUV |
+| carved body column 24 (down) | 26 | XZKRYPTOSABCDEFGHIJLMNQUVW |
+| carved body column 25 (down) | 26 | ZKRYPTOSABCDEFGHIJLMNQUVWX |
+| carved body column 26 (down) | 26 | KRYPTOSABCDEFGHIJLMNQUVWXZ |
+| carved body column 27 (down) | 26 | RYPTOSABCDEFGHIJLMNQUVWXZK |
+| carved body column 28 (down) | 26 | YPTOSABCDEFGHIJLMNQUVWXZKR |
+| carved body column 29 (down) | 26 | PTOSABCDEFGHIJLMNQUVWXZKRY |
+| carved body column 3 (down) | 26 | PTOSABCDEFGHIJLMNQUVWXZKRY |
+| carved body column 4 (down) | 26 | TOSABCDEFGHIJLMNQUVWXZKRYP |
+| carved body column 5 (down) | 26 | OSABCDEFGHIJLMNQUVWXZKRYPT |
+| carved body column 6 (down) | 26 | SABCDEFGHIJLMNQUVWXZKRYPTO |
+| carved body column 7 (down) | 26 | ABCDEFGHIJLMNQUVWXZKRYPTOS |
+| carved body column 8 (down) | 26 | BCDEFGHIJLMNQUVWXZKRYPTOSA |
+| carved body column 9 (down) | 26 | CDEFGHIJLMNQUVWXZKRYPTOSAB |
+| carved body column-major | 781 | KRYPTOSABCDEFGHIJLMNQUVWXZRYPTOSABCDEFGH |
+| col label per carved letter | 841 | ABCDEFGHIJKLMNOPQRSTUVWXYZABCDABCDEFGHIJ |
+| col_labels (header row) | 30 | ABCDEFGHIJKLMNOPQRSTUVWXYZABCD |
+| first carved column (labels) | 28 | AABCDEFGHIJKLMNOPQRSTUVWXYZA |
+| ideal body column-major | 780 | KRYPTOSABCDEFGHIJLMNQUVWXZRYPTOSABCDEFGH |
+| last carved column, all 28 rows | 28 | DPTOSABCDEFGHILLMNQUVWXZKRYD |
+| last ideal column, all 28 rows | 28 | DPTOSABCDEFGHIJLMNQUVWXZKRYD |
+| main diagonal of the 26x26 core | 26 | KYTSBDFHJMQVXKYTSBDFHJMQVX |
+| row label per carved letter | 807 | AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBB |
+| row_labels A..Z | 26 | ABCDEFGHIJKLMNOPQRSTUVWXYZ |
+
+## D2. K4-aligned label streams (exactly 97 letters, no offset freedom)
+
+K4 occupies left-panel row 25 columns 28-31 and all of rows 26-28, 31 columns wide.
+Opposite those cells the tableau carries rows X, Y, Z and the footer.  The ROW
+LABEL and the COLUMN LABEL of each of those 97 cells are the two streams the brief
+names.  Neither has any free offset, so each is a single 97-letter candidate.
+
+  row-label stream : XXXXYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ???????????????????????????????
+  col-label stream : ABCD?ABCDEFGHIJKLMNOPQRSTUVWXYZABCD?ABCDEFGHIJKLMNOPQRSTUVWXYZABCD?ABCDEFGHIJKLMNOPQRSTUVWXYZABCD
+  ('?' marks a cell that has no label: the footer row carries no row label, and
+   column 1 of each body row IS the label column and so has no column label.)
+
+Every substitution for the unlabelled cells is tried: each of the 26 letters, and
+also 'take the other label instead'.
+
+| stream | filler | best crib match | P(>=best) | 24/24 |
+|---|---|---|---|---|
+| col label | best of 26 fills | 6/24 ('beaufort/pt=keyed/ct=keyed/key=plain', 7) | 0.00622 | 0 |
+| col label, gaps from row label | best of 26 fills | 6/24 ('beaufort/pt=keyed/ct=keyed/key=plain', 7) | 0.00622 | 0 |
+| row label | best of 26 fills | 6/24 ('beaufort/pt=plain/ct=plain/key=plain', 12) | 0.00622 | 0 |
+| row label, gaps from col label | best of 26 fills | 7/24 ('beaufort/pt=plain/ct=plain/key=plain', 12) | 0.000628 | 0 |
+| tableau letter at the same cell, | best of 26 fills | 7/24 ('varbeaufort/pt=plain/ct=keyed/key=keyed', 1) | 0.000628 | 0 |
+
+  variants 130 x 24 combos x 26 rotations = 81,120 trials ; 24/24 hits 0 ; expected 8.91e-30
+  best overall 7/24 at ('row label, gaps from col label, rest=U', 'beaufort/pt=plain/ct=plain/key=plain', 12) ; P(>=7) <= 0.000628 ; expected number of variants reaching
+  that mark by chance: 1.96
+
+## D3. Every tableau column and label stream as a running key and as a periodic key
+
+| stream | len | running key: best (all offsets) | P | periodic: best (all periods) | P | 24/24 |
+|---|---|---|---|---|---|---|
+| anti-diagonal of the 26x26 core | 26 | 5/24 off=0 beaufort/pt=plain/ct=plain/key=plain | 0.05 | 5/24 period=2 beaufort/pt=plain/ct=plain/key=plain | 0.05 | 0 |
+| carved body column 0 (down) | 26 | 6/24 off=6 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 1 (down) | 26 | 6/24 off=5 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 10 (down) | 26 | 6/24 off=22 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 11 (down) | 26 | 6/24 off=21 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 12 (down) | 26 | 6/24 off=20 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 13 (down) | 26 | 6/24 off=19 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 8/24 period=25 beaufort/pt=keyed/ct=keyed/key=plain | 5.3e-05 | 0 |
+| carved body column 14 (down) | 26 | 6/24 off=18 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 15 (down) | 26 | 6/24 off=17 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 16 (down) | 26 | 6/24 off=16 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 17 (down) | 26 | 6/24 off=15 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 18 (down) | 26 | 6/24 off=14 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 19 (down) | 26 | 6/24 off=13 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 2 (down) | 26 | 6/24 off=4 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 20 (down) | 26 | 6/24 off=12 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 21 (down) | 26 | 6/24 off=11 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 22 (down) | 26 | 6/24 off=10 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 23 (down) | 26 | 6/24 off=9 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 24 (down) | 26 | 6/24 off=8 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 25 (down) | 26 | 6/24 off=7 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 26 (down) | 26 | 6/24 off=6 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 27 (down) | 26 | 6/24 off=5 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 28 (down) | 26 | 6/24 off=4 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 29 (down) | 26 | 6/24 off=3 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 3 (down) | 26 | 6/24 off=3 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 4 (down) | 26 | 6/24 off=2 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 5 (down) | 26 | 6/24 off=1 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 6 (down) | 26 | 6/24 off=0 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 7 (down) | 26 | 6/24 off=25 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 8 (down) | 26 | 6/24 off=24 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column 9 (down) | 26 | 6/24 off=23 beaufort/pt=plain/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| carved body column-major | 781 | 8/24 off=313 beaufort/pt=keyed/ct=keyed/key=plain | 5.3e-05 | 8/24 period=38 beaufort/pt=keyed/ct=keyed/key=keyed | 5.3e-05 | 0 |
+| col label per carved letter | 841 | 6/24 off=385 vigenere/pt=plain/ct=plain/key=keyed | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=plain | 0.00063 | 0 |
+| col_labels (header row) | 30 | 6/24 off=9 beaufort/pt=keyed/ct=keyed/key=plain | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=plain | 0.00063 | 0 |
+| first carved column (labels) | 28 | 7/24 off=18 beaufort/pt=keyed/ct=keyed/key=plain | 0.00063 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=plain | 0.00063 | 0 |
+| ideal body column-major | 780 | 8/24 off=313 beaufort/pt=keyed/ct=keyed/key=plain | 5.3e-05 | 8/24 period=38 beaufort/pt=keyed/ct=keyed/key=keyed | 5.3e-05 | 0 |
+| last carved column, all 28 rows | 28 | 8/24 off=15 beaufort/pt=keyed/ct=keyed/key=keyed | 5.3e-05 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| last ideal column, all 28 rows | 28 | 7/24 off=15 beaufort/pt=keyed/ct=keyed/key=keyed | 0.00063 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=keyed | 0.00063 | 0 |
+| main diagonal of the 26x26 core | 26 | 5/24 off=1 vigenere/pt=plain/ct=plain/key=plain | 0.05 | 6/24 period=4 varbeaufort/pt=keyed/ct=plain/key=plain | 0.0062 | 0 |
+| row label per carved letter | 807 | 8/24 off=686 beaufort/pt=plain/ct=plain/key=keyed | 5.3e-05 | 5/24 period=2 beaufort/pt=plain/ct=plain/key=plain | 0.05 | 0 |
+| row_labels A..Z | 26 | 6/24 off=17 varbeaufort/pt=plain/ct=plain/key=keyed | 0.0062 | 7/24 period=25 vigenere/pt=plain/ct=keyed/key=plain | 0.00063 | 0 |
+
+  running-key trials 100,344 ; periodic trials 99,360 ; total 199,704
+  24/24 hits 0 ; expected by chance 5.7e-28
+  best anywhere: 8/24 (carved body column 13 (down))
+  P(>= that) <= 5.26e-05, so over 199,704 trials chance alone produces 10.5 of them.
+
+  NOTE on vacuity: the standing caveat that periods 27-29 and >= 53 impose zero
+  crib constraints applies to a FREE key of that period.  Here the key letters are
+  read off a fixed carved stream, so nothing is free and every period is a genuine
+  test.  A 24/24 at any period would have been a real result.  There were none.
+
+## D4. The same block-Hamming metric lateral/test_lateral.py uses
+
+test_lateral.py slides the 13-letter EASTNORTHEAST key block and the 11-letter
+BERLINCLOCK key block (42 apart) along each stream and reports the best Hamming
+distance.  Its result on 73 non-tableau streams and 16.5M tests was: best block1
+6/13, best block2 5/11, best JOINT 16/24, 0 hits within threshold.  Same metric,
+same code path, applied to the tableau streams it never saw:
+
+  tests 2,301,936
+  best block1 Hamming : 6/13  ('carved body column-major', 'beaufort/pt=keyed/ct=keyed/key=plain', 4, 334)
+  best block2 Hamming : 6/11  ('carved body column-major', 'varbeaufort/pt=keyed/ct=keyed/key=plain', 20, 61)
+  best JOINT  Hamming : 16/24  ('carved body column-major', 'beaufort/pt=keyed/ct=keyed/key=plain', 4, 334)
+  chance expectation: a random 24-letter window has mean Hamming 24*(25/26) = 23.08;
+  P(joint Hamming <= 16) = 2.02e-06 for one window, so over 2,301,936 windows chance alone
+  produces 4.7 windows at least this good.  Observed: >=1.  The best result here is
+  the same joint 16/24 that lateral/test_lateral.py reached on its own 73 streams,
+  which is what chance is supposed to deliver.  A solution is joint Hamming 0.
+  P(block1 Hamming <= 6) = 1.74e-07 ; P(block2 Hamming <= 6) = 3.2e-05
+

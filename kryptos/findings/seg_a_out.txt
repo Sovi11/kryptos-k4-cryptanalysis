@@ -1,0 +1,172 @@
+==============================================================================
+(a) SEGMENT STATISTICS FOR K4
+==============================================================================
+ciphertext (97 letters): OBKRUOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZWATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR
+
+------------------------------------------------------------------------------
+A0. Global composition and the sub-uniform IoC
+------------------------------------------------------------------------------
+counts: A:4, B:5, C:2, D:3, E:2, F:4, G:4, H:2, I:4, J:3, K:8, L:4, M:1, N:3, O:5, P:3, Q:4, R:4, S:6, T:6, U:6, V:2, W:5, X:2, Y:1, Z:4
+distinct letters: 26/26   min 1  max 8
+IoC = 0.03608   (E[IoC] for i.i.d. uniform = 1/26 = 0.03846; English 0.066)
+chi2 vs uniform = 19.06 (df 25; E=25, 5th pct 14.6, 95th pct 37.7)
+chi2 vs English = 576.50
+
+P(IoC <= 0.03608) under i.i.d. uniform, n=97, 500000 trials: 0.2142
+   null IoC mean 0.03847 sd 0.00281; 1st pct 0.03308, 5th pct 0.03436
+P(chi2_unif <= 19.06): 0.2117
+  -> The sub-uniform IoC is NOT anomalous: a flat 97-letter sample lands there routinely.
+
+------------------------------------------------------------------------------
+A1. segmentation: panel rows 4/31/31/31
+------------------------------------------------------------------------------
+      span    n      IoC    chi2E    chi2U  dist  text
+   1-4        4   0.0000     52.7     22.0     4  OBKR
+   5-35      31   0.0430    188.7     28.5    17  UOXOGHULBSOLIFBBWFLRVQQPRNGKSSO
+  36-66      31   0.0344    420.5     21.8    18  TWTQSJQSSEKZZWATJKLUDIAWINFBNYP
+  67-97      31   0.0366    303.6     23.5    19  VTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR
+homogeneity G = 84.72;  permutation null mean 78.54 sd 9.54; z = +0.65;  p = 0.2589  (200000 permutations)
+
+------------------------------------------------------------------------------
+A1. segmentation: crib blocks (5 parts)
+------------------------------------------------------------------------------
+      span    n      IoC    chi2E    chi2U  dist  text
+   1-21      21   0.0667     99.4     39.7    13  OBKRUOXOGHULBSOLIFBBW
+  22-34      13   0.0385    336.8     25.0    10  FLRVQQPRNGKSS
+  35-63      29   0.0369    449.0     23.9    17  OTWTQSJQSSEKZZWATJKLUDIAWINFB
+  64-74      11   0.0364    176.6     24.5     9  NYPVTTMZFPK
+  75-97      23   0.0395    187.9     25.6    15  WGDKZXTJCDIGKUHUAUEKCAR
+homogeneity G = 127.91;  permutation null mean 112.44 sd 9.84; z = +1.57;  p = 0.0605  (200000 permutations)
+
+------------------------------------------------------------------------------
+A1. segmentation: halves 48/49
+------------------------------------------------------------------------------
+      span    n      IoC    chi2E    chi2U  dist  text
+   1-48      48   0.0461    525.1     34.3    21  OBKRUOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZ
+  49-97      49   0.0374    258.8     23.7    23  WATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR
+homogeneity G = 44.19;  permutation null mean 31.56 sd 7.86; z = +1.61;  p = 0.0629  (200000 permutations)
+
+------------------------------------------------------------------------------
+A1. segmentation: halves 49/48
+------------------------------------------------------------------------------
+      span    n      IoC    chi2E    chi2U  dist  text
+   1-49      49   0.0459    516.7     34.3    21  OBKRUOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZW
+  50-97      48   0.0372    261.8     23.5    23  ATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR
+homogeneity G = 44.19;  permutation null mean 31.58 sd 7.84; z = +1.61;  p = 0.0638  (200000 permutations)
+
+------------------------------------------------------------------------------
+A1. segmentation: thirds 32/33/32
+------------------------------------------------------------------------------
+      span    n      IoC    chi2E    chi2U  dist  text
+   1-32      32   0.0464    206.3     31.4    17  OBKRUOXOGHULBSOLIFBBWFLRVQQPRNGK
+  33-65      33   0.0436    397.6     29.2    18  SSOTWTQSJQSSEKZZWATJKLUDIAWINFBNY
+  66-97      32   0.0363    297.0     23.2    19  PVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR
+homogeneity G = 76.92;  permutation null mean 62.73 sd 9.57; z = +1.48;  p = 0.0736  (200000 permutations)
+
+------------------------------------------------------------------------------
+A1. segmentation: quarters 24/24/24/25
+------------------------------------------------------------------------------
+      span    n      IoC    chi2E    chi2U  dist  text
+   1-24      24   0.0652     94.2     41.0    13  OBKRUOXOGHULBSOLIFBBWFLR
+  25-48      24   0.0688    960.9     43.2    14  VQQPRNGKSSOTWTQSJQSSEKZZ
+  49-72      24   0.0290    110.9     19.3    17  WATJKLUDIAWINFBNYPVTTMZF
+  73-97      25   0.0433    207.5     28.0    16  PKWGDKZXTJCDIGKUHUAUEKCAR
+homogeneity G = 115.72;  permutation null mean 91.07 sd 10.04; z = +2.45;  p = 0.0094  (200000 permutations)
+
+------------------------------------------------------------------------------
+A1. segmentation: OBKR vs rest 4/93
+------------------------------------------------------------------------------
+      span    n      IoC    chi2E    chi2U  dist  text
+   1-4        4   0.0000     52.7     22.0     4  OBKR
+   5-97      93   0.0351    579.5     16.9    26  UOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZWATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR
+homogeneity G = 12.81;  permutation null mean 16.00 sd 2.38; z = -1.34;  p = 0.9560  (200000 permutations)
+
+------------------------------------------------------------------------------
+A1. segmentation: before/after the two X (7,79)
+------------------------------------------------------------------------------
+      span    n      IoC    chi2E    chi2U  dist  text
+   1-6        6   0.0667     44.5     28.7     5  OBKRUO
+   7-78      72   0.0364    507.2     21.2    25  XOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZWATJKLUDIAWINFBNYPVTTMZFPKWGDK
+  79-97      19   0.0351    188.4     23.4    14  ZXTJCDIGKUHUAUEKCAR
+homogeneity G = 51.27;  permutation null mean 49.10 sd 6.60; z = +0.33;  p = 0.3537  (200000 permutations)
+
+------------------------------------------------------------------------------
+A1. segmentation: pre-crib / cribbed span / post
+------------------------------------------------------------------------------
+      span    n      IoC    chi2E    chi2U  dist  text
+   1-21      21   0.0667     99.4     39.7    13  OBKRUOXOGHULBSOLIFBBW
+  22-74      53   0.0385    638.1     25.0    23  FLRVQQPRNGKSSOTWTQSJQSSEKZZWATJKLUDIAWINFBNYPVTTMZFPK
+  75-97      23   0.0395    187.9     25.6    15  WGDKZXTJCDIGKUHUAUEKCAR
+homogeneity G = 75.49;  permutation null mean 60.43 sd 8.72; z = +1.73;  p = 0.0480  (200000 permutations)
+
+------------------------------------------------------------------------------
+A1. segmentation: doubled-letter blocks
+------------------------------------------------------------------------------
+      span    n      IoC    chi2E    chi2U  dist  text
+   1-18      18   0.0588     75.3     34.0    12  OBKRUOXOGHULBSOLIF
+  19-25       7   0.0476     64.3     26.4     6  BBWFLRV
+  26-32       7   0.0476    602.0     26.4     6  QQPRNGK
+  33-42      10   0.1111    480.9     42.0     6  SSOTWTQSJQ
+  43-46       4   0.1667     46.2     35.0     3  SSEK
+  47-67      21   0.0238    324.6     17.4    16  ZZWATJKLUDIAWINFBNYPV
+  68-97      30   0.0391    312.4     25.5    18  TTMZFPKWGDKZXTJCDIGKUHUAUEKCAR
+homogeneity G = 156.72;  permutation null mean 142.11 sd 9.47; z = +1.54;  p = 0.0662  (200000 permutations)
+
+------------------------------------------------------------------------------
+A1. segmentation: K3-style rows of 7 (lag-7)
+------------------------------------------------------------------------------
+      span    n      IoC    chi2E    chi2U  dist  text
+   1-7        7   0.0476    131.5     26.4     6  OBKRUOX
+   8-14       7   0.0000     24.9     19.0     7  OGHULBS
+  15-21       7   0.0476     51.3     26.4     6  OLIFBBW
+  22-28       7   0.0476    598.7     26.4     6  FLRVQQP
+  29-35       7   0.0476     34.1     26.4     6  RNGKSSO
+  36-42       7   0.0952    674.3     33.9     5  TWTQSJQ
+  43-49       7   0.0952    844.1     33.9     5  SSEKZZW
+  50-56       7   0.0000    122.2     19.0     7  ATJKLUD
+  57-63       7   0.0476     27.1     26.4     6  IAWINFB
+  64-70       7   0.0476     36.6     26.4     6  NYPVTTM
+  71-77       7   0.0000    245.9     19.0     7  ZFPKWGD
+  78-84       7   0.0000    416.2     19.0     7  KZXTJCD
+  85-91       7   0.0476     45.5     26.4     6  IGKUHUA
+  92-97       6   0.0000     33.8     20.0     6  UEKCAR
+homogeneity G = 267.33;  permutation null mean 264.67 sd 7.74; z = +0.34;  p = 0.3899  (200000 permutations)
+
+------------------------------------------------------------------------------
+A2. single-changepoint scan (every split point 5..92), statistic = G
+------------------------------------------------------------------------------
+max G = 53.27 at split after position 44 (1-indexed: OBKRUOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSS | EKZZWATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR)
+null (permutation) max-G: mean 41.56 sd 6.51, 95th pct 53.07
+family-wise p for the best split = 0.0478  (20000 permutations)
+top 8 split points (position, G): 44:53.3, 45:50.8, 46:49.5, 43:47.4, 35:45.8, 47:45.1, 42:44.7, 24:44.3
+
+------------------------------------------------------------------------------
+A3. where do the coincidences live?  (panel rows and crib blocks)
+------------------------------------------------------------------------------
+panel rows 4/31/31/31: within-segment coincidence rate 0.03783 (53/1401), cross-segment 0.03533 (115/3255)
+   pairwise mutual IoC (kappa):
+     0.0000* 0.0806  0.0242  0.0403 
+     0.0806  0.0430* 0.0343  0.0250 
+     0.0242  0.0343  0.0344* 0.0416 
+     0.0403  0.0250  0.0416  0.0366*
+crib blocks (5 parts): within-segment coincidence rate 0.04391 (44/1002), cross-segment 0.03394 (124/3654)
+   pairwise mutual IoC (kappa):
+     0.0667* 0.0330  0.0378  0.0087  0.0331 
+     0.0330  0.0385* 0.0398  0.0420  0.0234 
+     0.0378  0.0398  0.0369* 0.0376  0.0420 
+     0.0087  0.0420  0.0376  0.0364* 0.0237 
+     0.0331  0.0234  0.0420  0.0237  0.0395*
+
+------------------------------------------------------------------------------
+A4. periodic (decimation) IoC: average coset IoC for period p, per segment
+------------------------------------------------------------------------------
+ segment      1      2      3      4      5      6      7      8      9     10     11     12     13     14     15
+   whole  0.036  0.035  0.030  0.033  0.039  0.030  0.042  0.026  0.025  0.045  0.042  0.023  0.022  0.035  0.037
+    row2  0.043  0.036  0.028  0.038  0.037  0.031  0.056  0.000  0.051  0.061  0.069  0.000  0.000  0.000  0.000
+    row3  0.034  0.027  0.041  0.029  0.025  0.015  0.019  0.022  0.000  0.030  0.069  0.038  0.043  0.000  0.059
+    row4  0.037  0.044  0.021  0.067  0.037  0.031  0.037  0.044  0.026  0.061  0.000  0.077  0.087  0.000  0.000
+   half1  0.046  0.042  0.033  0.034  0.048  0.036  0.050  0.017  0.038  0.065  0.049  0.014  0.030  0.033  0.037
+   half2  0.037  0.040  0.032  0.040  0.046  0.028  0.054  0.032  0.018  0.062  0.023  0.026  0.043  0.032  0.035
+(English ~0.066, uniform-random 1/26=0.038.  A true period p shows a spike at p and its multiples.)
+
+wrote findings/seg_a_results.json

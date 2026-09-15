@@ -1,0 +1,75 @@
+==============================================================================
+solvekryptos.com claimed plaintext
+==============================================================================
+raw   : THE COMPASS ROSE IS HERE X EAST NORTHEAST THIS IS YOUR POSITION X COMMISSION BERLIN CLOCK WHICH IS NORTHEAST OF HERE X
+letters: THECOMPASSROSEISHEREXEASTNORTHEASTTHISISYOURPOSITIONXCOMMISSIONBERLINCLOCKWHICHISNORTHEASTOFHEREX
+length : 97  (K4 is 97)  -> MATCH
+   crib EAST       at 1-indexed 22-25: claim has 'EAST'  OK
+   crib NORTHEAST  at 1-indexed 26-34: claim has 'NORTHEAST'  OK
+   crib BERLIN     at 1-indexed 64-69: claim has 'BERLIN'  OK
+   crib CLOCK      at 1-indexed 70-74: claim has 'CLOCK'  OK
+
+language model: quad -0.9411   pent(interpolated 5-gram) -0.9533
+   (held-out English 97-grams: mean -0.741 sd 0.077; K2/K3 plaintext ~ -0.93 to -0.98;
+    uniform random: -1.81.  Annealed-to-fit English: about -0.68.)
+
+Key streams implied by the claim, per cipher/alphabet combo:
+--- solvekryptos claim  PT=THECOMPASSROSEISHEREXEASTNORTHEASTTHISISYOURPOSITIONXCOMMISSIONBERLINCLOCKWHICHISNORTHEASTOFHEREX
+    PT quad=-0.9411
+combo                                           IoC  p*  agree    exp   quadK match
+varbeaufort/pt=keyed/ct=plain/key=keyed      0.0369  36  0.433  0.404  -1.719 
+varbeaufort/pt=plain/ct=plain/key=plain      0.0389  27  0.371  0.328  -1.726 
+varbeaufort/pt=plain/ct=plain/key=keyed      0.0389  27  0.371  0.328  -1.730 
+beaufort/pt=keyed/ct=keyed/key=keyed         0.0410  20  0.309  0.273  -1.732 
+beaufort/pt=plain/ct=plain/key=keyed         0.0438  27  0.371  0.328  -1.741 
+vigenere/pt=keyed/ct=keyed/key=keyed         0.0399  21  0.340  0.281  -1.751 
+vigenere/pt=keyed/ct=plain/key=plain         0.0369  36  0.433  0.404  -1.761 
+varbeaufort/pt=keyed/ct=plain/key=plain      0.0369  36  0.433  0.404  -1.763 
+varbeaufort/pt=plain/ct=keyed/key=plain      0.0419  21  0.340  0.281  -1.765 
+vigenere/pt=keyed/ct=keyed/key=plain         0.0399  21  0.340  0.281  -1.765 PLJIH (tableau_physical_rev)
+beaufort/pt=keyed/ct=keyed/key=plain         0.0410  20  0.309  0.273  -1.766 
+vigenere/pt=plain/ct=keyed/key=plain         0.0419  21  0.340  0.281  -1.773 
+vigenere/pt=plain/ct=keyed/key=keyed         0.0419  21  0.340  0.281  -1.775 
+beaufort/pt=keyed/ct=plain/key=plain         0.0402  38  0.464  0.422  -1.777 
+beaufort/pt=keyed/ct=plain/key=keyed         0.0402  38  0.464  0.422  -1.780 
+vigenere/pt=plain/ct=plain/key=keyed         0.0389  27  0.371  0.328  -1.783 
+varbeaufort/pt=keyed/ct=keyed/key=plain      0.0399  21  0.340  0.281  -1.786 
+vigenere/pt=plain/ct=plain/key=plain         0.0389  27  0.371  0.328  -1.801 
+beaufort/pt=plain/ct=keyed/key=keyed         0.0363  30  0.392  0.352  -1.821 
+beaufort/pt=plain/ct=keyed/key=plain         0.0363  30  0.392  0.352  -1.830 
+vigenere/pt=keyed/ct=plain/key=keyed         0.0369  36  0.433  0.404  -1.842 
+beaufort/pt=plain/ct=plain/key=plain         0.0438  27  0.371  0.328  -1.844 
+varbeaufort/pt=keyed/ct=keyed/key=keyed      0.0399  21  0.340  0.281  -1.896 
+varbeaufort/pt=plain/ct=keyed/key=keyed      0.0419  21  0.340  0.281  -1.910 
+
+Structure of the implied shift sequences:
+combo                                        distinct modal d1 count maxrun words>=5 in key
+vigenere/pt=plain/ct=plain/key=plain               26       12     9      2 
+vigenere/pt=plain/ct=plain/key=keyed               26       12     9      2 [(44, 'RIVAL')]
+vigenere/pt=plain/ct=keyed/key=plain               24       22     8      2 
+vigenere/pt=plain/ct=keyed/key=keyed               24       22     8      2 
+vigenere/pt=keyed/ct=plain/key=plain               25       22     8      2 
+vigenere/pt=keyed/ct=plain/key=keyed               25       22     8      2 
+vigenere/pt=keyed/ct=keyed/key=plain               25       25     8      2 
+vigenere/pt=keyed/ct=keyed/key=keyed               25       25     8      2 
+beaufort/pt=plain/ct=plain/key=plain               25        1     7      3 
+beaufort/pt=plain/ct=plain/key=keyed               25        1     7      3 
+beaufort/pt=plain/ct=keyed/key=plain               26       22     7      2 
+beaufort/pt=plain/ct=keyed/key=keyed               26       22     7      2 
+beaufort/pt=keyed/ct=plain/key=plain               26        8     8      2 
+beaufort/pt=keyed/ct=plain/key=keyed               26        8     8      2 
+beaufort/pt=keyed/ct=keyed/key=plain               24        2     7      2 
+beaufort/pt=keyed/ct=keyed/key=keyed               24        2     7      2 
+varbeaufort/pt=plain/ct=plain/key=plain            26       14     9      2 
+varbeaufort/pt=plain/ct=plain/key=keyed            26       14     9      2 
+varbeaufort/pt=plain/ct=keyed/key=plain            24        4     8      2 
+varbeaufort/pt=plain/ct=keyed/key=keyed            24        4     8      2 
+varbeaufort/pt=keyed/ct=plain/key=plain            25        4     8      2 
+varbeaufort/pt=keyed/ct=plain/key=keyed            25        4     8      2 
+varbeaufort/pt=keyed/ct=keyed/key=plain            25        1     8      2 [(54, 'SKIDI')]
+varbeaufort/pt=keyed/ct=keyed/key=keyed            25        1     8      2 
+
+NULL for the same statistics (random plaintexts with the cribs fixed, 400 draws):
+    {'ioc_mean': 0.039, 'ioc_sd': 0.0031, 'quad_mean': -1.7973, 'quad_sd': 0.0538, 'gap_mean': 0.0471, 'gap_sd': 0.0128, 'match_rate': 0.0725}
+
+Dictionary words (>=5) in the claim outside the cribs: [(26, 'NORTH'), (45, 'POSIT'), (47, 'SITIO'), (70, 'CLOCK'), (75, 'WHICH'), (81, 'SNORT'), (82, 'NORTH'), (64, 'BERLIN'), (4, 'COMPASS'), (57, 'MISSION'), (45, 'POSITION'), (26, 'NORTHEAST'), (82, 'NORTHEAST'), (54, 'COMMISSION')]

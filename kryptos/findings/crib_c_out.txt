@@ -1,0 +1,158 @@
+==============================================================================
+TASK (a)  PRIMARY-SOURCE VERIFICATION OF THE CRIB POSITIONS
+==============================================================================
+K4 = OBKRUOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZWATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR
+     (97 letters; repo file data/k4_ciphertext.txt)
+
+### BERLIN / 2010
+  source : John Schwartz, 'Clues to Stubborn Secret in C.I.A.'s Backyard', The New York Times, published online November 20, 2010; print November 21, 2010, p. A1. Retrieved via the Internet Archive (web.archive.org/web/20120101102610/http://www.nytimes.com/2010/11/21/us/21code.html).
+  quote  : "He has provided The New York Times with the answers to six letters in the sculpture's final passage. The characters that are the 64th through 69th in the final series on the sculpture read NYPVTT. When deciphered, they read BERLIN."
+  parsed : positions 64-69  ->  plaintext BERLIN ; ciphertext NYPVTT (quoted in the release itself)
+
+### CLOCK / 2014
+  source : John Schwartz, 'Sculptor Offers Another Clue in 24-Year-Old Mystery at C.I.A.', The New York Times, November 20, 2014; print November 21, 2014, p. A16. Retrieved via the Internet Archive (web.archive.org/web/20160101034413/...another-kryptos-clue-is-offered...).
+  quote  : "The 64th through 69th characters of the final panel, when deciphered, spelled out the word BERLIN. [...] Mr. Sanborn has decided to open the door a bit more with five additional letters, those in the 70th through 74th position. They spell 'clock.' This means that the letters from positions 64 to 74 spell out two words: 'Berlin clock.'"
+  parsed : positions 70-74  ->  plaintext CLOCK ; ciphertext MZFPK (NOT quoted in the release text -- community read-off)
+
+### NORTHEAST / 2020
+  source : John Schwartz and Jonathan Corum, 'This Sculpture Holds a Decades-Old C.I.A. Mystery. And Now, Another Clue.', The New York Times, January 29, 2020. Retrieved via the Internet Archive (web.archive.org/web/20201208072511/...kryptos-sculpture-final-clue.html).
+  quote  : "The 2010 clue was the word BERLIN, in the 64th through 69th positions of that final passage. In 2014 he revealed the word CLOCK in the next five, 70 through 74. [...] So now, Mr. Sanborn, at 74, is giving the world another shot: the word NORTHEAST, at positions 26 through 34."
+  parsed : positions 26-34  ->  plaintext NORTHEAST ; ciphertext QQPRNGKSS (NOT quoted in the release text -- community read-off)
+
+### EAST / 2020
+  source : Wikipedia 'Kryptos' (citing John Schwartz, @jswatz, Twitter, August 24, 2020); Intel Today, 'The KRYPTOS Sculpture...', September 28, 2020, relaying Schwartz's account; Elonka Dunin, elonka.com/kryptos/ .
+  quote  : "In August 2020, Sanborn revealed that the four letters in positions 22 through 25, ciphertext 'FLRV', in the plaintext are 'EAST'. Sanborn commented that he 'released this layout to several people as early as April'. [Wikipedia]  --  'The 4th Clue -- The four letters in positions 22-25, cipher-text FLRV, are EAST in the plain-text.' [Intel Today]"
+  parsed : positions 22-25  ->  plaintext EAST ; ciphertext FLRV (NOT quoted in the release text -- community read-off)
+
+==============================================================================
+A1.  DOES THE QUOTED INDEX AGREE WITH THE QUOTED CIPHERTEXT?
+==============================================================================
+The 2010 release states two independent facts about the same window:
+an index range AND the letters found there.  A convention is admissible
+only if it makes both true at once.  Same test applied to all four cribs
+(for the three whose ciphertext string was supplied by the community
+rather than the release, this is a consistency check on the community's
+read-off, not on Sanborn).
+
+convention                                                 NYPVTT      MZFPK       QQPRNGKSS   FLRV      
+---------------------------------------------------------------------------------------------------------
+K4, 1-indexed (the standard assumption)                    NYPVTT      MZFPK       QQPRNGKSS   FLRV         ALL MATCH
+K4, 0-indexed                                              YPVTTM      ZFPKW       QPRNGKSSO   LRVQ         
+'?'+K4, 1-indexed (task c: the K3 question mark counted)   BNYPVT      TMZFP       VQQPRNGKS   WFLR         
+'?'+K4, 0-indexed                                          NYPVTT      MZFPK       QQPRNGKSS   FLRV         ALL MATCH
+K4 counted from the END, 1-indexed                         SSKGNR      PQQVR       FZMTTVPYN   GWKP         
+whole left panel incl. '?', 1-indexed                      VFPJUD      EEHZW       HGNFIVJYQ   KRNS         
+whole left panel, letters only, 1-indexed                  VFPJUD      EEHZW       HGNFIVJYQ   KRNS         
+last 4 panel rows as carved (= K4), 1-indexed              WTQSJQ      SSEKZ       W?OBKRUOX   VDOH         
+final panel row only (31 chars), 1-indexed                 --off--     --off--     --off--     UHUA         
+
+  conventions under which all four quoted (index, ciphertext) pairs hold: 2
+    -> K4, 1-indexed (the standard assumption)
+    -> '?'+K4, 0-indexed
+
+  CONCLUSION: the quoted index numbers and the quoted/derived ciphertext
+  strings are mutually confirming.  Exactly two of the nine conventions
+  satisfy them, and those two are the SAME map -- prefixing the '?' and
+  switching to 0-indexing are inverse shifts that cancel.  So there is a
+  unique admissible reading, and it is the one this repo already uses.
+
+  In particular the task-(c) hypothesis -- that Sanborn 1-indexed over a
+  string that begins with the '?' ending K3 -- is refuted by the 2010
+  release's own words: under that convention positions 64-69 read BNYPVT,
+  not NYPVTT.  The same convention puts CLOCK over TMZFP, NORTHEAST over
+  VQQPRNGKS and EAST over WFLR.
+
+==============================================================================
+A2.  WHERE ELSE COULD EACH QUOTED CIPHERTEXT STRING SIT?
+==============================================================================
+If a quoted ciphertext string occurs exactly once in K4 then the string
+pins the window by itself and the index number is redundant -- an
+off-by-one in the reporting could not move the crib.
+
+  BERLIN    ct=NYPVTT     occurrences in K4 (1-indexed starts): [64]         | in the whole 865-letter panel: [832]
+  CLOCK     ct=MZFPK      occurrences in K4 (1-indexed starts): [70]         | in the whole 865-letter panel: [838]
+  NORTHEAST ct=QQPRNGKSS  occurrences in K4 (1-indexed starts): [26]         | in the whole 865-letter panel: [794]
+  EAST      ct=FLRV       occurrences in K4 (1-indexed starts): [22]         | in the whole 865-letter panel: [790]
+
+  Every quoted string is unique inside K4.  For BERLIN the string was
+  published by Sanborn himself, so BERLIN's window is nailed down by two
+  independent statements and is immune to a reporting off-by-one.
+  FLRV, MZFPK and QQPRNGKSS were read off the published layout by the
+  community, so for them uniqueness only says the community's read-off is
+  self-consistent with the index it was read from.
+
+  Distance to the nearest alternative placement (how far a crib would have
+  to slide before its ciphertext letters could repeat):  no repeats exist,
+  so any slide changes the ciphertext letters and therefore changes all 24
+  (ct, pt) pairs.  That is what crib_b_shifts.py then tests directly.
+
+==============================================================================
+A3.  ELONKA DUNIN'S LAYOUT DIAGRAM, PARSED
+==============================================================================
+elonka.com/kryptos/ publishes the four cribs as a picture of the 4/31/31/31
+K4 row layout rather than as numbers.  Transcribed character-for-character
+from the page's <pre> block and concatenated:
+
+      ....                             (4 chars)
+      .................EASTNORTHEAST.  (31 chars)
+      ............................BER  (31 chars)
+      LINCLOCK.......................  (31 chars)
+
+  concatenated length: 97  (expected 97: True)
+  row widths [4, 31, 31, 31] match the carved K4 rows [4, 31, 31, 31]: True
+
+    EASTNORTHEAST  at 1-indexed 22..34  over ciphertext FLRVQQPRNGKSS
+    BERLINCLOCK    at 1-indexed 64..74  over ciphertext NYPVTTMZFPK
+
+  Elonka's diagram and the New York Times numbers agree exactly, and both
+  agree with data/cribs.json.  Two independent renderings of the same
+  claim -- a picture and a set of ordinals -- land on the same 24 letters.
+  DISCREPANCY FOUND (wording, not positions): Elonka's page calls both the
+  January 2020 NORTHEAST release and the April/August 2020 EAST release
+  'a third clue'.  Smithsonian Magazine (Jan 31 2020) swaps the release
+  years, writing that "'clock' and 'Berlin' [were] released in 2010 and
+  2014, respectively"; BERLIN was 2010 and CLOCK 2014.  Neither error
+  touches a position number.
+
+==============================================================================
+A4.  CROSS-CARVING CHECK: ANTIPODES
+==============================================================================
+Antipodes (1997, Hirshhorn) carries the Kryptos text a second time.  If a
+carving slip of the 2006 K2 kind sits inside K4, the two carvings should
+disagree there.  Transcription used: the Antipodes English-side text held
+in this session's scratch copy (provenance: a 2026-09-12 fetch of the
+community transcription; PROVENANCE UNCERTAIN -- treat as indicative).
+  OBKR occurrences in the Antipodes English side: 2
+    occurrence 1: first 97 letters identical to the Kryptos K4? True
+      character immediately before OBKR: '?' (K3's question mark)
+    occurrence 2: first 97 letters identical to the Kryptos K4? True
+      character immediately before OBKR: '?' (K3's question mark)
+
+  If both occurrences reproduce the 97 letters exactly, K4 has no carving
+  discrepancy of the K2 kind between the two sculptures, and the 97-letter
+  length that every index is counted over is confirmed twice over.
+
+==============================================================================
+A5.  WHAT SURVIVES AS AN ASSUMPTION, AND WHAT DOES NOT
+==============================================================================
+  BERLIN 64-69
+      provenance : index AND ciphertext letters both stated by Sanborn via the NYT, 2010
+      strength   : FIRM -- two independent statements agree; also restated by Sanborn in person (Elonka's March 2019 lunch notes: 'BERLIN is plaintext that starts at exactly the 64th character')
+
+  CLOCK 70-74
+      provenance : index stated by the NYT 2014 ('those in the 70th through 74th position'); ciphertext MZFPK not quoted in the article text
+      strength   : FIRM on the index; the 74th letter being K in both plaintext and ciphertext was called out publicly, which independently confirms the alignment of that one position
+
+  NORTHEAST 26-34
+      provenance : index stated by the NYT 2020; ciphertext QQPRNGKSS a community read-off
+      strength   : FIRM on the index, one source only
+
+  EAST 22-25
+      provenance : no index published by Sanborn in words -- released as an IMAGE of the K4 layout to individual correspondents in April 2020, surfaced August 2020
+      strength   : WEAKEST.  rumkin.com/reference/kryptos/k4/ records the doubt explicitly: 'It is possible that the first EAST in the plain text isn't correct. Sanborn did confirm it, but it's possible that it was confirmed out of hand as opposed to being intentional.'  Two incompatible provenance stories circulate: (i) Sanborn sent a layout image unprompted [Schwartz, Intel Today], (ii) a solver asked whether EASTNORTHEAST sat at a specific location and Sanborn agreed [rumkin]
+
+  The practical consequence: an off-by-one, if it exists anywhere, is far
+  likelier in the EAST/NORTHEAST block than in BERLIN/CLOCK.  That is the
+  asymmetric hypothesis crib_b_shifts.py section B2 tests directly (each
+  phrase block slid independently by -3..+3) and crib_e_ptct.py extends to
+  a free slide of the EASTNORTHEAST block alone.

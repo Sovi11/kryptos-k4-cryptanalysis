@@ -1,0 +1,469 @@
+{
+ "structural": {
+  "distinct_letters": 26,
+  "self_map": [
+   [
+    33,
+    "S",
+    "S"
+   ],
+   [
+    74,
+    "K",
+    "K"
+   ]
+  ]
+ },
+ "bifid": [
+  {
+   "square": "5x5",
+   "keyword": "KRYPTOS",
+   "best_crib_matches": 3,
+   "period": 7,
+   "decrypt": "STOLKTPOPELGVVARNSNTFegqbtoxksllelKTVVGKXQOCCCHCYOGRZIYKIPBFWENlitdtnwuzffPMKTPUVZMKIYHQKRWVTEAKR"
+  },
+  {
+   "square": "5x5",
+   "keyword": "PALIMPSEST",
+   "best_crib_matches": 4,
+   "period": 24,
+   "decrypt": "OBENHWNQNYQEWHOBKFGONxihzaogrgapnrRLFDFVEATMUCCKYSLEEHINKYPDUVFlaqpczclopiGXXCHKGIHZVWYKEFLUEZDAR"
+  },
+  {
+   "square": "5x5",
+   "keyword": "ABSCISSA",
+   "best_crib_matches": 3,
+   "period": 3,
+   "decrypt": "LXAUMUZLNHXQSFIOESBHBenmwcqrstdpmiNNYGQINBSLBOIZVGCAXLPVHBAZMPEntvyctolxpiLDRDXYYCWACXDUYHIBQNAAR"
+  },
+  {
+   "square": "5x5",
+   "keyword": "SANBORN",
+   "best_crib_matches": 4,
+   "period": 13,
+   "decrypt": "NVOQGQCBUXOVYBOAWLXLHrzstnmgmrfbblHBKTNBOLLULASABEQIHQIVQWFGKGNfyuewntupqmAXXEXXVITTLICEFGHPWRPHM"
+  },
+  {
+   "square": "5x5",
+   "keyword": "SCHEIDT",
+   "best_crib_matches": 3,
+   "period": 20,
+   "decrypt": "RIAQKBOORVQHVNPIKECMXdawggooyspkukPTRQGVCWONHCHHEUKDVZWXZTDNNZTzbplwzpqdwsATFFNQABIWHBFSEXKSKTQYE"
+  },
+  {
+   "square": "5x5",
+   "keyword": "LANGLEY",
+   "best_crib_matches": 3,
+   "period": 14,
+   "decrypt": "KZYDKHTHULIVXSIZLLMCFvdbdbxhsoekgtMISSRQMVPQSTNVKKUUZUVMHCAYXHObgodzcdwwfzTGMOWIARBSIFLPOKWAKLVGN"
+  },
+  {
+   "square": "5x5",
+   "keyword": "BERLIN",
+   "best_crib_matches": 3,
+   "period": 19,
+   "decrypt": "HYIBMGBMSXOVYGOWOBGREvcnxrtrmxrudtFQLLUFQHEYTNUKSGLDOHYVZNDYDLXdifwilnrxuqRVNSKMZXWMUQEYFGASRWKNC"
+  },
+  {
+   "square": "5x5",
+   "keyword": "CLOCK",
+   "best_crib_matches": 2,
+   "period": 5,
+   "decrypt": "KNDKAOIZMCQYOBEKDHDBWfducukroneyoqSTTVFSMFSLSAUWVZTQIFAGGIELHSFufnyyoszvfuIFZGGOQRIELGXCTUOVTVBKW"
+  },
+  {
+   "square": "5x5",
+   "keyword": "COMPASS",
+   "best_crib_matches": 3,
+   "period": 5,
+   "decrypt": "PEDELODVIOQWGVBLWHHBZedzgterecgognBTTWBNGHNBELUWVZTRLKLFLHIMQPSzeptycryxezOKAFLINQIIMLMHTUPXTVSPX"
+  },
+  {
+   "square": "5x5",
+   "keyword": "LODESTONE",
+   "best_crib_matches": 2,
+   "period": 3,
+   "decrypt": "EACUMPWHOKFMCMOEDFBUNfeexeqrnpktkoWLVBAEYHSVEKZZXNTKMFQXENHYTNIbbwvotudvucGHASXWVKMAGQKQYKCFRKWAR"
+  },
+  {
+   "square": "5x5",
+   "keyword": "SHADOW",
+   "best_crib_matches": 3,
+   "period": 5,
+   "decrypt": "AYEFGOXUGHVSGNFMPIBBEdeziplrlngsggOTYCSNGWNIDMIUUXQXLFGAPGCHPDWzetezctvxcvNKOOTKQULCBGSIMUDKXHCDL"
+  },
+  {
+   "square": "5x5",
+   "keyword": "IQLUSION",
+   "best_crib_matches": 2,
+   "period": 3,
+   "decrypt": "BUORMIVFBGVLCMIIFLBTNfguwiqremdktiYCZOMIVQSXQTSZXBCIIPIKDNDVANGbbxzuttaxkhMDRDXYZSLOUUDSKGBFQTQAR"
+  },
+  {
+   "square": "5x5",
+   "keyword": "UNDERGRUUND",
+   "best_crib_matches": 5,
+   "period": 22,
+   "decrypt": "QEAKLLEVDEQNWMPDADMNNrlsevyrtismsbEYDACDLLSSUQKIWWZWXAGAPZIBHIMsenxdtztxlzXWAYOBKIWGBDUHLDDNCANUR"
+  },
+  {
+   "square": "5x5",
+   "keyword": "DESPARATLY",
+   "best_crib_matches": 4,
+   "period": 23,
+   "decrypt": "NMBUNPYEWSQNVMQMIIGNVelyevbnvmxaklSQHICNDSCEHKZZWWZHSWTTIXNEYCXaeefvemlzwcRDNQSWHCIDSOAUUZQRDRQEC"
+  },
+  {
+   "square": "5x5",
+   "keyword": "LAYERTWO",
+   "best_crib_matches": 3,
+   "period": 16,
+   "decrypt": "OGOPQALSUBCDUNTDIVHCBqbptchoyyesvrXRCDCLTBBLQZZROCLWWAGZPYYAUBHyehpkufoyolPTZZIBOEIUTUIADXHDMRSWR"
+  },
+  {
+   "square": "5x5",
+   "keyword": "MASKING",
+   "best_crib_matches": 4,
+   "period": 14,
+   "decrypt": "HZGFSRTORYFXVHHWHTKXOncfcfyntldaccKQMHMOLWMFKLEIMTXYYZWDAVICYNIvcklcnevyodUSKTVDGCGZAYDBMPTWLEQYS"
+  },
+  {
+   "square": "6x6",
+   "keyword": "KRYPTOS",
+   "best_crib_matches": 3,
+   "period": 29,
+   "decrypt": "O6EHPYKAQNY73YK6LSGIVuh7bfckrmalskTATAPO5RXV6TXMHEPIZVHCRAU4FUWbgrdfmdrjkmV0TZPZVY1BGKKNWFFNUAAMN"
+  },
+  {
+   "square": "6x6",
+   "keyword": "PALIMPSEST",
+   "best_crib_matches": 3,
+   "period": 5,
+   "decrypt": "K7TKJO6Q6HUGSJFSHLRBU1t7iqirlmopouSTCQYFOGXAPHV2EZCEJKJT1MQIJ0D8eaarqdybc7MKMT1OCTNGCJLHVUPBVHCIT"
+  },
+  {
+   "square": "6x6",
+   "keyword": "ABSCISSA",
+   "best_crib_matches": 3,
+   "period": 6,
+   "decrypt": "ORCGG7T7OUGLSEAPMTBFSevyuwo4n6eng7CMR0TJN9BQIMJBT2BDUERLC8A2NNJesjutwftfm0E9T3ZJR7RKC0FOH6BDROEAR"
+  },
+  {
+   "square": "6x6",
+   "keyword": "SANBORN",
+   "best_crib_matches": 4,
+   "period": 2,
+   "decrypt": "S1IPQMQ8D3ULSQN1JBSVT1ixvqurs6e0ssBZVZQSLCSSEK2DQZUDKLTJIAUYALSu0rvtugzfk6T2EE1HUDDAJOLKF6BEEKCAR"
+  },
+  {
+   "square": "6x6",
+   "keyword": "SCHEIDT",
+   "best_crib_matches": 3,
+   "period": 4,
+   "decrypt": "MYFLVPM2F0HLBOHCC0AUUzfrvqudrgmqhiCSVYTST4QSIROCRYAJNHKJE2TGLUBv1el4gclnn8LII5NDTCT9HYF0CLVMSRLCR"
+  },
+  {
+   "square": "6x6",
+   "keyword": "LANGLEY",
+   "best_crib_matches": 3,
+   "period": 6,
+   "decrypt": "ORFGMFZEOULRBLSIKUCGBlu4t2o4j6gsmfUDU5TJM9TCVCEZT4NCRJRSFQC9LMBwdet0vksoj1KDT50BZASMF7AVOFNCSSLZR"
+  },
+  {
+   "square": "6x6",
+   "keyword": "BERLIN",
+   "best_crib_matches": 3,
+   "period": 4,
+   "decrypt": "MTBRVQMVF0A7RLSLBYASS1auuxm8epr5ulVEU3VAOBO4ICPCVZDBODEUL2AIB4Ax1lozwckoo2KGGKOHTCKRRZF0C4VMECKAR"
+  },
+  {
+   "square": "6x6",
+   "keyword": "CLOCK",
+   "best_crib_matches": 2,
+   "period": 3,
+   "decrypt": "BJKN4UU5KFYTC4UBEFB7AenbwuqrungvcuKLT0WSOQSLTLWZW1LPCLSMIAZXNJIjn1tvtme0pvADSG3GTJLCG4GWPFOZTCSAR"
+  },
+  {
+   "square": "6x6",
+   "keyword": "COMPASS",
+   "best_crib_matches": 2,
+   "period": 15,
+   "decrypt": "ODGOQLUMVJCBX4OLVIPFUhmhcv1bund0qiS6O6SBXBXZUKK1F0DT0CYWFNEIJ1Dreajz1cpuuvWBZDEIJ2EU7UDQFMMYRIGLI"
+  },
+  {
+   "square": "6x6",
+   "keyword": "LODESTONE",
+   "best_crib_matches": 4,
+   "period": 5,
+   "decrypt": "ECAKJOAX6LUHSLASOJABQ1a1exerohf4mqOT7QYSMHWLEIV2AZE4HKJOKMBABON2np4xus3bc1MC8OKPE4JJAB6HVUCBVIECA"
+  },
+  {
+   "square": "6x6",
+   "keyword": "SHADOW",
+   "best_crib_matches": 3,
+   "period": 2,
+   "decrypt": "HYMCQVQ8BZTTBSA0C7CSH7mkuytwtgezssD0D6QSMSSSEK2CS6TJLEQUB6H9K1Eo0wu0tmzfl5H8AR1ITJBFC8MFDFDMEKBER"
+  },
+  {
+   "square": "6x6",
+   "keyword": "IQLUSION",
+   "best_crib_matches": 3,
+   "period": 21,
+   "decrypt": "U4BGHYWNOPL4P6I5HAHJSkisfwnxvlcsctIRNDLJNGSYLYC5KYYAZCWYNAPHFRHdu2lrqwtwkrJM70BJQVQKQIJAM0SRJGQVA"
+  },
+  {
+   "square": "6x6",
+   "keyword": "UNDERGRUUND",
+   "best_crib_matches": 4,
+   "period": 28,
+   "decrypt": "L2CCKIN1NNKZV8K1D6A2Eemjfatiezebu7LBWBWBM2SJV0TJTNTCJUQDH5BET3C5ehaxacdb2nM9VTTJSLJTA4U4MCNNCZUUH"
+  },
+  {
+   "square": "6x6",
+   "keyword": "DESPARATLY",
+   "best_crib_matches": 3,
+   "period": 13,
+   "decrypt": "NBLQG0E7UOOL1PJWLFLHGf7cuyqgsue5npMEG1SAKHVOJRGAHDYJM0YBNOREJJDzqrnu0cpfsg4XYC0YXSCPJQL1PDKOVDCG3"
+  },
+  {
+   "square": "6x6",
+   "keyword": "LAYERTWO",
+   "best_crib_matches": 2,
+   "period": 2,
+   "decrypt": "OBG2PZZAIANXCJWWHMOIOtlrs6shexirssWFWTSJJQSSYU2OWAY7GXP2GHBYPTCgehn9y9zfqdBLB22WY7OUIGJ2JDEDYUWPR"
+  },
+  {
+   "square": "6x6",
+   "keyword": "MASKING",
+   "best_crib_matches": 2,
+   "period": 4,
+   "decrypt": "HVDGVQLVDSLSCDSLAZB5U0d4uxl8tmm7soKJU3RCHCH6EZITVZSBKUJOK2MEA5G91kozwbano2ARETKXTCJDM1DSHAVLB0MTR"
+  }
+ ],
+ "trifid": [
+  {
+   "keyword": "KRYPTOS",
+   "extra": "end",
+   "best_crib_matches": 3,
+   "period": 7,
+   "decrypt": "KCNYW#POI#HCHIBCWHQNLehshuzkppemkdLPGLNLMBR#YRQALBWDKDFJGZTSMLQvkjtompwnddDSTARKUVFZEQAFCHTMERFKN"
+  },
+  {
+   "keyword": "KRYPTOS",
+   "extra": "start",
+   "best_crib_matches": 2,
+   "period": 3,
+   "decrypt": "YLKOTQMXDJQYBAYUSPGR#hbdzflrbjbdu#XDNUOTXHKXEAAJLXADLQUDISZMUYQlpmlfzxsirdEEBXWXVFLVEQIVICSUQYRGR"
+  },
+  {
+   "keyword": "PALIMPSEST",
+   "extra": "end",
+   "best_crib_matches": 2,
+   "period": 6,
+   "decrypt": "JYUTUXXGUGVXIZYAC#EVXsqz#carladjbcXTZDFLVKLORSORROGIIOUMRCAGF#KgevuomavjtiMHXPRYGWGZMNAOCBAECVERR"
+  },
+  {
+   "keyword": "PALIMPSEST",
+   "extra": "start",
+   "best_crib_matches": 3,
+   "period": 12,
+   "decrypt": "YIPKPANYBXPODIMIV#UP#mbaxdjutjwlflTHUNQERVRTDAZAUKV#LRTVRFQEJZWbcmnmmcyxlaNGZFYJYKJDLHKKHCCOKXFAR"
+  },
+  {
+   "keyword": "ABSCISSA",
+   "extra": "end",
+   "best_crib_matches": 3,
+   "period": 2,
+   "decrypt": "HTOE#C#LEVZCCSJVDJCBXjhounqwtdexesHZVPOUNDESAXXZVHVIPCZSCHWJQJIduwrpwixtlxXKENW#VIBKDKOGHGAGAXAHR"
+  },
+  {
+   "keyword": "ABSCISSA",
+   "extra": "start",
+   "best_crib_matches": 3,
+   "period": 8,
+   "decrypt": "JYJIDVJLHSCMAHYHFJREYwdatkoxdavsspBDNSOXH#WTBFIMYLTESKTSFJUDIOTgvzjpzqzmouTJJFTKU#YH#WEKLDKRHDSCR"
+  },
+  {
+   "keyword": "SANBORN",
+   "extra": "end",
+   "best_crib_matches": 3,
+   "period": 2,
+   "decrypt": "OFMHZAZGIR#BSFRIFIAFViguqlurchjrssBMVMQSILSSDXXZVGWOPI#AFGWICBShuxqmxovvmxVJOXW#WONTFJLPLEBEDXSTR"
+  },
+  {
+   "keyword": "SANBORN",
+   "extra": "start",
+   "best_crib_matches": 3,
+   "period": 11,
+   "decrypt": "SMV#GILXDSPLVKBIJBOFNfixfnzstekpscDGRLPUSPUILDBMPSZYTYUCVUIEJABtuezkmyoqudPGWLVBXTYWPDYNKJSUEANDP"
+  },
+  {
+   "keyword": "SCHEIDT",
+   "extra": "end",
+   "best_crib_matches": 2,
+   "period": 2,
+   "decrypt": "MUFO#I#LKHZITQLWEKBUVkkoqnudxelessMQXFQSNTSSCKXZXGSXGLZHDGWGFVBvuxufcxvvovVLAKW#SXIHELFPTBE#CKDCR"
+  },
+  {
+   "keyword": "SCHEIDT",
+   "extra": "start",
+   "best_crib_matches": 2,
+   "period": 5,
+   "decrypt": "BWWKDBWXYUXKSGGMJQHJUlwntuafrtjsqlGDQMUNJF#VSNOMZZSWLKJTRDTOLVGgewstwbvyrfIGIWIXCPBNGKDWFBSQUULDZ"
+  },
+  {
+   "keyword": "LANGLEY",
+   "extra": "end",
+   "best_crib_matches": 4,
+   "period": 9,
+   "decrypt": "QTLCWLJPFFBFZFYEBLYSAatnzitiuhvygdLW#FVWGSJZZPKOSSKXRORFYCUXJNXcewdizproiwHIQOWJWMHBAUHYVUEGJVMLB"
+  },
+  {
+   "keyword": "LANGLEY",
+   "extra": "start",
+   "best_crib_matches": 3,
+   "period": 28,
+   "decrypt": "FWPGVHDJQXNMRPIOVFSVIisi#jhpvapahc#MIKKXQLXRBXHWDUPGUXYWMMBGBWTrbkhechcocj#UJBMEEXYMHOBEIHHMWVKDJ"
+  },
+  {
+   "keyword": "BERLIN",
+   "extra": "end",
+   "best_crib_matches": 3,
+   "period": 4,
+   "decrypt": "GSLN#E#JHAPFBBIYBFFFSffm#pnpicwesrLZUMJYOQAFINQPZGPBMFQRCFPIBFThyxakwcookwOKIXZQWBHQEMJMFDS#ILHOR"
+  },
+  {
+   "keyword": "BERLIN",
+   "extra": "start",
+   "best_crib_matches": 3,
+   "period": 8,
+   "decrypt": "PSKENJGJDBVKF#VORFQJAharthoxelseucGXNKMYJPGWEEZIYJWLUJX#NFUNSMThwxgpzsxjowTPKTTHXISFGKAUJPRTG#CVR"
+  },
+  {
+   "keyword": "CLOCK",
+   "extra": "end",
+   "best_crib_matches": 4,
+   "period": 11,
+   "decrypt": "DFTDGTDQBPUEOGANUZLDFoabqjvytjfpvwDLBA#VDISJAYJAGKVZIVXAXLQBXFGq#gwpfwlqykPIGKNASSGTG#SBPCPSEWLNI"
+  },
+  {
+   "keyword": "CLOCK",
+   "extra": "start",
+   "best_crib_matches": 2,
+   "period": 3,
+   "decrypt": "#PCXK#SUCNOTBSOKORLYLh#bvqqptfhojtOHYHZVAMXLMEQQTIZFIMSPODJXIT#pzkzfqpnxhvMFDJZXTFHJIGKWGBBMT#GMR"
+  },
+  {
+   "keyword": "COMPASS",
+   "extra": "end",
+   "best_crib_matches": 3,
+   "period": 2,
+   "decrypt": "SCLLYOYGIS#POUSPFIMRVifyuknruajsdhPDVNNUKKDHDXXZWGWAQI#OGGWIIVMwtrrnvmvvokVJAXW#WAMOFJLQLEPQDXOOR"
+  },
+  {
+   "keyword": "COMPASS",
+   "extra": "start",
+   "best_crib_matches": 3,
+   "period": 4,
+   "decrypt": "SAUBQKSDHCZIDRGCFHGLRjulqelrzbjedt#OQKZQEETXNODNWLYOKUDJJLLPFVTnvwkawcxbdfKJDTZKVSTGENIKJGCUL#CGR"
+  },
+  {
+   "keyword": "LODESTONE",
+   "extra": "end",
+   "best_crib_matches": 3,
+   "period": 22,
+   "decrypt": "OEHLZWIRNRNGULUBBFWIQoalsubhycowsoXTLCVRWNMSSMSMQDQRKRYGUKJEXGNi#j#fativlkQGZIZRKPSPH#QJMCNQTRTYF"
+  },
+  {
+   "keyword": "LODESTONE",
+   "extra": "start",
+   "best_crib_matches": 3,
+   "period": 8,
+   "decrypt": "DARMTDBRCF#GIBPCBIPBNwjswkcqtczlabZ#KUNOMQSZOISIPHZLUXEPJIVTPXWhwrmronpizeSFRIRGEPEFVSKDMKHPCDSWR"
+  },
+  {
+   "keyword": "SHADOW",
+   "extra": "end",
+   "best_crib_matches": 3,
+   "period": 6,
+   "decrypt": "WKJBROXGUHGLHUWODBHVEwqh#fgvecfhgiFICGQTSQAECWWOCGZOOTUGEHFEI#Fkew#invbqfvYKGKYTNUKQJDVPOFSEZUJWR"
+  },
+  {
+   "keyword": "SHADOW",
+   "extra": "start",
+   "best_crib_matches": 3,
+   "period": 14,
+   "decrypt": "AGVBYMGETZDPXFAGZJRCEjhidn#xu#riqtLBUFFZ#BBBMBHMG#OFMTQULIHDGCDtcmlbkyrtrm#JUDANNXBYEMBKARKEYTKIH"
+  },
+  {
+   "keyword": "IQLUSION",
+   "extra": "end",
+   "best_crib_matches": 3,
+   "period": 10,
+   "decrypt": "LFRORRGZKXUGQUNTLYTLRhjfeiqutpghchYJQJKSGXOQBGAFMAPNTGTSDVCINTNmenlr#ozwmgHOWOSERURCRSHUSJIYHAHUD"
+  },
+  {
+   "keyword": "IQLUSION",
+   "extra": "start",
+   "best_crib_matches": 3,
+   "period": 22,
+   "decrypt": "OMUEOLJPPVUMLCE#RIWYInagutotzhcsnrUOMZ#JW#YSKELJXRVPPVVTMHRIWRYkofxjkvjlvjLROLYYYKJKZ#JFCTULGDSXZ"
+  },
+  {
+   "keyword": "UNDERGRUUND",
+   "extra": "end",
+   "best_crib_matches": 3,
+   "period": 15,
+   "decrypt": "JYJBWPJPKDJORDRPJVLUQkgcuwkavhbhypJJ#UO#UHMSJMFPWVIVXJXKONQDGCOoeubtpbnoxzNAH#RRSFMMSQOVFYGQGEENB"
+  },
+  {
+   "keyword": "UNDERGRUUND",
+   "extra": "start",
+   "best_crib_matches": 3,
+   "period": 2,
+   "decrypt": "OSMHRRSW#WRDGZOTCJBSXjfstmtgghuwxbMXYLTBIMXBEKZZZFQJOIE#HFYIGEGstxvlsjxvqrZCUKZXQJF#HCLFLUDQEKHUR"
+  },
+  {
+   "keyword": "DESPARATLY",
+   "extra": "end",
+   "best_crib_matches": 3,
+   "period": 5,
+   "decrypt": "ORMHDOTCVVUISDOTUCJGZf#hezswndgfsjOTQTNMJQDXEH#JVZSVYHNLSAHMXPDfyrblqf#oicRFHYRTDUEHQHKRCUSCCUHAF"
+  },
+  {
+   "keyword": "DESPARATLY",
+   "extra": "start",
+   "best_crib_matches": 3,
+   "period": 17,
+   "decrypt": "ZLXFTYJQVSVSZKGV#KYLYtgjtgozsbyspmOAZAZHOOAEMFNC#LGYNHIXX#QWNJCpafculxioppVNNFHRRJJKWJHHBQZWGHYCW"
+  },
+  {
+   "keyword": "LAYERTWO",
+   "extra": "end",
+   "best_crib_matches": 2,
+   "period": 5,
+   "decrypt": "OUMRPANKUUPCJBOBTLMFOpydyzoqslhjefZLFVOXKXEPWIXJSPLG#HPMLDHFXLWjbzyh#f#zciEIHBIWLHPDVHKTHUTAHNGRA"
+  },
+  {
+   "keyword": "LAYERTWO",
+   "extra": "start",
+   "best_crib_matches": 3,
+   "period": 7,
+   "decrypt": "OVPHOOGEXVFKCCTNQY#HCfkwtairehsxtkHWNOEPJYUHHZIKWWRSOX#DJSETLV#mtktd#vnxsjJ#ZJSMXNQZKZWHIFHQIZYCH"
+  },
+  {
+   "keyword": "MASKING",
+   "extra": "end",
+   "best_crib_matches": 5,
+   "period": 26,
+   "decrypt": "DXKSZDCJNZABVSTPXCRHXprinxd#thzhwgSNJ#CTSBJKKI#GATPTGHSQEZVSWQBgahqibhuoekODIDWXD#ERWMPDOLNRYECMM"
+  },
+  {
+   "keyword": "MASKING",
+   "extra": "start",
+   "best_crib_matches": 2,
+   "period": 4,
+   "decrypt": "OZCKXHBOSVPFKRWNICTPUeuoqdpty#dgkeSBQLYQCCRUJIZBTOYANDLHALYIIQAlyzljtkynjuZKJIPNUGUDGJRSJEDQFSUAR"
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+============================================================================================================
+TABLE B0 -- DETECTION POWER of the battery.  200 synthetic key streams of each kind;
+            entries are the % of streams flagged by that test at |z| >= 3 (or a corpus hit).
+============================================================================================================
+key-stream kind         ioc per_excess       rep4       quad        run         ap         d1  ndistinct       ac_z  lcs_scu  lcs_lat   ANY
+random                   1%         0%         2%         0%         0%         0%         0%         2%         1%       4%       5%   14%
+periodic-5             100%       100%       100%        58%         0%         0%       100%       100%       100%       0%       0%  100%
+periodic-7             100%       100%       100%        38%         0%         0%       100%       100%       100%       0%       0%  100%
+periodic-11            100%       100%       100%        28%         0%         0%        94%       100%       100%       0%       1%  100%
+periodic-17            100%       100%       100%        16%         0%         0%        94%       100%       100%       1%       2%  100%
+periodic-26             98%       100%       100%        10%         0%         0%        66%       100%       100%       1%       2%  100%
+english                100%        74%        80%       100%         0%         0%         6%       100%        54%      94%      39%  100%
+sculpture               76%        73%        58%        34%         0%        12%        12%        78%        66%     100%      24%  100%
+lateral                 68%        63%        44%        20%         0%        10%        36%        58%        49%      36%     100%  100%
+progressive            100%       100%       100%        16%         0%       100%       100%        54%       100%       9%      14%  100%
+quadratic              100%       100%       100%        25%         0%         6%         6%        98%       100%       0%       4%  100%
+digits                 100%       100%        40%         0%         8%         2%        60%       100%       100%       8%      92%  100%
+
+The 'random' row is the FALSE-POSITIVE rate of the battery; every other row is power.
+
+real	0m18.619s
+user	0m11.206s
+sys	0m0.113s

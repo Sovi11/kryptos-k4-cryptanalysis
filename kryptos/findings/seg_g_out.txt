@@ -1,0 +1,52 @@
+verification: the vectorised shift table reproduces seg_common.required_shifts
+for all 867 configurations on the real ciphertext.  OK
+
+==============================================================================
+(g) GOLD-STANDARD NULL FOR THE E2 FORWARD-SIMULATION SWEEP
+==============================================================================
+REAL K4: max out-of-sample quadgram -7.1377, best BERLINCLOCK match 5/11, fully determined simulations 673,297
+         attained by RESET_AFTER trig=letter V p=13 b1=10 ('vigenere', 'COMPASS', 'DESPARATLY')
+
+  UNIFORM   rep  1/15: max q -7.1365  best match 6/11  determined 670,597   [63s]
+  UNIFORM   rep  2/15: max q -7.0945  best match 5/11  determined 670,093   [100s]
+  UNIFORM   rep  3/15: max q -7.1357  best match 5/11  determined 680,513   [131s]
+  UNIFORM   rep  4/15: max q -7.0726  best match 4/11  determined 678,058   [149s]
+  UNIFORM   rep  5/15: max q -7.1657  best match 4/11  determined 667,240   [174s]
+  UNIFORM   rep  6/15: max q -7.1581  best match 5/11  determined 691,525   [203s]
+  UNIFORM   rep  7/15: max q -7.1636  best match 4/11  determined 671,625   [233s]
+  UNIFORM   rep  8/15: max q -7.2383  best match 5/11  determined 684,712   [264s]
+  UNIFORM   rep  9/15: max q -7.2435  best match 5/11  determined 663,988   [296s]
+  UNIFORM   rep 10/15: max q -7.1716  best match 4/11  determined 672,517   [332s]
+  UNIFORM   rep 11/15: max q -7.2415  best match 5/11  determined 678,515   [1272s]
+  UNIFORM   rep 12/15: max q -6.8721  best match 5/11  determined 662,224   [1289s]
+  UNIFORM   rep 13/15: max q -7.2160  best match 5/11  determined 673,600   [1302s]
+  UNIFORM   rep 14/15: max q -6.9545  best match 5/11  determined 666,966   [1317s]
+  UNIFORM   rep 15/15: max q -7.1253  best match 5/11  determined 672,011   [1334s]
+  UNIFORM   null over 15 replicates: mean -7.1326 sd 0.1039  min -7.2435  max -6.8721
+  UNIFORM   replicates whose max q reached or beat the real -7.1377: 7/15   -> p = 0.500
+  UNIFORM   best BERLINCLOCK match across replicates: 6/11 (real 5/11)
+
+  SHUFFLE   rep  1/15: max q -7.1170  best match 5/11  determined 687,765   [1353s]
+  SHUFFLE   rep  2/15: max q -7.2030  best match 5/11  determined 680,595   [1372s]
+  SHUFFLE   rep  3/15: max q -7.1705  best match 5/11  determined 669,579   [1389s]
+  SHUFFLE   rep  4/15: max q -7.1843  best match 4/11  determined 681,519   [1400s]
+  SHUFFLE   rep  5/15: max q -7.2223  best match 6/11  determined 679,809   [2334s]
+  SHUFFLE   rep  6/15: max q -7.2022  best match 5/11  determined 673,115   [2341s]
+  SHUFFLE   rep  7/15: max q -6.8817  best match 5/11  determined 667,184   [2349s]
+  SHUFFLE   rep  8/15: max q -6.7387  best match 5/11  determined 665,716   [2355s]
+  SHUFFLE   rep  9/15: max q -7.1632  best match 4/11  determined 675,209   [2361s]
+  SHUFFLE   rep 10/15: max q -7.2698  best match 5/11  determined 670,303   [2367s]
+  SHUFFLE   rep 11/15: max q -7.1524  best match 5/11  determined 670,523   [2377s]
+  SHUFFLE   rep 12/15: max q -7.2058  best match 5/11  determined 662,325   [2384s]
+  SHUFFLE   rep 13/15: max q -7.1577  best match 5/11  determined 663,795   [2394s]
+  SHUFFLE   rep 14/15: max q -7.1072  best match 5/11  determined 670,160   [3347s]
+  SHUFFLE   rep 15/15: max q -7.1068  best match 5/11  determined 677,486   [3353s]
+  SHUFFLE   null over 15 replicates: mean -7.1255 sd 0.1381  min -7.2698  max -6.7387
+  SHUFFLE   replicates whose max q reached or beat the real -7.1377: 5/15   -> p = 0.375
+  SHUFFLE   best BERLINCLOCK match across replicates: 6/11 (real 5/11)
+
+Reading: if the real K4 maximum sits inside the null cloud, the E2 sweep found
+nothing - the analytic best-of-N threshold quoted in seg_e was simply the
+wrong threshold, because the 673,297 simulations are not independent.
+
+[runtime 3353.4s]

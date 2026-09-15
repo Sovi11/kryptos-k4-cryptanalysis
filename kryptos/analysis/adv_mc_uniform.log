@@ -1,0 +1,30 @@
+K4 observed battery:
+   S                  336
+   bigrams            10
+   chi2u              19.061855670103093
+   colb21_excess      11
+   colb21_pairs       11
+   colbmax_excess     11
+   colbmax_pairs      11
+   distinct           26
+   doubles            6
+   ioc                0.03608247422680412
+   maxperz_2_30       1.128483574229135
+   maxperz_2_48       1.128483574229135
+   maxz_1_24          3.035786553761644
+   maxz_1_30          3.035786553761644
+   maxz_1_48          3.035786553761644
+   maxz_1_67          3.035786553761644
+   maxz_1_96          3.035786553761644
+   minp_1_24          0.007871680208387575
+   minp_1_30          0.007871680208387575
+   minp_1_48          0.007871680208387575
+   minp_1_67          0.007871680208387575
+   minp_1_96          0.007871680208387575
+   modmax             5
+   ndoub              6
+   trigrams           0
+
+running 500,000 replicates, null=uniform, 8 procs ...
+done in 150.9s
+saved adv_null_uniform.pkl  (500,000 replicates)

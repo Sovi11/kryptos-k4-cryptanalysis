@@ -1,0 +1,240 @@
+==============================================================================
+(a) METHOD GENEALOGY -- concrete candidates and their tests
+==============================================================================
+ciphertext  : OBKRUOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZWATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR
+crib pos    : 22 23 24 25 26 27 28 29 30 31 32 33 34 64 65 66 67 68 69 70 71 72 73 74
+crib ct/pt  : FLRVQQPRNGKSSNYPVTTMZFPK / EASTNORTHEASTBERLINCLOCK
+
+==============================================================================
+S0.  ALPHABET-INDEPENDENT INVARIANTS OF THE FORCED KEY STREAM
+==============================================================================
+
+Model assumed:  C[i] = f(P[i], k_i) where f is a letter-wise rule over ONE fixed pair
+of alphabets and k_i is a single key symbol.  Every classical polyalphabetic in play
+(Vigenere, Beaufort, variant Beaufort, Quagmire I-IV, Gronsfeld, Gromark, running key,
+one-time chart) is of this form.  For such an f, k -> f(p,k) is a bijection for fixed p
+and p -> f(p,k) is a bijection for fixed k.  Hence:
+
+    (C_i,P_i) == (C_j,P_j)                       =>  k_i == k_j
+    P_i == P_j and C_i != C_j                    =>  k_i != k_j
+    C_i == C_j and P_i != P_j                    =>  k_i != k_j
+
+These hold for EVERY alphabet pair and EVERY family, so they are properties of the
+Sanborn cribs alone.
+
+FORCED EQUALITIES  (k_i == k_j), 1-indexed:
+   k[28] == k[66]   (both P -> R), separation 38
+   total: 1
+
+FORCED INEQUALITIES (k_i != k_j), 1-indexed:  22 pairs
+   22!=31, 22!=65, 22!=72, 23!=32, 24!=29, 24!=33, 25!=29, 25!=34, 25!=67, 26!=27, 26!=69, 27!=72, 28!=73, 29!=34, 30!=64, 31!=65, 32!=74, 33!=34, 66!=73, 67!=71, 68!=69, 70!=73
+
+CONSEQUENCE.  The single forced equality is k[28] == k[66] (1-indexed), separation 38.
+Any PERIODIC key of period p satisfies it automatically iff p divides 38, i.e.
+p in {1, 2, 19, 38}; all four are already ruled out by the periodic sweeps.  For any
+other p the equality must hold by coincidence, probability 1/26.  A NON-periodic key
+stream must satisfy it exactly -- it is a free, alphabet-independent filter that every
+candidate key stream in this repository should be checked against.
+   divisors of 38 in 1..97: [1, 2, 19, 38]
+
+Distinctness pressure: the inequality graph on the 24 crib positions has 22 edges;
+   mean degree 1.83.  A key stream that is constant on any of these pairs is impossible.
+
+==============================================================================
+S1.  GROMARK model G1:  C[i] = A_c[(idx_Ap(P[i]) + k_i) mod 26]
+     A_p fixed, A_c FREE (the test below covers all 26! cipher alphabets exactly)
+==============================================================================
+
+Necessary condition on A_p alone.  Two cribs with the same CIPHER letter give
+   idx_Ac(C) = (idx_Ap(P_i) + k_i) = (idx_Ap(P_j) + k_j)  (mod 26)
+so  idx_Ap(P_j) - idx_Ap(P_i) = k_i - k_j  must be representable as a difference of two
+key digits, i.e. must lie in {0..base-1} U {26-(base-1)..25}.  This is independent of
+A_c and of the primer, so one evaluation kills an entire (A_p, base) pair.
+
+   cipher-letter collisions forcing a digit difference:
+      F -> {E,O}:  need idx(O)-idx(E) representable
+      R -> {S,T}:  need idx(T)-idx(S) representable
+      V -> {T,L}:  need idx(L)-idx(T) representable
+      Q -> {N,O}:  need idx(O)-idx(N) representable
+      P -> {R,C}:  need idx(C)-idx(R) representable
+      P -> {R,C}:  need idx(C)-idx(R) representable
+      N -> {H,B}:  need idx(B)-idx(H) representable
+      K -> {A,K}:  need idx(K)-idx(A) representable
+      S -> {S,T}:  need idx(T)-idx(S) representable
+      T -> {I,N}:  need idx(N)-idx(I) representable
+
+   base 10 -- named plaintext alphabets that pass the necessary condition:
+      straight   FAILS: idx(O)-idx(E)=10 needs |d|<=9; idx(C)-idx(R)=11 needs |d|<=9; idx(C)-idx(R)=11 needs |d|<=9; idx(K)-idx(A)=10 needs |d|<=9
+      KRYPTOS    FAILS: idx(L)-idx(T)=13 needs |d|<=9; idx(O)-idx(N)=12 needs |d|<=9
+      pass: 0 of 31  ->  (none)
+
+   base 26 -- named plaintext alphabets that pass the necessary condition:
+      pass: 31 of 31  ->  ABSCISSA, ABSCISSAORDINATE, ALEXANDERPLATZ, BERLIN, CARTER, CLOCK, COMPASS, DESPARATLY, EGYPT, GROMARK, INVISIBLE, IQLUSION, KRYPTOS, LANGLEY, LAYERTWO, LODESTONE, LUCIDMEMORY, MASKING, MATRIX, ORDINATE, PALIMPSEST, PALIMPSESTABSCISSA, SANBORN, SCHEIDT, SHADOW, TUTANKHAMUN, UNDERGRUUND, VIGENERE, WEBSTER, WELTZEITUHR, straight
+
+   dictionary keyword-mixed alphabets: 208627 distinct (11.4s)
+   pass the base-10 necessary condition: 8398  (0.0403 of them)
+
+   structure of the exact test: 10 equality checks, 14 distinct cipher letters needing distinct indices
+
+   VALIDATION G1: planted primer 31415 with a random cipher alphabet -> recovered = True (1 primers survive that synthetic crib set)
+
+   exhaustive G1 scans (A_c free = all 26! cipher alphabets):
+   A_p        base   L         primers  survivors     chance
+   straight   26     2             676          0
+   KRYPTOS    26     2             676          0
+   PALIMPSEST 26     2             676          0
+   ABSCISSA   26     2             676          0
+   SANBORN    26     2             676          0
+   SCHEIDT    26     2             676          0
+   LANGLEY    26     2             676          0
+   BERLIN     26     2             676          0
+   CLOCK      26     2             676          0
+   COMPASS    26     2             676          0
+   LODESTONE  26     2             676          0
+   SHADOW     26     2             676          0
+   IQLUSION   26     2             676          0
+   UNDERGRUUND 26     2             676          0
+   DESPARATLY 26     2             676          0
+   LAYERTWO   26     2             676          0
+   MASKING    26     2             676          0
+   ORDINATE   26     2             676          0
+   PALIMPSESTABSCISSA 26     2             676          0
+   ABSCISSAORDINATE 26     2             676          0
+   TUTANKHAMUN 26     2             676          0
+   WELTZEITUHR 26     2             676          0
+   ALEXANDERPLATZ 26     2             676          0
+   EGYPT      26     2             676          0
+   CARTER     26     2             676          0
+   INVISIBLE  26     2             676          0
+   GROMARK    26     2             676          0
+   VIGENERE   26     2             676          0
+   MATRIX     26     2             676          0
+   WEBSTER    26     2             676          0
+   LUCIDMEMORY 26     2             676          0
+   straight   26     3           17576          0
+   KRYPTOS    26     3           17576          0
+   PALIMPSEST 26     3           17576          0
+   ABSCISSA   26     3           17576          0
+   SANBORN    26     3           17576          0
+   SCHEIDT    26     3           17576          0
+   LANGLEY    26     3           17576          0
+   BERLIN     26     3           17576          0
+   CLOCK      26     3           17576          0
+   COMPASS    26     3           17576          0
+   LODESTONE  26     3           17576          0
+   SHADOW     26     3           17576          0
+   IQLUSION   26     3           17576          0
+   UNDERGRUUND 26     3           17576          0
+   DESPARATLY 26     3           17576          0
+   LAYERTWO   26     3           17576          0
+   MASKING    26     3           17576          0
+   ORDINATE   26     3           17576          0
+   PALIMPSESTABSCISSA 26     3           17576          0
+   ABSCISSAORDINATE 26     3           17576          0
+   TUTANKHAMUN 26     3           17576          0
+   WELTZEITUHR 26     3           17576          0
+   ALEXANDERPLATZ 26     3           17576          0
+   EGYPT      26     3           17576          0
+   CARTER     26     3           17576          0
+   INVISIBLE  26     3           17576          0
+   GROMARK    26     3           17576          0
+   VIGENERE   26     3           17576          0
+   MATRIX     26     3           17576          0
+   WEBSTER    26     3           17576          0
+   LUCIDMEMORY 26     3           17576          0
+   straight   26     4          456976          0
+   KRYPTOS    26     4          456976          0
+   PALIMPSEST 26     4          456976          0
+   ABSCISSA   26     4          456976          0
+   SANBORN    26     4          456976          0
+   SCHEIDT    26     4          456976          0
+   LANGLEY    26     4          456976          0
+   BERLIN     26     4          456976          0
+   CLOCK      26     4          456976          0
+   COMPASS    26     4          456976          0
+   LODESTONE  26     4          456976          0
+   SHADOW     26     4          456976          0
+   IQLUSION   26     4          456976          0
+   UNDERGRUUND 26     4          456976          0
+   DESPARATLY 26     4          456976          0
+   LAYERTWO   26     4          456976          0
+   MASKING    26     4          456976          0
+   ORDINATE   26     4          456976          0
+   PALIMPSESTABSCISSA 26     4          456976          0
+   ABSCISSAORDINATE 26     4          456976          0
+   TUTANKHAMUN 26     4          456976          0
+   WELTZEITUHR 26     4          456976          0
+   ALEXANDERPLATZ 26     4          456976          0
+   EGYPT      26     4          456976          0
+   CARTER     26     4          456976          0
+   INVISIBLE  26     4          456976          0
+   GROMARK    26     4          456976          0
+   VIGENERE   26     4          456976          0
+   MATRIX     26     4          456976          0
+   WEBSTER    26     4          456976          0
+   LUCIDMEMORY 26     4          456976          0
+   G1 total primer-alphabet tests: 14732068 ; survivors: 0
+
+==============================================================================
+S2.  GROMARK model G2 (Bean):  C[i] = A[(idx_A(P[i]) + k_i) mod 26], A free
+==============================================================================
+
+Hard digit constraints available before any alphabet is considered:
+   position 33 (1-indexed) has S -> S  =>  k_33 = 0
+   position 74 (1-indexed) has K -> K  =>  k_74 = 0
+   positions 28 and 66 both have P -> R  =>  k_28 = k_66
+For base 10 those three cut the primer space by 1/1000 before the alphabet test runs.
+   self-mapping cribs (0-indexed positions): [32, 73] = [('S', 'S'), ('K', 'K')]
+
+   VALIDATION G2: planted primer 27182 with a random single alphabet -> accepted = True;
+   random primers accepted: 0 of 200 (this is the empirical null rate)
+
+   exhaustive G2 sweeps (alphabet free = all 26! alphabets):
+   base   L   recurrence          primers pass-digit   feasible
+   10     5   k_{i-L}+k_{i-L+1}     100000        100          0
+   10     5   k_{i-L}+k_{i-L+2}     100000        100          0
+   10     5   k_{i-L}+k_{i-1}      100000        100          0
+   ---
+   G2 totals: 19347878 primers swept, 20965 passed the digit filter, 0 alphabet-feasible
+   base 10 / L=5 / standard recurrence (Bean's published case): 0 feasible primers of 100000  [Bean reported 39 of 99,999]
+
+   total G2 survivors across every (base, L, recurrence): 0
+
+==============================================================================
+S3.  PERIODIC GROMARK -- repeating digit key, free mixed alphabet
+==============================================================================
+   (Bean: 'stats are strongest within the cribs but not between them -> progressive key? periodic Gromark?')
+   base   p            keys pass-digit   feasible
+   10     1              10          1          0
+   10     2             100          1          0
+   10     3            1000          1          0
+   10     4           10000         10          0
+   10     5          100000        100          0
+   10     6         1000000       1000          0
+   26     1              26          1          0
+   26     2             676          1          0
+   26     3           17576          1          0
+   26     4          456976         26          0
+   periodic-Gromark survivors: 0
+
+==============================================================================
+S4.  PRODUCT-CIPHER GENEALOGY: K3's double rotation applied to the KEY STREAM
+==============================================================================
+
+K1/K2 = substitution with a key; K3 = keyless double rotation.  The literal 'next step'
+is to compose them.  Composition applied to the TEXT is closed (findings/twocipher.md:
+a transposition before the substitution leaves the 24 crib pairs untouched, and
+S-then-T was swept over 1.17M transpositions).  The untried composition is to apply
+K3's route to the KEY: read a running key out of a sculpture text through the same
+rotation that K3 uses.  Then the key letter used at position i is keytext[pi[i]] for a
+fixed permutation pi, and the 24 required key letters must appear at the SCATTERED
+positions pi(crib) rather than contiguously -- a test the running-key sweep could not do.
+
+   tests: 12224976 (permutation x text x offset x 24 combos)
+   expected best-of-N by chance: with p=1/26 per letter and 12224976 draws, P(>=12 of 24) = 1.84e-11 per draw
+   best agreement: 9/24 at ('rot42_rot14', 'K1K2K3_ct_noX_rev', 646, 'beaufort/pt=keyed/ct=plain/key=plain')
+   draws reaching >=12/24: 0
+
+==============================================================================
+END (a)
+==============================================================================

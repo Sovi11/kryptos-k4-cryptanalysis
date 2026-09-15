@@ -1,0 +1,41 @@
+========================================================================
+A. UNIFORM null -- FAIR batteries (no after-the-fact width-21 member)
+========================================================================
+  report's 7 (maxper 2-30)
+     size  7  K4 min-p 0.12421 (maxper30)  OMNIBUS p = 0.4020
+  report's 7 but maxper 2-48
+     size  7  K4 min-p 0.01912 (maxper48)  OMNIBUS p = 0.0702
+  fair expanded 14 (all pre-specifiable stats)
+     size 14  K4 min-p 0.01912 (maxper48)  OMNIBUS p = 0.1126
+  fair expanded 13, maxper 2-48 only
+     size 13  K4 min-p 0.01912 (maxper48)  OMNIBUS p = 0.1035
+  fair expanded 13, maxper 2-30 only
+     size 13  K4 min-p 0.09252 (gapfac)  OMNIBUS p = 0.4288
+
+========================================================================
+B. SHUFFLE null -- K4's exact letter multiset permuted
+   (fixes IoC/distinct/chi2 by construction; tests ARRANGEMENT only)
+========================================================================
+  statistic           K4  nullmean  P(>=obs)  P(<=obs)  2-sided
+  ioc             0.0361    0.0361   1.00000   1.00000  1.00000
+  distinct       26.0000   26.0000   1.00000   1.00000  1.00000
+  doubles         6.0000    3.4700   0.13328   0.94261  0.26656
+  maxZ48          3.0358    2.4288   0.14695   0.85615  0.29389
+  maxZ96          3.0358    3.1192   0.47385   0.52822  0.94771
+  maxper30        1.1285    1.8206   0.89730   0.11135  0.22271
+  maxper48        1.1285    2.1937   0.98523   0.01634  0.03268
+  bigrams        10.0000    5.9120   0.07209   0.96437  0.14419
+  trigrams        0.0000    0.2054   1.00000   0.81879  1.00000
+  colbig_ex48    11.0000    8.7045   0.09010   0.97128  0.18020
+  colbig_pr48    11.0000    9.3613   0.20654   0.90773  0.41308
+  colbig21_ex    11.0000    3.5934   0.00037   0.99991  0.00075
+  chi2           19.0619   19.0619   1.00000   1.00000  1.00000
+  dblmod          5.0000    2.6266   0.06497   0.98375  0.12993
+  gapfac          7.0000    3.2131   0.02429   0.99313  0.04859
+
+  arrangement battery, maxper 2-30
+     size  9  K4 min-p 0.04859 (gapfac)  OMNIBUS p = 0.1993
+  arrangement battery, maxper 2-48
+     size  9  K4 min-p 0.03268 (maxper48)  OMNIBUS p = 0.1240
+  arrangement battery, both ranges
+     size 11  K4 min-p 0.03268 (maxper48)  OMNIBUS p = 0.1676

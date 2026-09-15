@@ -1,0 +1,163 @@
+
+==============================================================================
+(e) OBKR AS AN INDICATOR GROUP
+==============================================================================
+K4: OBKRUOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZWATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR
+indicator candidate: OBKR  body (93 letters): UOXOGHULBSOLIFBBWFLRVQQPRNGKSSOTWTQSJQSSEKZZWATJKLUDIAWINFBNYPVTTMZFPKWGDKZXTJCDIGKUHUAUEKCAR
+
+==============================================================================
+E0.  VALIDATION
+==============================================================================
+k5_lib selftest: PASS
+positive control: synthetic K4 with body key = OBKR repeated from position 5,
+   Quagmire III.  E2 machinery recovers it at 24/24 (expected 24).
+
+==============================================================================
+E1.  WHICH INDICATOR RULES ARE ALREADY DECIDED?
+==============================================================================
+
+An indicator changes three things and only three things:
+
+  (1) WHERE THE KEY STREAM STARTS.  The body begins at position 5, so the key index at
+      K4 position i becomes i-4 instead of i.  That is a constant shift of the key
+      pointer.  For any periodic key the crib test is invariant under it (the residue
+      partition of the crib positions is unchanged), and for a key stream read out of a
+      text it is an offset, and findings/runningkey.md swept every offset.
+
+  (2) WHICH KEY.  If the rule yields a repeating key of length Lk, the period-Lk sweep in
+      findings/families.md quantified over ALL period-Lk keys at once, so every such rule
+      is already dead -- for the alphabets swept there.
+
+  (3) NOTHING ELSE.  The indicator does not move the cribs: Sanborn's positions 22-25,
+      26-34, 64-69, 70-74 are absolute in the carved 97 and the ciphertext letters there
+      are unchanged.
+
+So an indicator rule has new content only if it produces a NON-periodic key stream, or a
+NEW ALPHABET, or both.  That is what E4, E5 and E6 test; E2 and E3 are run anyway so the
+negative is a measured number.
+
+numeric check of (1): c_p for the 97-indexing vs the 93-body indexing, p=2..40: IDENTICAL at every period
+
+Consequence worth stating: 'the message is 93 letters' is NOT a testable
+hypothesis against the cribs.  It is a relabelling of the key pointer.
+
+==============================================================================
+E2.  DIRECT-KEYWORD RULES
+==============================================================================
+
+E2a. OBKR and its elementary transforms, used directly as a repeating key on the
+     body, at every phase.
+   OBKR transforms as repeating key                     tests 2400     best 5/24  ('ROKB ph0 lead0', 'beaufort/pt=plain/ct=plain/key=plain')
+      histogram {0: 802, 1: 944, 2: 460, 3: 158, 4: 34, 5: 2} ; expected total crib hits 2215.4, observed 2484
+      tests reaching >= 5/24: observed 2, expected by chance 4.65
+      P(one test = 24/24) = 1.10e-34 ; expected over 2400 tests = 2.64e-31
+
+E2b. THE PROPER 1940s RULE: the indicator is itself enciphered under a standing
+     key; the recovered group is the message key.  Here OBKR is de/enciphered
+     under the K1/K2 system with each documented standing key at every phase, and
+     the recovered 4-letter group is then used as the body key at every phase.
+     distinct 4-letter groups recovered from OBKR: 1270 (of 26^4 = 456,976)
+   recovered message keys as period-4 body keys         tests 243840   best 6/24  ('BQHM ph3 lead0', 'beaufort/pt=kryptos/ct=kryptos/key=plain')
+      histogram {0: 94916, 1: 90060, 2: 43096, 3: 12950, 4: 2522, 5: 282, 6: 14} ; expected total crib hits 225083.1, observed 226684
+      tests reaching >= 6/24: observed 14, expected by chance 58.33
+      P(one test = 24/24) = 1.10e-34 ; expected over 243840 tests = 2.68e-29
+         top: 6/24  UHRU ph0 lead4                     beaufort/pt=plain/ct=kryptos/key=plain
+         top: 6/24  UHRU ph0 lead0                     beaufort/pt=plain/ct=kryptos/key=plain
+         top: 6/24  RJAF ph3 lead4                     beaufort/pt=kryptos/ct=kryptos/key=kryptos
+         top: 6/24  RJAF ph3 lead0                     beaufort/pt=kryptos/ct=kryptos/key=kryptos
+         top: 6/24  QALQ ph0 lead4                     beaufort/pt=plain/ct=kryptos/key=kryptos
+         top: 6/24  QALQ ph0 lead0                     beaufort/pt=plain/ct=kryptos/key=kryptos
+     (subsumed by the period-4 sweep, which has c=20 and chance 26^-20 = 5.7e-29
+      per configuration and returned 0 survivors over 7.09M alphabet pairs.)
+
+==============================================================================
+E3.  NUMERIC RULES: OBKR AS DIGITS
+==============================================================================
+   A=0 plain          OBKR -> [14, 1, 10, 17]   sum=42  concat=1411017
+   A=1 plain          OBKR -> [15, 2, 11, 18]   sum=46  concat=1521118
+   KRYPTOS index      OBKR -> [5, 8, 0, 1]   sum=14  concat=5801
+   KRYPTOS index +1   OBKR -> [6, 9, 1, 2]   sum=18  concat=6912
+
+E3a. as a Gronsfeld/period-4 shift key on the body, every phase, every convention
+   OBKR digits as a period-4 key                        tests 960      best 4/24  ('A=0 ph1 lead0', 'varbeaufort/pt=plain/ct=kryptos/key=plain')
+      histogram {0: 370, 1: 366, 2: 152, 3: 64, 4: 8} ; expected total crib hits 886.2, observed 894
+      tests reaching >= 4/24: observed 8, expected by chance 12.05
+      P(one test = 24/24) = 1.10e-34 ; expected over 960 tests = 1.05e-31
+
+E3b. as a DECIMATION rule: take every n-th letter of a sculpture text, n from OBKR
+     (this is not an offset, so it is not covered by the all-offsets running-key
+      sweep; it is a genuinely different read-out of the same texts).
+   decimated sculpture texts, step from OBKR            tests 8784     best 6/24  ('K1K2K3_ct_noX step3 st2', 'beaufort/pt=kryptos/ct=plain/key=kryptos')
+      histogram {0: 3589, 1: 3205, 2: 1449, 3: 442, 4: 86, 5: 11, 6: 2} ; expected total crib hits 8108.3, observed 7840
+      tests reaching >= 6/24: observed 2, expected by chance 2.10
+      P(one test = 24/24) = 1.10e-34 ; expected over 8784 tests = 9.65e-31
+         top: 6/24  left_panel_all_ct_noX step3 st2    beaufort/pt=kryptos/ct=plain/key=kryptos
+         top: 6/24  K1K2K3_ct_noX step3 st2            beaufort/pt=kryptos/ct=plain/key=kryptos
+
+==============================================================================
+E4.  TABLEAU-COORDINATE RULES  (the new part)
+==============================================================================
+
+findings/runningkey.md read the tableau in reading order at every offset (row-major,
+left to right) and found nothing.  It did NOT read it by column, by diagonal, or
+boustrophedon from a named starting cell.  An indicator's natural job is exactly to name
+a starting cell, so those walks are tested here, from every cell OBKR can name, on both
+the ideal tableau and the carved one with its anomalous L.
+   tableau walks from OBKR-named cells                  tests 9984     best 7/24  ('ideal (O,K)KRY boust', 'vigenere/pt=plain/ct=kryptos/key=kryptos')
+      histogram {0: 3838, 1: 3738, 2: 1718, 3: 550, 4: 122, 5: 14, 6: 2, 7: 2} ; expected total crib hits 9216.0, observed 9408
+      tests reaching >= 7/24: observed 2, expected by chance 0.24
+      P(one test = 24/24) = 1.10e-34 ; expected over 9984 tests = 1.10e-30
+         top: 7/24  physical (O,K)KRY boust            vigenere/pt=plain/ct=kryptos/key=kryptos
+         top: 7/24  ideal (O,K)KRY boust               vigenere/pt=plain/ct=kryptos/key=kryptos
+         top: 6/24  physical (K,O)KRY boust            vigenere/pt=plain/ct=kryptos/key=kryptos
+         top: 6/24  ideal (K,O)KRY boust               vigenere/pt=plain/ct=kryptos/key=kryptos
+     walks tested: 416 (2 squares x 12 ordered letter pairs x 2 index conventions
+      x 8 walk modes, plus the split-coordinate variants)
+
+==============================================================================
+E5.  GROMARK-PRIMER RULE: OBKR SEEDS A CHAIN-ADDITION KEY
+==============================================================================
+
+The ACA Gromark takes a short numeric primer and extends it by chain addition
+(k_i = k_{i-L} + k_{i-L+1} mod base).  OBKR is exactly the right shape for a primer.
+analysis/k5_a_genealogy.py swept every base-26 primer of length <= 4 with the key stream
+indexed from position 1 of the 97; the indicator reading starts the stream at position 5
+instead, and adds the base-10 and KRYPTOS-index conventions.  Both alignments are run.
+   OBKR as a chain-addition primer                      tests 2880     best 5/24  ('rev A=0 b10 lag1 lead4', 'vigenere/pt=plain/ct=kryptos/key=plain')
+      histogram {0: 1123, 1: 1059, 2: 512, 3: 151, 4: 29, 5: 6} ; expected total crib hits 2658.5, observed 2682
+      tests reaching >= 5/24: observed 6, expected by chance 5.58
+      P(one test = 24/24) = 1.10e-34 ; expected over 2880 tests = 3.16e-31
+
+==============================================================================
+E6.  OBKR-KEYED ALPHABETS  (absent from the 208,627-word alphabet set)
+==============================================================================
+OBKR is not a dictionary word, so keyed_alphabet('OBKR') was never in the
+families.md sweep.  Neither were alphabets keyed by the K4 ciphertext prefix.
+distinct alphabets: 20
+configurations per period 1200 ; total tests 34800
+survivors 3700 ; expected by chance 3692.38
+periods with survivors (period, c, n): [(26, 1, 72), (27, 0, 1200), (28, 0, 1200), (29, 0, 1200), (30, 1, 28)]
+max c carrying any survivor: 1
+
+==============================================================================
+E7.  WHAT AN INDICATOR CAN AND CANNOT BUY
+==============================================================================
+
+ * It cannot move the cribs, and it cannot change c_p at any period (E1).  "The message
+   is really 93 letters" is a relabelling, not a hypothesis the cribs can see.
+ * Every rule whose output is a repeating key -- direct keyword, enciphered indicator,
+   numeric Gronsfeld -- is decided by the period sweeps already on record, and the
+   explicit runs above confirm it with measured numbers rather than inference.
+ * The only rules with genuinely new content are the ones that make the tableau into a
+   non-reading-order key stream (E4), that seed a non-periodic generator (E5), or that
+   build an alphabet OBKR cannot otherwise reach (E6).  All three were run here.  All
+   three are negative at chance.
+ * A four-letter indicator can address at most 26^4 = 456,976 message keys.  The
+   crib-perfect positional key space is 26^73 (see k5_b_depth.py L2).  Even a perfect
+   indicator rule reduces the problem by a factor of 10^-97 of what would be needed.
+   Indicator hypotheses are cheap to test and structurally incapable of being the whole
+   story.
+
+==============================================================================
+END (e)
+==============================================================================

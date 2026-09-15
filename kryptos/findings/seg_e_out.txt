@@ -1,0 +1,95 @@
+verification E1: synthetic plaintext-HOLD period-7 key accepted.  OK
+verification E2: forward simulation recovers a synthetic plaintext-HOLD
+                 period-6 key from run 1 and predicts run 2 exactly, and does
+                 so for at most 3 of the 12 periods tried.  OK
+verification E3: synthetic key-driven DOUBLE interruptor S={2}, p=5, accepted.  OK
+
+crib-planted null (97 letters, cribs forced): mean -7.359 sd 0.115
+This is the ONLY correct null for a candidate decryption that has the 24 crib
+letters built into it; comparing such a candidate to a pure-random null
+(-8.23) would manufacture significance out of the cribs themselves.
+
+==============================================================================
+E1. PLAINTEXT-TRIGGERED KEY ADVANCE - crib-consistency sweep
+==============================================================================
+The pointer path is known inside each crib run; the pointer's value at the
+start of each run is free (the unknown letters between the runs can fire the
+trigger any number of times).  Both run-start offsets are enumerated, so the
+adversary is given every benefit of the doubt.
+cipher configurations per test: 867
+rules: ['HOLD', 'DOUBLE', 'RESET_AFTER', 'ADVANCE_ONLY', 'RESET_AT']
+trigger sets: 31  periods: 2..26
+
+distinct (rule, trigger, period, offsets) tests: 931,425
+total configurations examined: 807,545,475
+observed survivors: 8906578;  expected by chance: 8788865.7   ratio 1.013
+constraint-count distribution: c=0:9533 c=1:14759 c=2:23442 c=3:29489 c=4:39629 c=5:46982 c=6:53785 c=7:61768 c=8:70532 c=9:71154 c=10:76357 c=11:96474 c=12:35082 c=13:28486 c=14:27774 c=15:22855 c=16:14119 c=17:12896 c=18:15088 c=19:13097 c=20:45609 c=21:25834 c=22:91431 c=23:5250
+vacuous tests (c=0): 9533
+
+survivors with c >= 5 (chance 7.30e-05 per test): 0
+
+most-constrained single test: ADVANCE_ONLY trig=letter D p=2 c=23 -> survivors 0
+
+==============================================================================
+E2. PLAINTEXT-TRIGGERED KEY ADVANCE - deterministic forward simulation
+==============================================================================
+For the causal rules the key pointer at position i depends only on plaintext
+BEFORE i, so once (rule, trigger, p, offset at position 21, family, pt and ct
+alphabets) are fixed, the 13 letters of EASTNORTHEAST determine the entire
+period-p key and positions 34..96 decrypt with zero remaining freedom.
+Reaching BERLINCLOCK at 63..73 is then an 11-letter prediction: chance 26^-11
+= 7.0e-16 per fully determined simulation.
+rules: ['HOLD', 'DOUBLE', 'RESET_AFTER', 'ADVANCE_ONLY']   triggers: 31   periods: 2..13
+(p > 13 cannot be fully determined: 13 crib letters cannot cover 14+ residues)
+
+simulations attempted (rule x trigger x period x offset): 11,160
+fully determined (rule, trigger, p, offset, config) simulations: 673,297
+expected 11/11 BERLINCLOCK matches by chance: 1.834e-10
+expected >= 6/11 matches by chance: 8.518e-01
+observed simulations with >= 6/11 of BERLINCLOCK predicted: 0
+   (none)
+
+out-of-sample English check on the 52 non-crib letters the simulation
+predicts (positions 35-62 and 75-97, 1-indexed).  Null for 52 random letters:
+   mean -8.230 sd 0.161;  best-of-673,297 95% threshold -7.283;  English about -4.7
+top 10 by that score:
+   q=-7.138 *** RESET_AFTER  trig=letter V           p=13  b1=10 ('vigenere', 'COMPASS', 'DESPARATLY')
+      34..96: NPXPNFAEVZXXKJNCURDARCHCAPBASBHUTPBKVEZXICTIJOXIDCHEXGOKCFADDOS
+   q=-7.143 *** RESET_AFTER  trig=letter Z           p=13  b1=2 ('vigenere', 'COMPASS', 'IQLUSION')
+      34..96: OWERNALOFZISVOESFLNMESKEHWEYBVYRVZVBVKAKHJGNARENYBMZQRGSTOCNFDY
+   q=-7.163 *** RESET_AFTER  trig=letter I           p=13  b1=5 ('vigenere', 'PALIMPSEST', 'IQLUSION')
+      34..96: ZRBENUNKFXWOLRVREMEIDITPTACETQDTFVBYQXRRNGWLJHVINITEAMOXEKXSZBT
+   q=-7.240 *** RESET_AFTER  trig=letter Y           p=13  b1=1 ('vigenere', 'STRAIGHT', 'SCHEIDT')
+      34..96: LTVENWLSSURESUJGEGINUXYARROHDLYKQTFMUFRMOETESSTKZAAKMMWIZNYFWUS
+   q=-7.255 *** RESET_AFTER  trig=letter M           p=13  b1=1 ('vigenere', 'LODESTONE', 'COMPASS')
+      34..96: VGBENKESOYOIZRJMRANOSWWUCBCDTMYXITEPCZMJMFONGABXMANDLSLSUASAREQ
+   q=-7.275 *** RESET_AFTER  trig=rare JQXZ          p=13  b1=7 ('vigenere', 'LODESTONE', 'SHADOW')
+      34..96: YIMENCJUHWOAESZSNBNBZTXSPACEFVQRBMICEJRZAWZKGRINGBTEYSKSSASNONY
+   q=-7.287 RESET_AFTER  trig=letter W           p=13  b1=7 ('vigenere', 'STRAIGHT', 'SCHEIDT')
+      34..96: LTVENWLSSURESUJGEGINUXYVOXKWIPQLJYZJMIPHSKFETLYEWFECGIUNCHCKWHT
+   q=-7.313 RESET_AFTER  trig=letter Z           p=13  b1=11 ('vigenere', 'MASKING', 'KRYPTOS')
+      34..96: KLYANANHZBCFULOMAQWITUPICECIAPKZXAOJLIWXYDXYDZNJUNINTROQUTVAGRW
+   q=-7.321 RESET_AFTER  trig=rare JQXZ          p=13  b1=2 ('beaufort', 'KRYPTOS', 'UNDERGRUUND')
+      34..96: TRHONTSJSTLBEKILXGDSUBHORAASCNRSZOPOVRBXPMMBEYLEDSTEAZIWHUAFPLH
+   q=-7.330 RESET_AFTER  trig=letter W           p=13  b1=5 ('vigenere', 'STRAIGHT', 'COMPASS')
+      34..96: WKQFETICFDELNANYFACKFHKATARAACLRQETAVGRPNETBNSENYDJYPLFGRIDZACO
+
+==============================================================================
+E3. KEY-DRIVEN INTERRUPTOR (the ACA 'interrupted key' with the interruptor
+    on the KEY letter rather than on the text)
+==============================================================================
+The pointer path depends only on WHICH RESIDUES of the key carry the
+interruptor letter, so every subset S of Z_p is enumerated.  Because the key
+alphabet is free, 'key[r] == T' reduces to: all crib-forced key values on S
+are equal, and no crib-forced value off S equals that value.
+HOLD is impossible here (the pointer would stick forever); DOUBLE and
+RESET_AFTER are the two well-defined rules.  Periods 2..14.
+
+subset tests: 65,515   configurations examined: 56,801,505
+observed survivors: 0;  expected by chance: 0.00   ratio 0.000
+constraint-count distribution: c=11:37 c=12:343 c=13:1982 c=14:6223 c=15:10342 c=16:8631 c=17:3901 c=18:1726 c=19:1429 c=20:2182 c=21:4141 c=22:8206 c=23:16372
+survivors with c >= 5: 0
+
+fully determined decryptable survivors: 0
+
+[runtime 427.0s]

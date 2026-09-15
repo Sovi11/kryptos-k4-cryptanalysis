@@ -1,0 +1,13 @@
+==============================================================================
+CALIBRATION of the character language model (mean log10 prob per letter)
+==============================================================================
+text                                            mean     sd      p1     p50     p99     max
+held-out English 97-grams (n=20000)           -0.741  0.077  -0.961  -0.736  -0.582  -0.483
+K1 plaintext whole (63 letters)               -0.940  0.000  -0.940  -0.940  -0.940  -0.940
+K2 plaintext 97-grams (n=274)                 -0.980  0.106  -1.179  -0.945  -0.847  -0.845
+K3 plaintext 97-grams (n=240)                 -0.924  0.029  -0.982  -0.924  -0.827  -0.810
+uniform random 97-grams (n=20000)             -1.810  0.057  -1.949  -1.809  -1.684  -1.590
+unigram-random 97-grams (n=20000)             -1.862  0.076  -2.033  -1.864  -1.681  -1.482
+K4 CIPHERTEXT (n=1)                           -1.709  0.000  -1.709  -1.709  -1.709  -1.709
+
+Separation: English mean - uniform mean = 1.069 log10 units/letter; sd of English = 0.077

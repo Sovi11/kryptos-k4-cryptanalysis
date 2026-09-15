@@ -1,0 +1,12 @@
+keystream files with >=11 letters: 73 (of 194)
+total letters in corpus: 27380
+
+tests: block1=16,538,496  block2=16,629,600  joint=15,390,336
+best block1 Hamming: 6/13  ('beau/pt=plain/ct=plain/key=kryptos', 24, 'antipodes_cyrillic_extra_plaintext_translit.txt', 105, 'ASAKRYTYMOBHE')
+best block2 Hamming: 5/11  ('vig/pt=plain/ct=kryptos/key=kryptos', 11, 'antipodes_cyrillic_ciphertext_ord26.txt', 88, 'DCDKAYSOCFR')
+best joint  Hamming: 16/24  ('vig/pt=plain/ct=plain/key=plain', 13, 'antipodes_cyrillic_ciphertext_translit.txt', 945)
+
+hits within threshold (B1<=2, B2<=2, JOINT<=4): 0
+
+=== each stream as a PERIODIC key (prefix of length N repeated) ===
+tests: 102,192   best crib match: 6/24  ('vig/kryptos/plain/plain', 'rose_16_words_de.txt', 14)   (chance ~0.92/24)

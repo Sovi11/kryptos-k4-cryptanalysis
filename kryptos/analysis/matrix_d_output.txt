@@ -1,0 +1,66 @@
+==============================================================================
+(d) FRACTIONATION WITH AN UNKNOWN SQUARE -- CSP over the square itself
+==============================================================================
+solvers: z3 5.1.0 (cross-check) + OR-Tools CP-SAT (primary, SOLVER=cpsat)
+
+0. VALIDATION (the solver must recover a square that really was used)
+   (a) round-trip: encrypt then decrypt with the SAME square must be the identity
+       bifid 5x5/6x6 and trifid round-trips at periods 2,3,5,7,8,97: True
+   (b) synthetic-square recovery: encrypt a known plaintext, hand the solver the
+       crib letters, and check (i) it returns SAT, (ii) the model reproduces the
+       cribs, (iii) with ALL 97 plaintext letters given it recovers the plaintext.
+       bifid 5x5 period 7  : 24-crib sat (cribs reproduced True); 97-letter sat (pt recovered True)
+       bifid 5x5 period 9  : 24-crib sat (cribs reproduced True); 97-letter sat (pt recovered True)
+       bifid 6x6 period 5  : 24-crib sat (cribs reproduced True); 97-letter sat (pt recovered True)
+       bifid 6x6 period 11 : 24-crib sat (cribs reproduced True); 97-letter sat (pt recovered True)
+       trifid period 5  : 24-crib sat (cribs reproduced True); 97-letter sat (pt recovered True)
+       trifid period 8  : 24-crib sat (cribs reproduced True); 97-letter sat (pt recovered True)
+   (c) soundness of UNSAT: give the solver a contradictory crib set
+       contradictory cribs -> unsat
+   all validations passed: True
+
+   Negative control (random 'cribs' on the real K4 ciphertext) is run below
+   for every system, as the chance-expectation column.
+
+1. BIFID, unknown 5x5 square (J read as I), all 25! = 1.55e25 squares
+   periods tested: 96 (2..97)   time 14.0s
+   UNSAT: 96   SAT: 0   unknown/timeout: none
+   chance baseline: 20 random-crib trials x 96 periods = 1920 solves, 0 SAT (0.000 per period)
+
+2. BIFID, unknown 6x6 square over A-Z0-9, all 36! = 3.72e41 squares
+   periods tested: 96 (2..97)   time 18.2s
+   UNSAT: 96   SAT: 0   unknown/timeout: none
+   chance baseline: 20 random-crib trials x 96 periods = 1920 solves, 0 SAT (0.000 per period)
+
+3. CONJUGATED-MATRIX BIFID, two independent unknown 5x5 squares (25!^2 = 2.4e50)
+   periods tested: 96 (2..97)   time 48.8s
+   UNSAT: 94   SAT: 2   unknown/timeout: none
+   chance baseline: 10 random-crib trials x 96 periods = 960 solves, 16 SAT (0.017 per period)
+
+4. CONJUGATED-MATRIX BIFID, two independent unknown 6x6 squares (36!^2 = 1.4e83)
+   periods tested: 96 (2..97)   time 360.5s
+   UNSAT: 93   SAT: 3   unknown/timeout: none
+   chance baseline: 10 random-crib trials x 96 periods = 960 solves, 62 SAT (0.065 per period)
+
+5. TRIFID, unknown 3x3x3 cube over A-Z plus one null (27! = 1.09e28)
+   periods tested: 96 (2..97)   time 23.7s
+   UNSAT: 96   SAT: 0   unknown/timeout: none
+   chance baseline: 20 random-crib trials x 96 periods = 1920 solves, 0 SAT (0.000 per period)
+
+6. Any SAT results, decrypted and scored
+   5 SAT models in total.  Every one reproduces the cribs by construction
+   (verified column 'cribs'); the question is only whether the other 73
+   letters read as English.  Quadgram score: English ~ -5.6, random ~ -8.2.
+   family         per  cribs  quadgram  decryption
+   CM bifid 5x5   30   True   -7.294    HEEKFHRMAMMMGFHEMABOAEASTNORTHEASTLNOZQTSZKKSRHSGRSFESUNOZKSUBCBERLINCLOCKWRSYKLDGCAGUFTYRQXAQNPD
+   CM bifid 5x5   28   True   -7.426    DBTYSBUZQIIWTDDZMYINPEASTNORTHEASTPBFKFKEZZPOLBSKBAKXZOWWXDGODXBERLINCLOCKWDSKBSHQSQXXGNMXSEIUPIV
+   CM bifid 6x6   28   True   -7.502    AYTCPX3MQ0J0HZOX6CIDKEASTNORTHEASTPYVVVVAZUCGQB3V3AVZYJCPW27OFPBERLINCLOCKX27JB3MTIPPU9N6L2XHFK0D
+   CM bifid 6x6   66   True   -7.567    TB8NC5Y31OLBGBNHRVGK0EASTNORTHEAST65NLTN0PB5C9G8N0Y2G1RUZNJJRLABERLINCLOCKCGWB0UAB0F0VTXS5SYZWT96
+   CM bifid 6x6   30   True   -7.634    HE1F0HXYAYEYKKHE1AK7AEASTNORTHEASTQFQDTTSO79SXHSKRQB18UFQDV8JB5BERLINCLOCK8XSKVF3M5AMX7E0RJGATG73
+   score distribution over all 5 SAT models: min -7.634 median -7.502 max -7.294
+   random-text baseline (3000 draws): median -8.241  99th pct -7.921  max -7.588
+   NOTE: a bifid model whose square is only partly pinned by the cribs has
+   many completions; the solver returns ONE. The scores below are therefore
+   a lower bound on what hill-climbing the free cells could reach, which is
+   why the transposition-free unknown-square question is settled by the
+   UNSAT/SAT counts above rather than by these scores.

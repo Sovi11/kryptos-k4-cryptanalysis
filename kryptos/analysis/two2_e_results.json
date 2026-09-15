@@ -1,0 +1,768 @@
+{
+ "transposition catalogue (two2_a)": {
+  "m": 726578,
+  "counts": {
+   "8": 22,
+   "9": 1,
+   "10": 0,
+   "11": 0,
+   "12": 0,
+   "13": 0
+  },
+  "expected": {
+   "8": 24.93843642046062,
+   "9": 0.8300029621775527,
+   "10": 0.02285214857842725,
+   "11": 0.0004935547334235914,
+   "12": 7.475543781214225e-06,
+   "13": 1.0491596710035722e-07
+  },
+  "examples": {
+   "8": [
+    [
+     "vigenere/pt=plain/ct=plain/key=plain",
+     "EASTNORTHEAST block",
+     "1",
+     "BADGEMAN",
+     "MBADGEMANXUOXJHLUKMLDFZV",
+     "columnar-keyword: w=12 keyword=PROTOTHERIAN order=(10, 7, 6, 9, 11, 2, 4, 0, 1, 8, 3, 5)"
+    ],
+    [
+     "vigenere/pt=plain/ct=plain/key=plain",
+     "BERLINCLOCK block",
+     "2",
+     "ARCADIAN",
+     "GHLIXWCAOVUQZEOARCADIANZ",
+     "columnar-allperm: w=9 order=(8, 6, 2, 1, 7, 5, 0, 3, 4)"
+    ],
+    [
+     "vigenere/pt=plain/ct=plain/key=keyed",
+     "EASTNORTHEAST block",
+     "4",
+     "SEBRIGHT",
+     "SMRYSEBRIGHTWBSDPNVEZIBM",
+     "columnar-allperm: w=9 order=(3, 4, 6, 5, 0, 2, 7, 8, 1)"
+    ],
+    [
+     "vigenere/pt=plain/ct=plain/key=keyed",
+     "EASTNORTHEAST block",
+     "4",
+     "SEBRIGHT",
+     "SMBYSEBRIGHTWBSMPNHEZIBM",
+     "columnar-allperm: w=9 order=(3, 4, 6, 2, 0, 5, 7, 8, 1)"
+    ],
+    [
+     "vigenere/pt=plain/ct=plain/key=keyed",
+     "BERLINCLOCK block",
+     "0",
+     "REDAMAGE",
+     "WFMRBNRRRWOMSREDAMAGEOLT",
+     "columnar-keyword: w=13 keyword=EMPYREUMATIZE order=(8, 0, 5, 12, 10, 1, 7, 2, 4, 9, 6, 3, 11)"
+    ],
+    [
+     "vigenere/pt=plain/ct=plain/key=keyed",
+     "BERLINCLOCK block",
+     "2",
+     "YEARLING",
+     "JUAZQTHNPSQHBLWYEARLINGJ",
+     "columnar-keyword: w=13 keyword=HEPATOTOXEMIA order=(3, 12, 1, 9, 0, 11, 10, 5, 7, 2, 4, 6, 8)"
+    ],
+    [
+     "vigenere/pt=plain/ct=keyed/key=plain",
+     "EASTNORTHEAST block",
+     "0",
+     "SKINNING",
+     "SKINNINGOAPJMFFJBLSGTFOA",
+     "columnar-allperm: w=9 order=(5, 6, 8, 0, 7, 4, 3, 1, 2)"
+    ],
+    [
+     "vigenere/pt=keyed/ct=plain/key=keyed",
+     "EASTNORTHEAST block",
+     "1",
+     "PETROLIC",
+     "PPETROLICBMIVWTYRTXVECMD",
+     "columnar-allperm: w=9 order=(8, 0, 5, 3, 4, 6, 1, 2, 7)"
+    ],
+    [
+     "vigenere/pt=keyed/ct=plain/key=keyed",
+     "EASTNORTHEAST block",
+     "1",
+     "PETROLIC",
+     "BPETROLICBMIVWAYXTXVECMC",
+     "columnar-allperm: w=9 order=(8, 0, 5, 1, 4, 6, 3, 2, 7)"
+    ],
+    [
+     "beaufort/pt=plain/ct=keyed/key=plain",
+     "EASTNORTHEAST block",
+     "2",
+     "SOGDOITE",
+     "RTSOGDOITEBWGSKVUECITLHE",
+     "columnar-keyword: w=14 keyword=BRACHYDACTYLIC order=(2, 7, 0, 3, 8, 13, 6, 4, 12, 11, 1, 9, 5, 10)"
+    ],
+    [
+     "beaufort/pt=plain/ct=keyed/key=plain",
+     "EASTNORTHEAST block",
+     "4",
+     "UNSOMBER",
+     "IERPUNSOMBERNGEZBLDVTYPT",
+     "columnar-allperm: w=9 order=(0, 2, 6, 3, 5, 7, 4, 8, 1)"
+    ],
+    [
+     "beaufort/pt=keyed/ct=plain/key=plain",
+     "BERLINCLOCK block",
+     "2",
+     "SKULLFUL",
+     "VIUODYVEJKZZDSQSKULLFULB",
+     "columnar-allperm: w=9 order=(7, 4, 2, 5, 3, 1, 8, 6, 0)"
+    ],
+    [
+     "beaufort/pt=keyed/ct=plain/key=plain",
+     "BERLINCLOCK block",
+     "2",
+     "SKULLFUL",
+     "VPUODYVWJKHZDSQSKULLFULB",
+     "columnar-allperm: w=9 order=(7, 1, 2, 5, 3, 4, 8, 6, 0)"
+    ],
+    [
+     "beaufort/pt=keyed/ct=keyed/key=plain",
+     "BERLINCLOCK block",
+     "2",
+     "HEMIGALE",
+     "SXOBXCJUUMKASDLHEMIGALEW",
+     "modular: M=101 a=62 b=39 [inv]"
+    ],
+    [
+     "varbeaufort/pt=plain/ct=keyed/key=plain",
+     "EASTNORTHEAST block",
+     "1",
+     "UNTROWED",
+     "EUNTROWEDDVOUBLFGAHTSKTY",
+     "columnar-allperm: w=9 order=(3, 4, 7, 5, 8, 1, 2, 6, 0)"
+    ],
+    [
+     "varbeaufort/pt=plain/ct=keyed/key=plain",
+     "EASTNORTHEAST block",
+     "1",
+     "PETIOLED",
+     "DPETIOLEDIAXUPLFKBNTFJUY",
+     "columnar-allperm: w=9 order=(8, 0, 3, 7, 4, 1, 2, 6, 5)"
+    ],
+    [
+     "varbeaufort/pt=plain/ct=keyed/key=plain",
+     "EASTNORTHEAST block",
+     "1",
+     "UNTROWED",
+     "EUNTROWEDFVOSBLFCAHXSKTY",
+     "columnar-allperm: w=9 order=(6, 4, 7, 5, 8, 1, 2, 3, 0)"
+    ],
+    [
+     "varbeaufort/pt=plain/ct=keyed/key=keyed",
+     "EASTNORTHEAST block",
+     "0",
+     "COINSURE",
+     "COINSUREAPVRCRHFHXINARRP",
+     "columnar-keyword: w=11 keyword=PRESPRINKLE order=(2, 10, 6, 8, 9, 7, 0, 4, 1, 5, 3)"
+    ],
+    [
+     "varbeaufort/pt=plain/ct=keyed/key=keyed",
+     "EASTNORTHEAST block",
+     "2",
+     "LOBBYIST",
+     "NKLOBBYISTRVXBMFTZFYOSJA",
+     "columnar-allperm: w=9 order=(2, 8, 5, 7, 3, 0, 1, 4, 6)"
+    ],
+    [
+     "varbeaufort/pt=keyed/ct=plain/key=plain",
+     "EASTNORTHEAST block",
+     "3",
+     "LUNIFORM",
+     "EQWLUNIFORMPLQSWHYFUOEAR",
+     "columnar-allperm: w=9 order=(5, 8, 4, 0, 1, 2, 6, 7, 3)"
+    ]
+   ],
+   "9": [
+    [
+     "varbeaufort/pt=keyed/ct=keyed/key=keyed",
+     "EASTNORTHEAST block",
+     "3",
+     "PHORONOMY",
+     "PWDPHORONOMYBRYROVABEKOJ",
+     "columnar-allperm: w=9 order=(8, 3, 6, 7, 0, 4, 5, 1, 2)"
+    ]
+   ],
+   "10": [],
+   "11": [],
+   "12": [],
+   "13": []
+  },
+  "top_per_block": {
+   "EASTNORTHEAST block": [
+    [
+     -4.378841400146484,
+     "beaufort/pt=keyed/ct=plain/key=plain",
+     "EANOSERECEDAV",
+     "columnar-allperm: w=9 order=(6, 2, 0, 4, 8, 1, 3, 7, 5)"
+    ],
+    [
+     -4.378841400146484,
+     "beaufort/pt=keyed/ct=plain/key=plain",
+     "EANOSERECEDAV",
+     "columnar-allperm: w=9 order=(6, 2, 0, 4, 7, 1, 3, 8, 5)"
+    ],
+    [
+     -4.481494903564453,
+     "vigenere/pt=keyed/ct=keyed/key=plain",
+     "ZEUSIVERSETTA",
+     "columnar-allperm: w=9 order=(8, 2, 7, 0, 4, 3, 6, 5, 1)"
+    ],
+    [
+     -4.5107245445251465,
+     "beaufort/pt=plain/ct=keyed/key=plain",
+     "OWSESONONTERT",
+     "columnar-allperm: w=9 order=(8, 2, 0, 7, 6, 3, 4, 5, 1)"
+    ],
+    [
+     -4.53610897064209,
+     "beaufort/pt=plain/ct=keyed/key=plain",
+     "DEXTIONANCEWS",
+     "columnar-allperm: w=9 order=(8, 2, 0, 5, 6, 1, 4, 3, 7)"
+    ],
+    [
+     -4.537685394287109,
+     "beaufort/pt=keyed/ct=plain/key=plain",
+     "EANDTESSEEDAD",
+     "columnar-allperm: w=9 order=(0, 1, 2, 4, 6, 7, 3, 8, 5)"
+    ],
+    [
+     -4.5481061935424805,
+     "beaufort/pt=plain/ct=keyed/key=plain",
+     "MESSIONALKERR",
+     "columnar-allperm: w=9 order=(8, 3, 0, 2, 5, 1, 4, 6, 7)"
+    ],
+    [
+     -4.565400123596191,
+     "varbeaufort/pt=keyed/ct=keyed/key=keyed",
+     "OESTTRSDISPAP",
+     "columnar-allperm: w=9 order=(6, 3, 1, 8, 5, 7, 4, 2, 0)"
+    ],
+    [
+     -4.565400123596191,
+     "varbeaufort/pt=keyed/ct=keyed/key=keyed",
+     "OESTTRSDISPAP",
+     "columnar-allperm: w=9 order=(6, 3, 1, 8, 2, 7, 4, 5, 0)"
+    ],
+    [
+     -4.650253772735596,
+     "beaufort/pt=plain/ct=keyed/key=plain",
+     "OWSUNTRONTERP",
+     "columnar-allperm: w=9 order=(7, 2, 6, 8, 0, 3, 4, 5, 1)"
+    ],
+    [
+     -4.659671783447266,
+     "varbeaufort/pt=keyed/ct=keyed/key=keyed",
+     "IRATISSALLYAP",
+     "columnar-allperm: w=9 order=(6, 4, 3, 2, 5, 1, 7, 8, 0)"
+    ],
+    [
+     -4.659671783447266,
+     "varbeaufort/pt=keyed/ct=keyed/key=keyed",
+     "IRATISSALLYAP",
+     "columnar-allperm: w=9 order=(6, 4, 3, 1, 5, 2, 7, 8, 0)"
+    ],
+    [
+     -4.660954475402832,
+     "varbeaufort/pt=keyed/ct=keyed/key=keyed",
+     "OESTTRSDISPOO",
+     "columnar-allperm: w=9 order=(5, 3, 1, 8, 6, 7, 4, 2, 0)"
+    ],
+    [
+     -4.660954475402832,
+     "varbeaufort/pt=keyed/ct=keyed/key=keyed",
+     "OESTTRSDISPOO",
+     "columnar-allperm: w=9 order=(5, 3, 1, 8, 2, 7, 4, 6, 0)"
+    ],
+    [
+     -4.667527675628662,
+     "vigenere/pt=keyed/ct=keyed/key=keyed",
+     "ETEDAPTURNNUL",
+     "columnar-allperm: w=9 order=(7, 8, 5, 0, 4, 2, 3, 1, 6)"
+    ]
+   ],
+   "BERLINCLOCK block": [
+    [
+     -3.8402528762817383,
+     "varbeaufort/pt=keyed/ct=keyed/key=plain",
+     "EWERENTENCO",
+     "columnar-allperm: w=8 order=(6, 1, 4, 3, 0, 7, 5, 2)"
+    ],
+    [
+     -4.097390174865723,
+     "varbeaufort/pt=keyed/ct=keyed/key=plain",
+     "EFERITTENDO",
+     "columnar-allperm: w=8 order=(6, 1, 0, 4, 3, 7, 5, 2)"
+    ],
+    [
+     -4.097390174865723,
+     "varbeaufort/pt=keyed/ct=keyed/key=plain",
+     "EFERITTENDO",
+     "columnar-allperm: w=8 order=(6, 1, 0, 2, 3, 7, 5, 4)"
+    ],
+    [
+     -4.132553577423096,
+     "beaufort/pt=plain/ct=plain/key=keyed",
+     "NBRETHEOBJD",
+     "modular: M=97 a=33 b=35"
+    ],
+    [
+     -4.144669532775879,
+     "vigenere/pt=plain/ct=plain/key=plain",
+     "RACTOTHEDAM",
+     "modular: M=103 a=79 b=76 [inv]"
+    ],
+    [
+     -4.171048164367676,
+     "vigenere/pt=keyed/ct=plain/key=plain",
+     "TDESAREMESG",
+     "columnar-allperm: w=9 order=(1, 0, 6, 3, 8, 2, 4, 7, 5)"
+    ],
+    [
+     -4.263857841491699,
+     "varbeaufort/pt=plain/ct=plain/key=plain",
+     "ZNDTOINTSTR",
+     "columnar-keyword: w=13 keyword=DERELIGIONIZE order=(0, 1, 3, 12, 6, 5, 7, 10, 4, 9, 8, 2, 11)"
+    ],
+    [
+     -4.277262210845947,
+     "varbeaufort/pt=keyed/ct=keyed/key=plain",
+     "TFORSTRBYDM",
+     "columnar-allperm: w=8 order=(1, 3, 0, 4, 7, 5, 6, 2)"
+    ],
+    [
+     -4.277262210845947,
+     "varbeaufort/pt=keyed/ct=keyed/key=plain",
+     "TFORSTRBYDM",
+     "columnar-allperm: w=8 order=(1, 3, 0, 2, 7, 5, 6, 4)"
+    ],
+    [
+     -4.3019514083862305,
+     "varbeaufort/pt=keyed/ct=keyed/key=plain",
+     "EHEREEDEPRO",
+     "columnar-allperm: w=8 order=(6, 1, 5, 3, 4, 0, 7, 2)"
+    ],
+    [
+     -4.315370559692383,
+     "varbeaufort/pt=keyed/ct=plain/key=plain",
+     "SGREPREDORZ",
+     "columnar-allperm: w=9 order=(7, 1, 8, 0, 4, 3, 6, 5, 2)"
+    ],
+    [
+     -4.315370559692383,
+     "varbeaufort/pt=keyed/ct=plain/key=plain",
+     "SGREPREDORL",
+     "columnar-allperm: w=9 order=(7, 6, 8, 0, 4, 3, 1, 5, 2)"
+    ],
+    [
+     -4.320877552032471,
+     "vigenere/pt=keyed/ct=plain/key=plain",
+     "TDESARESYSG",
+     "columnar-allperm: w=9 order=(1, 0, 6, 3, 7, 2, 4, 8, 5)"
+    ],
+    [
+     -4.322501182556152,
+     "varbeaufort/pt=keyed/ct=keyed/key=plain",
+     "EWEREDDENCO",
+     "columnar-allperm: w=8 order=(6, 1, 5, 3, 0, 7, 4, 2)"
+    ],
+    [
+     -4.323442459106445,
+     "vigenere/pt=plain/ct=keyed/key=plain",
+     "INNINITESVE",
+     "columnar-keyword: w=15 keyword=PSEUDOMALACHITE order=(7, 9, 10, 4, 2, 14, 11, 12, 8, 6, 5, 0, 1, 13, 3)"
+    ]
+   ]
+  }
+ },
+ "2,449,225 two-transposition compositions (two2_d)": {
+  "m": 1327758,
+  "counts": {
+   "8": 30,
+   "9": 1,
+   "10": 0,
+   "11": 0,
+   "12": 0,
+   "13": 0
+  },
+  "expected": {
+   "8": 45.57282007541922,
+   "9": 1.516758108633819,
+   "10": 0.04176031078864954,
+   "11": 0.0009019282798832897,
+   "12": 1.3660905036840418e-05,
+   "13": 1.9172479024307933e-07
+  },
+  "examples": {
+   "8": [
+    [
+     "vigenere/pt=plain/ct=plain/key=plain",
+     "EASTNORTHEAST block",
+     "4",
+     "FLYBLOWN",
+     "VKMVFLYBLOWNHHTZSOQMKURS",
+     "T1=columnar w=5 (3, 2, 1, 0, 4) | T2=blocks (3, 2, 1, 0) rev=0101 [inv]"
+    ],
+    [
+     "vigenere/pt=plain/ct=keyed/key=plain",
+     "EASTNORTHEAST block",
+     "2",
+     "BERGAMOT",
+     "WZBERGAMOTPTNUZQVSZPXWCH",
+     "T1=route 5x21 row cols r1c1 | T2=route 3x39 row cols r-1c-1"
+    ],
+    [
+     "vigenere/pt=plain/ct=keyed/key=plain",
+     "EASTNORTHEAST block",
+     "5",
+     "REHEARSE",
+     "CRLCSREHEARSEDWPGADZVNRZ",
+     "T1=columnar w=5 (2, 3, 4, 1, 0) | T2=route 49x2 col cols r1c-1 [inv]"
+    ],
+    [
+     "vigenere/pt=keyed/ct=keyed/key=plain",
+     "EASTNORTHEAST block",
+     "5",
+     "STICKPIN",
+     "SOZBCSTICKPINSGFREOJEDBB",
+     "T1=route 6x19 row cols r1c1 [inv] | T2=skip a=47 b=0 [inv]"
+    ],
+    [
+     "vigenere/pt=keyed/ct=keyed/key=plain",
+     "BERLINCLOCK block",
+     "1",
+     "OVERHARD",
+     "NSVWXIZWFUSJBWOVERHARDEM",
+     "T1=skip a=30 b=0 [inv] | T2=blocks (1, 3, 0, 2) rev=0011 [inv]"
+    ],
+    [
+     "beaufort/pt=plain/ct=plain/key=keyed",
+     "EASTNORTHEAST block",
+     "0",
+     "MINACITY",
+     "MINACITYUFQVNQIRKGXWANBM",
+     "T1=route 5x21 row cols r-1c-1 [inv] | T2=skip a=11 b=0"
+    ],
+    [
+     "beaufort/pt=plain/ct=plain/key=keyed",
+     "EASTNORTHEAST block",
+     "4",
+     "CORDWOOD",
+     "PJBECORDWOODRTBJTKOFZAEW",
+     "T1=route 3x41 row cols r-1c-1 [inv] | T2=route 5x21 row cols r1c1"
+    ],
+    [
+     "beaufort/pt=plain/ct=plain/key=keyed",
+     "EASTNORTHEAST block",
+     "4",
+     "CORDWOOD",
+     "PJBECORDWOODRRWEUMGRQMQP",
+     "T1=route 3x39 row cols r1c-1 [inv] | T2=columnar w=5 (0, 3, 4, 1, 2) [inv]"
+    ],
+    [
+     "beaufort/pt=plain/ct=plain/key=keyed",
+     "EASTNORTHEAST block",
+     "4",
+     "CORDWOOD",
+     "PJBECORDWOODRRXDUBWRIWQY",
+     "T1=route 3x39 row cols r-1c-1 [inv] | T2=columnar w=5 (2, 1, 0, 3, 4) [inv]"
+    ],
+    [
+     "beaufort/pt=plain/ct=plain/key=keyed",
+     "EASTNORTHEAST block",
+     "4",
+     "CORDWOOD",
+     "PJBECORDWOODRCWROMFYQSSP",
+     "T1=route 3x39 row cols r1c-1 [inv] | T2=columnar w=5 (0, 3, 2, 1, 4) [inv]"
+    ],
+    [
+     "beaufort/pt=plain/ct=plain/key=keyed",
+     "EASTNORTHEAST block",
+     "4",
+     "CORDWOOD",
+     "PJBECORDWOODRCHDOAWYPWSP",
+     "T1=route 3x39 row cols r-1c-1 [inv] | T2=columnar w=5 (4, 1, 0, 3, 2) [inv]"
+    ],
+    [
+     "beaufort/pt=plain/ct=keyed/key=plain",
+     "EASTNORTHEAST block",
+     "5",
+     "NONCLAIM",
+     "QHVYYNONCLAIMGMHAMEGILHU",
+     "T1=route 5x22 row cols r-1c1 [inv] | T2=route 49x2 row rows r1c-1"
+    ],
+    [
+     "beaufort/pt=plain/ct=keyed/key=plain",
+     "EASTNORTHEAST block",
+     "5",
+     "NONCLAIM",
+     "QHVYYNONCLAIMYJPSMTBXUOT",
+     "T1=route 10x10 row rows r1c-1 | T2=route 5x22 row cols r1c1 [inv]"
+    ],
+    [
+     "beaufort/pt=plain/ct=keyed/key=keyed",
+     "EASTNORTHEAST block",
+     "4",
+     "SHADRACH",
+     "NSLXSHADRACHMEDAPNTMDRSF",
+     "T1=route 14x7 col rows r-1c-1 [inv] | T2=columnar w=5 (2, 4, 0, 3, 1) [inv]"
+    ],
+    [
+     "beaufort/pt=keyed/ct=plain/key=plain",
+     "EASTNORTHEAST block",
+     "0",
+     "VIOLABLE",
+     "VIOLABLEHGPWHAQVJITOJCDR",
+     "T1=columnar w=3 (1, 2, 0) | T2=route 11x9 row cols r-1c-1"
+    ],
+    [
+     "beaufort/pt=keyed/ct=plain/key=plain",
+     "BERLINCLOCK block",
+     "1",
+     "QUILLING",
+     "VBYSPIDAOLRHULQUILLINGOS",
+     "T1=route 3x34 row cols r-1c1 | T2=columnar w=5 (4, 1, 0, 2, 3)"
+    ],
+    [
+     "beaufort/pt=keyed/ct=plain/key=keyed",
+     "EASTNORTHEAST block",
+     "4",
+     "TWELVEMO",
+     "KYCHTWELVEMOHVANMKTLXHHN",
+     "T1=route 13x8 col rows r-1c-1 [inv] | T2=route 3x35 row cols r-1c1 [inv]"
+    ],
+    [
+     "beaufort/pt=keyed/ct=keyed/key=plain",
+     "EASTNORTHEAST block",
+     "0",
+     "PUFFINET",
+     "PUFFINETXPHGKIWLUMFHGFEE",
+     "T1=columnar w=5 (3, 4, 2, 1, 0) | T2=columnar w=5 (2, 3, 1, 0, 4)"
+    ],
+    [
+     "beaufort/pt=keyed/ct=keyed/key=keyed",
+     "EASTNORTHEAST block",
+     "2",
+     "SPOTTILY",
+     "ENSPOTTILYWULIXOKRZOZKKT",
+     "T1=columnar w=5 (2, 1, 0, 3, 4) | T2=route 7x16 row cols r-1c-1"
+    ],
+    [
+     "beaufort/pt=keyed/ct=keyed/key=keyed",
+     "EASTNORTHEAST block",
+     "4",
+     "DISTANCY",
+     "ESGQDISTANCYBBLOUZCIYTST",
+     "T1=route 10x10 row cols r-1c-1 [inv] | T2=route 6x19 row cols r-1c-1 [inv]"
+    ]
+   ],
+   "9": [
+    [
+     "varbeaufort/pt=plain/ct=keyed/key=keyed",
+     "BERLINCLOCK block",
+     "2",
+     "SWIETENIA",
+     "FPBOJDOTFKVRFBKSWIETENIA",
+     "T1=columnar w=5 (0, 3, 4, 1, 2) | T2=blocks (0, 2, 3, 1) rev=0100 [inv]"
+    ]
+   ],
+   "10": [],
+   "11": [],
+   "12": [],
+   "13": []
+  },
+  "top_per_block": {
+   "EASTNORTHEAST block": [
+    [
+     -4.290158748626709,
+     "beaufort/pt=plain/ct=keyed/key=keyed",
+     "BEANDTOMACANB",
+     "T1=columnar w=5 (3, 4, 0, 2, 1) | T2=route 14x7 row cols r1c1"
+    ],
+    [
+     -4.309338092803955,
+     "beaufort/pt=plain/ct=keyed/key=plain",
+     "UCTOREATEXPTG",
+     "T1=skip a=82 b=0 | T2=blocks (3, 0, 1, 2) rev=1110"
+    ],
+    [
+     -4.309338092803955,
+     "beaufort/pt=plain/ct=keyed/key=plain",
+     "UCTOREATEXPTG",
+     "T1=skip a=82 b=0 | T2=blocks (3, 0, 1, 2) rev=1100"
+    ],
+    [
+     -4.443976402282715,
+     "vigenere/pt=plain/ct=plain/key=keyed",
+     "HOSETEITDECOR",
+     "T1=skip a=23 b=0 | T2=blocks (2, 0, 3, 1) rev=1101 [inv]"
+    ],
+    [
+     -4.459312438964844,
+     "beaufort/pt=plain/ct=plain/key=plain",
+     "TOMINESTATAFA",
+     "T1=route 20x5 col rows r-1c-1 | T2=route 4x28 row cols r1c1"
+    ],
+    [
+     -4.474200248718262,
+     "varbeaufort/pt=keyed/ct=plain/key=keyed",
+     "RELECTONDONEH",
+     "T1=skip a=17 b=0 [inv] | T2=blocks (2, 3, 0, 1) rev=1000"
+    ],
+    [
+     -4.509575843811035,
+     "vigenere/pt=keyed/ct=keyed/key=plain",
+     "TOBLUESECTIFI",
+     "T1=columnar w=5 (4, 2, 0, 3, 1) | T2=columnar w=5 (3, 1, 0, 4, 2)"
+    ],
+    [
+     -4.655978679656982,
+     "vigenere/pt=keyed/ct=plain/key=keyed",
+     "AGISTITSTACEI",
+     "T1=route 9x12 row cols r1c1 [inv] | T2=route 5x21 row rows r-1c1"
+    ],
+    [
+     -4.674140453338623,
+     "beaufort/pt=keyed/ct=keyed/key=plain",
+     "TYLINESTRUCKE",
+     "T1=route 7x15 row cols r-1c-1 | T2=blocks (2, 0, 1, 3) rev=0100"
+    ],
+    [
+     -4.702664852142334,
+     "varbeaufort/pt=keyed/ct=keyed/key=keyed",
+     "ORRESOARGDEFA",
+     "T1=route 33x3 row rows r-1c1 | T2=route 3x46 row rows r-1c1"
+    ],
+    [
+     -4.711918830871582,
+     "beaufort/pt=plain/ct=plain/key=plain",
+     "ILEPETITSACCU",
+     "T1=skip a=47 b=0 | T2=columnar w=4 (1, 2, 3, 0) [inv]"
+    ],
+    [
+     -4.723572254180908,
+     "vigenere/pt=plain/ct=plain/key=keyed",
+     "ELMATFORSISZG",
+     "T1=route 2x50 row cols r1c-1 [inv] | T2=route 3x46 row cols r-1c-1 [inv]"
+    ],
+    [
+     -4.725194454193115,
+     "beaufort/pt=keyed/ct=keyed/key=keyed",
+     "TESORSTAKENKW",
+     "T1=route 4x28 row cols r1c1 [inv] | T2=blocks (1, 2, 0, 3) rev=1111 [inv]"
+    ],
+    [
+     -4.727560997009277,
+     "beaufort/pt=keyed/ct=keyed/key=plain",
+     "IYSECASESASTI",
+     "T1=route 10x10 row cols r1c1 [inv] | T2=route 4x26 row cols r-1c-1"
+    ],
+    [
+     -4.7288818359375,
+     "vigenere/pt=keyed/ct=plain/key=plain",
+     "CDTESPASSATHO",
+     "T1=route 3x34 row cols r1c-1 [inv] | T2=route 5x21 row cols r-1c-1 [inv]"
+    ]
+   ],
+   "BERLINCLOCK block": [
+    [
+     -3.5934529304504395,
+     "beaufort/pt=plain/ct=plain/key=keyed",
+     "MPRETHEOBJD",
+     "T1=blocks (1, 3, 2, 0) rev=0101 | T2=skip a=33 b=0"
+    ],
+    [
+     -3.5934529304504395,
+     "beaufort/pt=plain/ct=plain/key=keyed",
+     "MPRETHEOBJD",
+     "T1=blocks (1, 3, 2, 0) rev=0100 | T2=skip a=33 b=0"
+    ],
+    [
+     -3.7121925354003906,
+     "beaufort/pt=plain/ct=plain/key=keyed",
+     "NORETHEOBJD",
+     "T1=skip a=33 b=0 | T2=blocks (1, 2, 3, 0) rev=0100"
+    ],
+    [
+     -4.132553577423096,
+     "beaufort/pt=plain/ct=plain/key=keyed",
+     "NBRETHEOBJD",
+     "T1=route 3x44 row rows r-1c1 | T2=skip a=33 b=0"
+    ],
+    [
+     -4.132553577423096,
+     "beaufort/pt=plain/ct=plain/key=keyed",
+     "NBRETHEOBJD",
+     "T1=route 3x42 row cols r1c1 | T2=skip a=25 b=0 [inv]"
+    ],
+    [
+     -4.132553577423096,
+     "beaufort/pt=plain/ct=plain/key=keyed",
+     "NBRETHEOBJD",
+     "T1=route 3x42 row cols r1c-1 | T2=skip a=31 b=0"
+    ],
+    [
+     -4.132553577423096,
+     "beaufort/pt=plain/ct=plain/key=keyed",
+     "NBRETHEOBJD",
+     "T1=blocks (2, 3, 1, 0) rev=0100 | T2=skip a=33 b=0"
+    ],
+    [
+     -4.132553577423096,
+     "beaufort/pt=plain/ct=plain/key=keyed",
+     "NBRETHEOBJD",
+     "T1=blocks (2, 3, 1, 0) rev=0000 | T2=skip a=33 b=0"
+    ],
+    [
+     -4.132553577423096,
+     "beaufort/pt=plain/ct=plain/key=keyed",
+     "NBRETHEOBJD",
+     "T1=blocks (2, 3, 0, 1) rev=1000 | T2=skip a=33 b=0"
+    ],
+    [
+     -4.132553577423096,
+     "beaufort/pt=plain/ct=plain/key=keyed",
+     "NBRETHEOBJD",
+     "T1=blocks (2, 3, 0, 1) rev=0000 | T2=skip a=33 b=0"
+    ],
+    [
+     -4.150681495666504,
+     "varbeaufort/pt=plain/ct=plain/key=keyed",
+     "RGENABASEDE",
+     "T1=route 25x4 col rows r1c1 [inv] | T2=columnar w=5 (1, 4, 3, 2, 0)"
+    ],
+    [
+     -4.24316930770874,
+     "varbeaufort/pt=keyed/ct=plain/key=plain",
+     "VEANDRESASE",
+     "T1=route 20x5 row cols r1c-1 [inv] | T2=columnar w=5 (2, 3, 4, 1, 0) [inv]"
+    ],
+    [
+     -4.24316930770874,
+     "varbeaufort/pt=keyed/ct=plain/key=plain",
+     "VEANDRESASE",
+     "T1=columnar w=5 (3, 2, 4, 1, 0) [inv] | T2=columnar w=5 (2, 3, 4, 1, 0) [inv]"
+    ],
+    [
+     -4.24316930770874,
+     "varbeaufort/pt=keyed/ct=plain/key=plain",
+     "VEANDRESASE",
+     "T1=columnar w=5 (2, 4, 3, 1, 0) [inv] | T2=columnar w=5 (2, 3, 4, 1, 0) [inv]"
+    ],
+    [
+     -4.271245002746582,
+     "varbeaufort/pt=plain/ct=plain/key=plain",
+     "IOHTHENTERE",
+     "T1=route 4x26 row cols r1c1 [inv] | T2=columnar w=5 (4, 3, 1, 0, 2)"
+    ]
+   ]
+  }
+ }
+}

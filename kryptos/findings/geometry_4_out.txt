@@ -1,0 +1,79 @@
+rearrangements: 4703
+
+== periodic IoC, max over p=2..30, for every rearrangement ==
+  distribution of the per-rearrangement maxima: mean 0.0633, 95th pct 0.0833, max 0.1200
+  identity: (0.05333333333333333, 25, 'identity')
+  top 12:
+    max IoC 0.1200 at p=25  odd positions only
+    max IoC 0.1190 at p=28  colread w=27 off=9 up,R->L
+    max IoC 0.1190 at p=28  colread w=27 off=9 down,L->R
+    max IoC 0.1131 at p=28  colread w=27 off=8 up,R->L
+    max IoC 0.1131 at p=28  colread w=27 off=8 down,L->R
+    max IoC 0.1071 at p=28  colread w=27 off=7 up,R->L
+    max IoC 0.1071 at p=28  colread w=27 off=7 down,L->R
+    max IoC 0.1034 at p=29  colread w=10 off=8 up,R->L
+    max IoC 0.1034 at p=29  colread w=10 off=8 down,L->R
+    max IoC 0.1012 at p=28  colread w=27 off=6 up,R->L
+    max IoC 0.1012 at p=28  colread w=27 off=6 down,L->R
+    max IoC 0.1012 at p=28  colread w=27 off=10 up,R->L
+  full-period table for identity, odd, even:
+    identity             2:0.035 3:0.030 4:0.033 5:0.039 6:0.030 7:0.042 8:0.026 9:0.026 10:0.043 11:0.044 12:0.023 13:0.023 14:0.035 15:0.037 16:0.037 17:0.037 18:0.019 19:0.028 20:0.030 21:0.037 22:0.035 23:0.016 24:0.021 25:0.053 26:0.019 27:0.037 28:0.048 29:0.029 30:0.044
+    odd positions only   2:0.033 3:0.035 4:0.026 5:0.037 6:0.040 7:0.034 8:0.033 9:0.019 10:0.020 11:0.055 12:0.028 13:0.026 14:0.048 15:0.022 16:0.021 17:0.078 18:0.000 19:0.070 20:0.017 21:0.063 22:0.091 23:0.000 24:0.042 25:0.120 26:0.000 27:0.037 28:0.000 29:0.000 30:0.000
+    even positions only  2:0.033 3:0.025 4:0.027 5:0.050 6:0.006 7:0.037 8:0.042 9:0.019 10:0.040 11:0.015 12:0.014 13:0.013 14:0.048 15:0.067 16:0.042 17:0.059 18:0.000 19:0.088 20:0.050 21:0.063 22:0.045 23:0.058 24:0.042 25:0.040 26:0.000 27:0.037 28:0.000 29:0.000 30:0.000
+
+== periodic-key crib consistency, p=2..48, all 12 cipher/alphabet pairings ==
+  tests run: 2652492
+  consistent cases by number of collisions: {1: 3172, 2: 144}
+  chance expectation (tests * 26^-c, ignoring how many tests have c collisions) is an upper bound;
+  the following lists every consistent case with >= 4 collisions:
+   none
+
+== odd/even split texts: consistency detail ==
+  odd positions only: OKUXGUBOIBWLVQRGSOWQJSEZWTKUIWNBYVTZPWDZTCIKHAECR  (11 cribs survive) cribs at [12, 13, 14, 15, 16, 17, 33, 34, 35, 36, 37]
+    p= 2 collisions= 9 consistent pairings=0 
+    p= 3 collisions= 8 consistent pairings=0 
+    p= 4 collisions= 7 consistent pairings=0 
+    p= 5 collisions= 6 consistent pairings=0 
+    p= 6 collisions= 5 consistent pairings=0 
+    p= 7 collisions= 5 consistent pairings=0 
+    p= 8 collisions= 3 consistent pairings=0 
+    p= 9 collisions= 3 consistent pairings=0 
+    p=10 collisions= 5 consistent pairings=0 
+    p=11 collisions= 4 consistent pairings=0 
+    p=12 collisions= 2 consistent pairings=0 
+    p=13 collisions= 0 consistent pairings=12 
+    p=14 collisions= 0 consistent pairings=12 
+    p=15 collisions= 0 consistent pairings=12 
+    p=16 collisions= 1 consistent pairings=0 
+    p=17 collisions= 2 consistent pairings=0 
+    p=18 collisions= 3 consistent pairings=0 
+    p=19 collisions= 4 consistent pairings=0 
+    p=20 collisions= 5 consistent pairings=0 
+    p=21 collisions= 5 consistent pairings=0 
+    p=22 collisions= 4 consistent pairings=0 
+    p=23 collisions= 3 consistent pairings=0 
+    p=24 collisions= 2 consistent pairings=0 
+  even positions only: BROOHLSLFBFRQPNKSTTSQSKZAJLDAIFNPTMFKGKXJDGUUUKA  (13 cribs survive) cribs at [11, 12, 13, 14, 15, 16, 17, 32, 33, 34, 35, 36, 37]
+    p= 2 collisions=11 consistent pairings=0 
+    p= 3 collisions=10 consistent pairings=0 
+    p= 4 collisions= 9 consistent pairings=0 
+    p= 5 collisions= 8 consistent pairings=0 
+    p= 6 collisions= 7 consistent pairings=0 
+    p= 7 collisions= 6 consistent pairings=0 
+    p= 8 collisions= 5 consistent pairings=0 
+    p= 9 collisions= 4 consistent pairings=0 
+    p=10 collisions= 6 consistent pairings=0 
+    p=11 collisions= 5 consistent pairings=0 
+    p=12 collisions= 3 consistent pairings=0 
+    p=13 collisions= 1 consistent pairings=0 
+    p=14 collisions= 0 consistent pairings=12 
+    p=15 collisions= 1 consistent pairings=0 
+    p=16 collisions= 2 consistent pairings=0 
+    p=17 collisions= 3 consistent pairings=0 
+    p=18 collisions= 4 consistent pairings=0 
+    p=19 collisions= 5 consistent pairings=0 
+    p=20 collisions= 6 consistent pairings=0 
+    p=21 collisions= 6 consistent pairings=0 
+    p=22 collisions= 5 consistent pairings=0 
+    p=23 collisions= 4 consistent pairings=0 
+    p=24 collisions= 3 consistent pairings=0 

@@ -1,0 +1,14 @@
+==============================================================================
+ADVERSARIAL VERIFICATION part 5 -- omnibus estimator comparison
+==============================================================================
+  same sample (report's method)    K4 min-p 0.1271   OMNIBUS p = 0.4092   (null median 0.1697, 5th 0.0145)
+  split sample (unbiased)          K4 min-p 0.1268   OMNIBUS p = 0.4030   (null median 0.1709, 5th 0.0147)
+  split, halves swapped            K4 min-p 0.1275   OMNIBUS p = 0.4094   (null median 0.1685, 5th 0.0144)
+
+  report (40,000 replicates, same-sample estimator): min-p 0.131, omnibus 0.4142
+  MC standard error of the report's own figure at 40,000 replicates: +-0.0025
+  -> the report's 0.4142 and my 500,000-replicate figures agree within ~2 se.
+
+  12 independent 40,000-replicate subsamples of my data, same-sample estimator:
+    [0.3978, 0.3986, 0.3988, 0.4003, 0.4004, 0.4007, 0.4024, 0.406, 0.4067, 0.4073, 0.4115, 0.4139]
+    range 0.3978 .. 0.4139  -- the report's 0.4142 sits inside it.

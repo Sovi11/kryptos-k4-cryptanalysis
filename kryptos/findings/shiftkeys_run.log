@@ -1,0 +1,46 @@
+======================================================================
+PORTA
+[straight alphabet] crib pairs with cipher and plain letter in the SAME half (impossible for any Porta row): 16/24
+    22:F->E, 23:L->A, 24:R->S, 25:V->T, 26:Q->N, 27:Q->O, 28:P->R, 29:R->T, 31:G->E, 32:K->A, 33:S->S, 34:S->T, 66:P->R, 69:T->N, 70:M->C, 74:K->K
+   standard table: positions with NO valid key row = 16; periods 2-26 consistent: none
+   bellaso  table: positions with NO valid key row = 16; periods 2-26 consistent: none
+[kryptos alphabet] crib pairs with cipher and plain letter in the SAME half (impossible for any Porta row): 16/24
+    22:F->E, 24:R->S, 26:Q->N, 28:P->R, 29:R->T, 30:N->H, 32:K->A, 33:S->S, 34:S->T, 65:Y->E, 66:P->R, 67:V->L, 71:Z->L, 72:F->O, 73:P->C, 74:K->K
+   standard table: positions with NO valid key row = 16; periods 2-26 consistent: none
+   bellaso  table: positions with NO valid key row = 16; periods 2-26 consistent: none
+Note: Porta never maps a letter to itself, and the cribs contain S->S (pos 33) and K->K (pos 74),
+      so Porta is ruled out for EVERY 26-letter alphabet ordering, not only the two tested.
+======================================================================
+GRONSFELD (key digits 0-9)
+[straight vig    ] required shifts: [1, 11, 25, 2, 3, 2, 24, 24, 6, 2, 10, 0, 25, 12, 20, 24, 10, 11, 6, 10, 14, 17, 13, 0]
+     positions needing shift > 9: 15/24 -> ruled out; periodic fits 2-26: none
+[straight beau   ] required shifts: [9, 11, 9, 14, 3, 4, 6, 10, 20, 10, 10, 10, 11, 14, 2, 6, 6, 1, 6, 14, 10, 19, 17, 20]
+     positions needing shift > 9: 14/24 -> ruled out; periodic fits 2-26: none
+[straight varbeau] required shifts: [25, 15, 1, 24, 23, 24, 2, 2, 20, 24, 16, 0, 1, 14, 6, 2, 16, 15, 20, 16, 12, 9, 13, 0]
+     positions needing shift > 9: 15/24 -> ruled out; periodic fits 2-26: none
+[kryptos  vig    ] required shifts: [1, 10, 21, 18, 1, 15, 2, 23, 5, 2, 19, 0, 2, 11, 17, 2, 5, 15, 11, 9, 8, 7, 20, 0]
+     positions needing shift > 9: 11/24 -> ruled out; periodic fits 2-26: none
+[kryptos  beau   ] required shifts: [23, 24, 7, 0, 13, 25, 4, 5, 7, 24, 7, 12, 10, 1, 13, 4, 13, 19, 23, 1, 16, 17, 12, 0]
+     positions needing shift > 9: 14/24 -> ruled out; periodic fits 2-26: none
+[kryptos  varbeau] required shifts: [25, 16, 5, 8, 25, 11, 24, 3, 21, 24, 7, 0, 24, 15, 9, 24, 21, 11, 15, 17, 18, 19, 6, 0]
+     positions needing shift > 9: 16/24 -> ruled out; periodic fits 2-26: none
+======================================================================
+TRITHEMIUS / PROGRESSIVE KEY, letter-wise: shift_i = a + b*i (mod 26), i = 0-based position
+[straight vig ] exact fits: none;  best partial agreement 7/24 at (a,b)=(20,4)
+[straight beau] exact fits: none;  best partial agreement 5/24 at (a,b)=(10,0)
+[kryptos  vig ] exact fits: none;  best partial agreement 5/24 at (a,b)=(17,16)
+[kryptos  beau] exact fits: none;  best partial agreement 5/24 at (a,b)=(25,12)
+(a,b) pairs tested: 2704
+======================================================================
+PERIODIC KEY + PROGRESSIVE INCREMENT
+  (A) shift_i = key[i mod p] + b*floor(i/p)   -- alphabet advances by b after every period
+  (B) shift_i = key[i mod p] + b*i            -- alphabet advances by b after every letter
+(alphabet, mode, period, b, variant) combinations tested: 5200
+  variant A: 0 consistent (alpha,mode,p,b); with >=5 constraints: 0; weak (period 25/26, 1-3 constraints, chance expected 8.0): 0
+  variant B: 0 consistent (alpha,mode,p,b); with >=5 constraints: 0; weak (period 25/26, 1-3 constraints, chance expected 8.0): 0
+======================================================================
+AUTOKEY (bonus): primer length L = 1..96
+  plaintext_autokey: consistent primer lengths: none
+  ciphertext_autokey: consistent primer lengths: none
+  (plaintext autokey can only be checked for L where two crib letters are L apart: L=1..12 and 30..52;
+   ciphertext autokey is checkable at every crib position with i-L >= 0.)

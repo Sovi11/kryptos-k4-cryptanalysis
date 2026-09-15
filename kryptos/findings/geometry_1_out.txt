@@ -1,0 +1,29 @@
+Crib shifts (key value needed at each crib position) for each cipher/alphabet pairing:
+  vig      pt=plain   ct=plain   [1, 11, 25, 2, 3, 2, 24, 24, 6, 2, 10, 0, 25, 12, 20, 24, 10, 11, 6, 10, 14, 17, 13, 0]
+  vig      pt=plain   ct=kryptos [8, 17, 9, 3, 7, 6, 12, 8, 12, 9, 0, 14, 13, 18, 24, 12, 11, 22, 17, 16, 14, 24, 1, 16]
+  vig      pt=kryptos ct=plain   [20, 4, 11, 17, 23, 11, 14, 13, 25, 21, 3, 12, 14, 5, 13, 14, 4, 4, 0, 3, 8, 0, 6, 10]
+  vig      pt=kryptos ct=kryptos [1, 10, 21, 18, 1, 15, 2, 23, 5, 2, 19, 0, 2, 11, 17, 2, 5, 15, 11, 9, 8, 7, 20, 0]
+  beau     pt=plain   ct=plain   [9, 11, 9, 14, 3, 4, 6, 10, 20, 10, 10, 10, 11, 14, 2, 6, 6, 1, 6, 14, 10, 19, 17, 20]
+  beau     pt=plain   ct=kryptos [16, 17, 19, 15, 7, 8, 20, 20, 0, 17, 0, 24, 25, 20, 6, 20, 7, 12, 17, 20, 10, 0, 5, 10]
+  beau     pt=kryptos ct=plain   [16, 18, 23, 25, 9, 21, 16, 21, 1, 17, 17, 24, 22, 21, 9, 16, 12, 8, 12, 21, 16, 10, 24, 10]
+  beau     pt=kryptos ct=kryptos [23, 24, 7, 0, 13, 25, 4, 5, 7, 24, 7, 12, 10, 1, 13, 4, 13, 19, 23, 1, 16, 17, 12, 0]
+  varbeau  pt=plain   ct=plain   [25, 15, 1, 24, 23, 24, 2, 2, 20, 24, 16, 0, 1, 14, 6, 2, 16, 15, 20, 16, 12, 9, 13, 0]
+  varbeau  pt=plain   ct=kryptos [18, 9, 17, 23, 19, 20, 14, 18, 14, 17, 0, 12, 13, 8, 2, 14, 15, 4, 9, 10, 12, 2, 25, 10]
+  varbeau  pt=kryptos ct=plain   [6, 22, 15, 9, 3, 15, 12, 13, 1, 5, 23, 14, 12, 21, 13, 12, 22, 22, 0, 23, 18, 0, 20, 16]
+  varbeau  pt=kryptos ct=kryptos [25, 16, 5, 8, 25, 11, 24, 3, 21, 24, 7, 0, 24, 15, 9, 24, 21, 11, 15, 17, 18, 19, 6, 0]
+
+family                                         models best fit  example best models (cipher,pt-alpha,ct-alpha; params)
+linear a*i+b                                     8112        7  vig/plain/plain a=4 b=16; varbeau/plain/plain a=22 b=10
+quadratic a*i^2+b*i+c                          210912        8  beau/plain/plain a=2 b=8 c=20; beau/plain/plain a=15 b=21 c=20
+triangular a*T(i)+b                              8112        6  beau/plain/plain a=6 b=14
+sawtooth a*((i+ph) mod m)+b                  37065600        8  vig/plain/plain m=27 ph=13 a=4 b=6; vig/plain/plain m=27 ph=14 a=4 b=2; vig/plain/plain m=27 ph=15 a=4 b=24
+block a*((i+ph) div m)+b                     37065600        8  beau/plain/plain m=3 ph=0 a=4 b=22; beau/plain/plain m=6 ph=3 a=1 b=5; beau/plain/plain m=6 ph=3 a=8 b=22
+cubic                                          210912        8  vig/plain/plain a=4 b=8 c=15 d=7; vig/plain/plain a=4 b=21 c=2 d=7; vig/plain/plain a=17 b=8 c=2 d=7
+rowcol a*row+b*col+c (w=2..48)                9280128        8  beau/kryptos/kryptos w=5 off=3 a=22 b=4 c=23; beau/plain/plain w=6 off=3 a=1 b=0 c=5; vig/plain/kryptos w=7 off=0 a=12 b=18 c=24
+rowcol a*row+b*col+c (w=31)                    251472        7  beau/kryptos/kryptos w=31 off=4 a=6 b=1 c=24; beau/kryptos/kryptos w=31 off=5 a=6 b=1 c=23; beau/kryptos/kryptos w=31 off=6 a=6 b=1 c=22
+bilinear w=31                                 6538272        9  vig/plain/plain off=10 a=23 b=19 c=10 d=8; varbeau/plain/plain off=10 a=3 b=7 c=16 d=18; vig/plain/plain off=11 a=23 b=22 c=10 d=24
+Gronsfeld K2-coordinate digits                   2016        5  vig/kryptos/plain N+W 38576577844 rev phase=0; vig/kryptos/plain N+W zero-padded 3857065778440 fwd phase=9; varbeau/kryptos/kryptos N+W zero-padded 3857065778440 fwd phase=11
+
+Models fitting all 24 cribs: 0
+
+Chance reference: P(random model fits >= m cribs) for m=4..8: {4: '1.25e-02', 5: '1.94e-03', 6: '2.39e-04', 7: '2.41e-05', 8: '2.02e-06'}
