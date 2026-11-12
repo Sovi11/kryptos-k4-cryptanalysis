@@ -1,0 +1,43 @@
+== Planted controls
+   stay      pi/3-digit/phase0          file 2 (1729 runes, 48 repairs), stay-mode search: hit +0 runes, offset 3000 vs true 3000, sk +1 trans (1, 0), window LL -2.314, next-200 LL -2.584 -> RECOVERED
+      O ONE WILL SAME CURAGIN REACHNG UNFASTENED. PIERRE PARTICULARLY AMONG SOBER THIS AN PIERRE UNDERSTAN
+   stay      sha256-chain('cicada')     file 5 (1433 runes, 37 repairs), stay-mode search: hit +19 runes, offset 7796 vs true 7796, sk -1 trans (-1, 13), window LL -2.391, next-200 LL -2.427 -> RECOVERED
+      D THE WTDL DELIUER HAUNG DENISOU. END HIS THE TO ITS HORSES AND. INACCESSIBLE THE INEUITABLY SURROUN
+   stay      glibc-rand(1033)           file 8 (308 runes, 6 repairs), stay-mode search: hit +0 runes, offset 11111 vs true 11111, sk +1 trans (1, 22), window LL -2.564, next-200 LL -2.506 -> RECOVERED
+      D LIFE SHALL MOST HIS PARTNG A AND WHICH BEGAN AND DOWN IT THROUGH FIRST ALL PICTURED POINT LAST WEY
+   flip      e/2-digit/phase1           file 1 (1145 runes, 32 repairs), skip-mode search: hit +0 runes, offset 2222 vs true 2222, sk +1 trans (1, 5), window LL -2.441, next-200 LL -2.581 -> RECOVERED
+      PENED WILL WAELL PIERRE. GET. SON APD THE AS ANYTHNG HAPPEN NOT WHETHER INTERRUPTED SMILNG AND NOT E
+   reroll2   sha512-chain('divinity')   file 4 (1021 runes, 32 repairs), skip-mode search: hit +16 runes, offset 6016 vs true 6016, sk -1 trans (1, 9), window LL -2.585, next-200 LL -2.597 -> RECOVERED
+      S BAGRATIAN BEEN S SHOUTED RED IN YES YES RODE PASAE SHOT ISSUED HIM SEISED ITS POSITIAN GUNNER TO A
+   litcons   py2-rand(2014)             file 0 (729 runes, 16 repairs), skip-mode search: hit +13 runes, offset 513 vs true 513, sk +1 trans (-1, 3), window LL -2.568, next-200 LL -2.557 -> RECOVERED
+      S THAT COULD BE THIS UERY TIME AUYONE TALC SEEMED SAY. EUEN PROBABLY GENEJAL BUT S LITTLE LIFTED HER
+   skipuntil phi/2-digit/phase0         file 6 (1680 runes, 47 repairs), skip-mode search: hit +99 runes, offset 9104 vs true 9104, sk -1 trans (-1, 1), window LL -2.361, next-200 LL -2.500 -> RECOVERED
+      ESPECT FOR WHICH S THE AS HE WEALTH. AND BENG. TREATED GROUP SOME OF LARGEST NARYSHCIN THROUGH UALUE
+   stay      py3-rand(3301)             file 7 (3008 runes, 90 repairs), stay-mode search: hit +2474 runes, offset 12284 vs true 12284, sk +1 trans (-1, 0), window LL -2.504, next-200 LL -2.491 -> RECOVERED
+      TIAN ENTERED SAY HIDEOUS A HAD ALL AWAY CNOWN THAT THE I DRAGGED THE LICE LITTLE AND THE MARIE. REPR
+   (22s)
+== decoys done (328s)
+== real done (2328s)
+== 'stay' search, per-stream max LL: decoys median -4.081 max -3.924; real median -4.061 max -3.834 (py3-rand(1)); real above best decoy 3 (expected 6.1, P = 0.648)
+== out-of-sample next-200 LL: null (decoy hits, n=150) median -5.408 99th -5.004 max -4.950; real (n=953) median -5.416 max -4.898; real above null max 4, above null 99th 8
+   top 12 window hits:
+     py3-rand(1)                      start  7970 sk -1 off 13772 (-1, 3)   LL -3.834
+     sqrt5/3-digit/phase0             start  6527 sk -1 off 14292 (1, 2)    LL -3.886
+     py2-rand(1033)                   start   848 sk -1 off   553 (1, 28)   LL -3.919
+     sqrt3/2-digit/phase0             start  3612 sk -1 off  1184 (1, 14)   LL -3.924
+     e/2-digit/phase0                 start  1874 sk +1 off  8269 (1, 21)   LL -3.935
+     pi/2-digit/phase1                start  3603 sk +1 off 11366 (1, 15)   LL -3.937
+     fibcat/2-digit/phase0            start 12114 sk -1 off  6451 (-1, 18)  LL -3.955
+     sqrt3/3-digit/phase0             start  6546 sk -1 off  4992 (1, 7)    LL -3.955
+     sha512-chain('liber primus')     start  8805 sk -1 off  3892 (-1, 26)  LL -3.958
+     py3-rand(2013)                   start  1552 sk +1 off 10937 (1, 24)   LL -3.967
+     sqrt2/3-digit/phase1             start  7970 sk -1 off  7006 (-1, 20)  LL -3.968
+     py2-rand(2013)                   start  9522 sk +1 off 12621 (-1, 23)  LL -3.974
+   best 6 continuations:
+     champernowne/2-digit/phase0      start  3612 window -4.182 cont -4.898: JL ROEEOUHEDT GBNGL CDPP TUS NRS EOAE I RNOEJ TFEYYIA UGAH YEAX DYLDND
+     champernowne/2-digit/phase0      start  3612 window -4.182 cont -4.898: JL ROEEOUHEDT GBNGL CDPP TUS NRS EOAE I RNOEJ TFEYYIA UGAH YEAX DYLDND
+     champernowne/2-digit/phase0      start  3612 window -4.182 cont -4.898: JL ROEEOUHEDT GBNGL CDPP TUS NRS EOAE I RNOEJ TFEYYIA UGAH YEAX DYLDND
+     py3-rand(1595277641)             start  6527 window -4.200 cont -4.930: R SOCEA THCP DAL TIAEE IICOE GAE BIHC NIANOCEN JEORIA SLEFFML. DSIA UR
+     phi/2-digit/phase0               start  7970 window -4.071 cont -4.960: NL SAEOT DHC LNOEA PN JE EANGEO RB EBTD DS J MAEIAUTSCBNG ETOBTHSLC AE
+     phi/2-digit/phase0               start  7970 window -4.074 cont -4.960: NL SAEOT DHC LNOEA PN JE EANGEO RB EBTD DS J MAEIAUTSCBNG ETOBTHSLC AE
+(2381s)

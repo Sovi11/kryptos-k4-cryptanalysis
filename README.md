@@ -81,7 +81,8 @@ kryptos/
   analysis/            ~118 Python scripts; every negative is reproducible
 cicada/
   liber_primus_status.md   Liber Primus status, page-by-page methods, statistics
-  findings/                LP2 attack sessions (lp2_attack_2026-11.md, lp2_antirepeat.md, lp2_skipsearch.md)
+  findings/                LP2 attack sessions (lp2_attack_2026-11.md, lp2_antirepeat.md, lp2_skipsearch.md,
+                           lp2_repairrules.md)
   analysis/                lp_*.py scripts (need the gitignored transcriptions in cicada/data/)
 ```
 
@@ -116,7 +117,8 @@ sharpest structural fingerprint is a deficiency of same-rune bigrams — about 8
 far below chance. That deficit cannot come from any key alone. It needs a step that checks each output rune
 against the previous one and re-encrypts about 81% of collisions, with the misses falling at random
 (`cicada/findings/lp2_antirepeat.md`). A skip-aware search of 104 candidate key generators under
-that rule found nothing (`cicada/findings/lp2_skipsearch.md`). Cicada's last
+that rule found nothing (`cicada/findings/lp2_skipsearch.md`). Neither did searches under the other
+repair rules tested (`cicada/findings/lp2_repairrules.md`). Cicada's last
 authenticated message was April 2017; genuine messages are PGP-signed with key `7A35090F`.
 
 ## Provenance

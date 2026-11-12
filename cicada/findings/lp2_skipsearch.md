@@ -100,7 +100,7 @@ The null distribution is the same procedure applied to the decoys' top hits.
 **Probably covered, not planted.** A repair that does not consume key, such as "bump the output rune". The key then stays aligned, and the no-skip path is always in the beam; only about 3% of runes would decode wrongly.
 
 **Not covered:**
-1. Other repair rules: rerolling from a second stream, skipping a plaintext rune or inserting a null, or skipping more than one key value.
+1. Other repair rules: rerolling from a second stream, skipping a plaintext rune or inserting a null, or skipping more than one key value. **Update:** these are now tested in [`lp2_repairrules.md`](lp2_repairrules.md). Bump and null-and-retry are excluded by statistics. Flip, reroll2, literal-with-the-key-used-up and skip-until are covered by this search, as confirmed by planted keys. The LP1-style "stay" rule was searched separately, with a negative result.
 2. Multiplicative keys, keyed alphabets, and Gematria orders other than the standard one.
 3. Streams outside the list. That includes:
    - digit groupings other than 2 and 3 digits mod 29, and base-29 conversions;

@@ -1,0 +1,22 @@
+LP2 (12956 runes): doublets 86, largest nonzero-diff count 510 (d=9), chi2(27) of nonzero diffs 41.2, A?A 440, literal LLR 0.93
+rule (fires on 81% of collisions)              doublets       max diff     chi2 diffs            A?A    literal LLR
+skip one key value (null for this test)      97.9± 10.2    502.6±  8.9     27.5±  7.6    456.6± 19.2      1.8±  1.4
+write previous rune + d (d=7)                84.8±  8.7    807.2± 27.5    300.3± 44.4    456.4± 21.7      1.9±  1.4
+insert null, retry same key value            81.8±  8.8    502.7±  9.6     27.0±  7.2    794.4± 26.0      2.1±  1.4
+write plaintext, key not consumed            96.5±  9.7    502.7± 10.6     27.0±  7.1    456.1± 21.5      4.3±  2.0
+   P(sim >= LP2) for maxdiff  under skip    : 0.190   P(sim <= LP2): 0.825
+   P(sim >= LP2) for maxdiff  under bump    : 1.000   P(sim <= LP2): 0.000
+   P(sim >= LP2) for maxdiff  under null    : 0.235   P(sim <= LP2): 0.785
+   P(sim >= LP2) for maxdiff  under literal : 0.225   P(sim <= LP2): 0.790
+   P(sim >= LP2) for chi2     under skip    : 0.045   P(sim <= LP2): 0.955
+   P(sim >= LP2) for chi2     under bump    : 1.000   P(sim <= LP2): 0.000
+   P(sim >= LP2) for chi2     under null    : 0.050   P(sim <= LP2): 0.950
+   P(sim >= LP2) for chi2     under literal : 0.025   P(sim <= LP2): 0.975
+   P(sim >= LP2) for aba      under skip    : 0.800   P(sim <= LP2): 0.210
+   P(sim >= LP2) for aba      under bump    : 0.770   P(sim <= LP2): 0.245
+   P(sim >= LP2) for aba      under null    : 1.000   P(sim <= LP2): 0.000
+   P(sim >= LP2) for aba      under literal : 0.735   P(sim <= LP2): 0.275
+   P(sim >= LP2) for lit      under skip    : 0.710   P(sim <= LP2): 0.290
+   P(sim >= LP2) for lit      under bump    : 0.755   P(sim <= LP2): 0.245
+   P(sim >= LP2) for lit      under null    : 0.775   P(sim <= LP2): 0.225
+   P(sim >= LP2) for lit      under literal : 0.985   P(sim <= LP2): 0.015
