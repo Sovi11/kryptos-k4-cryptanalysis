@@ -1,0 +1,29 @@
+== 1. Planted controls (key index at the hit's window start includes the plant's own skips)
+   sqrt3/2-digit/phase1     file 3 (1903 runes, 46 skips planted): top hit start 3623 (+20 runes, 0 skips before it) offset 12365 vs true 12365; sk +1 trans (1, 7) vs (+1, 7); window LL -2.432; continuation LL -2.450 over 200 runes -> RECOVERED
+      continuation reads: HEN BEAMNG HIM AND SO I CNEW PIERRE WILL WITH PRINCE BUONAPARTISTS REMARCED A SMILE THOUGH AT HIM THEM FOLLOW 
+   sha512-chain('3301')     file 6 (1680 runes, 42 skips planted): top hit start 8805 (+845 runes, 22 skips before it) offset 5188 vs true 5188; sk -1 trans (-1, 20) vs (-1, 20); window LL -2.344; continuation LL -2.389 over 200 runes -> RECOVERED
+      continuation reads: ENT TOMORROW HER PROMOTIAN DID TO END SAID CWITE. UERY FACE SISTER REST MATHEMATICS SAID LESSONS TWENTY FATHER
+   py3-rand(3301)           file 7 (3008 runes, 98 skips planted): top hit start 12114 (+2474 runes, 79 skips before it) offset 12429 vs true 12429; sk +1 trans (-1, 0) vs (-1, 0); window LL -2.362; continuation LL -2.569 over 200 runes -> RECOVERED
+      continuation reads: TIAN ENTERED SAY HIDEOUS A HAD ALL AWAY CNOWN THAT THE I DRAGGED THE IICE LITTLE AND THE MARIE. REPROACHFULLY 
+
+== 2. Per-stream maxima: real vs decoy
+   decoys (n=16): median -4.072, max -3.976
+   real   (n=104): median -4.060, max -3.812
+   real streams above the best decoy: 15; P(>= 15 | exchangeable) = 0.101  (expected 6.1);  rank-sum z = +0.66
+
+== 3. Out-of-sample continuation (next <=200 runes, fixed (sp,a), best of 15 skip counts)
+   null (decoy top hits, n=155): median -5.428, 99th pct -5.035, max -4.891
+   planted keys: -2.450, -2.389, -2.569
+   real hits (n=979): median -5.422, max -4.852; above null max: 1; above null 99th pct: 12 (expected ~10)
+   best 8 real continuations:
+     e/2-digit/phase0                 start  8059 sk +1 off  9215  window -4.186  cont -4.852: TTPWSF FEOP LOEEOTHE N THD ATH LF NGCTB. XTH IDJ. CWGOTL NGNATY ONYTH 
+     copeland-erdos/3-digit/phase2    start  8805 sk +1 off  4665  window -3.887  cont -4.963: TNGG FCCIEAHIAM RNE POUYNHBT JGC BR RCT EAHOED BGCJA. MNRO IYANG ARMOR
+     sqrt3301/2-digit/phase1          start  1541 sk +1 off 14960  window -4.130  cont -4.981: HFNUC FSXLFN WYCG MEH. LYAEXETH S GH FOD AGREDOE EFM EOXIMY. FOTEO CNG
+     sha512-chain('Cicada 3301')      start  6527 sk +1 off 10877  window -4.085  cont -4.992: R BEASY PUY PGA EANTHG UHNID ATH OAANG OTCTHIAPH OXTY CBNYEBT. DDS NNI
+     champernowne/3-digit/phase1      start  9358 sk -1 off  7624  window -4.135  cont -4.993: C XCRY XAEAM CCHJFTOE OAEXCFS HC NGGWNIA THONT. SNJIANG XLDCFE ETH EXS
+     sha512-chain('circumference')    start  1552 sk -1 off  3148  window -4.175  cont -4.995: PDIEO EABS. XALANGC F EW IUR THTTGTP FRY BUEOTHB. GSRO CUJOTH LRS OYG 
+     sha256-chain('instar')           start  7960 sk -1 off 11477  window -4.169  cont -4.999: HIAEOUS XUUIAIALN NSEOU GMS DFOS GAE DG WEOH OA FGOT NO NG MIAENICNGHO
+     champernowne/3-digit/phase2      start  8051 sk +1 off  3823  window -4.065  cont -5.006: YGEU NNGEA RADBYUN UEO TLYNGR EO WT NTH YNG EOUER. LWD USE. GRNOETHW C
+
+== 4. Does the scorer recognise Cicada's own English? (solved LP1/LP2 plaintext pages, 100-rune windows)
+   9 solved pages, 24 windows: LL/rune median -2.433, min -2.636, max -2.187  (decoy per-stream max -3.976)

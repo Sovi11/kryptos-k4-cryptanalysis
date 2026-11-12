@@ -172,6 +172,6 @@ The leak probability is 0.192, with a 95% interval of **0.15–0.23**. Several s
 
 ## 8. Next steps
 
-1. **Skip-aware generator search.** For flat-difference streams (π, e, φ and √2 digit pairs mod 29; SHA-family chains of 3301-related seeds), decode each chapter with the collision-skip rule. Use a beam over ambiguous positions and score with an LP-spelling English model.
+1. ~~**Skip-aware generator search.**~~ **Done, negative:** see [`lp2_skipsearch.md`](lp2_skipsearch.md). The search covered 104 flat-difference streams (digit expansions, totient, SHA chains, PRNGs) at every chapter start and every offset below 15,000, under the collision-skip rule, about 87 million beam decodes. Three planted keys were recovered exactly, while every real stream scored at chance, both in the selection window and out of sample.
 2. **Plaintext-conditioned firing.** If the rule is skipped when pᵢ belongs to a set S with about 16–19% frequency, the leaked doublets inherit S's position-in-word profile. With 86 doublets this has little power alone, but it can score candidate decryptions.
 3. **Plaintext-dependent key plus uniform key.** This remains live. It is the only family other than "uniform key + explicit check" that the data does not yet exclude.
