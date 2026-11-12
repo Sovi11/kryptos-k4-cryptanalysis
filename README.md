@@ -61,8 +61,14 @@ among tests that genuinely constrain the key: **10 of 24**, where chance alone y
   match 16/24 — exactly chance. Gronsfeld is impossible outright, since 11–15 of the required
   shifts exceed 9.
 - **The statistics show nothing once selection is paid for.** An omnibus test over 7 statistics
-  gives p ≈ 0.40. K4's index of coincidence, 0.0361, sits *below* uniform random — it is flatter
-  than chance, not more structured.
+  gives p ≈ 0.40. K4's index of coincidence, 0.0361, sits slightly below the uniform-random
+  expectation, but about one random 97-letter string in five does the same (P = 0.216). It is
+  **not** evidence of deliberate frequency flattening, despite often being read that way.
+- **Irregular key advance fails too.** Skip-rule keys (the Liber Primus trick), double-advance,
+  reset rules, interrupted keys with inserted or deleted key letters, and plaintext-triggered
+  advance: about 7.7 × 10¹⁰ configurations, with survivor counts at chance. The few decryptions
+  that looked promising were matched by random ciphertexts in a dedicated null experiment
+  (p = 0.38–0.50). See `kryptos/findings/segmented.md`.
 
 ## Layout
 
