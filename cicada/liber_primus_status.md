@@ -86,6 +86,10 @@ pages 34–39. The community has rendered it as a 256-byte hex blob; it has not 
 | 11 | ᛄ | J | 37 | | 26 | ᚣ | Y | 103 |
 | 12 | ᛇ | EO | 41 | | 27 | ᛡ | IA / IO | 107 |
 | 13 | ᛈ | P | 43 | | 28 | ᛠ | EA | 109 |
+| 14 | ᛉ | X | 47 | | | | | |
+
+*(Row 14, ᛉ = X = 47, was missing from earlier versions of this table. Corrected 2026-11-12; the
+parser in `analysis/lp_common.py` uses all 29 runes and reproduces every published statistic.)*
 
 **[V]** — this table is not merely copied; it is *proved* by the round-trip re-encryption in §4.1, which fails
 on any other assignment.
@@ -366,9 +370,9 @@ random — but only very slightly, and only above the bigram level.** **[V]**
 
 | Hypothesis | Standing |
 |---|---|
-| **A stream cipher whose shift depends on the previous rune** | This is the *only* class that naturally explains a 5× doublet suppression without forbidding doublets outright. Community experiments reproduce the effect by feeding the previous rune's gematria position or prime value into the next shift. Directly analogous to the totient stream already proven on page 56. **The strongest live candidate. [C]** |
+| **A stream cipher whose shift depends on the previous rune** | **Largely closed 2026-11-12, see `findings/lp2_attack_2026-11.md`.** Any cipher where the previous *ciphertext* rune selects the substitution (any function) is ruled out: grouped IoC with the doublet symbol removed is z = +0.83. Feedback ciphers c_i = c_{i-1} + m_i·(p_i − z) and c_i = c_{i-1} + p_i + k_i fail for 8 number streams × 16,000 offsets (planted-cipher verified). Dependence on the previous *plaintext* rune with an additional uniform key is not excluded. **[V]** |
 | **Prime × Fibonacci interleavings** | 3301 demonstrably like meshing the two. Page 56 uses φ(primes). The 2016 message's structure is recovered by cumulatively subtracting Fibonacci numbers from 464 (3301's prime index) and reading the result as a prime index; the 2017 message's gematria sum is the *next term* that algorithm predicts — which is strong evidence the 2016 reading is not coincidence. The 15.jpg square is a prime-index pseudo-Fibonacci recurrence. **Live, and well-motivated. [C]** |
-| **Long-primer autokey / running key from an external text** | Not excluded — only primers ≤ 20 were searched. A running key drawn from a text the community hasn't identified would also flatten statistics and suppress doublets. **Live. [S]** |
+| **Long-primer autokey / running key from an external text** | **Ruled out 2026-11-12.** An additive cipher with any English-text key, whether a running key from any book or a plaintext autokey with any primer, gives ciphertext frequencies equal to English convolved with itself, IoC ≈ 1.05. LP2 is 0.9999, which is 12–14 sd away and robust to plaintext-sampling error. Ciphertext autokey fails at every primer L = 1–6000. A running key also *cannot* produce the doublet suppression. **[V]** |
 | **Per-chapter cipher changes** | The marginalia demarcate chapters and 3301 is believed to change method per section. Note the doublet suppression is *uniform* across chapters, which slightly argues the *mechanism* is shared even if the key is not. **Live. [C]** |
 | **A DJUBEI-anchored crib attack** | The only long repetition available. **Live but thin. [C]** |
 | **Encryption on runes, not Latin** | Effectively settled in favour, from the non-invertibility of the rune↔Latin map. Any attack operating on Latin text is probably mis-specified. **[C]** |

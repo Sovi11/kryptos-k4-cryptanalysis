@@ -13,3 +13,6 @@ venv/
 
 # OS
 .DS_Store
+
+# Third-party Liber Primus transcription (fetch instructions in cicada/findings/lp2_attack_2026-11.md)
+cicada/data/
