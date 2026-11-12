@@ -1,0 +1,82 @@
+==============================================================================
+J. IS THE LEAK RANDOM OR COUNTED?
+==============================================================================
+observed: 77 within-section gaps, mean 135.9, CV 0.950
+random thinning (Poisson)            CV 0.975 ± 0.108   P(CV <= obs) 0.440   leaked doublets 86
+every 2nd collision leaks            CV 0.693 ± 0.040   P(CV <= obs) 1.000   leaked doublets 224
+every 3rd                            CV 0.565 ± 0.037   P(CV <= obs) 1.000   leaked doublets 149
+every 4th                            CV 0.485 ± 0.038   P(CV <= obs) 1.000   leaked doublets 112
+every 5th (matches the 0.19 rate)    CV 0.434 ± 0.038   P(CV <= obs) 1.000   leaked doublets 89
+every 6th                            CV 0.394 ± 0.037   P(CV <= obs) 1.000   leaked doublets 75
+==============================================================================
+K. THE 86 DOUBLETS IN CONTEXT
+==============================================================================
+sec0 line  5 pos14  TH  word THP                       sec0 line  9 pos11  X   word EAMNGX|XEODB           
+sec0 line 20 pos14  EA  word CPTHXPEA|EA               sec0 line 29 pos10  J   word JCLWEADUDEO            
+sec1 line 35 pos13  L   word RL|LEBWNHMFOEB            sec1 line 42 pos 6  AE  word HAE|AEEAG              
+sec1 line 43 pos 9  S   word XIYGS|SBEA                sec1 line 45 pos10  NG  word NGWC                   
+sec1 line 48 pos 5  G   word GY                        sec1 line 74 pos13  AE  word AE|AEIEFNGTHH          
+sec2 line 93 pos13  N   word EOAEN|N                   sec2 line 95 pos 4  OE  word NOE|OESGMPETLNJ        
+sec2 line 95 pos14  J   word JCNGO                     sec2 line102 pos21  F   word THF|FYOEIA             
+sec2 line105 pos 4  Y   word EALGXY|YRJ                sec2 line109 pos19  G   word AIATG|GW               
+sec2 line120 pos 9  X   word XHDOEA                    sec2 line127 pos11  U   word CU|UE                  
+sec2 line145 pos13  AE  word IAAE|AE                   sec3 line178 pos22  G   word PWG|G                  
+sec3 line202 pos20  IA  word XEOGFIA|IAOEU             sec3 line211 pos18  O   word RO|OJ                  
+sec3 line212 pos21  M   word DINM|MC                   sec3 line215 pos20  H   word AEAH|HSAE              
+sec3 line217 pos15  W   word JGW|W                     sec3 line220 pos 8  D   word THD|DPNG               
+sec3 line233 pos15  X   word OX|X                      sec3 line241 pos20  J   word ENGTHJ|JFLNOB          
+sec3 line251 pos 9  EA  word OEEA|EAA                  sec4 line259 pos 5  AE  word LTAE|AE                
+sec4 line265 pos 6  G   word XG|G                      sec4 line265 pos13  IA  word THIA|IAPCAO            
+sec4 line267 pos15  O   word MO|OAE                    sec4 line268 pos 3  S   word SRLOE                  
+sec4 line274 pos 4  N   word HJSIAWN|NIAWL             sec4 line276 pos 9  X   word NGX|XAE                
+sec4 line279 pos 1  U   word UMLTHEA                   sec4 line285 pos 6  L   word BIAEHEUTL|L            
+sec4 line289 pos19  S   word S|SEA                     sec4 line291 pos16  E   word OE|E                   
+sec5 line299 pos15  L   word LSCP                      sec5 line303 pos 7  O   word EORNSO|OCAEYEE         
+sec5 line303 pos13  E   word EORNSOOCAEYE|E            sec5 line305 pos 3  R   word R|RNGM                 
+sec5 line309 pos17  C   word OERIANC|CT                sec5 line325 pos18  F   word F|FGF                  
+sec5 line326 pos21  EO  word BEO|EOR                   sec5 line328 pos 1  AE  word XAE|AESCIANEO          
+sec5 line330 pos17  M   word MYWJ                      sec5 line337 pos12  TH  word THITR                  
+sec5 line345 pos23  EO  word UTHOEGEAOEEO|EO           sec5 line359 pos 5  F   word FOTH                   
+sec5 line362 pos12  N   word NWGULAOY                  sec6 line372 pos 6  T   word MCOT|TFUJ              
+sec6 line373 pos14  D   word PSWD|D                    sec6 line376 pos 0  H   word HEOCEAAE               
+sec6 line381 pos 0  R   word FR|RIXUTHH                sec6 line384 pos11  A   word AF                     
+sec6 line395 pos18  TH  word TH|TH                     sec6 line396 pos 1  J   word IAELSNGJ|JIA           
+sec6 line398 pos16  T   word TAEU                      sec6 line399 pos20  AE  word FEAAE|AEO              
+sec6 line402 pos 1  F   word XAEYRAEYF|FMIA            sec6 line409 pos11  X   word RX|X                   
+sec6 line441 pos22  W   word WLYNU                     sec7 line457 pos 2  I   word OEABI|IS               
+sec7 line466 pos20  OE  word OE|OECTJ                  sec7 line467 pos22  W   word W|WYLEO                
+sec7 line483 pos 0  EA  word EAHIAREA|EAXS             sec7 line485 pos14  N   word N|NYIA                 
+sec7 line487 pos14  OE  word OEOB                      sec7 line493 pos16  I   word LREOTHAI|I             
+sec7 line494 pos 2  AE  word JIABYMAE|AE               sec7 line497 pos14  OE  word OEJFAE                 
+sec7 line502 pos12  X   word X|XMNAES                  sec7 line509 pos 4  E   word E|EW                   
+sec7 line513 pos 3  O   word OIACHJ                    sec7 line520 pos 0  E   word THRE|EYSN              
+sec7 line531 pos 2  P   word BP|P                      sec7 line533 pos16  W   word WIAP                   
+sec7 line542 pos 1  W   word W|WOEOBO                  sec7 line554 pos 1  W   word W|WP                   
+sec7 line565 pos14  Y   word TY|Y                      sec8 line580 pos 1  NG  word NGTHIAWSH              
+sec8 line586 pos11  G   word GAEO                      sec8 line592 pos13  TH  word ESEOTH|THES            
+
+within-word doublets by word length (obs / expected at LP2's rate):
+  L2:1/2.9  L3:10/9.1  L4:12/9.7  L5:7/8.0  L6:7/7.9  L7:7/8.1  L8:10/7.0  L9:2/3.9  L10:3/2.9  L11:0/1.8  L12:4/1.2
+doublets by rune: AE:7 X:6 W:6 G:5 OE:4 E:4 J:4 N:4 F:4 O:4 TH:4 L:3 S:3 EA:3 IA:2 EO:2 T:2 H:2 M:2 R:2 NG:2 I:2 D:2 U:2 Y:2 A:1 P:1 C:1
+runes with two Latin forms (U/V, C/K, S/Z, NG/ING, IA/IO): 10 of 86 doublets (expected 14.9 if proportional to frequency)
+==============================================================================
+L. ADDITIVE-KEY IMPOSSIBILITY: convergence + arbitrary keyed alphabet
+==============================================================================
+s=1: EM  40000 iterations  G = 207.24  fitted doublets 218.1
+s=1: EM 300000 iterations  G = 207.24  fitted doublets 218.1
+s=5: EM  40000 iterations  G = 185.56  fitted doublets 208.5
+s=5: EM 300000 iterations  G = 185.56  fitted doublets 208.5
+keyed alphabet hill-climb restart 0: best G = 64.6, fitted doublets 113
+keyed alphabet hill-climb restart 1: best G = 78.0, fitted doublets 124
+keyed alphabet hill-climb restart 2: best G = 57.2, fitted doublets 118
+keyed alphabet hill-climb restart 3: best G = 54.5, fitted doublets 112
+best keyed alphabet: G = 54.5; bootstrap under that fitted model mean 18.2, max 40.5  ->  P < 1/200
+==============================================================================
+M. WHERE IN THE WORD DO DOUBLETS SIT?  (LP2 vs English plaintext doublets)
+==============================================================================
+class                 LP2 dbl  LP2 exp(base)  English pt doublets
+word-initial pair          11           14.9                0.2 %
+medial pair                33           30.4               73.1 %
+word-final pair            18           14.8               26.0 %
+whole 2-rune word           1            2.9                0.7 %
+word-initial doublets: 12 of 63; if cipher doublets mirrored English plaintext doublets: expected 0.6, P(>= 12) = 6.0e-13

@@ -81,6 +81,8 @@ kryptos/
   analysis/            ~118 Python scripts; every negative is reproducible
 cicada/
   liber_primus_status.md   Liber Primus status, page-by-page methods, statistics
+  findings/                LP2 attack sessions (lp2_attack_2026-11.md, lp2_antirepeat.md)
+  analysis/                lp_*.py scripts (need the gitignored transcriptions in cicada/data/)
 ```
 
 ## Reproducing
@@ -111,7 +113,9 @@ deriving it from public data.
 Liber Primus remains largely unsolved. LP1's 17 pages are decrypted (Atbash, Vigenère with
 `DIVINITY` and a rune-F skip rule, prime-totient streams); of LP2's 58 pages only two are. Its
 sharpest structural fingerprint is a deficiency of same-rune bigrams — about 86 in ~13,000 runes,
-far below chance — pointing at a system that forbids a rune encrypting to itself. Cicada's last
+far below chance. That deficit cannot come from any key alone. It needs a step that checks each output rune
+against the previous one and re-encrypts about 81% of collisions, with the misses falling at random
+(`cicada/findings/lp2_antirepeat.md`). Cicada's last
 authenticated message was April 2017; genuine messages are PGP-signed with key `7A35090F`.
 
 ## Provenance

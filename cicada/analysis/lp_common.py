@@ -67,3 +67,47 @@ def ioc(seq, n=29):
     c = Counter(seq); N = len(seq)
     if N < 2: return float("nan")
     return n * sum(v * (v - 1) for v in c.values()) / (N * (N - 1))
+
+# ---------------------------------------------------------------------------
+# relikd/LiberPrayground transcription: keeps physical lines and page blocks.
+# Fetch: for f in p0-2 p3-7 p8-14 p15-22 p23-26 p27-32 p33-39 p40-53 p54-55; do
+#   gh api repos/relikd/LiberPrayground/contents/pages/$f.txt \
+#     -H "Accept: application/vnd.github.raw" > cicada/data/relikd/$f.txt; done
+RELIKD_DIR = os.path.join(HERE, "..", "data", "relikd")
+RELIKD_LP2 = ["p0-2", "p3-7", "p8-14", "p15-22", "p23-26", "p27-32", "p33-39", "p40-53", "p54-55"]
+PUNCT = set("⁘⁚⁖⁜")
+
+def relikd_runes(names=RELIKD_LP2, folder=RELIKD_DIR):
+    """Parse relikd page files into one record per rune.
+
+    Each record: r (index), sec (file), blk (blank-line-separated block, i.e. a page
+    or page part), line (physical line), pl/pb/ps (rune position in line/block/section),
+    cps (character position in section, separators included), j (frozenset of what sits
+    between this rune and the previous rune of the same section: '•', punctuation,
+    'LB' line break, 'PB' block break, 'X' other), first (first rune of section)."""
+    recs, gblk, gline = [], 0, 0
+    for s, name in enumerate(names):
+        text = open(os.path.join(folder, name + ".txt"), encoding="utf-8").read()
+        pending, ps, pb, cps, first = set(), 0, 0, 0, True
+        for ln in text.split("\n"):
+            if ln.strip() == "":
+                if pb > 0:
+                    gblk += 1; pb = 0
+                pending.add("PB"); continue
+            if not any(ch in IDX for ch in ln):
+                pending.add("X"); continue
+            pl = 0
+            for ch in ln:
+                if ch in IDX:
+                    recs.append(dict(r=IDX[ch], sec=s, blk=gblk, line=gline, pl=pl, pb=pb,
+                                     ps=ps, cps=cps, j=frozenset(pending), first=first))
+                    pending = set(); pl += 1; pb += 1; ps += 1; first = False
+                elif ch == "•" or ch in PUNCT or ch in "'\"":
+                    pending.add(ch)
+                elif not ch.isspace():
+                    pending.add("X")
+                cps += 1
+            gline += 1; pending.add("LB")
+        if pb > 0:
+            gblk += 1
+    return recs

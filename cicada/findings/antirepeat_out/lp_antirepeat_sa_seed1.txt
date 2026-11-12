@@ -1,0 +1,6 @@
+restart 0: annealed G = 45.6, fitted doublets 94 (observed 63)
+restart 1: annealed G = 43.6, fitted doublets 102 (observed 63)
+restart 2: annealed G = 36.3, fitted doublets 86 (observed 63)
+best annealed keyed alphabet: G = 36.3; bootstrap (sigma fixed, 300 reps) mean 20.5, 99th pct 34.8, max 44.1, P(G* >= G) = 0.007
+fitted key-difference distribution (x: weight): 2:0.334 3:0.155 19:0.096 27:0.411
+effective number of key-difference values used: 3.2 of 29

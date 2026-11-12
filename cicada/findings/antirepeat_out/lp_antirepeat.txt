@@ -1,0 +1,115 @@
+==============================================================================
+A. INVENTORY
+==============================================================================
+runes 12956, pairs 12947, doublets 86, expected (indep.) 447.4, ratio 0.192
+lines 594, blocks 60, sections 9
+
+junction                        pairs  dbl   exp@1  ratio  exp@LP2  p(vs rest)
+in word, same line               9636   60   333.0   0.18     64.0  0.673
+in word, across line break        388    3    13.4   0.22      2.6  0.952
+word break, same line            2581   21    89.2   0.24     17.1  0.409
+word break + line break           123    1     4.3   0.24      0.8  1.000
+punctuation (.,;chapter)          157    1     5.4   0.18      1.0  1.000
+block/page break                   51    0     1.8   0.00      0.3  1.000
+other symbol                       11    0     0.4   0.00      0.1  1.000
+any line/page break               585    4    20.2   0.20      3.9  1.000
+no break                        12362   82   427.1   0.19     82.1  1.000
+==============================================================================
+B. DISPERSION (is the leak rate constant?)
+==============================================================================
+line :  594 units  chi2   537.0 (null mean   589.7)  P(over) 0.947  P(under) 0.053  units with 0 dbl 511, with >=2 dbl 3
+blk  :   60 units  chi2    62.4 (null mean    58.5)  P(over) 0.333  P(under) 0.667  units with 0 dbl 17, with >=2 dbl 23
+sec  :    9 units  chi2     6.2 (null mean     7.9)  P(over) 0.619  P(under) 0.381  units with 0 dbl 0, with >=2 dbl 9
+per section (file): 4/25 6/40 9/60 10/66 11/35 13/49 12/58 18/104 3/11
+==============================================================================
+C. ALIGNMENT-FREE BLOCK TEST  (doublets confined to one residue mod n per unit?)
+==============================================================================
+Statistic S_n = sum over units of the most-populated residue class of doublet positions.
+Under 'protection resets every n runes' every doublet in a unit shares one residue, so S_n = 86.
+section, rune index                      best n=31 S=20 (null 16.2, z +2.41), global p 0.325
+   n=2..8  S/null: 2:49/53.6  3:41/42.2  4:31/36.0  5:32/32.1  6:26/29.4  7:25/27.3  8:23/25.8
+section, char index (separators count)   best n=23 S=21 (null 17.6, z +2.03), global p 0.570
+   n=2..8  S/null: 2:52/53.8  3:40/42.2  4:38/36.0  5:30/32.1  6:27/29.4  7:28/27.4  8:29/25.8
+block/page, rune index                   best n=13 S=52 (null 47.9, z +2.18), global p 0.525
+   n=2..8  S/null: 2:69/68.0  3:58/60.9  4:57/57.1  5:52/54.7  6:52/53.1  7:51/51.7  8:50/50.8
+line, rune index                         best n=10 S=84 (null 83.2, z +1.93), global p 0.734
+   n=2..8  S/null: 2:85/84.4  3:84/83.9  4:83/83.6  5:84/83.5  6:84/83.4  7:84/83.3  8:83/83.2
+==============================================================================
+D. ALIGNED RESIDUES (position of 2nd rune mod n, from unit start)
+==============================================================================
+from line     start: min p 0.379 at n=10  (11 tests; Bonferroni threshold 0.0045)
+from block    start: min p 0.143 at n=11  (11 tests; Bonferroni threshold 0.0045)
+from section  start: min p 0.280 at n=2  (11 tests; Bonferroni threshold 0.0045)
+doublets by position-in-line of 2nd rune (0..):  [4 7 3 3 4]  expected  [3.9 3.9 3.9 3.9 3.9]
+==============================================================================
+E. NUMBER-THEORETIC POSITIONS
+==============================================================================
+prime position in line    (1st rune, 0-based                   ): 31/86 doublets vs base 0.356 (exp 30.6), P(>=obs) 0.505
+prime position in line    (2nd rune 0-based = 1st rune 1-based ): 27/86 doublets vs base 0.368 (exp 31.6), P(>=obs) 0.874
+prime position in line    (2nd rune, 1-based                   ): 33/86 doublets vs base 0.381 (exp 32.8), P(>=obs) 0.521
+prime position in block   (1st rune, 0-based                   ): 26/86 doublets vs base 0.216 (exp 18.6), P(>=obs) 0.039
+prime position in block   (2nd rune 0-based = 1st rune 1-based ): 16/86 doublets vs base 0.217 (exp 18.7), P(>=obs) 0.795
+prime position in block   (2nd rune, 1-based                   ): 20/86 doublets vs base 0.218 (exp 18.8), P(>=obs) 0.415
+prime position in section (1st rune, 0-based                   ): 21/86 doublets vs base 0.157 (exp 13.5), P(>=obs) 0.023
+prime position in section (2nd rune 0-based = 1st rune 1-based ): 16/86 doublets vs base 0.157 (exp 13.5), P(>=obs) 0.269
+prime position in section (2nd rune, 1-based                   ):  9/86 doublets vs base 0.157 (exp 13.5), P(>=obs) 0.938
+Fibonacci position in section: 0 doublets vs expected 0.90
+==============================================================================
+F. CLUSTERING AND NEIGHBOURHOOD
+==============================================================================
+triplets AAA: 0  (independent-leak expectation 0.57)
+gap-2 repeats: 440  (independent 447.0, first-order anti-repeat chain 456.5)
+gap-3 repeats: 439  (independent 446.7, first-order anti-repeat chain 445.5)
+gap-4 repeats: 458  (independent 446.4, first-order anti-repeat chain 445.5)
+gaps <= 10 :    4.0  null mean    5.5  P(null >= obs) 0.817
+gaps <= 30 :   13.0  null mean   15.3  P(null >= obs) 0.801
+median gap :   99.0  null mean   94.5  P(null >= obs) 0.361
+rune before a doublet equals it (= triplet): 0
+runes preceding doublets chi2 23.9/28 (p 0.69); following chi2 32.5/28 (p 0.25)
+==============================================================================
+G. CAN A PLAINTEXT-INDEPENDENT ADDITIVE KEY DO IT?  (any key distribution)
+==============================================================================
+LP2 within-word pairs 10024, doublets 63 (expected 346)
+
+plaintext model: War and Peace (runes): 1795534 within-word pairs, plaintext doublet rate 0.0348
+  Fourier check |D^p(w)| >= |T^(w)| needed for every w: holds at 20/28 frequencies; sum|D^p| = 1.854 vs sum|T^| = 0.849
+  best multiplier s=5 (c = s*p + k): deviance G = 185.6; bootstrap G under that model: mean 13.2, 99.9th pct 36.6, P(G* >= G) = 0.000
+  best-fit doublets 208 vs observed 63;  s=1 (Vigenere) G = 207.2, s=28 (Beaufort) G = 208.6
+
+plaintext model: LP1 plaintext (Cicada's own spelling): 2239 within-word pairs, plaintext doublet rate 0.0237
+  Fourier check |D^p(w)| >= |T^(w)| needed for every w: holds at 26/28 frequencies; sum|D^p| = 2.187 vs sum|T^| = 0.849
+  best multiplier s=1 (c = s*p + k): deviance G = 169.0; bootstrap G under that model: mean 11.1, 99.9th pct 28.1, P(G* >= G) = 0.000
+  best-fit doublets 207 vs observed 63;  s=1 (Vigenere) G = 169.0, s=28 (Beaufort) G = 170.1
+==============================================================================
+H. SIMULATED MECHANISMS ON LP2's OWN SKELETON (English plaintext, uniform key)
+==============================================================================
+mechanism           doublet ratio    gap-2 ratio  line-break leak / overall
+LP2 observed                0.192          0.984                       1.03
+none                 0.984 ± 0.033    0.982 ± 0.033               1.08 ± 0.23
+single-reroll        0.033 ± 0.009    1.039 ± 0.043               1.00 ± 1.16
+p-reroll             0.198 ± 0.020    1.054 ± 0.040               1.12 ± 0.58
+reset-line           0.040 ± 0.010    1.018 ± 0.047              22.13 ± 0.00
+reset-word           0.231 ± 0.017    1.029 ± 0.037               1.55 ± 0.45
+reset-5              0.194 ± 0.024    1.020 ± 0.054               1.25 ± 0.71
+prime-off            0.215 ± 0.025    1.040 ± 0.053               0.82 ± 0.46
+==============================================================================
+I. CALIBRATION: doublets elsewhere
+==============================================================================
+0_koan_1.txt                     runes   780  doublets  14  expected(indep)   52.1  ratio 0.27
+0_loss_of_divinity.txt           runes   755  doublets  18  expected(indep)   47.1  ratio 0.38
+0_warning.txt                    runes   184  doublets   5  expected(indep)   12.6  ratio 0.40
+0_welcome.txt                    runes   515  doublets  16  expected(indep)   21.8  ratio 0.73
+0_wisdom.txt                     runes   157  doublets   7  expected(indep)    9.1  ratio 0.77
+jpg107-167.txt                   runes   319  doublets   9  expected(indep)   13.4  ratio 0.67
+jpg229.txt                       runes    89  doublets   3  expected(indep)    6.0  ratio 0.50
+p56_an_end.txt                   runes    85  doublets   2  expected(indep)    3.7  ratio 0.54
+p57_parable.txt                  runes    95  doublets   1  expected(indep)    6.8  ratio 0.15
+solved_0_koan_1.txt              runes   780  doublets  14  expected(indep)   52.1  ratio 0.27
+solved_0_loss_of_divinity.txt    runes   755  doublets  18  expected(indep)   47.1  ratio 0.38
+solved_0_warning.txt             runes   184  doublets   5  expected(indep)   12.6  ratio 0.40
+solved_0_welcome.txt             runes   515  doublets  20  expected(indep)   31.5  ratio 0.64
+solved_0_wisdom.txt              runes   157  doublets   7  expected(indep)    9.1  ratio 0.77
+solved_jpg107-167.txt            runes   319  doublets   6  expected(indep)   23.1  ratio 0.26
+solved_jpg229.txt                runes    89  doublets   3  expected(indep)    6.0  ratio 0.50
+solved_p56_an_end.txt            runes    85  doublets   3  expected(indep)    6.8  ratio 0.44
+solved_p57_parable.txt           runes    95  doublets   1  expected(indep)    6.8  ratio 0.15

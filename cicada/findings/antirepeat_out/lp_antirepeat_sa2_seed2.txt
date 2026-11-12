@@ -1,0 +1,4 @@
+LP2 within-word: gap-1 pairs 10024 (repeats 63), gap-2 pairs 7195 (repeats 250)
+restart 0: joint G = 97.6 (gap-1 64.3, gap-2 33.3); fitted gap-1 repeats 121
+restart 1: joint G = 88.8 (gap-1 58.8, gap-2 30.0); fitted gap-1 repeats 121
+best joint G = 88.8; bootstrap (sigma fixed) mean 46.1, max 71.2, P(G*>=G) 0.000

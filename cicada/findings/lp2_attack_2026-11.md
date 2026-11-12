@@ -67,11 +67,15 @@ In effect it looks like a uniform key plus an explicit anti-repeat rule that fir
   by ciphertext cannot see this.
 * **Non-English inner layer** (LP2 as an encryption of already-random-looking data). This is
   consistent with everything, and it would make the anti-repeat property belong to the inner layer.
-* **One-time pad.** Consistent with everything, and unbreakable if true.
+* ~~**One-time pad.** Consistent with everything, and unbreakable if true.~~ **Corrected the same day.** A
+  one-time pad *on its own* cannot produce the doublet deficit: no plaintext-independent key does. See
+  [`lp2_antirepeat.md`](lp2_antirepeat.md) §4. An OTP **plus** an output check remains live, under the first bullet.
 
 ## 4. Suggested next steps
 
-1. Simulate concrete anti-repeat implementations to see which one gives exactly 0.19× (86 of 448).
+1. ~~Simulate concrete anti-repeat implementations to see which one gives exactly 0.19× (86 of 448).~~
+   **Done:** see [`lp2_antirepeat.md`](lp2_antirepeat.md). Only a rule whose failures fall at random
+   (about 19%) fits. Blocks, resets, counters and prime-position rules are all excluded.
    Candidates: a rule applied with a fixed probability, a single reroll from a structured stream, or
    a check against the previous *plaintext* rune. Any rule that matches would be a real lead.
 2. Hill-climb a plaintext-autokey-plus-key model on the longest sections, scored with an LP-style
