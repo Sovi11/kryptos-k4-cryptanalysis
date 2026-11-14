@@ -1,0 +1,83 @@
+== planted keys (each searched against all sequences at its own position)
+   PLANT A282544 (61 terms) at file 1874, rule skip, sk +1 (sp,a)=(1,0): cut 26: top A282544 o=0 sk +1 (1, 0) LL -2.600 -> FOUND   (2nd -2.831)
+   PLANT A282544 (61 terms) at file 1874, rule skip, sk +1 (sp,a)=(1,0): cut 36: top A282544 o=0 sk +1 (1, 0) LL -2.591 -> FOUND   (2nd -3.166)
+   PLANT A282544 (61 terms) at file 1874, rule skip, sk +1 (sp,a)=(1,0): cut 56: top A282544 o=0 sk +1 (1, 0) LL -2.595 -> FOUND   (2nd -3.634)
+   PLANT A332304 (46 terms) at page 3194, rule stay, sk -1 (sp,a)=(1,11): cut 26: top A332304 o=0 sk -1 (1, 11) LL -2.491 -> FOUND   (2nd -2.808)
+   PLANT A332304 (46 terms) at page 3194, rule stay, sk -1 (sp,a)=(1,11): cut 36: top A332304 o=0 sk -1 (1, 11) LL -2.504 -> FOUND   (2nd -3.059)
+   PLANT A332304 (46 terms) at page 3194: cut 56: not eligible (sequence shorter than the window)
+   PLANT A157321 (38 terms) at heading 1541, rule skip, sk +1 (sp,a)=(-1,25): cut 26: top A157321 o=0 sk +1 (-1, 25) LL -2.228 -> FOUND   (2nd -2.877)
+   PLANT A157321 (38 terms) at heading 1541, rule skip, sk +1 (sp,a)=(-1,25): cut 36: top A157321 o=0 sk +1 (-1, 25) LL -2.345 -> FOUND   (2nd -3.157)
+   PLANT A157321 (38 terms) at heading 1541: cut 56: not eligible (sequence shorter than the window)
+   (28s)
+119521 OEIS sequences after filter+dedupe; 73 restart positions (file 9, heading 5, after⁜ 14, page 45); 24 control positions; rows per position per mode = 717126
+   0 of 194 position-mode tasks already done (checkpoints)
+   10/194 (110s)
+   20/194 (185s)
+   30/194 (222s)
+   40/194 (288s)
+   50/194 (359s)
+   60/194 (398s)
+   70/194 (470s)
+   80/194 (541s)
+   90/194 (584s)
+   100/194 (660s)
+   110/194 (749s)
+   120/194 (801s)
+   130/194 (875s)
+   140/194 (938s)
+   150/194 (980s)
+   160/194 (1050s)
+   170/194 (1121s)
+   180/194 (1163s)
+   190/194 (1235s)
+done (1250s)
+
+== chance level vs restart positions: per-position maximum LL over all 119521 sequences x 3 starts x 2 key signs x 58 maps (beam paths included)
+   skip cut 26: controls n=24 median -2.811 max -2.645 | restarts n=73 median -2.804 max -2.611 | 2 restarts above the control max (expected 2.9); rank-sum z +0.04
+         above: after⁜ 3623  LL -2.611  A216380
+         above: page 10416  LL -2.639  A344654
+   skip cut 36: controls n=24 median -3.148 max -2.891 | restarts n=73 median -3.148 max -2.886 | 1 restarts above the control max (expected 2.9); rank-sum z +0.09
+         above: page 528  LL -2.886  A333140
+   skip cut 56: controls n=24 median -3.650 max -3.484 | restarts n=73 median -3.633 max -3.300 | 3 restarts above the control max (expected 2.9); rank-sum z +0.13
+         above: page 8174  LL -3.300  A316749
+         above: heading 9519  LL -3.328  A236178
+         above: page 3466  LL -3.458  A162503
+   stay cut 26: controls n=24 median -2.810 max -2.641 | restarts n=73 median -2.808 max -2.640 | 1 restarts above the control max (expected 2.9); rank-sum z -0.54
+         above: after⁜ 5522  LL -2.640  A337470
+   stay cut 36: controls n=24 median -3.155 max -2.883 | restarts n=73 median -3.151 max -2.895 | 0 restarts above the control max (expected 2.9); rank-sum z +1.16
+   stay cut 56: controls n=24 median -3.611 max -3.431 | restarts n=73 median -3.618 max -3.352 | 1 restarts above the control max (expected 2.9); rank-sum z -0.23
+         above: heading 9519  LL -3.352  A236178
+
+== out of sample: each position's best hit at cut 26 and 36, decoded on to the end of its window
+   (the continuation uses the hit's own map; positions with fewer than 10 continuation runes skipped)
+   skip cut 26: control continuations n=18 median -5.581 max -3.814 | restart n=49 median -5.662 max -3.702; 1 above the control max (expected 2.6)
+   skip cut 36: control continuations n=10 median -5.551 max -4.289 | restart n=50 median -5.492 max -4.186; 2 above the control max (expected 4.5)
+   stay cut 26: control continuations n=17 median -5.355 max -3.921 | restart n=54 median -5.611 max -3.702; 1 above the control max (expected 3.0)
+   stay cut 36: control continuations n=17 median -5.993 max -3.813 | restart n=50 median -5.862 max -4.229; 0 above the control max (expected 2.8)
+
+== planted keys: same re-decode
+   A282544 skip at file 1874, cut 26: first 26 LL -2.600, next 30 runes LL -2.590: CNOW PAULOUNA WAS THE DUC POLITICAL SOUL NOT FEARNG. TO ON PIERRE YOU SEU
+   A282544 skip at file 1874, cut 36: first 36 LL -2.591, next 20 runes LL -2.602: CNOW PAULOUNA WAS THE DUC POLITICAL SOUL NOT FEARNG. TO ON PIERRE YOU SEU
+   A332304 stay at page 3194, cut 26: first 26 LL -2.491, next 18 runes LL -2.431: BEHIND COMPANY AGED. TOWARD REPEAT A HAS NOT HIS. THE MOUTH
+   A332304 stay at page 3194, cut 36: first 36 LL -2.504, next 8 runes LL -2.300: BEHIND COMPANY AGED. TOWARD REPEAT A HAS NOT HIS. THE MOUTH
+   A157321 skip at heading 1541, cut 26: first 26 LL -2.228, next 10 runes LL -2.648: THERE I ONCE AT. GROANED ANSWER AND LOT OF TODA
+   A157321 skip at heading 1541, cut 36: first 36 LL -2.345, next 0 runes LL nan: THERE I ONCE AT. GROANED ANSWER AND LOT OF TODA
+
+== power: would a real English opening stand above the chance ceiling? (ceiling = control max, both modes)
+   cut 26: English at the restart positions, n=2920: median -2.463, 5th pct -2.783; above the control max -2.641: 83%
+   cut 36: English at the restart positions, n=2920: median -2.458, 5th pct -2.732; above the control max -2.883: 99%
+   cut 56: English at the restart positions, n=2920: median -2.453, 5th pct -2.676; above the control max -3.431: 100%
+
+== best restart hits (top 12 by window LL over modes and cuts), decoded
+   skip cut 56 page     8174 A316749 o=0 sk -1 (1, 5): LL -3.300 (+0.184 vs control max), continuation nan over 0: ST LE HE OPPU. SAT URS. LCITSB TTEUU NCNGN LO MFIGURE CUESLLGRI HIEEODS G
+   skip cut 56 heading  9519 A236178 o=2 sk -1 (1, 5): LL -3.328 (+0.156 vs control max), continuation nan over 0: CES. YUTR IMEEPA OXANU WETHEA ALI DCNGSO CNODEAU B DAWNSOI EFD THDE CHIMMA
+   stay cut 56 heading  9519 A236178 o=2 sk -1 (1, 5): LL -3.352 (+0.079 vs control max), continuation nan over 0: CES. YUTR IMEEPA OXANU WETHEA ALI DCNGSO CNODEAU B DAWNSOI EFD THDE CHIMMY
+   skip cut 26 after⁜   3623 A216380 o=0 sk -1 (1, 4): LL -2.611 (+0.035 vs control max), continuation -5.833 over 12: TYOF THECCE TLFFOW CRTAI SIEULE FEAR XEAL NGIAAEGWH
+   skip cut 56 page     3466 A162503 o=1 sk -1 (-1, 8): LL -3.458 (+0.025 vs control max), continuation nan over 0: LA DAUH ALI DLG SOA PURFLR. UAMOP WN. ASTFAN BLLUTAR OBEACNTH YLHI RSOTU
+   skip cut 26 page    10416 A344654 o=2 sk -1 (-1, 3): LL -2.639 (+0.006 vs control max), continuation -6.682 over 20: AL LIND ITHUS GAIDATEE ASEFO MA HXMATHTFB. FAEOIA RSNGPEAIAWGIA
+   skip cut 36 page      528 A333140 o=1 sk -1 (-1, 4): LL -2.886 (+0.005 vs control max), continuation -6.466 over 3: WH T. SC ASONENN HANG TRTOLP GRRMELY OTEA JOWST SOEG
+   stay cut 26 after⁜   5522 A337470 o=1 sk -1 (-1, 3): LL -2.640 (+0.001 vs control max), continuation -5.544 over 30: RATUTANE SLL AST MOOPICA IESLY THNGTHYN HAAEAIOEJ JPYRAED HTHTH NTCN DSSOE
+   skip cut 56 file     6527 A283673 o=1 sk +1 (-1, 8): LL -3.487 (-0.003 vs control max), continuation nan over 0: LYP DEAHTTSNGATOME DEANO. DAISEHB COE ALI OUNG DA J AWE TURS FIAUSCTY STH CAY
+   skip cut 56 page     7030 A249167 o=2 sk -1 (1, 2): LL -3.488 (-0.005 vs control max), continuation nan over 0: OFM OMUAT BY IMSC LANG HIM PEA IGOHIS AUP DOENG AUAY AFNG THEW BTLHNGSLLEOLEA E
+   stay cut 36 heading  1541 A234968 o=0 sk -1 (-1, 6): LL -2.895 (-0.012 vs control max), continuation -5.171 over 20: IBEE P YOSP ST. ABUUTOC COCOPE FRA NIAG ON OFENH OSSEA EOHAANSEG GORBPTHF
+   skip cut 56 after⁜   8805 A202063 o=0 sk +1 (-1, 15): LL -3.501 (-0.017 vs control max), continuation nan over 0: YTRU TEAIA BLECUHOES ED WOCCI CNGAE ORU CCEDSCR CIG IXETM FRIR RP SLAYA WE

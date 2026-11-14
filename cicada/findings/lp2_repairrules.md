@@ -115,7 +115,7 @@ The search used the same 104 streams, 28 starts, both key signs, offsets 0–14,
 3. Fixed skips of two or more.
 4. A null that uses up a key value. This keeps the key in step, so it should be covered like the other aligned rules, but no plant was run.
 5. Keyed alphabets and multiplicative keys.
-6. Generators outside the list.
+6. Generators outside the list. **Update:** OEIS sequences restarted at section breaks, and a 593 M-value library at any offset reached through heading cribs, are tested in [`lp2_restart_crib.md`](lp2_restart_crib.md). Both are negative.
 7. A plaintext-dependent key.
 8. A one-time pad plus a check.
 

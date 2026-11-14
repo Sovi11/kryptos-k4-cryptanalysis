@@ -1,0 +1,6 @@
+   PLANT heading 1541, guess YOURIONLYIS, key sqrt7/4d/ph1 from index 1234, skip, (sk, sp, a) = (+1, +1, 5); 7 repairs after the heading
+      3 raw hits in the whole 'sqrt' library chunk (3,947,748 values); top verified: sqrt7/4d/ph1 index 1234, guess YOUR.I.ONLY.IS, skip, LL -2.945 over 100, 85% of words correct -> FOUND
+      TRIUMPH UIRTUE READ MEN IAX EDEES YOUNG OUERCOME AUTHORITY POWER TO ENDEAUOR EUE
+   PLANT heading 5506, guess THEMOMENTWAYNEUER, key A000040 from index 2, stay, (sk, sp, a) = (-1, -1, 17); 5 repairs after the heading
+      238 raw hits in the whole 'oeis' library chunk (18,262,568 values); top verified: A086801 index 2, guess THE.MOMENT.WAY.NEUER, skip, LL -2.380 over 38, 100% of words correct -> FOUND
+      MINISTER WAR SET BAGGAGE WHICH HASTE GREATEST

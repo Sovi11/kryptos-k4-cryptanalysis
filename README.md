@@ -82,7 +82,7 @@ kryptos/
 cicada/
   liber_primus_status.md   Liber Primus status, page-by-page methods, statistics
   findings/                LP2 attack sessions (lp2_attack_2026-11.md, lp2_antirepeat.md, lp2_skipsearch.md,
-                           lp2_repairrules.md)
+                           lp2_repairrules.md, lp2_restart_crib.md)
   analysis/                lp_*.py scripts (need the gitignored transcriptions in cicada/data/)
 ```
 
@@ -118,7 +118,7 @@ far below chance. That deficit cannot come from any key alone. It needs a step t
 against the previous one and re-encrypts about 81% of collisions, with the misses falling at random
 (`cicada/findings/lp2_antirepeat.md`). A skip-aware search of 104 candidate key generators under
 that rule found nothing (`cicada/findings/lp2_skipsearch.md`). Neither did searches under the other
-repair rules tested (`cicada/findings/lp2_repairrules.md`). Cicada's last
+repair rules tested (`cicada/findings/lp2_repairrules.md`), or with a key restarted at section breaks: every flat OEIS sequence at every marked break, and guessed headings matched against 593 M library key values (`cicada/findings/lp2_restart_crib.md`). Cicada's last
 authenticated message was April 2017; genuine messages are PGP-signed with key `7A35090F`.
 
 ## Provenance

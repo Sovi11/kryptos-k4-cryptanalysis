@@ -1,0 +1,40 @@
+vocabulary: Cicada's solved-page words first, then War and Peace words, up to 400 per length; headings with >= 9 runes: 9
+   heading at     0 (file 0): word lengths (8, 5), 160000 guesses
+   heading at   729 (file 1): word lengths (2, 11, 3), 287496 guesses
+   heading at  1541 (file 1): word lengths (4, 1, 4, 2), 300000 guesses
+   heading at  3603 (file 3): word lengths (4, 5), 160000 guesses
+   heading at  3612 (file 3): word lengths (4, 2, 5), 287496 guesses
+   heading at  5506 (file 4): word lengths (2, 6, 3, 5), 250000 guesses
+   heading at  6527 (file 5): word lengths (3, 12, 4), 278784 guesses
+   heading at  7960 (file 6): word lengths (2, 8), 52400 guesses
+   heading at 12648 (file 8): word lengths (1, 8), 9600 guesses
+patterns by hashed length: {12: 3905120, 10: 2349984, 8: 678400, 9: 209600} (x2 with the random-guess control)
+   12/134 library chunks (19s)
+   24/134 library chunks (27s)
+   36/134 library chunks (39s)
+   48/134 library chunks (51s)
+   60/134 library chunks (54s)
+   72/134 library chunks (59s)
+   84/134 library chunks (68s)
+   96/134 library chunks (79s)
+   108/134 library chunks (93s)
+   120/134 library chunks (105s)
+   132/134 library chunks (105s)
+library: 593,069,527 key values; raw pattern hits: real guesses 760, random guesses 819 (107s)
+verified decodes after the heading: real guesses n=1508, median -5.810, max -4.701; random guesses n=1616, median -5.789, max -4.525
+   md5('cnows')               k=  3741 heading  3603 guess MAID.FIRES               (sp,sk,a)=(-1,-1,27) stay LL -4.701 over 100: EIMM FF HOMUNG. TAAEU NOCEY DUAHHT WEAGIY CCHNGIF 
+   sqrt460/3d/ph1             k=   328 heading  3603 guess BREAC.MACES              (sp,sk,a)=(+1,-1,17) skip LL -4.779 over 100: CLAY EE HXUPL. DAEOL NGADPAE GREANGCO EOMJOY URGNG
+   A375075                    k=     0 heading  3603 guess COLD.FORTY               (sp,sk,a)=(-1,+1,22) skip LL -4.800 over 35: HHGNG FP HOEDSU. HLFJ YTEEU SNHDFS TROSA DROES
+   A375075                    k=     0 heading  3603 guess COLD.FORTY               (sp,sk,a)=(-1,+1,22) stay LL -4.800 over 35: HHGNG FP HOEDSU. HLFJ YTEEU SNHDFS TROSA DROES
+   sha1('page')               k=  4978 heading  3603 guess COMNG.FANCY              (sp,sk,a)=(-1,+1, 6) skip LL -4.854 over 100: EOSRAE YG AELURIA. HLIAT IDNEOR ANAOLIA PMOWW SAPW
+   py3-rand(1426)             k=  3372 heading  3603 guess MORE.FACES               (sp,sk,a)=(-1,-1,27) skip LL -4.868 over 100: TMTAE SN DTHIFB. EAOUR AEIAEOSL XNGRYEAN MWAECU XA
+   sha512('Gain')             k=  3546 heading  3603 guess MOUNG.STAYNG             (sp,sk,a)=(+1,+1,16) skip LL -4.903 over 100: EABLEA OEN ADBEI. SAYG THUGGOE HYLWCM SIACEC BOTTH
+   sha512('sobs')             k=  7048 heading  3603 guess CALL.CWITE               (sp,sk,a)=(+1,+1, 5) skip LL -4.903 over 100: HEPL ON GDNCA. IDFO YTHFFN OEADTHOEF WJARTH NGTRNL
+   sha512('Boris')            k=  5004 heading  3603 guess SAME.STERN               (sp,sk,a)=(+1,-1,12) stay LL -4.966 over 100: XMYW BO RHAEEI. FDTHS HIANGCU ODWYNGX THCXUIA AESX
+   py2-rand(1971)             k=  6584 heading  3603 guess SEND.WORTHY              (sp,sk,a)=(+1,-1,25) stay LL -4.999 over 100: SOCT OB ADNNGEA. ILGO AOESOX MFPAAEO IUNGTHOE SYOT
+   sqrt428/4d/ph2             k=  2415 heading  3603 guess GONE.CARTS               (sp,sk,a)=(+1,-1,14) skip LL -5.000 over 100: EWCP YW AGSTW. AEHOH DOEINGN DAEUHEX LYEALB HEJTOH
+   md5('congratulatians')     k=  7002 heading 12648 guess P.EMPEREUR               (sp,sk,a)=(+1,-1, 0) skip LL -5.002 over 100: DBAEODHGO OGO HWLPED SG SMEWOE AEOEW SF EAET NNGTY
+   sha1('TWO')                k=  1107 heading  3603 guess TRUE.BORIS               (sp,sk,a)=(-1,-1,21) skip LL -5.002 over 100: TBLEA OR JSYNGG. IBXN FIEUC CNAAEXG ENXYNG EHURDN 
+   sha1('TWO')                k=  1107 heading  3603 guess TRUE.BORIS               (sp,sk,a)=(-1,-1,21) stay LL -5.002 over 100: TBLEA OR JSYNGG. IBXN FIEUC CNAAEXG ENXYNG EHURDN 
+   sha1('TRAP')               k=  7325 heading  3603 guess LIPS.GUARD               (sp,sk,a)=(-1,-1,23) stay LL -5.008 over 100: THOAP RO EXSTEA. XTHIW UBSEAO MPEAIFJ GHJAL FDAGED
+(124s)
